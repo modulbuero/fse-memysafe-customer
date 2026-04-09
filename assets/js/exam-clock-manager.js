@@ -125,7 +125,7 @@
                 console.log('handle_update_exam_clock_cycles: ' + JSON.stringify(response.debug));
                 showMessage(response.message, 'success');
                 // Reload des Chooser-Exam-Clock
-                $('#chooser-exam-clock').load(location.href + ' #chooser-exam-clock .dashboard-item');
+                $('#chooser-exam-clock').load(location.href + ' #chooser-exam-clock');
                 $('#manage-exam-clock').load(location.href + ' #manage-exam-clock .step1');
                 
             }).fail(function(response) {
