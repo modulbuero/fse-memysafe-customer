@@ -135,9 +135,13 @@ button:hover{
 }
 
 /*Development*/
+.disabled,
 pre{
-    opacity: .5
+    opacity: .5;
+    pointer-events: none;
+    cursor: default;
 }
+
 
 /*Block Container*/
 div,p{

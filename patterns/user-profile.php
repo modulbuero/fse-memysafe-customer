@@ -19,9 +19,12 @@ $profile_names = [
         <h3>Profil</h3>
         <div class="settings-labels">
         <?php
-        foreach ( $profile_names as $profile_slug => $profile_title ) : ?>
+        foreach ( $profile_names as $profile_slug => $profile_title ) : 
+            //Beta
+            $is_beta = ($profile_slug == 'profi_profile')?"disabled":"";
+            ?>
             <div class="spalte">
-                <button class="goto-btn memy-button full-width" data-goto="<?php echo esc_attr( $profile_slug ); ?>" data-step="2">
+                <button class="goto-btn memy-button full-width" data-goto="<?php echo esc_attr( $profile_slug ); ?>" data-step="2" <?php echo $is_beta; ?>>
                     <?php echo esc_html( $profile_title ); ?>
                 </button>
             </div>

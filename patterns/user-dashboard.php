@@ -62,7 +62,7 @@ if ( is_user_logged_in() ) :
                 <?php require_once get_stylesheet_directory() . '/user-setup/dashboard/dashboard-my-projects.php'; ?>
             </div>
             <!-- Nachrichten -->
-            <div id="chooser-notifications" class="tile">        
+            <div id="chooser-notifications" class="tile disabled">        
                 <?php require_once get_stylesheet_directory() . '/user-setup/dashboard/dashboard-my-notifications.php'; ?>
             </div>
         </div>
