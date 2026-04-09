@@ -105,14 +105,14 @@
             $('#cancel-edit').hide();
         }
         
-        function showMessage(message, type) {
-            var messageHtml = '<div class="message ' + type + '">' + message + '</div>';
-            $('#message-container').html(messageHtml);
+        // function showMessage(message, type) {
+        //     var messageHtml = '<div class="message ' + type + '">' + message + '</div>';
+        //     $('#message-container').html(messageHtml);
             
-            setTimeout(function() {
-                $('#message-container').fadeOut();
-            }, 5000);
-        }
+        //     setTimeout(function() {
+        //         $('#message-container').fadeOut();
+        //     }, 5000);
+        // }
         
         function loadProjects() {
             $.ajax({

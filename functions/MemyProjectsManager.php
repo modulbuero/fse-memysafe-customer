@@ -98,8 +98,8 @@ class MemyProjectsManager {
         update_user_meta($user_id, 'projects_list', $projects_list);
         
         wp_send_json_success([
-            'message' => 'Projekt erfolgreich gespeichert',
-            'project_id' => $project_id
+            'message' => 'Projekt '.$projektname.' erfolgreich gespeichert',
+            'debug'   => $project_id
         ]);
     }
 

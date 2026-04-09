@@ -6,12 +6,12 @@
  * @param {string} type - Der Nachrichtentyp ('success' oder 'fail', default: 'fail')
  */
 window.showMessage = function(message, type="fail") {
-    jQuery('.message-container').fadeIn();
+    jQuery('.message-container').addClass('show');
     var messageHtml = '<div class="message ' + type + '">' + message + '</div>';
     jQuery('.message-container').html(messageHtml);
     
-    // Nach 5 Sekunden ausblenden
+    // Nach 4 Sekunden ausblenden
     setTimeout(function() {
-        jQuery('.message-container').fadeOut();
-    }, 5000);
+        jQuery('.message-container').removeClass('show');
+    }, 4000);
 };

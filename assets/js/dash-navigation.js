@@ -119,13 +119,14 @@
     }
 
     /**
-     * Padding auf rechter MainContainerseite hinzufügen
+     * Padding auf rechter Main-Container-Seite &  hinzufügen
      */
     function getNaviSpaceToDashboard(){
         let menuWrap = $('.user-menu').width()
         let menu     = $('#memy-user-menu').width()
         let space    = menuWrap - menu
         $('.user-content').css('paddingRight', space + 'px')
+        $('.message-container').css('marginRight', space + 'px')
     }
 
     /**

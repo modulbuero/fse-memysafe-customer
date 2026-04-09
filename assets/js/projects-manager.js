@@ -164,7 +164,8 @@
 
             wp.ajax.post('handle_save_project', formData)
                 .done(function(response) {
-                    console.log('Projekt gespeichert:', response);
+                    console.log(response.debug);
+                    showMessage(response.message, 'success');
                     reloadProjectContainer();
                     closeProjectForm();
                 }).fail(function(response) {
@@ -239,7 +240,7 @@
                     if ($container.length) {
                         $container.html(response);
                     }
-                    console.log('Projekte-Liste aktualisiert');
+                    //console.log('Projekte-Liste aktualisiert');
                 }).fail(function(response) {
                     console.log('Fehler beim Aktualisieren der Liste:', response);
                 });

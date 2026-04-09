@@ -13,8 +13,8 @@
                 .done(function(response) {
                     // Formular anzeigen
                     //$('#setup-vertreter-new').slideDown(200);
-                    console.log("vertreterID")
-                    console.log(response.vertreter_id)
+                    //console.log("vertreterID")
+                    //console.log(response.vertreter_id)
                     // Felder füllen
                     $('#vertreter-name').val(response.name);
                     $('#vertreter-email').val(response.email);
@@ -54,7 +54,7 @@
         $(document).on('click', '.vertreter-person-mail', function(e) {
             e.preventDefault();
             let vertreter_id = $(this).attr('data-vertreter');
-            console.log("Clicked vertreter ID: " + vertreter_id);
+            //console.log("Clicked vertreter ID: " + vertreter_id);
             loadVertreterForm(vertreter_id);
         });
 

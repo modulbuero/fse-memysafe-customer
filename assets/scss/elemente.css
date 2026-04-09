@@ -113,6 +113,25 @@ button:hover i.mmsi-icon.download {
   display: block;
 }
 
+/*ShowMessage Container*/
+.message-container {
+  position: absolute;
+  z-index: 11;
+  padding: 20px;
+  top: var(--memy-padding-root);
+  border: 1px solid #000;
+  background: #fff;
+  transition: all 1s ease;
+  right: 20px;
+  opacity: 0;
+  visibility: hidden;
+}
+.message-container.show {
+  top: calc(var(--memy-padding-root) + 20px);
+  opacity: 1;
+  visibility: visible;
+}
+
 /*Development*/
 pre {
   opacity: 0.5;
