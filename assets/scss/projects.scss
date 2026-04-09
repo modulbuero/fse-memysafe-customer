@@ -1,0 +1,135 @@
+#projects-list-container{
+    >div{
+        p{
+            transition: all .3s ease;
+        }
+        
+        .mmsi-icon.weiter{
+            margin-right:20px;
+        }
+        &:hover{
+            .mmsi-icon.weiter,
+            p{
+                transform: translateX(10px);
+            }
+        }
+    }
+}
+
+/**
+* Projekt-Daten (Überschrift)
+*/
+.project-data-show-hide{
+    margin-bottom: 20px;
+}
+
+/**
+* Projekt-Daten (Eingabefelder)
+*/
+.project-data-container{
+    --project-padding-outer: 30px;
+    --project-padding-inner: 20px;
+    --project-field-margin: 10px;
+
+    >div{
+        margin-bottom: var(--project-padding-inner);
+        
+        label{
+            padding-left:var(--project-padding-outer);
+            &:before{
+                content:"\F582";
+                font-family: "bootstrap-icons";
+                display: inline-block;
+                margin-right: 10px;
+                font-size: 7px;
+            }
+        }
+
+        .checkbox-group {
+            margin-top:var(--project-field-margin);
+            padding-left:var(--project-padding-outer);
+            label{
+                padding-left: var(--project-padding-inner);
+                &:before{
+                    display:none
+                }
+            }
+        }
+
+        input{
+            margin-top: var(--project-field-margin);
+            margin-left: calc(var(--project-padding-outer) + var(--project-padding-inner));
+            margin-bottom: var(--project-field-margin);
+        }
+
+        .selectbox{
+            padding-left:var(--project-padding-outer);
+            label{
+                padding:0;
+            }
+            select{
+                margin-top: var(--project-field-margin);
+                margin-left: var(--project-padding-inner);
+                max-width: calc(100% - var(--project-padding-inner)) !important;
+            }
+            &:not(.show){
+                select,
+                &:after{
+                    display:none;
+                }
+            }
+        }
+        
+        /*eine Textare*/
+        #project-anmerkungen{
+            margin-top:var(--project-field-margin);
+            margin-left:calc(var(--project-padding-outer) + var(--project-padding-inner));
+        }
+
+        /*Hidden Labels*/
+        .project-anmerkung label,
+        .project-dienstleister-funktion label{
+            &:before{opacity:0}
+        }
+
+        label.is-checkbox,
+        input, 
+        textarea{
+            &:not(.show){
+                display:none
+            }
+        }
+    
+        /**
+        *   Custom-Checkboxgroup-Style
+        */
+        .checkbox-group{
+            label.is-checkbox{
+                .slider{
+                    overflow: hidden;
+                    width: 13px;
+                    display:none;
+                    &::before{
+                        left:-11px
+                    }
+                }
+                &.checked{
+                    display: flex;
+                }
+                &.show .slider{
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .spalte{
+        >div{
+            width: 100%;
+            margin-bottom: 0;
+        }
+        div:not(:first-child) input{
+            margin-left:0
+        }
+    }
+}

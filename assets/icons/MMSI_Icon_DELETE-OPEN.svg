@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-MMSI_Icon_DELETE-OPEN">
+      <rect width="48" height="48"/>
+    </clipPath>
+  </defs>
+  <g id="MMSI_Icon_DELETE-OPEN" clip-path="url(#clip-MMSI_Icon_DELETE-OPEN)">
+    <g id="icon_DELETE" transform="translate(13.627 9.32)">
+      <g id="Gruppe_125" data-name="Gruppe 125" transform="matrix(0.998, 0.07, -0.07, 0.998, 4.596, 13.551)">
+        <rect id="Rechteck_304" data-name="Rechteck 304" width="2.143" height="6.158" transform="translate(4.882 3.589)"/>
+        <rect id="Rechteck_305" data-name="Rechteck 305" width="2.143" height="6.158" transform="translate(8.454 3.589)"/>
+        <path id="Pfad_71" data-name="Pfad 71" d="M13.337,0V12.622H2.143V0H0V14.765H15.48V0Z" transform="translate(0 0)"/>
+      </g>
+      <path id="Pfad_72" data-name="Pfad 72" d="M15.007,3.879V0H4.945V3.879H0V6.022H20V3.879ZM7.088,3.858V2.143h5.775V3.879H7.088Z" transform="matrix(0.985, -0.174, 0.174, 0.985, 0, 3.474)"/>
+    </g>
+  </g>
+</svg>

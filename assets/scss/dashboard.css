@@ -1,0 +1,135 @@
+/*Content | Dashboard*/
+#memy-dashboard * {
+  max-width: 100%;
+}
+#memy-dashboard {
+  /*Dashboard Kacheln*/
+}
+#memy-dashboard .tile {
+  background: #fff;
+  height: var(--memy-kachel-height);
+}
+#memy-dashboard .tile .dashboard-item .item-headline {
+  padding: var(--memy-padding-small-dashbox);
+  border-bottom: var(--memy-trenner);
+}
+#memy-dashboard .tile .dashboard-item .item-headline p {
+  margin-bottom: 0;
+  text-transform: uppercase;
+  cursor: default;
+  flex: 1;
+}
+#memy-dashboard .tile .dashboard-item .item-headline:hover {
+  cursor: pointer;
+}
+#memy-dashboard .tile .dashboard-item .item-headline:hover .weiter {
+  transform: translateX(10px);
+}
+#memy-dashboard .tile .dashboard-item .item-content {
+  padding: var(--memy-padding-small-dashbox);
+  gap: 20px;
+}
+#memy-dashboard .tile .dashboard-item .item-content div[data-goto] p {
+  transition: all 0.3s ease;
+}
+#memy-dashboard .tile .dashboard-item .item-content div[data-goto]:hover p {
+  transform: translateX(10px);
+}
+#memy-dashboard {
+  /*Uhranzeige*/
+}
+#memy-dashboard #chooser-exam-clock {
+  justify-content: center;
+}
+#memy-dashboard #chooser-exam-clock .dashboard-item {
+  flex-direction: column;
+  align-items: flex-end;
+}
+#memy-dashboard {
+  /*Urlaubsmodus*/
+}
+#memy-dashboard #chooser-urlaubsmodus {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2117647059);
+  backdrop-filter: blur(3px);
+}
+#memy-dashboard #chooser-urlaubsmodus > div {
+  padding: var(--memy-padding-small-dashbox);
+}
+
+/*InnerBoxeWrapper*/
+.container-wrapper {
+  /*Dashboard Container der Eingabemasken*/
+  position: absolute;
+  max-width: var(--memy-dash-container);
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  left: 100%;
+}
+.container-wrapper * {
+  transition: all 0.3s ease;
+}
+.container-wrapper .container {
+  position: absolute;
+  max-width: var(--memy-dash-container);
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.container-wrapper .container > div {
+  position: absolute;
+  max-width: var(--memy-dash-container);
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  justify-content: flex-start;
+  transform: translateX(0%);
+  padding: var(--memy-padding-inner-container);
+  box-sizing: border-box;
+}
+.container-wrapper .container > div.show {
+  transform: translateX(-100%);
+}
+.container-wrapper .container > div h3 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.container-wrapper .container > div h3:after {
+  content: "";
+  display: block;
+  width: calc(100% + 2 * var(--memy-padding-inner-container));
+  height: 1px;
+  background-color: var(--memy-trenner-color);
+  margin-top: var(--memy-padding-inner-container);
+  margin-bottom: var(--memy-padding-inner-container);
+  position: relative;
+  left: calc(var(--memy-padding-inner-container-side) * -1);
+  margin-top: var(--memy-padding-inner-container-side);
+}
+.container-wrapper .container > div .full-height {
+  height: 100%;
+}
+.container-wrapper .container > div {
+  /*Wenn kein Overflow-Container davor*/
+}
+.container-wrapper .container > div .save-wrapper {
+  margin-top: auto;
+}
+.container-wrapper .container .inner-main-heading {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: var(--memy-trenner);
+}/*# sourceMappingURL=dashboard.css.map */

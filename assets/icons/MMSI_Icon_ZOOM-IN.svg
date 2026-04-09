@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-MMSI_Icon_ZOOM-IN">
+      <rect width="48" height="48"/>
+    </clipPath>
+  </defs>
+  <g id="MMSI_Icon_ZOOM-IN" clip-path="url(#clip-MMSI_Icon_ZOOM-IN)">
+    <path id="icon_ZOOM-IN" d="M2816.393,481.821v2.164h-3.966v3.966h-2.163v-3.966H2806.3v-2.164h3.966v-3.966h2.163v3.966Zm4.479,11.71-3.78-3.78a9.019,9.019,0,1,1,1.473-1.585L2822.4,492l-1.529,1.529Zm-2.747-10.628a6.78,6.78,0,1,0-6.78,6.78A6.787,6.787,0,0,0,2818.125,482.9Z" transform="translate(-2788.402 -459.745)"/>
+  </g>
+</svg>

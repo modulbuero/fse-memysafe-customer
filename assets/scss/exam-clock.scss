@@ -1,0 +1,210 @@
+/**
+ * Exam Clock Circular Progress
+ */
+
+//DashboardWrapper
+.exam-clock-wrapper {
+    --ex-clock-thickness: 15px;
+    --ex-clock-bg-empty:#ffffff;
+    
+    /*Farbwerte Stufe 1*/
+    --ex-clock-bg-full-1:#9CA3DB;
+    /*Farbwerte Stufe 2*/
+    --ex-clock-bg-full-2:#61639F;
+    /*Farbwerte Stufe 3*/
+    --ex-clock-bg-full-3:#27233A;
+    
+    width: 100%;
+    padding:var(--memy-padding-small-dashbox);
+
+    .time-information-wrapper{
+        gap:var(--memy-padding-root);
+
+        .exam-clock-animation{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: var(--memy-clock-outher-height);
+            height: var(--memy-clock-outher-height);
+            /*Kreis-Progress*/
+            .progress-container {
+                position: relative;
+                width: 100%;
+                height: 100%;
+            &.is-2 {
+                position: absolute;
+                width: var(--memy-clock-middle-height);
+                height:var(--memy-clock-middle-height);
+            }
+            &.is-3 {
+                position: absolute;
+                width: var(--memy-clock-inner-height);
+                height: var(--memy-clock-inner-height);
+                }
+
+                // Hintergrundkreis
+                .progress-bg {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    background: var(--ex-clock-bg-full-1); 
+                    mask: radial-gradient(closest-side, transparent calc(100% - var(--ex-clock-thickness)), white calc(100% - var(--ex-clock-thickness)));
+
+                    &.is-2 {
+                        background: var(--ex-clock-bg-full-2); 
+                    }
+
+                    &.is-2 {
+                        background: var(--ex-clock-bg-full-2); 
+                    }
+
+                    &.is-3 {
+                        background: var(--ex-clock-bg-full-3); 
+                    }
+                }
+
+                // Fortschrittsanzeige
+                .progress-fill {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    background: conic-gradient(
+                        from -0deg,
+                        var(--ex-clock-bg-empty) 0deg,
+                        var(--ex-clock-bg-empty) calc(var(--progress-angle, 0deg) / 1.02),
+                        var(--ex-clock-bg-full-1) var(--progress-angle, 0deg),
+                        transparent var(--progress-angle, 0deg)
+                    );
+                    mask: radial-gradient(closest-side, transparent calc(100% - var(--ex-clock-thickness)), white calc(100% - var(--ex-clock-thickness)));
+                    
+                    /* Animation nur beim Start */
+                    transition: --progress-angle 2s ease-out;
+                }
+            }
+        }
+
+        /* Unterstützung für CSS Custom Property Animation */
+        @property --progress-angle {
+            syntax: '<angle>';
+            inherits: false;
+            initial-value: 0deg;
+        }
+
+        // Zeitausgabe
+        .time-information{
+            flex: 1;
+            align-self: stretch;
+            justify-content: space-evenly;
+
+            p{
+                display: flex;
+                align-items: center;
+                gap:8px;
+                margin-bottom: 0;
+                //Uhrzeit-Text
+                span:last-child{
+                    text-align: center;
+                    flex: 1;
+                }
+
+                //Kreise-Icons
+                i {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 14px;
+                    height: 14px;
+                    border: 2px solid #000;
+                    border-radius: 50%;
+                    &:before{
+                        content:"";
+                        position: absolute;
+                        width: 8px;
+                        height: 8px;
+                        background-color: var(--ex-clock-bg-full-1);
+                        border-radius: 50%;
+                    }
+                }
+                &:nth-child(2) i:before {
+                    background-color: var(--ex-clock-bg-full-2);
+                }
+                &:nth-child(3) i:before {
+                    background-color: var(--ex-clock-bg-full-3);
+                }
+            }        
+        }
+
+        #exam-clock-reset-button{
+            flex-basis: calc(50% - 15px);
+            display: flex;
+            justify-content: center;
+            text-transform: uppercase;
+            gap: 10px;
+        }
+    }
+}
+
+//InnerBoxWrapper
+#manage-exam-clock-wrapper{
+    .step-2{
+        display: none;
+        margin-top: 20px;
+        padding: var(--memy-padding-small-dashbox);
+        .spalte{
+            justify-content: flex-start;
+            >span{
+                font-style:italic;
+            }
+        }
+    }
+
+    #exam-clock-zyklus-input{
+        label{
+            min-width: 70px;
+        }
+    }
+    //Save-button
+    .save-wrapper{
+        top:20px;
+        left:-20px;
+    }
+}
+
+/*Clock-Menu*/
+#exam-clock-setting-dashboard{
+    position: absolute;
+    top:0;
+    right: 0;
+    cursor: pointer;
+
+    .dash-clock-menu{
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+        background:none !important;
+        span{
+            background: #000;
+            border-radius: 99px;
+            transition: all .3s ease;
+            width:3px;
+            height: 3px;
+        }
+
+        &:hover{
+            span{
+                height: 2px;
+                width: 28px;
+                border-radius:0;
+            }        
+        }
+    }
+}

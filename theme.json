@@ -1,0 +1,115 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"title": "FSE-Customer",
+
+	"customTemplates": [],
+
+	"settings": {
+		"layout": {
+			"contentSize": "960px",
+			"wideSize": "1366px"
+		},
+		"color": {
+			"palette": [
+				{
+					"color": "#ffffff",
+					"name": "Base",
+					"slug": "base"
+				},
+				{
+					"color": "#000",
+					"name": "Contrast",
+					"slug": "contrast"
+				},
+				{
+					"color": "transparent",
+					"name": "Primary",
+					"slug": "primary"
+				},
+				{
+					"color": "#000",
+					"name": "Secondary",
+					"slug": "secondary"
+				},
+				{
+					"color": "#000",
+					"name": "Tertiary",
+					"slug": "tertiary"
+				},
+				{
+					"color": "#000",
+					"name": "Quaternary",
+					"slug": "quaternary"
+				}
+			]
+		},
+		"typography": {
+			"dropCap": false,
+			"fluid": true,
+			"fontFamilies": [
+				{
+				"fontFace": [
+					{
+						"fontFamily": "Inter",
+						"fontStretch": "normal",
+						"fontStyle": "normal",
+						"fontWeight": "400",
+						"src": [
+							"file:./assets/fonts/Inter/Inter_18pt-Regular.ttf"
+						]
+					},
+					{
+						"fontFamily": "Inter-Italic",
+						"fontStretch": "normal",
+						"fontStyle": "italic",
+						"fontWeight": "400",
+						"src": [
+							"file:./assets/fonts/Inter/Inter_18pt-Italic.ttf"
+						]
+					},
+					{
+						"fontFamily": "Inter-Bold",
+						"fontStretch": "normal",
+						"fontStyle": "normal",
+						"fontWeight": "700",
+						"src": [
+							"file:./assets/fonts/Inter/Inter_18pt-Bold.ttf"
+						]
+					}
+				],
+				"fontFamily": "\"Inter\", sans-serif",
+				"name": "Inter",
+				"slug": "inter"
+				}
+			]
+		}
+	},
+	"patterns": [
+		"fse-memysafe-customer/get-user-name",
+		"fse-memysafe-customer/user-dashboard",
+		"fse-memysafe-customer/user-settings",
+		"fse-memysafe-customer/user-profile"
+	],
+	"styles": {
+		"elements": {
+			"button": {
+				"border": {
+					"radius": "0px"
+				}
+			},
+			"heading": {
+				"typography": {
+					"fontFamily":"var(--wp--preset--font-family--inter)",
+					"fontWeight":"600",
+					"textTransform":"uppercase"
+				}
+			}
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--inter)",
+			"lineHeight": "1.5",
+			"fontSize":"16px"
+		}
+	}
+}

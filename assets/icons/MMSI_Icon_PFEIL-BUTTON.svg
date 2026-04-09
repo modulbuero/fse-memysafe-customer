@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-MMSI_Icon_PFEIL-BUTTON">
+      <rect width="48" height="48"/>
+    </clipPath>
+  </defs>
+  <g id="MMSI_Icon_PFEIL-BUTTON" clip-path="url(#clip-MMSI_Icon_PFEIL-BUTTON)">
+    <path id="icon_PFEIL-BUTTON" d="M2346,1845.969l4.827,4.827-4.827,4.827v-9.653m-2.143-5.176v20l10-10-10-10Z" transform="translate(-2324.86 -1826.794)"/>
+  </g>
+</svg>

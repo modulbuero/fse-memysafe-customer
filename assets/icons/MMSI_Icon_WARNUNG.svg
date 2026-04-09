@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-MMSI_Icon_WARNUNG">
+      <rect width="48" height="48"/>
+    </clipPath>
+  </defs>
+  <g id="MMSI_Icon_WARNUNG" clip-path="url(#clip-MMSI_Icon_WARNUNG)">
+    <g id="icon_WARNUNG" transform="translate(-2789.104 -332.372)">
+      <path id="Pfad_74" data-name="Pfad 74" d="M2813.1,364.229a7.857,7.857,0,1,0-7.857-7.857,7.866,7.866,0,0,0,7.857,7.857m0,2.143a10,10,0,1,1,10-10,10,10,0,0,1-10,10Z"/>
+      <g id="Gruppe_129" data-name="Gruppe 129" transform="translate(2812.033 350.541)">
+        <rect id="Rechteck_334" data-name="Rechteck 334" width="2.143" height="7.147"/>
+        <rect id="Rechteck_335" data-name="Rechteck 335" width="2.143" height="2.376" transform="translate(0 9.286)"/>
+      </g>
+    </g>
+  </g>
+</svg>

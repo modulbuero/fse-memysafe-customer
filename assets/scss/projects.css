@@ -1,0 +1,114 @@
+@charset "UTF-8";
+#projects-list-container > div p {
+  transition: all 0.3s ease;
+}
+#projects-list-container > div .mmsi-icon.weiter {
+  margin-right: 20px;
+}
+#projects-list-container > div:hover .mmsi-icon.weiter,
+#projects-list-container > div:hover p {
+  transform: translateX(10px);
+}
+
+/**
+* Projekt-Daten (Überschrift)
+*/
+.project-data-show-hide {
+  margin-bottom: 20px;
+}
+
+/**
+* Projekt-Daten (Eingabefelder)
+*/
+.project-data-container {
+  --project-padding-outer: 30px;
+  --project-padding-inner: 20px;
+  --project-field-margin: 10px;
+}
+.project-data-container > div {
+  margin-bottom: var(--project-padding-inner);
+}
+.project-data-container > div label {
+  padding-left: var(--project-padding-outer);
+}
+.project-data-container > div label:before {
+  content: "\f582";
+  font-family: "bootstrap-icons";
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 7px;
+}
+.project-data-container > div .checkbox-group {
+  margin-top: var(--project-field-margin);
+  padding-left: var(--project-padding-outer);
+}
+.project-data-container > div .checkbox-group label {
+  padding-left: var(--project-padding-inner);
+}
+.project-data-container > div .checkbox-group label:before {
+  display: none;
+}
+.project-data-container > div input {
+  margin-top: var(--project-field-margin);
+  margin-left: calc(var(--project-padding-outer) + var(--project-padding-inner));
+  margin-bottom: var(--project-field-margin);
+}
+.project-data-container > div .selectbox {
+  padding-left: var(--project-padding-outer);
+}
+.project-data-container > div .selectbox label {
+  padding: 0;
+}
+.project-data-container > div .selectbox select {
+  margin-top: var(--project-field-margin);
+  margin-left: var(--project-padding-inner);
+  max-width: calc(100% - var(--project-padding-inner)) !important;
+}
+.project-data-container > div .selectbox:not(.show) select, .project-data-container > div .selectbox:not(.show):after {
+  display: none;
+}
+.project-data-container > div {
+  /*eine Textare*/
+}
+.project-data-container > div #project-anmerkungen {
+  margin-top: var(--project-field-margin);
+  margin-left: calc(var(--project-padding-outer) + var(--project-padding-inner));
+}
+.project-data-container > div {
+  /*Hidden Labels*/
+}
+.project-data-container > div .project-anmerkung label:before,
+.project-data-container > div .project-dienstleister-funktion label:before {
+  opacity: 0;
+}
+.project-data-container > div label.is-checkbox:not(.show),
+.project-data-container > div input:not(.show),
+.project-data-container > div textarea:not(.show) {
+  display: none;
+}
+.project-data-container > div {
+  /**
+  *   Custom-Checkboxgroup-Style
+  */
+}
+.project-data-container > div .checkbox-group label.is-checkbox .slider {
+  overflow: hidden;
+  width: 13px;
+  display: none;
+}
+.project-data-container > div .checkbox-group label.is-checkbox .slider::before {
+  left: -11px;
+}
+.project-data-container > div .checkbox-group label.is-checkbox.checked {
+  display: flex;
+}
+.project-data-container > div .checkbox-group label.is-checkbox.show .slider {
+  display: block;
+}
+.project-data-container .spalte > div {
+  width: 100%;
+  margin-bottom: 0;
+}
+.project-data-container .spalte div:not(:first-child) input {
+  margin-left: 0;
+}/*# sourceMappingURL=projects.css.map */

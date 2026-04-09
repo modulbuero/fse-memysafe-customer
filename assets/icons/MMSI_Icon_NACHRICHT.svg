@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-MMSI_Icon_NACHRICHT">
+      <rect width="48" height="48"/>
+    </clipPath>
+  </defs>
+  <g id="MMSI_Icon_NACHRICHT" clip-path="url(#clip-MMSI_Icon_NACHRICHT)">
+    <path id="icon_NACHRICHT" d="M1032,980.037a8.54,8.54,0,0,0-8.479,8.6v8.183h16.547v-8.6A8.126,8.126,0,0,0,1032,980.037Zm5.948,14.633h-12.308v-6.033a6.413,6.413,0,0,1,6.359-6.45,6,6,0,0,1,5.948,6.033v6.45ZM1029.5,997.8h4.419a2.209,2.209,0,1,1-4.417,0Z" transform="translate(-1007.8 -966.037)"/>
+  </g>
+</svg>

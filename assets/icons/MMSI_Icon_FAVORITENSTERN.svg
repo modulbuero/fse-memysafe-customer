@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-MMSI_Icon_FAVORITENSTERN">
+      <rect width="48" height="48"/>
+    </clipPath>
+  </defs>
+  <g id="MMSI_Icon_FAVORITENSTERN" clip-path="url(#clip-MMSI_Icon_FAVORITENSTERN)">
+    <path id="icon_FAVORITENSTERN" d="M2809.951,1000.537l.323.993.481,1.48h2.6l-.844.614-1.26.916.481,1.48.323.993-.845-.614-1.26-.916-1.26.916-.844.614.323-.993.481-1.48-1.26-.916-.844-.614h2.6l.482-1.48.323-.993m0-6.934-2.361,7.266h-7.64l6.18,4.49-2.36,7.266,6.18-4.49,6.18,4.49-2.36-7.266,6.18-4.49h-7.64l-2.36-7.266h0Z" transform="translate(-2785.951 -979.114)"/>
+  </g>
+</svg>

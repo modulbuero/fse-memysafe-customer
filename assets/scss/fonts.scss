@@ -1,0 +1,39 @@
+body{
+    --font-ueberschrift:18px;
+    --font-text:16px;
+
+    h1,h2,h3,h4,h5,h6{
+        margin:0;
+        width: 100%;
+    }
+    
+    /*Dashboard Tile-Headline*/
+    h2,
+    /*innderBox Headlines*/
+    h3{
+        font-size: var(--font-ueberschrift);
+    }
+    h3 + div{
+        padding-top:var(--memy-padding-inner-container-side)
+    }
+
+    h4{
+       font-size: var(--font-ueberschrift);
+       margin-bottom:var(--memy-padding-inner-container-side)
+    }
+
+    h5{
+        font-size: 16px;
+        font-weight: 400;
+        text-transform: none;
+        display: inline-flex;
+        align-items: center;
+    }
+    h6{
+        font-size: 16px;
+        font-weight: 400;
+        text-transform: none;
+        display: inline-flex;
+        align-items: center;
+    }
+}

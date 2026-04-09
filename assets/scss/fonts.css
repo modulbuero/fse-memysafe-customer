@@ -1,0 +1,36 @@
+body {
+  --font-ueberschrift:18px;
+  --font-text:16px;
+}
+body h1, body h2, body h3, body h4, body h5, body h6 {
+  margin: 0;
+  width: 100%;
+}
+body {
+  /*Dashboard Tile-Headline*/
+}
+body h2,
+body h3 {
+  font-size: var(--font-ueberschrift);
+}
+body h3 + div {
+  padding-top: var(--memy-padding-inner-container-side);
+}
+body h4 {
+  font-size: var(--font-ueberschrift);
+  margin-bottom: var(--memy-padding-inner-container-side);
+}
+body h5 {
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: none;
+  display: inline-flex;
+  align-items: center;
+}
+body h6 {
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: none;
+  display: inline-flex;
+  align-items: center;
+}/*# sourceMappingURL=fonts.css.map */

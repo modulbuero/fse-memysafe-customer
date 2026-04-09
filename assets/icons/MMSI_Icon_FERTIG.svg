@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-MMSI_Icon_FERTIG">
+      <rect width="48" height="48"/>
+    </clipPath>
+  </defs>
+  <g id="MMSI_Icon_FERTIG" clip-path="url(#clip-MMSI_Icon_FERTIG)">
+    <path id="icon_FERTIG" d="M2360.851,1777.383l-9.372,9.372-5.541-5.542,1.542-1.542,4,4,7.83-7.829,1.542,1.542Zm-20,3.83,4.77,4.77,1.542-1.542-4.77-4.77Zm14.911-3.83-1.542-1.542-3.963,3.963,1.542,1.541Z" transform="translate(-2326.851 -1757.298)"/>
+  </g>
+</svg>

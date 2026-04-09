@@ -1,0 +1,21 @@
+/// Mixin für ein ::after-Element mit Icon (Bilddatei)
+/// @param {String} $icon - Dateiname ohne Endung (z. B. "arrow-right")
+/// @param {String} $path - optionaler Bildpfad (Default: "../images")
+/// @param {String} $ext  - optionale Dateiendung (Default: "svg")
+@mixin buttonIcon($icon, $path: "../icons", $ext: "svg") {
+  padding-right: calc(var(--memy-size-button-icon) + 10px);
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--memy-size-button-icon);
+    height: var(--memy-size-button-icon);
+    background-image: url("#{$path}/#{$icon}.#{$ext}");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}

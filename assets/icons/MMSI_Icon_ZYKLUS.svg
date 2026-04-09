@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-MMSI_Icon__ZYKLUS">
+      <rect width="48" height="48"/>
+    </clipPath>
+  </defs>
+  <g id="MMSI_Icon__ZYKLUS" data-name="MMSI_Icon_ ZYKLUS" clip-path="url(#clip-MMSI_Icon__ZYKLUS)">
+    <g id="icon_ZYKLUS" transform="translate(-2221.891 -856.704)">
+      <path id="Pfad_70" data-name="Pfad 70" d="M2245.891,872.847a7.857,7.857,0,1,1-7.857,7.857,7.865,7.865,0,0,1,7.857-7.857m0-2.143a10,10,0,1,0,10,10,10,10,0,0,0-10-10Z" transform="translate(0 0)"/>
+      <circle id="Ellipse_50" data-name="Ellipse 50" cx="3.929" cy="3.929" r="3.929" transform="translate(2241.963 876.775)"/>
+    </g>
+  </g>
+</svg>

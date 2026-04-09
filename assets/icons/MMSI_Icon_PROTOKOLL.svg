@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-MMSI_Icon_PROTOKOLL">
+      <rect width="48" height="48"/>
+    </clipPath>
+  </defs>
+  <g id="MMSI_Icon_PROTOKOLL" clip-path="url(#clip-MMSI_Icon_PROTOKOLL)">
+    <g id="icon_PROTOKOLL" transform="translate(-2785.735 -722.343)">
+      <rect id="Rechteck_349" data-name="Rechteck 349" width="7.147" height="2.143" transform="translate(2806.161 743.182)"/>
+      <rect id="Rechteck_350" data-name="Rechteck 350" width="7.147" height="2.143" transform="translate(2806.161 746.753)"/>
+      <rect id="Rechteck_351" data-name="Rechteck 351" width="7.147" height="2.143" transform="translate(2806.161 750.324)"/>
+      <path id="Pfad_79" data-name="Pfad 79" d="M2814.164,736.343h-13.428v20h18V740.915l-4.571-4.572Zm2.429,5.459v12.4h-13.714V738.486h10.4l.088.089v3.139h3.139Z" transform="translate(0)"/>
+    </g>
+  </g>
+</svg>

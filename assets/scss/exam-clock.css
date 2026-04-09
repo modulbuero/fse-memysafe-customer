@@ -1,0 +1,178 @@
+@charset "UTF-8";
+/**
+ * Exam Clock Circular Progress
+ */
+.exam-clock-wrapper {
+  --ex-clock-thickness: 15px;
+  --ex-clock-bg-empty:#ffffff;
+  /*Farbwerte Stufe 1*/
+  --ex-clock-bg-full-1:#9CA3DB;
+  /*Farbwerte Stufe 2*/
+  --ex-clock-bg-full-2:#61639F;
+  /*Farbwerte Stufe 3*/
+  --ex-clock-bg-full-3:#27233A;
+  width: 100%;
+  padding: var(--memy-padding-small-dashbox);
+}
+.exam-clock-wrapper .time-information-wrapper {
+  gap: var(--memy-padding-root);
+}
+.exam-clock-wrapper .time-information-wrapper .exam-clock-animation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--memy-clock-outher-height);
+  height: var(--memy-clock-outher-height);
+  /*Kreis-Progress*/
+}
+.exam-clock-wrapper .time-information-wrapper .exam-clock-animation .progress-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.exam-clock-wrapper .time-information-wrapper .exam-clock-animation .progress-container.is-2 {
+  position: absolute;
+  width: var(--memy-clock-middle-height);
+  height: var(--memy-clock-middle-height);
+}
+.exam-clock-wrapper .time-information-wrapper .exam-clock-animation .progress-container.is-3 {
+  position: absolute;
+  width: var(--memy-clock-inner-height);
+  height: var(--memy-clock-inner-height);
+}
+.exam-clock-wrapper .time-information-wrapper .exam-clock-animation .progress-container .progress-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--ex-clock-bg-full-1);
+  -webkit-mask: radial-gradient(closest-side, transparent calc(100% - var(--ex-clock-thickness)), white calc(100% - var(--ex-clock-thickness)));
+          mask: radial-gradient(closest-side, transparent calc(100% - var(--ex-clock-thickness)), white calc(100% - var(--ex-clock-thickness)));
+}
+.exam-clock-wrapper .time-information-wrapper .exam-clock-animation .progress-container .progress-bg.is-2 {
+  background: var(--ex-clock-bg-full-2);
+}
+.exam-clock-wrapper .time-information-wrapper .exam-clock-animation .progress-container .progress-bg.is-2 {
+  background: var(--ex-clock-bg-full-2);
+}
+.exam-clock-wrapper .time-information-wrapper .exam-clock-animation .progress-container .progress-bg.is-3 {
+  background: var(--ex-clock-bg-full-3);
+}
+.exam-clock-wrapper .time-information-wrapper .exam-clock-animation .progress-container .progress-fill {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--ex-clock-bg-empty) 0deg, var(--ex-clock-bg-empty) calc(var(--progress-angle, 0deg) / 1.02), var(--ex-clock-bg-full-1) var(--progress-angle, 0deg), transparent var(--progress-angle, 0deg));
+  -webkit-mask: radial-gradient(closest-side, transparent calc(100% - var(--ex-clock-thickness)), white calc(100% - var(--ex-clock-thickness)));
+          mask: radial-gradient(closest-side, transparent calc(100% - var(--ex-clock-thickness)), white calc(100% - var(--ex-clock-thickness)));
+  /* Animation nur beim Start */
+  transition: --progress-angle 2s ease-out;
+}
+.exam-clock-wrapper .time-information-wrapper {
+  /* Unterstützung für CSS Custom Property Animation */
+}
+@property --progress-angle {
+  .exam-clock-wrapper .time-information-wrapper {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+  }
+}
+.exam-clock-wrapper .time-information-wrapper .time-information {
+  flex: 1;
+  align-self: stretch;
+  justify-content: space-evenly;
+}
+.exam-clock-wrapper .time-information-wrapper .time-information p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0;
+}
+.exam-clock-wrapper .time-information-wrapper .time-information p span:last-child {
+  text-align: center;
+  flex: 1;
+}
+.exam-clock-wrapper .time-information-wrapper .time-information p i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #000;
+  border-radius: 50%;
+}
+.exam-clock-wrapper .time-information-wrapper .time-information p i:before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: var(--ex-clock-bg-full-1);
+  border-radius: 50%;
+}
+.exam-clock-wrapper .time-information-wrapper .time-information p:nth-child(2) i:before {
+  background-color: var(--ex-clock-bg-full-2);
+}
+.exam-clock-wrapper .time-information-wrapper .time-information p:nth-child(3) i:before {
+  background-color: var(--ex-clock-bg-full-3);
+}
+.exam-clock-wrapper .time-information-wrapper #exam-clock-reset-button {
+  flex-basis: calc(50% - 15px);
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  gap: 10px;
+}
+
+#manage-exam-clock-wrapper .step-2 {
+  display: none;
+  margin-top: 20px;
+  padding: var(--memy-padding-small-dashbox);
+}
+#manage-exam-clock-wrapper .step-2 .spalte {
+  justify-content: flex-start;
+}
+#manage-exam-clock-wrapper .step-2 .spalte > span {
+  font-style: italic;
+}
+#manage-exam-clock-wrapper #exam-clock-zyklus-input label {
+  min-width: 70px;
+}
+#manage-exam-clock-wrapper .save-wrapper {
+  top: 20px;
+  left: -20px;
+}
+
+/*Clock-Menu*/
+#exam-clock-setting-dashboard {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+#exam-clock-setting-dashboard .dash-clock-menu {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  background: none !important;
+}
+#exam-clock-setting-dashboard .dash-clock-menu span {
+  background: #000;
+  border-radius: 99px;
+  transition: all 0.3s ease;
+  width: 3px;
+  height: 3px;
+}
+#exam-clock-setting-dashboard .dash-clock-menu:hover span {
+  height: 2px;
+  width: 28px;
+  border-radius: 0;
+}/*# sourceMappingURL=exam-clock.css.map */

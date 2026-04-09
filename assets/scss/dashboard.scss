@@ -1,0 +1,142 @@
+@use 'mixins';
+/*Content | Dashboard*/
+#memy-dashboard{
+   *{
+         max-width: 100%;
+      }
+   /*Dashboard Kacheln*/
+   .tile{
+      background: #fff;
+      height:var(--memy-kachel-height);
+
+      .dashboard-item{
+         .item-headline{
+            padding:var(--memy-padding-small-dashbox);
+            border-bottom:var(--memy-trenner);
+            
+            p{
+               margin-bottom: 0;
+               text-transform: uppercase;
+               cursor: default;
+               flex:1;
+            }
+
+            &:hover{
+               cursor: pointer;
+               .weiter{
+                  transform: translateX(10px);
+               }
+            }
+         }
+         .item-content{
+            padding:var(--memy-padding-small-dashbox);
+            gap:20px;
+            div[data-goto]{
+               p{
+                  transition: all .3s ease;
+               }
+               &:hover p{
+                  transform: translateX(10px);
+               }
+            }
+         }
+      }
+   }
+
+   /*Uhranzeige*/
+   #chooser-exam-clock {
+      justify-content: center;
+      .dashboard-item{
+         flex-direction: column;
+         align-items: flex-end;
+      }
+   }
+   
+
+   /*Urlaubsmodus*/
+   #chooser-urlaubsmodus{
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff36;
+      backdrop-filter: blur(3px);
+      >div{
+         padding: var(--memy-padding-small-dashbox);
+      }
+   }
+}
+
+
+/*InnerBoxeWrapper*/
+.container-wrapper{
+   /*Dashboard Container der Eingabemasken*/
+   @mixin containerStandards{
+      position: absolute;
+      max-width: var(--memy-dash-container);
+      left: 0%;
+      top:0%;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+   }
+   
+   @include containerStandards;
+   left:100%;
+   *{
+      transition: all .3s ease
+   }
+   
+   .container{
+      @include containerStandards;
+
+      //Steps
+      >div{
+         @include containerStandards;
+         justify-content: flex-start;
+         transform: translateX(0%);
+         padding: var(--memy-padding-inner-container);
+         box-sizing: border-box;
+         &.show{
+            transform: translateX(-100%);
+         }
+
+         h3{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap:10px;
+
+            &:after{
+               content: "";
+               display: block;
+               width: calc(100% + (2 * var(--memy-padding-inner-container)));
+               height: 1px;
+               background-color: var(--memy-trenner-color);
+               margin-top: var(--memy-padding-inner-container);
+               margin-bottom: var(--memy-padding-inner-container);
+               position: relative;
+               left:calc(var(--memy-padding-inner-container-side) * -1);
+               margin-top:var(--memy-padding-inner-container-side);
+            }
+         }
+
+         .full-height{
+            height:100%
+         }
+
+         /*Wenn kein Overflow-Container davor*/
+         .save-wrapper{
+            margin-top: auto;
+         }
+      }
+
+      //ÜberschriftWrapper
+      .inner-main-heading{
+         padding-bottom:20px;
+         margin-bottom:20px;
+         border-bottom: var(--memy-trenner)
+      }
+   }
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-MMSI_Icon_DASHBOARD">
+      <rect width="48" height="48"/>
+    </clipPath>
+  </defs>
+  <g id="MMSI_Icon_DASHBOARD" clip-path="url(#clip-MMSI_Icon_DASHBOARD)">
+    <path id="icon_DASHBOARD" d="M2799.554,1274.069h8.085v-8h-8.085Zm1.428-6.568h5.229v5.14h-5.229Zm-1.428-4.474h8.085v-8h-8.085Zm1.428-6.568h5.229v5.14h-5.229Zm9.524,17.609h8.085v-8h-8.085Zm1.428-6.568h5.229v5.14h-5.229Zm-1.428-12.469v8h8.085v-8Zm6.657,6.568h-5.229v-5.14h5.229Z" transform="translate(-2785.052 -1240.571)" stroke="#000" stroke-width="0.75"/>
+  </g>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-MMSI_Icon_DOWNLOAD">
+      <rect width="48" height="48"/>
+    </clipPath>
+  </defs>
+  <g id="MMSI_Icon_DOWNLOAD" clip-path="url(#clip-MMSI_Icon_DOWNLOAD)">
+    <g id="icon_DOWNLOAD" transform="translate(-2788.804 -397.806)">
+      <path id="Pfad_75" data-name="Pfad 75" d="M2817.233,411.806H2803.8v20h18V416.377l-4.572-4.571Zm2.428,5.459v12.4h-13.714V413.949h10.4l.089.089v3.139h3.138Z" transform="translate(0 0)"/>
+      <path id="Pfad_76" data-name="Pfad 76" d="M2812.557,420.317v-4.151h-2.143v4.151h-3.463l4.5,4.5,4.5-4.5Z" transform="translate(1.349 1.869)"/>
+    </g>
+  </g>
+</svg>

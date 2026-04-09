@@ -1,0 +1,145 @@
+.wp-site-blocks > main {
+  padding-bottom: 0;
+}
+
+/*Container Allgemein*/
+div {
+  display: flex;
+  flex-direction: column;
+}
+div.spalte {
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+div.spalte p {
+  flex-basis: 100%;
+}
+
+/* Front Page Styles */
+#front-page-html {
+  align-items: flex-start;
+  flex-direction: row;
+  background-color: #F5F5F5;
+  gap: var(--memy-padding-root);
+  padding-right: var(--memy-padding-root);
+}
+#front-page-html .wp-block-template-part.user-menu {
+  background-color: #fff;
+  min-height: 100vh;
+  flex-basis: 25%;
+  align-items: flex-end;
+  padding-left: 5%;
+}
+#front-page-html .wp-block-template-part.user-content {
+  padding-top: var(--memy-padding-root);
+  flex-basis: 70%;
+  min-height: 100vh;
+  padding-right: 5%;
+}
+#front-page-html .wp-block-template-part.user-content #memy-user-content-wrapper {
+  overflow: hidden;
+}
+
+/**
+*   Menu
+**/
+#memy-user-menu {
+  padding: var(--memy-padding-root) var(--memy-padding-root) 0 0;
+  gap: var(--memy-padding-root);
+  min-height: var(--memy-menu-height);
+}
+#memy-user-menu h1 {
+  width: 184px;
+  height: var(--memy-kachel-height);
+  margin-bottom: 0;
+  background-image: url(../imgs/MMSI_Logo_Desktop.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center var(--memy-padding-root);
+}
+#memy-user-menu h1 small {
+  display: none;
+}
+#memy-user-menu #menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+#memy-user-menu #menu p {
+  cursor: default;
+}
+#memy-user-menu #menu .wp-block-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#memy-user-menu #menu .wp-block-list li {
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+}
+#memy-user-menu #menu .wp-block-list li span {
+  transition: all 0.3s ease;
+}
+#memy-user-menu #menu .wp-block-list li:hover span {
+  transform: translateX(10px);
+}
+#memy-user-menu #menu #logout-form {
+  margin: 40px 0 0;
+  display: flex;
+  gap: 10px;
+}
+#memy-user-menu #menu #logout-form .icon-logout-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+  font-size: inherit;
+  margin-top: 0px;
+  transition: all 0.3s ease;
+  position: absolute;
+  padding-left: 30px;
+}
+#memy-user-menu #menu #logout-form:hover input {
+  transform: translateX(10px);
+}
+#memy-user-menu #goback {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--memy-padding-inner-container-side);
+}
+
+/**
+*   Content
+*/
+.user-content {
+  /*Dashboard*/
+}
+.user-content .memy-dash-wrapper > div .tile-wrapper {
+  gap: var(--memy-padding-root);
+}
+.user-content .memy-dash-wrapper > div .tile-wrapper > .spalte {
+  gap: var(--memy-padding-root);
+  align-items: stretch;
+}
+.user-content .memy-dash-wrapper > div .tile-wrapper > .spalte > div {
+  flex: 1;
+}
+.user-content .memy-dash-wrapper > div .tile-wrapper > .spalte {
+  /* -> dashboard.scss */
+}
+.user-content {
+  /*Einstellungen*/
+}
+/*Only Desktop*/
+@media screen and (max-width: 1118px) {
+  body .wp-site-blocks .only-desktop {
+    display: none;
+  }
+}/*# sourceMappingURL=struktur.css.map */

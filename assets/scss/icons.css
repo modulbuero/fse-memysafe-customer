@@ -1,0 +1,111 @@
+.mmsi-icon {
+  width: 18px;
+  height: 20px; /* => LineHeight*/
+  display: inline-block;
+  background-size: 36px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.3s ease;
+}
+.mmsi-icon.abo {
+  background-image: url(../icons/MMSI_Icon_ABO.svg);
+}
+.mmsi-icon.dashboard {
+  background-image: url(../icons/MMSI_Icon_DASHBOARD.svg);
+}
+.mmsi-icon.datei {
+  background-image: url(../icons/MMSI_Icon_DATEI.svg);
+}
+.mmsi-icon.delete {
+  background-image: url(../icons/MMSI_Icon_DELETE.svg);
+}
+.mmsi-icon.delete-open {
+  background-image: url(../icons/MMSI_Icon_DELETE-OPEN.svg);
+}
+.mmsi-icon.download {
+  background-image: url(../icons/MMSI_Icon_DOWNLOAD.svg);
+}
+.mmsi-icon.info {
+  background-image: url(../icons/MMSI_Icon_INFO.svg);
+}
+.mmsi-icon.kontakt {
+  background-image: url(../icons/MMSI_Icon_KONTAKT.svg);
+}
+.mmsi-icon.kontakte {
+  background-image: url(../icons/MMSI_Icon_KONTAKTE.svg);
+}
+.mmsi-icon.logout {
+  background-image: url(../icons/MMSI_Icon_ABMELDEN.svg);
+}
+.mmsi-icon.menu {
+  background-image: url(../icons/MMSI_Icon_MENU.svg);
+}
+.mmsi-icon.nachricht {
+  background-image: url(../icons/MMSI_Icon_NACHRICHT.svg);
+}
+.mmsi-icon.neu {
+  background-image: url(../icons/MMSI_Icon_NEU.svg);
+}
+.mmsi-icon.profil {
+  background-image: url(../icons/MMSI_Icon_PROFIL.svg);
+}
+.mmsi-icon.return {
+  height: 16px;
+  background-image: url(../icons/MMSI_Icon_RETURN.svg);
+}
+.mmsi-icon.return:hover {
+  transform: scaleX(1.2);
+  transform-origin: left;
+}
+.mmsi-icon.pfeil {
+  background-image: url(../icons/MMSI_Icon_PFEIL-BUTTON.svg);
+}
+.mmsi-icon.pfeil.pfeil-oben {
+  transform: rotate(270deg);
+}
+.mmsi-icon.pfeil.pfeil-unten {
+  transform: rotate(-270deg);
+}
+.mmsi-icon.projekt {
+  background-image: url(../icons/MMSI_Icon_PROJEKT.svg);
+}
+.mmsi-icon.projekte {
+  background-image: url(../icons/MMSI_Icon_PROJEKTE.svg);
+}
+.mmsi-icon.safe {
+  background-image: url(../icons/MMSI_Icon_SAFE.svg);
+}
+.mmsi-icon.setting {
+  background-image: url(../icons/MMSI_Icon_EINSTELLUNGEN.svg);
+}
+.mmsi-icon.schloss-offen {
+  background-image: url(../icons/MMSI_Icon_SCHLOSS-OFFEN.svg);
+}
+.mmsi-icon.speichern {
+  background-image: url(../icons/MMSI_Icon_SPEICHERN.svg);
+}
+.mmsi-icon.timer-reset {
+  background-image: url(../icons/MMSI_Icon_RESET.svg);
+}
+.mmsi-icon.upload {
+  background-image: url(../icons/MMSI_Icon_UPLOAD.svg);
+}
+.mmsi-icon.weiter {
+  background-image: url(../icons/MMSI_Icon_WEITER.svg);
+}
+.mmsi-icon.zyklus {
+  background-image: url(../icons/MMSI_Icon_ZYKLUS.svg);
+}
+.mmsi-icon.big {
+  width: 80px;
+  height: 80px;
+  background-size: 145px;
+}
+
+button:hover .timer-reset {
+  transform: rotate(-180deg);
+}
+
+#zurueck-btn-animation {
+  transform: scale(0.8);
+}/*# sourceMappingURL=icons.css.map */

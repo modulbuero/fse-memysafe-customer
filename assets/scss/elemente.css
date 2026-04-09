@@ -1,0 +1,240 @@
+/*Buttons*/
+button,
+.memy-button {
+  display: flex;
+  cursor: pointer;
+  flex-direction: row;
+  align-items: center;
+  border: var(--memy-border);
+  padding: var(--memy-padding-button);
+  gap: 5px;
+}
+button h5,
+.memy-button h5 {
+  flex: 1;
+}
+button[disabled],
+.memy-button[disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+button:hover {
+  background-color: #000;
+  color: #fff;
+}
+button:hover i {
+  filter: invert(1);
+}
+button:hover i.mmsi-icon.delete {
+  background-image: url(../icons/MMSI_Icon_DELETE-OPEN.svg);
+}
+button:hover i.mmsi-icon.download {
+  background-image: url(../icons/MMSI_Icon_WEITER.svg);
+}
+
+.dash-goto-btn,
+.goto-btn,
+#goback {
+  cursor: pointer;
+}
+
+.button-arrow {
+  cursor: pointer;
+  padding-right: 40px;
+}
+.button-arrow::after {
+  content: "";
+  background-image: url(../icons/MMSI_Icon_PFEIL-BUTTON.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 10px;
+  height: 100%;
+  width: 31px;
+  display: block;
+  transition: all 0.3s ease;
+}
+.button-arrow:hover::after {
+  transform: translateX(10px);
+}
+
+.short-button {
+  max-width: 250px !important;
+}
+
+/*kleines Info Feld*/
+.memy-short-info {
+  display: inline-block;
+  border: var(--memy-border);
+  padding: var(--memy-padding-button);
+}
+
+/*info Popup*/
+.haspopup-info {
+  cursor: pointer;
+}
+
+.info-popup-wrap {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 10;
+}
+.info-popup-wrap .close-btn {
+  padding: 20px 10px;
+  align-items: flex-end;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.info-popup-wrap .close-btn:hover {
+  font-size: 120%;
+}
+.info-popup-wrap .content {
+  position: absolute;
+  background-color: #fff;
+  border: var(--memy-border);
+  padding: var(--memy-padding-small-dashbox);
+  width: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.info-popup-wrap .content .title {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.info-popup-wrap.show {
+  display: block;
+}
+
+/*Development*/
+pre {
+  opacity: 0.5;
+}
+
+/*Block Container*/
+div, p {
+  box-sizing: border-box;
+  margin-bottom: 0;
+}
+
+/*Der Overflowcontainer*/
+.overflow-wrapper {
+  padding-bottom: 15px;
+  overflow-y: auto;
+  margin-bottom: 26px;
+}
+.overflow-wrapper:after {
+  content: "";
+  position: fixed;
+  bottom: 75px;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid var(--memy-trenner-color);
+  height: calc(100px + var(--memy-padding-inner-container));
+  background: linear-gradient(to top, #ffffff, transparent);
+}
+.overflow-wrapper {
+  /* Firefox */
+  scrollbar-width: 2px;
+  scrollbar-color: rgba(0, 0, 0, 0.3333333333) rgba(204, 204, 204, 0.3882352941);
+  /* WebKit (Chrome, Edge, Safari) */
+}
+.overflow-wrapper::-webkit-scrollbar {
+  width: 2px;
+}
+.overflow-wrapper::-webkit-scrollbar-track {
+  background: rgba(204, 204, 204, 0.262745098);
+  left: 15px;
+}
+.overflow-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3294117647);
+  border-radius: 2px;
+}
+
+/*Mehrer Button Elemente untereinander*/
+#memy-dashboard .settings-labels {
+  gap: 10px;
+}
+#memy-dashboard .settings-labels > div {
+  min-width: 200px;
+}
+#memy-dashboard .settings-labels.add-trenner > div:not(:last-child) {
+  padding-bottom: 10px;
+  border-bottom: var(--memy-trenner);
+}
+
+/*Nummern Eingabe*/
+.number-input {
+  gap: 5px;
+  flex-direction: row;
+  align-items: center;
+}
+.number-input input[type=number] {
+  min-width: 70px; /*wegen max Val*/
+  -moz-appearance: textfield;
+}
+.number-input input[type=number]::-webkit-inner-spin-button, .number-input input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.number-input .input-number-arrows {
+  position: absolute;
+  right: 0;
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+}
+.number-input .input-number-arrows i {
+  cursor: pointer;
+  height: 15px;
+  background-position: -10px center;
+}
+.number-input .input-number-arrows i.pfeil-oben:hover {
+  transform: rotate(270deg) scale(0.8);
+}
+.number-input .input-number-arrows i.pfeil-unten:hover {
+  transform: rotate(-270deg) scale(0.8);
+}
+
+/*Weiten*/
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.quarter-width {
+  width: 25%;
+}
+
+.flex-one {
+  flex: 1;
+}
+
+/*Kontakt Status*/
+.status-contact-person {
+  background: #000;
+  color: #fff;
+  left: 10px;
+  max-width: 125px !important;
+  font-size: 8px;
+  text-transform: uppercase;
+}
+
+.gotocontacts-wrapper button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center !important;
+}/*# sourceMappingURL=elemente.css.map */

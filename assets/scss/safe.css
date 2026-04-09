@@ -1,0 +1,119 @@
+ul.memy-file-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+ul.memy-file-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+ul.memy-file-list li .memy-file-info {
+  flex-direction: row;
+  gap: 5px;
+  cursor: pointer;
+  flex: 1;
+  align-items: center;
+}
+ul.memy-file-list li .memy-file-info .memy-file-name-wrap {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+}
+ul.memy-file-list li .memy-file-info .memy-file-name-wrap .memy-file-name {
+  flex: 1;
+  transition: all 0.3s ease;
+}
+ul.memy-file-list li .memy-file-info > span:not(.memy-file-name-wrap) {
+  color: #cfcfcf;
+  font-size: 12px;
+}
+ul.memy-file-list li .memy-file-info .memy-file-open {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+ul.memy-file-list li .memy-file-info:hover .memy-file-name {
+  transform: translateX(10px);
+}
+ul.memy-file-list li .memy-file-actions {
+  flex-direction: row;
+  gap: 10px;
+  flex-shrink: 0;
+}
+ul.memy-file-list li .memy-file-actions button {
+  padding: 5px;
+}
+ul.memy-file-list li .memy-file-actions button:hover {
+  background-color: transparent;
+}
+ul.memy-file-list li .memy-file-actions button:hover i {
+  filter: invert(0);
+}
+ul.memy-file-list li button {
+  border: none;
+}
+
+#memy-file-list-short ul li .memy-file-info > span:not(.memy-file-name-wrap) {
+  display: none;
+}
+#memy-file-list-short ul li .memy-file-actions .memy-file-delete,
+#memy-file-list-short ul li .memy-file-actions .memy-file-download {
+  display: none;
+}
+
+/*Upload Wrapper*/
+.memy-upload-wrapper {
+  height: 100%;
+  justify-content: center;
+}
+.memy-upload-wrapper #memy-upload-zone {
+  justify-content: center;
+  max-width: 360px;
+  align-items: center;
+  margin: 0 auto;
+  padding: 40px;
+}
+.memy-upload-wrapper #memy-upload-zone img {
+  width: 100%;
+  height: 85px;
+  margin-bottom: 20px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  pointer-events: none;
+  margin-bottom: 30px;
+}
+.memy-upload-wrapper #memy-upload-zone p:not(:last-child) {
+  margin-bottom: 60px;
+}
+.memy-upload-wrapper #memy-upload-zone p {
+  text-align: center;
+}
+.memy-upload-wrapper #memy-upload-zone button {
+  margin-bottom: 30px;
+}
+.memy-upload-wrapper #memy-upload-zone.drag-over {
+  background-color: #e6f3ff;
+  /* Wichtig: Verhindert, dass das Drop-Event von Text/Bild abgefangen wird */
+}
+.memy-upload-wrapper #memy-upload-zone.drag-over * {
+  pointer-events: none;
+}
+.memy-upload-wrapper > input {
+  display: none;
+}
+.memy-upload-wrapper .memy-upload-item {
+  position: absolute;
+}
+.memy-upload-wrapper .memy-upload-item .memy-upload-name .upload-file-status {
+  display: none;
+}
+.memy-upload-wrapper .memy-upload-item.success .upload-file-status {
+  display: block;
+}/*# sourceMappingURL=safe.css.map */

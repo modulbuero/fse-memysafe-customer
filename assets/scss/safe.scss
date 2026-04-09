@@ -1,0 +1,149 @@
+ul.memy-file-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap:20px;
+    display: flex;
+    flex-direction: column;
+    
+    li{
+        display: flex;
+        justify-content: space-between;
+        gap:10px;
+
+        .memy-file-info{
+            flex-direction: row;
+            gap:5px;
+            cursor: pointer;
+            flex: 1;
+            align-items: center;
+
+            .memy-file-name-wrap{
+                display:flex;
+                gap: 10px;
+                flex: 1;
+                .memy-file-name{
+                    flex: 1;
+                    transition: all .3s ease;
+                }
+            }
+            >span:not(.memy-file-name-wrap){
+                color:#cfcfcf;
+                font-size: 12px;
+            }
+
+            .memy-file-open{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+            } 
+            &:hover{
+                .memy-file-name{
+                    transform: translateX(10px);
+                }   
+            }
+        }
+
+        .memy-file-actions{
+            flex-direction: row;
+            gap: 10px;
+            flex-shrink: 0;
+            button{
+                padding:5px;
+                &:hover{
+                    background-color: transparent;
+                    i{
+                        filter: invert(0);
+                    }
+                }
+
+            }
+        }
+
+        button{
+            border:none   
+        }
+    }
+}
+
+#memy-file-list-short{
+    ul{
+        li{
+            .memy-file-info{
+                >span:not(.memy-file-name-wrap){
+                    display:none;
+                }
+            }
+            
+            .memy-file-actions{
+                .memy-file-delete,
+                .memy-file-download{
+                    display:none;
+                }
+            }
+        }
+    }
+}
+
+/*Upload Wrapper*/
+.memy-upload-wrapper{
+    height: 100%;
+    justify-content: center;
+    #memy-upload-zone{
+        justify-content: center;
+        max-width: 360px;
+        align-items: center;
+        margin: 0 auto;
+        padding:40px;
+        
+        img{
+            width: 100%;
+            height: 85px;
+            margin-bottom: 20px;
+            object-fit: cover;
+            pointer-events: none;
+            margin-bottom: 30px;
+        }
+        
+        p{
+            &:not(:last-child){
+                margin-bottom: 60px;
+            }
+            text-align: center;
+        }
+
+        button{
+            margin-bottom: 30px;
+        }
+
+        &.drag-over{
+            background-color: #e6f3ff;            
+            /* Wichtig: Verhindert, dass das Drop-Event von Text/Bild abgefangen wird */
+            * {
+                pointer-events: none;
+            }
+        }
+    }
+    >input{
+        display:none;
+    }
+
+    .memy-upload-item{
+        position: absolute;
+
+        .memy-upload-name{
+            .upload-file-status{
+                display:none
+            }
+        }
+        
+        &.success{
+            .upload-file-status{
+                display:block
+            }
+        }
+    } 
+}

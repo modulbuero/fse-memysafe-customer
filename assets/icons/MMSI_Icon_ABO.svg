@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-MMSI_Icon_ABO">
+      <rect width="48" height="48"/>
+    </clipPath>
+  </defs>
+  <g id="MMSI_Icon_ABO" clip-path="url(#clip-MMSI_Icon_ABO)">
+    <path id="icon_ABO" d="M2270.014,1000.305l2.474,3.07-7.164,7.671-7.164-7.671,2.474-3.07h9.379m1.026-2.143H2259.61l-4.286,5.316,9.714,10.4.6-.024,9.69-10.377-4.286-5.316h0Z" transform="translate(-2241.324 -982.02)"/>
+  </g>
+</svg>

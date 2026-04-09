@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-MMSI_Icon_RETURN">
+      <rect width="48" height="48"/>
+    </clipPath>
+  </defs>
+  <g id="MMSI_Icon_RETURN" clip-path="url(#clip-MMSI_Icon_RETURN)">
+    <path id="icon_RETURN" d="M2272.861,1258.6h-5.094l.285-.285,1.512-1.512-1.512-1.512-3.31,3.31h-.021v.021l-1.464,1.464,4.795,4.795,1.512-1.512-1.512-1.512h0l-1.117-1.118h6.47v.027a6.42,6.42,0,0,1,5.871,6.387,6,6,0,0,1-5.871,5.993v.007h-8.682v2.138h8.552a8.137,8.137,0,0,0,8.137-8.137,8.551,8.551,0,0,0-8.552-8.552Z" transform="translate(-2248.334 -1241.288)"/>
+  </g>
+</svg>
