@@ -105,13 +105,19 @@ button:hover{
         transform: translate(-50%, -50%);
         .title{
             margin-bottom:10px;
-            font-weight: 600;
         }
     }
 
     &.delete-popup{
         .content{
             text-align: center;
+            width:auto;
+            .title{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+            }
             .spalte{
                 justify-content: space-evenly;
             }

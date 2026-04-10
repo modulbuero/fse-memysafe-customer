@@ -28,6 +28,7 @@
 
     <div class="spalte save-wrapper">
         <button id="save"><i class='mmsi-icon speichern'></i> Speichern</button>
-        <button id="delete delete-btn"><i class='mmsi-icon delete'></i> Löschen</button>
+        <button class="delete-btn-pop"><i class='mmsi-icon delete'></i> Löschen</button>
     </div>
+    <?php deletePopup('delete-contact', 'Kontaktperson ' . $v_person_name . ' löschen'); ?>
 </div>

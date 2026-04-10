@@ -12,7 +12,6 @@
             wp.ajax.post('load_vertreter_data', formData)
                 .done(function(response) {
                     // Formular anzeigen
-                    //$('#setup-vertreter-new').slideDown(200);
                     //console.log("vertreterID")
                     //console.log(response.vertreter_id)
                     // Felder füllen
@@ -27,9 +26,9 @@
                     
                     // Delete Button nur bei Bearbeitung anzeigen
                     if (response.vertreter_id === 'new') {
-                        $('#delete-vertreter').hide();
+                        $('.delete-vertreter').hide();
                     } else {
-                        $('#delete-vertreter').show();
+                        $('.delete-vertreter').show();
                     }
                     
                     // Zur Formular-Position scrollen
@@ -103,10 +102,7 @@
          */
         $(document).on('click', '#delete-vertreter', function(e) {
             e.preventDefault();
-            if (!confirm('Möchten Sie diesen Vertreter wirklich löschen?')) {
-                return;
-            }
-
+            
             let $container = $(this).closest('.setup-vertreter-data');
             let vertreter_id = $container.attr('id').replace('setup-vertreter-','');
 
@@ -144,22 +140,7 @@
          * VERTRETER: Reload Container nach Speichern
          */
         function reloadVertreterContainer() {
-            var formData = {
-                _wpnonce: ajax_object_contacts.nonce,
-                action: 'get_vertreter_list'
-            };
-
-            wp.ajax.post('get_vertreter_list', formData)
-                .done(function(response) {
-                    // Container mit neuer Liste aktualisieren
-                    const $container = $('#vertreter-section');
-                    if ($container.length) {
-                        $container.html(response);
-                    }
-                    console.log('Vertreter-Liste aktualisiert');
-                }).fail(function(response) {
-                    console.log('Fehler beim Aktualisieren der Liste:', response);
-                });
+            $('#vertreter-section').load(location.href + ' #vertreter-section .settings-labels');
         }
     })
 })(jQuery)

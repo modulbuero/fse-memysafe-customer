@@ -40,6 +40,7 @@
             .done(function(response) {
                 showMessage(response.message, 'success');
                 $('#goback').click()
+                reloadContactsListDashboard()
             }).fail(function(response) {
                 console.log(response)
             });
@@ -69,12 +70,18 @@
                 $container.find('select').val('');
                 console.log(response);
                 showMessage(response.message, 'success');
+                reloadContactsListDashboard()
+                $('#goback').click()
             }).fail(function(response) {
                 console.log(response);
             });
             
         });
 
+        function reloadContactsListDashboard() {
+            // Nur den Inhalt des Dashboard-Widgets neu laden
+            $('#memy-dashboard-my-contacts .item-content').load(location.href + ' #memy-dashboard-my-contacts .item-content > *');
+        }
         /**
          * make Fields EDITABLE         
         $('.edit-inputs').on('click', function () {

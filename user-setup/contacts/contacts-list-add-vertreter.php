@@ -26,6 +26,8 @@
 
     <div class="spalte save-wrapper">
         <button id="save-vertreter"><i class='mmsi-icon speichern'></i> Speichern</button>
-        <button id="delete-vertreter" style="display: none;"><i class='mmsi-icon delete'></i> Löschen</button>
+        <button class="delete-btn-pop delete-vertreter"><i class='mmsi-icon delete'></i><?php echo $vertreter_name; ?> Löschen</button>
     </div>
+    
+    <?php deletePopup('delete-vertreter', 'Vertreter löschen'); ?>
 </div>

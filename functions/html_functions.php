@@ -110,7 +110,7 @@ function infoPopup($text, $title){
         <div class='close-btn'><i class='bi bi-x-lg'></i></div>
         <div class='content'>";
             if(!empty($title)){
-                $popy .= "<p class='title'>$title</p>";
+                $popy .= "<p class='title'><strong>$title</strong></p>";
             }
             $popy .="<p>$text</p>
             </div>                
@@ -123,7 +123,7 @@ function deletePopup($btn_id, $title="Löschen"){
         <div class='close-btn'><i class='bi bi-x-lg'></i></div>
         <div class='content'>";
             if(!empty($title)){
-                $delete_popy .= "<p class='title'>$title</p>";
+                $delete_popy .= "<p class='title'><i class='mmsi-icon info'></i> $title</p>";
             }
             $delete_popy .="<p>Sind Sie sicher?<br>Diese Aktion kann nicht rückgängig gemacht werden.</p>";
             $delete_popy .="<div class='spalte'>";

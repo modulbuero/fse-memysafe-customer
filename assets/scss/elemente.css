@@ -107,10 +107,16 @@ button:hover i.mmsi-icon.download {
 }
 .info-popup-wrap .content .title {
   margin-bottom: 10px;
-  font-weight: 600;
 }
 .info-popup-wrap.delete-popup .content {
   text-align: center;
+  width: auto;
+}
+.info-popup-wrap.delete-popup .content .title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 .info-popup-wrap.delete-popup .content .spalte {
   justify-content: space-evenly;
