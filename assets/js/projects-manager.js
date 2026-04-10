@@ -122,21 +122,21 @@
             let project_id      = $container.attr('id').replace('setup-project-','');
             let projektname     = $('#project-name').val();
             let status          = $('.project-status:checked').map(function() {
-                                    return $(this).val();
-                                }).get();
+                                        return $(this).val();
+                                  }).get();
             let mandant         = $('#project-mandant').val();
-            let mandant_ansprechpartner = $('#project-mandant-ansprechpartner').val();
             let mandant_telefon = $('#project-mandant-telefon').val();
             let mandant_mobile  = $('#project-mandant-mobile').val();
             let mandant_email   = $('#project-mandant-email').val();
+            let dateizugriff    = $('#project-dateizugriff').val();
+            let anmerkung       = $('#project-anmerkung').val();
+            let anmerkungen     = $('#project-anmerkungen').val();
+            let vertreter       = $('#project-vertreter').val();
+            let kontakt         = $('#project-kontakt').val();
+            let mandant_ansprechpartner = $('#project-mandant-ansprechpartner').val();
             let dienstleister_name      = $('#project-dienstleister-name').val();
             let dienstleister_funktion  = $('#project-dienstleister-funktion').val();
-            let dateizugriff = $('#project-dateizugriff').val();
-            let anmerkung    = $('#project-anmerkung').val();
-            let anmerkungen  = $('#project-anmerkungen').val();
-            let vertreter    = $('#project-vertreter').val();
-            let kontakt      = $('#project-kontakt').val();
-
+            
             // Validierung
             if (projektname.trim() === '') {
                 console.log('Projektname ist erforderlich');
@@ -167,6 +167,7 @@
                     console.log(response.debug);
                     showMessage(response.message, 'success');
                     reloadProjectContainer();
+                    reloadDashboardProjects();
                     closeProjectForm();
                 }).fail(function(response) {
                     console.log('Fehler beim Speichern:', response);
@@ -178,22 +179,23 @@
          */
         $(document).on('click', '#delete-project', function(e) {
             e.preventDefault();
-            if (!confirm('Möchten Sie dieses Projekt wirklich löschen?')) {
-                return;
-            }
-
-            let $container = $(this).closest('.setup-project-data');
-            let project_id = $container.attr('id').replace('setup-project-','');
+            
+            let $container   = $(this).closest('.setup-project-data');
+            let project_id   = $container.attr('id').replace('setup-project-','');
+            let project_name = $container.find('#project-name').val();
 
             var formData = {
                 _wpnonce: ajax_object_projects.nonce,
-                project_id: project_id
+                project_id: project_id,
+                project_name: project_name 
             };
 
             wp.ajax.post('handle_delete_project', formData)
                 .done(function(response) {
                     console.log('Projekt gelöscht:', response);
+                    showMessage(response.message, 'success');
                     reloadProjectContainer();
+                    reloadDashboardProjects();
                     closeProjectForm();
                 }).fail(function(response) {
                     console.log('Fehler beim Löschen:', response);
@@ -243,6 +245,26 @@
                     //console.log('Projekte-Liste aktualisiert');
                 }).fail(function(response) {
                     console.log('Fehler beim Aktualisieren der Liste:', response);
+                });
+        }
+
+        /**
+         * PROJEKTE: Reload Dashboard Project List nach Löschen
+         */
+        function reloadDashboardProjects() {
+            var formData = {
+                _wpnonce: ajax_object_projects.nonce,
+                action: 'get_projects_list'
+            };
+
+            wp.ajax.post('get_projects_list', formData)
+                .done(function(response) {
+                    const $dashboardContent = $('#memy-dashboard-my-projects .item-content');
+                    if ($dashboardContent.length) {
+                        $dashboardContent.html(response);
+                    }
+                }).fail(function(response) {
+                    console.log('Fehler beim Aktualisieren des Dashboard-Projekte-Widgets:', response);
                 });
         }
 

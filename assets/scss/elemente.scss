@@ -99,13 +99,22 @@ button:hover{
         background-color: #fff;
         border: var(--memy-border);
         padding: var(--memy-padding-small-dashbox);
-        width: 300px;
+        width: 325px;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         .title{
             margin-bottom:10px;
             font-weight: 600;
+        }
+    }
+
+    &.delete-popup{
+        .content{
+            text-align: center;
+            .spalte{
+                justify-content: space-evenly;
+            }
         }
     }
 
@@ -223,7 +232,7 @@ div,p{
         i{
             cursor: pointer;
             height:15px;
-            background-position: -10px center;
+            background-position: -12px center;
             &.pfeil-oben:hover{
                 transform: rotate(270deg) scale(.8);
             }
@@ -245,7 +254,9 @@ div,p{
 .quarter-width{
     width: 25%;
 }
-
+.three-quarters-width{
+    width: 75%;
+}
 .flex-one{
     flex:1
 }

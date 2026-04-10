@@ -7,6 +7,9 @@
     </div>
 
     <?php 
+    /** 
+     *  Daten für die Select-Felder holen
+     * */ 
     $user_id            = get_current_user_id();
     //Get Vertreter-Liste für Select-Feld
     $vertreter_list     = get_user_meta($user_id, 'vertreter_list', true);
@@ -50,7 +53,7 @@
                 <?php 
                 addInput('Kunde, Patient, Klient, Mandant', '', 'project-mandant', 'Name');
                 addInput('', '', 'project-mandant-ansprechpartner', 'Ansprechpartner');
-                echo '<div class="spalte">';
+                echo '<div class="spalte input-wrapper">';
                     addInput('', '', 'project-mandant-telefon', 'Telefon', 'number');
                     addInput('', '', 'project-mandant-mobile', 'Mobile', 'number');
                 echo '</div>';
@@ -58,7 +61,7 @@
                 ?>
             </div>
             
-            <div class="spalte">
+            <div class="spalte input-wrapper">
                 <?php
                 addCheckboxGroup('Projektstatus', [
                     'Geplant'       => 'Geplant',
@@ -72,7 +75,7 @@
 
             <div>
                 <?php 
-                echo '<div class="spalte">';
+                echo '<div class="spalte input-wrapper">';
                     addInput('Andere beteiligte und/oder Dienstleister', '', 'project-dienstleister-name', 'Name_');
                     addInput(' ', '', 'project-dienstleister-funktion', 'Funktion_');
                 echo '</div>';
@@ -100,6 +103,8 @@
 
     <div class="spalte save-wrapper">
         <button id="save-project"><i class='mmsi-icon speichern'></i> Speichern</button>
-        <button id="delete-project" style="display: none;"><i class='mmsi-icon delete'></i> Löschen</button>
+        <button data-id="delete-project" class="delete-btn-pop"><i class='mmsi-icon delete'></i> Löschen</button>
     </div>
+
+    <?php deletePopup('delete-project', 'Projekt löschen'); ?>
 </div>

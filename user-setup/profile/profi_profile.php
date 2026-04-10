@@ -46,6 +46,6 @@
 </div>
 
 <div class="spalte">
-    <button id="user-data-save">Daten speichern</button>
+    <button id="user-data-save"><i class="mmsi-icon speichern"></i>Speichern</button>
     <span id="loading" style="display: none;">Speichere...</span>
 </div>

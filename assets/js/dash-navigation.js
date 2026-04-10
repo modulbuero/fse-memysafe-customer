@@ -10,6 +10,7 @@
         showDasboard()
         manageShortInfoPopup()
         numberInputArrow()
+        deletePopup()
     })
 
     function dashNavigation(){

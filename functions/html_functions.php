@@ -105,7 +105,7 @@ function addTextarea($label, $value='', $id='1', $placeholder='',$rows='5'){
 }
 
 function infoPopup($text, $title){
-    $popy = "<i class='mmsi-icon info'></i>";
+    $popy = "<i class='mmsi-icon info haspopup-info'></i>";
     $popy .= "<div class='info-popup-wrap'>
         <div class='close-btn'><i class='bi bi-x-lg'></i></div>
         <div class='content'>";
@@ -116,4 +116,21 @@ function infoPopup($text, $title){
             </div>                
         </div>";
     echo $popy;
+}
+
+function deletePopup($btn_id, $title="Löschen"){
+    $delete_popy = "<div class='info-popup-wrap delete-popup'>
+        <div class='close-btn'><i class='bi bi-x-lg'></i></div>
+        <div class='content'>";
+            if(!empty($title)){
+                $delete_popy .= "<p class='title'>$title</p>";
+            }
+            $delete_popy .="<p>Sind Sie sicher?<br>Diese Aktion kann nicht rückgängig gemacht werden.</p>";
+            $delete_popy .="<div class='spalte'>";
+                $delete_popy .="<button id='$btn_id' class='delete-btn'>Löschen</button>";
+                $delete_popy .="<button class='cancel-btn'>Abbrechen</button>";
+            $delete_popy .="</div>";
+
+    $delete_popy .="</div></div>";
+    echo $delete_popy;
 }

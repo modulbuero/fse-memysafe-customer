@@ -100,7 +100,7 @@ button:hover i.mmsi-icon.download {
   background-color: #fff;
   border: var(--memy-border);
   padding: var(--memy-padding-small-dashbox);
-  width: 300px;
+  width: 325px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -108,6 +108,12 @@ button:hover i.mmsi-icon.download {
 .info-popup-wrap .content .title {
   margin-bottom: 10px;
   font-weight: 600;
+}
+.info-popup-wrap.delete-popup .content {
+  text-align: center;
+}
+.info-popup-wrap.delete-popup .content .spalte {
+  justify-content: space-evenly;
 }
 .info-popup-wrap.show {
   display: block;
@@ -216,7 +222,7 @@ div, p {
 .number-input .input-number-arrows i {
   cursor: pointer;
   height: 15px;
-  background-position: -10px center;
+  background-position: -12px center;
 }
 .number-input .input-number-arrows i.pfeil-oben:hover {
   transform: rotate(270deg) scale(0.8);
@@ -236,6 +242,10 @@ div, p {
 
 .quarter-width {
   width: 25%;
+}
+
+.three-quarters-width {
+  width: 75%;
 }
 
 .flex-one {

@@ -57,7 +57,7 @@ function memy_deathman_query_function() {
         $notfall_email         = get_user_meta($adminID, 'contact-person-1', true)['email'] ?? '';
         $hasSendNotfall        = get_option('has_send_notfall');
 
-        error_log("MeMySafe: ESK1" . $eskalation_stufe_one . " | Reminder1: " . $hasSendReminderOne . " | currDate: " . $curr_date_string);
+        error_log("MeMySafe: ESK | currDate: " . $curr_date_string);
         
         if(!empty($adminEmail) && !empty($notfall_email)
             ){
@@ -73,7 +73,8 @@ function memy_deathman_query_function() {
                     wp_mail($adminEmail, $subject, $message);
                     
                     update_option('has_send_reminder_one', $curr_date_string);
-                    error_log("MeMySafe: Reminder Mail gesendet an " . $adminEmail);
+                    error_log("MeMySafe: Reminder Mail 1 gesendet an " . $adminEmail);
+                    return;
                 }
 
                 
@@ -100,7 +101,8 @@ function memy_deathman_query_function() {
                     wp_mail($adminEmail, $subject, $message);
                     
                     update_option('has_send_reminder_two', $curr_date_string);
-                    error_log("MeMySafe: Reminder Mail gesendet an " . $adminEmail);
+                    error_log("MeMySafe: Reminder Mail 2 gesendet an " . $adminEmail);
+                    return;
                 }
             }
 
@@ -115,7 +117,8 @@ function memy_deathman_query_function() {
                     wp_mail($adminEmail, $subject, $message);
                     
                     update_option('has_send_reminder_three', $curr_date_string);
-                    error_log("MeMySafe: Reminder Mail gesendet an " . $adminEmail);
+                    error_log("MeMySafe: Reminder Mail 3 gesendet an " . $adminEmail);
+                    return;
                 }
             }
 
@@ -127,7 +130,7 @@ function memy_deathman_query_function() {
                 
                 update_option('has_send_notfall', $curr_date_string);
                 error_log("MeMySafe: Notfall Mail gesendet an " . $notfall_email);
-            
+                return;
             }
 
         }else{

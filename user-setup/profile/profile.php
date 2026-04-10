@@ -21,7 +21,7 @@ $ort          = (!empty($user_metas['ort'][0])) ? $user_metas['ort'][0] : "";
     <h4>Persönliche Daten</h4>
 
     <div class="spalte">
-        <div id="profile-persoenliche-daten" class="settings-labels half-width">
+        <div id="profile-persoenliche-daten" class="settings-labels three-quarters-width">
 
             <h5>Vorname und Nachname</h5>
             <div class="spalte">
@@ -83,6 +83,6 @@ $ort          = (!empty($user_metas['ort'][0])) ? $user_metas['ort'][0] : "";
 </div>
 
 <div class="spalte">
-    <button id="user-data-save">Daten speichern</button>
+    <button id="user-data-save"><i class="mmsi-icon speichern"></i>Speichern</button>
     <span id="loading" style="display: none;">Speichere...</span>
 </div>

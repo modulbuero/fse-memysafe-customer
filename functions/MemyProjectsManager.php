@@ -112,8 +112,9 @@ class MemyProjectsManager {
             return;
         }
         
-        $user_id    = get_current_user_id();
-        $project_id = sanitize_text_field($_POST['project_id']);
+        $user_id        = get_current_user_id();
+        $project_id     = sanitize_text_field($_POST['project_id']);
+        $project_name   = sanitize_text_field($_POST['project_name']);
         
         // Projekte-Liste abrufen
         $projects_list = get_user_meta($user_id, 'projects_list', true);
@@ -121,7 +122,13 @@ class MemyProjectsManager {
         if (is_array($projects_list) && isset($projects_list[$project_id])) {
             unset($projects_list[$project_id]);
             update_user_meta($user_id, 'projects_list', $projects_list);
-            wp_send_json_success('Projekt erfolgreich gelöscht');
+            wp_send_json_success(array(
+                'message' => 'Projekt '.$project_name. ' erfolgreich gelöscht',
+                'debug'   => array(
+                    'project_id' => $project_id,
+                    'project_name' => $project_name
+                )
+            ));
         } else {
             wp_send_json_error('Projekt nicht gefunden');
         }
