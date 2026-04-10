@@ -26,10 +26,16 @@ window.showMessage = function(message, type="fail") {
 window.deletePopup = function(){
     let delWrap = '.info-popup-wrap.delete-popup'
     $(document).on('click', '.delete-btn-pop', function(){
-        var $popup = $(this).parent().nextAll(delWrap).first();
+        
+        let $popup = $(this).parent().nextAll(delWrap).first();
+        
+        //Safe Upload: Popup ist außerhalb der Button-Struktur, deshalb übergeordnetes Element suchen attribut hinzufügen
         if (!$popup.length) {
-            $popup = $(this).closest('.setup-project-data').find(delWrap).first();
+            let filename = $(this).data('file');
+            $popup = $('#memy-file-list').nextAll(delWrap).first();
+            $popup.find('.delete-btn').attr('data-file', filename);
         }
+        
         $popup.addClass('show');
     });
 

@@ -351,8 +351,19 @@ if ( ! class_exists( 'Memy_Safe_Upload' ) ) {
         }
 
         /**
+         * Stale Datei-Metaeintrag löschen
+         *
+         * @param int $user_id
+         * @param array $meta
+         * @return bool
+         */
+        private static function delete_file_meta( $user_id, $meta ) {
+            return delete_user_meta( $user_id, '_safe_upload_file', $meta );
+        }
+
+        /**
          * Alle Dateien eines Benutzers abrufen
-         * 
+         *
          * @param int $user_id
          * @return array
          */
@@ -366,8 +377,28 @@ if ( ! class_exists( 'Memy_Safe_Upload' ) ) {
                 return array();
             }
 
+            $files_path = self::get_user_files_path( $user_id );
+            if ( ! $files_path ) {
+                return array();
+            }
+
             $files = get_user_meta( $user_id, '_safe_upload_file', false );
-            return is_array( $files ) ? $files : array();
+            if ( ! is_array( $files ) ) {
+                return array();
+            }
+
+            $valid_files = array();
+            foreach ( $files as $file_meta ) {
+                if ( isset( $file_meta['stored_name'] ) && file_exists( $files_path . '/' . $file_meta['stored_name'] ) ) {
+                    $valid_files[] = $file_meta;
+                    continue;
+                }
+
+                // Entferne verwaiste Metaeinträge, wenn die Datei manuell gelöscht wurde
+                self::delete_file_meta( $user_id, $file_meta );
+            }
+
+            return $valid_files;
         }
 
         /**
@@ -471,7 +502,17 @@ if ( ! class_exists( 'Memy_Safe_Upload' ) ) {
                 return new WP_Error( 'file_not_found', 'Datei nicht gefunden.' );
             }
 
-            return unlink( $file_path );
+            $deleted = unlink( $file_path );
+            if ( $deleted ) {
+                $files = get_user_meta( $user_id, '_safe_upload_file', false );
+                foreach ( $files as $file_meta ) {
+                    if ( isset( $file_meta['stored_name'] ) && $file_meta['stored_name'] === sanitize_file_name( $file_name ) ) {
+                        self::delete_file_meta( $user_id, $file_meta );
+                    }
+                }
+            }
+
+            return $deleted;
         }
     }
 }

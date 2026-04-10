@@ -9,7 +9,7 @@
    
     <!--JSGenerated-->
     <div id="memy-file-list"></div>
-
+    <?php deletePopup('delete-safe-file', 'Datei löschen'); ?>
 </div>
 
 <div class='spalte' class="save-wrapper">

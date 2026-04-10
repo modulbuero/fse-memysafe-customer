@@ -104,6 +104,12 @@ function addTextarea($label, $value='', $id='1', $placeholder='',$rows='5'){
     echo "<div class='$id'><label>$label</label><textarea id='$id' rows='$rows' placeholder='$placeholder'>$value</textarea></div>";
 }
 
+/**
+ * Einfaches Info-Popup
+ * @text Inhalt des Popups
+ * @title Titel des Popups (optional)
+ * return echo
+ */
 function infoPopup($text, $title){
     $popy = "<i class='mmsi-icon info haspopup-info'></i>";
     $popy .= "<div class='info-popup-wrap'>
@@ -118,6 +124,12 @@ function infoPopup($text, $title){
     echo $popy;
 }
 
+/**
+ * Lösch-Confirm-Popup
+ * @btn_id ID des Lösch-Buttons (wird für die JS-Eventbindung benötigt)
+ * @title Titel des Popups (optional)
+ * return echo
+ */
 function deletePopup($btn_id, $title="Löschen"){
     $delete_popy = "<div class='info-popup-wrap delete-popup'>
         <div class='close-btn'><i class='bi bi-x-lg'></i></div>

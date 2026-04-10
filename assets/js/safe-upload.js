@@ -33,8 +33,8 @@
                 SafeUpload.handleFileSelect(this);
             });
 
-            // Datei-Löschen
-            $(document).on('click', '.memy-file-delete', function(e) {
+            // Datei-Löschen, Confirm Popup
+            $(document).on('click', '#delete-safe-file.delete-btn', function(e) {
                 e.preventDefault();
                 const fileName = $(this).data('file');
                 SafeUpload.deleteFile(fileName);
@@ -158,10 +158,6 @@
          * Datei löschen via AJAX
          */
         deleteFile: function(fileName) {
-            if (!confirm('Wirklich löschen?')) {
-                return;
-            }
-
             $.ajax({
                 url: memySafeUpload.ajaxurl,
                 type: 'POST',
@@ -171,12 +167,14 @@
                     nonce: memySafeUpload.deleteNonce
                 },
                 success: function(response) {
+                    console.log("response");
+                    console.log(response);
                     if (response.success) {
-                        SafeUpload.showNotification('Datei gelöscht!', 'success');
+                        showMessage(response.data.message, 'success');
                         SafeUpload.loadFileList(); // Liste aktualisieren
                         SafeUpload.loadFileListShort();
                     } else {
-                        SafeUpload.showNotification(response.data.message || 'Fehler beim Löschen', 'error');
+                        showMessage(response.data.message);
                     }
                 },
                 error: function() {
@@ -314,7 +312,7 @@
                 html += '</div>';
                 html += '<div class="memy-file-actions">';                    
                     html += '<button class="memy-file-download" data-file="' + SafeUpload.escapeHtml(file.stored_name) + '"><i class="mmsi-icon download"></i></button>';
-                    html += '<button class="memy-file-delete" data-file="' + SafeUpload.escapeHtml(file.stored_name) + '"><i class="mmsi-icon delete"></i></button>';
+                    html += '<button class="delete-btn-pop" data-file="' + SafeUpload.escapeHtml(file.stored_name) + '"><i class="mmsi-icon delete"></i></button>';
                 html += '</div>';
                 html += '</li>';
             });

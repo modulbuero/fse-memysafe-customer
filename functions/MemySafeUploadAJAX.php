@@ -20,7 +20,7 @@ if ( ! class_exists( 'Memy_Safe_Upload_AJAX' ) ) {
             add_action( 'wp_ajax_memy_download_file', array( __CLASS__, 'handle_download_file' ) );
 
             // Script & Daten laden
-            add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_scripts' ) );
+            add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_scripts' ), 99 );
         }
 
         /**
