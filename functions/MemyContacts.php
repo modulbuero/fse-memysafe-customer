@@ -74,8 +74,9 @@ class MemyContacts {
             return;
         }
         
-        $user_id    = get_current_user_id();
-        $contact_id = intval($_POST['contact_id']);
+        $user_id      = get_current_user_id();
+        $contact_id   = intval($_POST['contact_id']);
+        $contact_name = sanitize_text_field($_POST['contact_name']);
         
         // Kontaktdaten leeren
         $empty_data = [
@@ -92,7 +93,14 @@ class MemyContacts {
         
         // Update user meta with empty data
         update_user_meta($user_id, 'contact-person-'.$contact_id, $empty_data);
-        wp_send_json_success('Kontakt erfolgreich gelöscht');
+        wp_send_json_success(array(
+            'message' => $contact_name . ' erfolgreich gelöscht.',
+            'debug'   => [
+                'contact_id' => $contact_id,
+                'user_id' => $user_id,
+                'contact_name' => $contact_name
+            ]
+        ));
     }
 }
 

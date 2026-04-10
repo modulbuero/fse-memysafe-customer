@@ -24,16 +24,17 @@ window.showMessage = function(message, type="fail") {
  *      id delete-popup
  */
 window.deletePopup = function(){
+    let delWrap = '.info-popup-wrap.delete-popup'
     $(document).on('click', '.delete-btn-pop', function(){
-        var $popup = $(this).parent().nextAll('.info-popup-wrap.delete-popup').first();
+        var $popup = $(this).parent().nextAll(delWrap).first();
         if (!$popup.length) {
-            $popup = $(this).closest('.setup-project-data').find('.info-popup-wrap.delete-popup').first();
+            $popup = $(this).closest('.setup-project-data').find(delWrap).first();
         }
         $popup.addClass('show');
     });
 
-    $(document).on('click', '.info-popup-wrap.delete-popup .close-btn, .info-popup-wrap.delete-popup .cancel-btn', function(){
-        $(this).closest('.info-popup-wrap.delete-popup').removeClass('show');
+    $(document).on('click', delWrap + ' .close-btn, ' + delWrap + ' .cancel-btn, ' + delWrap + ' .delete-btn', function(){
+        $(this).closest(delWrap).removeClass('show');
     });
 }
 })(jQuery)
