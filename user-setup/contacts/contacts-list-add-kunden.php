@@ -26,6 +26,8 @@
 
     <div class="spalte save-wrapper">
         <button id="save-kunden"><i class='mmsi-icon speichern'></i> Speichern</button>
-        <button id="delete-kunden" style="display: none;"><i class='mmsi-icon delete'></i> Löschen</button>
+        <button class="delete-btn-pop delete-kunden"><i class='mmsi-icon delete'></i> Löschen</button>
     </div>
+
+    <?php deletePopup('delete-kunden', 'Kunde löschen'); ?>
 </div>

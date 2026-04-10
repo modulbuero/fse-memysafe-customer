@@ -98,12 +98,9 @@
          */
         $(document).on('click', '#delete-kunden', function(e) {
             e.preventDefault();
-            if (!confirm('Möchten Sie diesen Kunden wirklich löschen?')) {
-                return;
-            }
 
             let $container = $(this).closest('.setup-kunden-data');
-            let kunden_id = $container.attr('id').replace('setup-kunden-','');
+            let kunden_id  = $container.attr('id').replace('setup-kunden-','');
 
             var formData = {
                 _wpnonce: ajax_object_contacts.nonce,
@@ -139,22 +136,7 @@
          * KUNDEN: Reload Container nach Speichern
          */
         function reloadKundenContainer() {
-            var formData = {
-                _wpnonce: ajax_object_contacts.nonce,
-                action: 'get_kunden_list'
-            };
-
-            wp.ajax.post('get_kunden_list', formData)
-                .done(function(response) {
-                    // Container mit neuer Liste aktualisieren
-                    const $container = $('#kunden-section');
-                    if ($container.length) {
-                        $container.html(response);
-                    }
-                    console.log('Kunden-Liste aktualisiert');
-                }).fail(function(response) {
-                    showMessage('Fehler beim Aktualisieren der Liste:' + response);
-                });
+            $('#kunden-section').load(location.href + ' #kunden-section .settings-labels');
         }
     })
 })(jQuery)

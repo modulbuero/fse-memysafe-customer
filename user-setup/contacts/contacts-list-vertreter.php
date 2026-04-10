@@ -34,10 +34,10 @@
             
             if (!empty($vertreter_email) || !empty($vertreter_name)) {
                 ?>
-                <div data-vertreter="<?php echo $vertreter_id; ?>" class="vertreter-person-mail memy-button goto-btn" data-goto='vertretungskontakt' data-step="5">
+                <button data-vertreter="<?php echo $vertreter_id; ?>" class="vertreter-person-mail memy-button goto-btn" data-goto='vertretungskontakt' data-step="5">
                     <h5><?php echo htmlspecialchars($vertreter_name ?? 'Vertreter'); ?></h5>
                     <i class='mmsi-icon pfeil'></i>
-                </div>
+                </button>
             <?php
             }
         }

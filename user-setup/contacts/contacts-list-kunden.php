@@ -34,10 +34,10 @@
             
             if (!empty($kunden_email) || !empty($kunden_name)) {
                 ?>
-                <div data-kunden="<?php echo $kunden_id; ?>" class="kunden-person-mail memy-button goto-btn" data-goto='kundenkontakt' data-step="5">
+                <button data-kunden="<?php echo $kunden_id; ?>" class="kunden-person-mail memy-button goto-btn" data-goto='kundenkontakt' data-step="5">
                     <h5><?php echo htmlspecialchars($kunden_name ?? 'Kunde'); ?></h5>
                     <i class='mmsi-icon pfeil'></i>
-                </div>
+                </button>
             <?php
             }
         }

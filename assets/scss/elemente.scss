@@ -86,12 +86,17 @@ button:hover{
     z-index: 10;
 
     .close-btn{
-        padding:20px 10px;
-        align-items: flex-end;
+        padding: 20px;
+        align-items: center;
+        justify-content: center;
+        width: 57px;
+        right: 0;
+        position: absolute;
+        top: 9px;
         cursor: pointer;
         transition: all .3s ease;
         &:hover{
-            font-size: 120%;
+            transform: rotate(360deg);
         }
     }
     .content{

@@ -87,13 +87,18 @@ button:hover i.mmsi-icon.download {
   z-index: 10;
 }
 .info-popup-wrap .close-btn {
-  padding: 20px 10px;
-  align-items: flex-end;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 57px;
+  right: 0;
+  position: absolute;
+  top: 9px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 .info-popup-wrap .close-btn:hover {
-  font-size: 120%;
+  transform: rotate(360deg);
 }
 .info-popup-wrap .content {
   position: absolute;
