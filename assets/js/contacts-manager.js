@@ -48,14 +48,15 @@
         /**
          * DELETE Contact Information
          */
-        $('.setup-contact-person-data button#delete').on('click', function(e) {
+        $('.setup-contact-person-data button#delete-contact').on('click', function(e) {
             e.preventDefault();
-            let $container = $(this).closest('.setup-contact-person-data');
-            let id         = $container.attr('id').replace('setup-contact-person-','');
-        
+            let $container   = $(this).closest('.setup-contact-person-data');
+            let id           = $container.attr('id').replace('setup-contact-person-','');
+            let contact_name = $container.find('#contact-name-'+id).val();
             var formData = {
                 _wpnonce:   ajax_object_contacts.nonce,
-                contact_id: id
+                contact_id: id,
+                contact_name: contact_name
             };
             
             wp.ajax.post('handle_delete_contacts', formData)
@@ -67,6 +68,7 @@
                 $container.find('input[type="checkbox"]').prop('checked', false);
                 $container.find('select').val('');
                 console.log(response);
+                showMessage(response.message, 'success');
             }).fail(function(response) {
                 console.log(response);
             });
