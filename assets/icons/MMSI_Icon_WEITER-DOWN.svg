@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rechteck_1" data-name="Rechteck 1" width="48" height="48"/>
+    </clipPath>
+  </defs>
+  <g id="MMSI_Icon_WEITER-DOWN" clip-path="url(#clip-path)">
+    <g id="MMSI_Icon_WEITER" clip-path="url(#clip-path)">
+      <path id="icon_WEITER" d="M995.476,980.037a10,10,0,1,0,10,10A10,10,0,0,0,995.476,980.037Zm0,17.857a7.857,7.857,0,1,1,7.857-7.857,7.857,7.857,0,0,1-7.857,7.857Zm.12-12.331,4.5,4.5-4.5,4.5V991.1h-4.151v-2.143H995.6v-3.4Z" transform="translate(1014.037 -971.476) rotate(90)"/>
+    </g>
+  </g>
+</svg>

@@ -10,6 +10,8 @@ ul.memy-file-list li {
   display: flex;
   justify-content: space-between;
   gap: 10px;
+  max-height: 24px;
+  overflow: hidden;
 }
 ul.memy-file-list li .memy-file-info {
   flex-direction: row;
@@ -22,6 +24,7 @@ ul.memy-file-list li .memy-file-info .memy-file-name-wrap {
   display: flex;
   gap: 10px;
   flex: 1;
+  white-space: nowrap;
 }
 ul.memy-file-list li .memy-file-info .memy-file-name-wrap .memy-file-name {
   flex: 1;
@@ -63,8 +66,7 @@ ul.memy-file-list li button {
 #memy-file-list-short ul li .memy-file-info > span:not(.memy-file-name-wrap) {
   display: none;
 }
-#memy-file-list-short ul li .memy-file-actions .memy-file-delete,
-#memy-file-list-short ul li .memy-file-actions .memy-file-download {
+#memy-file-list-short ul li .memy-file-actions {
   display: none;
 }
 

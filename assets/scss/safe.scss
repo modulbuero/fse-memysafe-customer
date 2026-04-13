@@ -10,6 +10,8 @@ ul.memy-file-list{
         display: flex;
         justify-content: space-between;
         gap:10px;
+        max-height: 24px;
+        overflow: hidden;
 
         .memy-file-info{
             flex-direction: row;
@@ -22,6 +24,7 @@ ul.memy-file-list{
                 display:flex;
                 gap: 10px;
                 flex: 1;
+                white-space: nowrap;
                 .memy-file-name{
                     flex: 1;
                     transition: all .3s ease;
@@ -79,10 +82,7 @@ ul.memy-file-list{
             }
             
             .memy-file-actions{
-                .memy-file-delete,
-                .memy-file-download{
-                    display:none;
-                }
+                display:none;
             }
         }
     }

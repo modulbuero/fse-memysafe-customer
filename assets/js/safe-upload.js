@@ -380,6 +380,7 @@
 
         /**
          * Benachrichtigung anzeigen
+         * @deprecated showMessage() verwenden, da es bereits eine zentrale Funktion dafür gibt
          */
         showNotification: function(message, type) {
             const notification = $('<div></div>')
