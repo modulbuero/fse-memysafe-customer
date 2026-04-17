@@ -28,17 +28,8 @@ foreach (range(1, 3) as $i):
             addInput('E-Mail-Adresse', $person_email, 'contact-email-'.$i, 'email');
             addInput('Telefonnummer', $person_tel, 'contact-tel-'.$i, 'number');
             addInput('Firma (Optional)', $person_firma, 'contact-firma-'.$i);            
+            addSelect('Status', ['Aktiv' => 'Aktiv', 'Ausstehend' => 'Ausstehend'], $person_status, 'contact-person-status-'.$i, false);
             ?>
-            
-            <div class="selectbox">
-                <label>
-                    Status
-                </label>
-                <select class="contact-status" id="contact-person-status-<?php echo $i; ?>">
-                    <option value="Aktiv" <?php echo ($person_status === 'Aktiv') ? 'selected' : ''; ?>>Aktiv</option>
-                    <option value="Inaktiv" <?php echo ($person_status === 'Ausstehend') ? 'selected' : ''; ?>>Ausstehend</option>
-                </select>
-            </div>
         </div>
         
         <br>

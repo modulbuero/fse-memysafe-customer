@@ -86,6 +86,11 @@ div{
                 cursor: pointer;
                 display: flex;
                 gap: 10px;
+                
+                .mmsi-icon{
+                    top:1px
+                }
+
                 span{
                     transition: all .3s ease;
                 }
@@ -97,7 +102,9 @@ div{
                 }
             }
             form{
-                
+                .mmsi-icon{
+                    top:2px;
+                }
             }
         }
 

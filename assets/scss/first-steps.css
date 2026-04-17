@@ -1,0 +1,48 @@
+#first-settings {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+#first-settings > div {
+  height: 100%;
+}
+#first-settings > div .container {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  transition: left 0.3s ease;
+  padding: var(--memy-padding-inner-container);
+}
+#first-settings > div .container:not(:first-child) {
+  margin-left: 100%;
+}
+#first-settings > div .container.show {
+  left: -100%;
+}
+#first-settings > div .container .inner-main-heading {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: var(--memy-trenner);
+}
+#first-settings > div .container .is-checkbox {
+  margin-top: auto;
+}
+#first-settings > div .container .fs-naviwrapper {
+  flex-direction: row;
+  margin-top: auto;
+  gap: var(--memy-padding-root);
+  justify-content: flex-end;
+}
+#first-settings > div .container .fs-naviwrapper button {
+  max-width: 50%;
+  flex: 1;
+}
+#first-settings > div .container .final-btns .fs-naviwrapper button {
+  max-width: 100%;
+}/*# sourceMappingURL=first-steps.css.map */

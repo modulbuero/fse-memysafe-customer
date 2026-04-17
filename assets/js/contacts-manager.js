@@ -38,6 +38,7 @@
              */
             wp.ajax.post('handle_update_contacts', formData)
             .done(function(response) {
+                console.log(response)
                 showMessage(response.message, 'success');
                 $('#goback').click()
                 reloadContactsListDashboard()

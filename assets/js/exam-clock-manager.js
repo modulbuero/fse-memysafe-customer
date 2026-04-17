@@ -48,6 +48,9 @@
         oneatthetimeCheckboxGroup('#lebenszeichen-chooser')
         oneatthetimeCheckboxGroup('#reminder-chooser')
 
+        //Ersteinrichtung
+        setExamClockCycles()
+
         //Dashboard Exam Clock
         updateExamClockDashboard()
         updateExamClockCycles()
@@ -107,6 +110,7 @@
     /**
      * Update Zyklen
      */
+    //Im Dashboard
     function updateExamClockCycles(){
         $('#exam-clock-save-zyklus').on('click', function(e) {
             e.preventDefault();
@@ -135,6 +139,31 @@
         });
     }
 
+    //Im FirstSettings
+    function setExamClockCycles(){
+        $('#zyklus-ersteinrichtung').on('click', function(e) {
+            e.preventDefault();
+            let userid = $('#memy-dashboard').data('user-id');
+            
+            let formData = {
+                _wpnonce:       ajax_object_deathman.nonce,
+                user_id:        userid,
+                zyklus_one:     $('#fs-exam-clock-zyklus-one').val(),
+                zyklus_two:     $('#fs-exam-clock-zyklus-two').val(),
+                zyklus_three:   $('#fs-exam-clock-zyklus-three').val(),
+            };
+            
+            wp.ajax.post('handle_update_exam_clock_cycles', formData)
+            .done(function(response) {
+                console.log('handle_update_exam_clock_cycles: ' + JSON.stringify(response.debug));
+                showMessage(response.message, 'success');
+                $('.container.timer .first-step-button').attr('disabled', false)
+            }).fail(function(response) {
+                console.log('handle_update_exam_clock_cycles: ' + response.debug);
+                showMessage('Fehler beim Speichern der Zyklen');
+            });
+        });
+    }
     /**
      * Kreisanzeige Zyklen / 'Uhr'
      * */

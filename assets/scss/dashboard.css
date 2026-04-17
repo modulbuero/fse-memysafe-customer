@@ -50,10 +50,12 @@
 }
 #memy-dashboard #chooser-urlaubsmodus {
   position: absolute;
-  top: 0;
-  z-index: 1;
+  left: 0%;
+  top: 0%;
   width: 100%;
   height: 100%;
+  background-color: #fff;
+  z-index: 1;
   background-color: rgba(255, 255, 255, 0.2117647059);
   backdrop-filter: blur(3px);
 }
@@ -65,12 +67,12 @@
 .container-wrapper {
   /*Dashboard Container der Eingabemasken*/
   position: absolute;
-  max-width: var(--memy-dash-container);
   left: 0%;
   top: 0%;
   width: 100%;
   height: 100%;
   background-color: #fff;
+  max-width: var(--memy-dash-container);
   left: 100%;
 }
 .container-wrapper * {
@@ -78,7 +80,6 @@
 }
 .container-wrapper .container {
   position: absolute;
-  max-width: var(--memy-dash-container);
   left: 0%;
   top: 0%;
   width: 100%;
@@ -87,7 +88,6 @@
 }
 .container-wrapper .container > div {
   position: absolute;
-  max-width: var(--memy-dash-container);
   left: 0%;
   top: 0%;
   width: 100%;
@@ -118,9 +118,6 @@
   position: relative;
   left: calc(var(--memy-padding-inner-container-side) * -1);
   margin-top: var(--memy-padding-inner-container-side);
-}
-.container-wrapper .container > div .full-height {
-  height: 100%;
 }
 .container-wrapper .container > div {
   /*Wenn kein Overflow-Container davor*/

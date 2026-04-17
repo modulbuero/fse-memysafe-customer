@@ -44,6 +44,7 @@
             foreach ($kontakte as $kontakt) {
                 if (!empty($kontakt['name'])) {
                     $goto = $kontakt['pers_number'];
+                    
                     echo "<div class='spalte dash-item goto-btn' data-goto='".$goto."'>
                         <i class='mmsi-icon kontakt'></i>
                         <p>" . esc_html($kontakt['name']) . "</p>

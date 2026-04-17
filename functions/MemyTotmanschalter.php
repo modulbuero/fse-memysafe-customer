@@ -321,9 +321,9 @@ class MemyTotmanschalter {
             wp_send_json_success(array(
                 'message' => 'Zyklen erfolgreich aktualisiert.',
                 'debug' => array(
-                    'uzOne'   => $uzOne,
-                    'uzTwo'   => $uzTwo,
-                    'uzThree' => $uzThree,
+                    'uzOne'   => $zyklus_one,
+                    'uzTwo'   => $zyklus_two,
+                    'uzThree' => $zyklus_three,
                 )
             ));
         }

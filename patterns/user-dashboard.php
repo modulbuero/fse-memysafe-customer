@@ -144,6 +144,39 @@ if ( is_user_logged_in() ) :
         <!-- wp:pattern {"slug":"fse-memysafe-customer/user-profile"} /-->
     </div>
     
+    <!--  --------- -->
+    <!--  First-Settings -->
+    <?php 
+    if( ! get_user_meta($user_ID, 'first_settings', true) ) : 
+    ?>
+        <div id="first-settings"><div calss="container-wrapper">
+            <!--<form id="first-settings-form" method="post">-->
+                <div class="container welcome">
+                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-start.php'; ?>
+                </div>
+                <div class="container verstanden">
+                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-0.php'; ?>
+                </div>    
+                <div class="container adresse">
+                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-1.php'; ?>
+                </div>
+                <div class="container upload">
+                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-2.php'; ?>
+                </div>
+                <div class="container kontakt">
+                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-3.php'; ?>
+                </div>
+                <div class="container timer">
+                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-4.php'; ?>
+                </div>
+                <div class="container final">
+                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-final.php'; ?>
+                </div>
+            <!--</form>-->
+        </div></div>
+    <?php 
+    endif;
+    ?>
 </div>
 
 <?php endif; ?>

@@ -1,0 +1,48 @@
+@use 'mixins' as m;
+
+#first-settings{
+
+    @include m.dashcontainer;
+
+    >div{
+        height: 100%;
+        .container{
+            @include m.dashcontainer;
+            transition: left .3s ease;
+            padding: var(--memy-padding-inner-container);
+            &:not(:first-child){
+                margin-left:100%;
+            }
+            &.show{
+                left:-100%;
+            }
+
+            .inner-main-heading{
+                @include m.headingContainer;
+            }
+
+            .is-checkbox {
+                margin-top: auto;
+            }
+            .fs-naviwrapper{
+                flex-direction: row;
+                margin-top: auto;
+                gap:var(--memy-padding-root);
+                justify-content: flex-end;
+                button{
+                    max-width: 50%;
+                    flex:1;
+                }
+            }
+
+            .final-btns{
+                .fs-naviwrapper{
+                    button{
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+    }
+    
+}

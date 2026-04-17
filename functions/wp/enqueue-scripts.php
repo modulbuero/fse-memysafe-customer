@@ -85,6 +85,14 @@ function mbfse_child_style_Files(){
 		wp_get_theme()->get( 'Version' )
 	);
 
+	// First Settings
+	wp_enqueue_style(
+		'memy-first-steps',
+		get_stylesheet_directory_uri().$f_CSS.'first-steps.css',
+		array(),
+		wp_get_theme()->get( 'Version' )
+	);
+
 	/*JS*/
 	wp_enqueue_script(
 		'memy-child-menu',
@@ -106,6 +114,7 @@ function mbfse_child_style_Files(){
 		array('jquery'),
 		wp_get_theme()->get( 'Version' )
 	);
+
 }
 add_action('wp_enqueue_scripts', 'mbfse_child_style_Files', 999);
 

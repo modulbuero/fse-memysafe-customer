@@ -263,6 +263,10 @@ div, p {
   flex: 1;
 }
 
+.full-height {
+  height: 100%;
+}
+
 /*Kontakt Status*/
 .status-contact-person {
   background: #000;

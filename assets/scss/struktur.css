@@ -85,11 +85,17 @@ div.spalte > .input-wrapper {
   display: flex;
   gap: 10px;
 }
+#memy-user-menu #menu .wp-block-list li .mmsi-icon {
+  top: 1px;
+}
 #memy-user-menu #menu .wp-block-list li span {
   transition: all 0.3s ease;
 }
 #memy-user-menu #menu .wp-block-list li:hover span {
   transform: translateX(10px);
+}
+#memy-user-menu #menu .wp-block-list form .mmsi-icon {
+  top: 2px;
 }
 #memy-user-menu #menu #logout-form {
   margin: 40px 0 0;
