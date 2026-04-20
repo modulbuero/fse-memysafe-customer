@@ -147,7 +147,7 @@ if ( is_user_logged_in() ) :
     <!--  --------- -->
     <!--  First-Settings -->
     <?php 
-    if( ! get_user_meta($user_ID, 'first_settings', true) ) : 
+    if( ! get_user_meta($user_ID, 'first_settings', true) && current_user_can('administrator')) : 
     ?>
         <div id="first-settings"><div calss="container-wrapper">
             <!--<form id="first-settings-form" method="post">-->
