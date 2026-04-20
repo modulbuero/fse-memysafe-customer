@@ -101,10 +101,7 @@
 
     </div>
 
-    <div class="spalte save-wrapper">
-        <button id="save-project"><i class='mmsi-icon speichern'></i> Speichern</button>
-        <button data-id="delete-project" class="delete-btn-pop"><i class='mmsi-icon delete'></i> Löschen</button>
-    </div>
-
+    <?php saveDeleteButton('project') ?>
+    
     <?php deletePopup('delete-project', 'Projekt löschen'); ?>
 </div>

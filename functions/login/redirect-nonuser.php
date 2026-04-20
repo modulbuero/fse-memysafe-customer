@@ -63,6 +63,11 @@ function multisite_force_login() {
             return;
         }
 
+        // Subscriber haben generell Zugriff
+        if (in_array('subscriber', (array) $current_user->roles, true)) {
+            return;
+        }
+
         // Prüfen ob Benutzer eingeloggt und Eigentümer ist
         $is_owner = ($current_user_id && $current_user_id == $site_owner_id);
         

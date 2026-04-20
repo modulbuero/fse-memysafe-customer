@@ -105,6 +105,9 @@ function register_main_blog_title_block() {
 }
 add_action('init', 'register_main_blog_title_block');
 
+/**
+ * Status eines Kontakts ausgeben.
+ */
 function contactIsActive($person_email){
     // Wenn Benutzer mit dieser Email existiert, Status auf "Aktiv" setzen
     if (!empty($person_email) && email_exists($person_email)) {
@@ -113,4 +116,24 @@ function contactIsActive($person_email){
         $person_status = 'Ausstehend';
     }
     return $person_status;
+}
+
+/**
+ * gibt die Admin-ID aus
+ */
+function getAdminUserID(){
+    $adminuserID = '';
+    $args = array(
+        'role'    => 'administrator',
+        'orderby' => 'registered',
+        'order'   => 'ASC',
+        'number'  => 1
+    );
+
+    $users = get_users($args);
+    if(!empty($users)){
+        $adminuserID = $users[0]->ID;
+    }
+    return $adminuserID;
+
 }

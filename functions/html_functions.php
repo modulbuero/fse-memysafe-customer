@@ -164,3 +164,20 @@ function firstStepNavi($next=true, $back=true, $backtext='Zurück', $nexttext='W
     echo $html;
 
 }
+
+/**
+ * Speichern und Löschen Buttons, die nur der Admin sehen kann.
+ */
+function saveDeleteButton($typ){
+    $html ="";
+
+    if(get_current_user_id() === getAdminUserID()){
+        $html = '<div class="spalte save-wrapper">';
+        $html .= "<button id='save-".$typ."'><i class='mmsi-icon speichern'></i> Speichern</button>
+            <button data-id='delete-".$typ."' class='delete-btn-pop'><i class='mmsi-icon delete'></i> Löschen</button>
+        </div>";
+
+        
+    }
+    echo $html;
+}
