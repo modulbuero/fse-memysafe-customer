@@ -104,3 +104,13 @@ function register_main_blog_title_block() {
     ]);
 }
 add_action('init', 'register_main_blog_title_block');
+
+function contactIsActive($person_email){
+    // Wenn Benutzer mit dieser Email existiert, Status auf "Aktiv" setzen
+    if (!empty($person_email) && email_exists($person_email)) {
+        $person_status = 'Aktiv';
+    }else{
+        $person_status = 'Ausstehend';
+    }
+    return $person_status;
+}

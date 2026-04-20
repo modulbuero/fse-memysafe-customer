@@ -11,7 +11,8 @@ foreach (range(1, 3) as $i):
     $person_name    = get_user_meta(get_current_user_id(), 'contact-person-'.$i, true)['name'] ?? '';
     $person_tel     = get_user_meta(get_current_user_id(), 'contact-person-'.$i, true)['tel'] ?? '';
     $person_firma   = get_user_meta(get_current_user_id(), 'contact-person-'.$i, true)['firma'] ?? '';
-    $person_status  = get_user_meta(get_current_user_id(), 'contact-person-'.$i, true)['status'] ?? '';
+    $person_status  = contactIsActive($person_email);
+    
     #$person_is_main = get_user_meta(get_current_user_id(), 'contact-person-'.$i, true)['hauptkontakt'] ?? '';
     $mmsi_can       = get_user_meta(get_current_user_id(), 'contact-person-'.$i, true)['mmsi_can'] ?? '';    
 
