@@ -22,9 +22,13 @@
          * Event Listener registrieren
          */
         setupEventListeners: function() {
-            // Upload-Button
+            // Upload-Button (nur für Admin)
             $(document).on('click', '.memy-upload-trigger', function(e) {
                 e.preventDefault();
+                if (!memySafeUpload.isAdmin) {
+                    alert('Nur Administratoren können Dateien hochladen.');
+                    return;
+                }
                 $('#memy-file-input').click();
             });
 
@@ -34,7 +38,7 @@
             });
 
             // Datei-Löschen, Confirm Popup
-            $(document).on('click', '#delete-safe-file.delete-btn', function(e) {
+            $(document).on('click', '.delete-btn-pop', function(e) {
                 e.preventDefault();
                 const fileName = $(this).data('file');
                 SafeUpload.deleteFile(fileName);
@@ -184,7 +188,7 @@
         },
 
         /**
-         * Datei herunterladen
+         * Datei herunterladen (für alle erlaubt)
          */
         downloadFile: function(fileName) {
             // Erstelle einen temporären Form für den Download
@@ -214,7 +218,7 @@
         },
 
         /**
-         * Datei in neuem Tab öffnen
+         * Datei in neuem Tab öffnen (für alle erlaubt)
          */
         openFile: function(fileName) {
             // Erstelle einen temporären Form für das Öffnen in neuem Tab
@@ -245,16 +249,17 @@
         },
 
         /**
-         * Datei-Liste laden
+         * Datei-Liste laden (Admin-Dateien)
          */
         loadFileList: function() {
+            const data = {
+                action: 'memy_get_files',
+                nonce: memySafeUpload.filesNonce
+            };
             $.ajax({
                 url: memySafeUpload.ajaxurl,
                 type: 'POST',
-                data: {
-                    action: 'memy_get_files',
-                    nonce: memySafeUpload.filesNonce
-                },
+                data: data,
                 success: function(response) {
                     if (response.success) {
                         SafeUpload.renderFileList(response.data.files);
@@ -264,16 +269,17 @@
         },
 
         /**
-         * Datei-Liste laden (Short - Max 3)
+         * Datei-Liste laden (Short - Max 3, Admin-Dateien)
          */
         loadFileListShort: function() {
+            const data = {
+                action: 'memy_get_files',
+                nonce: memySafeUpload.filesNonce
+            };
             $.ajax({
                 url: memySafeUpload.ajaxurl,
                 type: 'POST',
-                data: {
-                    action: 'memy_get_files',
-                    nonce: memySafeUpload.filesNonce
-                },
+                data: data,
                 success: function(response) {
                     if (response.success) {
                         const files = response.data.files.slice(0, 3);
@@ -312,7 +318,9 @@
                 html += '</div>';
                 html += '<div class="memy-file-actions">';                    
                     html += '<button class="memy-file-download" data-file="' + SafeUpload.escapeHtml(file.stored_name) + '"><i class="mmsi-icon download"></i></button>';
-                    html += '<button class="delete-btn-pop" data-file="' + SafeUpload.escapeHtml(file.stored_name) + '"><i class="mmsi-icon delete"></i></button>';
+                    if (memySafeUpload.isAdmin) {
+                        html += '<button class="delete-btn-pop" data-file="' + SafeUpload.escapeHtml(file.stored_name) + '"><i class="mmsi-icon delete"></i></button>';
+                    }
                 html += '</div>';
                 html += '</li>';
             });
