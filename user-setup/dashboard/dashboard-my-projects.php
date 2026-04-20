@@ -15,7 +15,7 @@
     <div class="item-content">        
         <?php
         // Projekte Liste anzeigen   
-        $user_id       = get_current_user_id();
+        $user_id       = getAdminUserID();
         $projects_list = get_user_meta($user_id, 'projects_list', true);
         
         if (empty($projects_list) || !is_array($projects_list)) {

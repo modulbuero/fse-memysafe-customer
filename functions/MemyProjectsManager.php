@@ -144,7 +144,7 @@ class MemyProjectsManager {
         }
         
         $project_id = isset($_POST['project_id']) ? sanitize_text_field($_POST['project_id']) : null;
-        $user_id = get_current_user_id();
+        $user_id = getAdminUserID();
         
         // Für neues Projekt leere Daten
         if (!$project_id || $project_id === 'new') {
@@ -204,7 +204,8 @@ class MemyProjectsManager {
         
         ob_start();
         
-        $user_id        = get_current_user_id();
+        $user_id        = getAdminUserID();
+        
         $projects_list = get_user_meta($user_id, 'projects_list', true);
         
         // Fallback wenn noch keine Projekte angelegt sind
@@ -240,7 +241,7 @@ class MemyProjectsManager {
             return;
         }
         
-        $user_id = get_current_user_id();
+        $user_id = getAdminUserID();
         $selected_vertreter = isset($_POST['selected']) ? sanitize_text_field($_POST['selected']) : '';
         $vertreter_list = get_user_meta($user_id, 'vertreter_list', true);
         
@@ -272,7 +273,7 @@ class MemyProjectsManager {
             return;
         }
         
-        $user_id = get_current_user_id();
+        $user_id = getAdminUserID();
         $selected_kontakt = isset($_POST['selected']) ? sanitize_text_field($_POST['selected']) : '';
         
         $html = '<div class="selectbox project-kontakt"><label>Notfallkontakt</label><select id="project-kontakt"><option value="">Notfallkontakt wählen</option>';

@@ -8,9 +8,8 @@
 <div class="overflow-wrapper settings-labels add-trenner" id="projects-list-container">
 
     <?php 
-    $user_id       = get_current_user_id();
+    $user_id       = getAdminUserID();
     $projects_list = get_user_meta($user_id, 'projects_list', true);
-
     /*
         Alle Kunden Projekte ausgeben
     */
