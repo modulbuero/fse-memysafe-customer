@@ -41,15 +41,26 @@ if ( ! class_exists( 'Memy_Safe_Upload_AJAX' ) ) {
             );
 
             // AJAX URL und Nonce an JavaScript übergeben
+            $current_user = wp_get_current_user();
+            $is_admin = in_array( 'administrator', (array) $current_user->roles ) || is_super_admin( get_current_user_id() );
+            $admin_users = get_users( array(
+                'role'   => 'administrator',
+                'number' => 1,
+                'fields' => 'ID',
+            ) );
+            $admin_user_id = ! empty( $admin_users ) ? $admin_users[0] : 0;
+
             wp_localize_script(
                 'memy-safe-upload',
                 'memySafeUpload',
                 array(
-                    'ajaxurl'    => admin_url( 'admin-ajax.php' ),
-                    'uploadNonce' => wp_create_nonce( 'memy_upload_file' ),
-                    'deleteNonce' => wp_create_nonce( 'memy_delete_file' ),
-                    'filesNonce'  => wp_create_nonce( 'memy_get_files' ),
-                    'downloadNonce' => wp_create_nonce( 'memy_download_file' ),
+                    'ajaxurl'      => admin_url( 'admin-ajax.php' ),
+                    'uploadNonce'  => wp_create_nonce( 'memy_upload_file' ),
+                    'deleteNonce'  => wp_create_nonce( 'memy_delete_file' ),
+                    'filesNonce'   => wp_create_nonce( 'memy_get_files' ),
+                    'downloadNonce'=> wp_create_nonce( 'memy_download_file' ),
+                    'isAdmin'      => $is_admin,
+                    'adminUserId'  => $admin_user_id,
                 )
             );
         }
@@ -68,14 +79,21 @@ if ( ! class_exists( 'Memy_Safe_Upload_AJAX' ) ) {
                 ) );
             }
 
+            $current_user = wp_get_current_user();
+            $user_id = get_current_user_id();
+            $is_admin = in_array( 'administrator', (array) $current_user->roles ) || is_super_admin( $user_id );
+            if ( ! $is_admin ) {
+                wp_send_json_error( array(
+                    'message' => 'Nur Administratoren können Dateien hochladen.',
+                ) );
+            }
+
             // $_FILES prüfen
             if ( ! isset( $_FILES['file'] ) ) {
                 wp_send_json_error( array(
                     'message' => 'Keine Datei hochgeladen.',
                 ) );
             }
-
-            $user_id = get_current_user_id();
 
             // Erlaubte MIME-Typen abrufen
             $allowed_types = ! empty( $_POST['allowed_types'] )
@@ -124,8 +142,22 @@ if ( ! class_exists( 'Memy_Safe_Upload_AJAX' ) ) {
                 ) );
             }
 
-            $user_id = get_current_user_id();
-            $files = Memy_Safe_Upload::get_user_files( $user_id );
+            $current_user = wp_get_current_user();
+            $current_user_id = get_current_user_id();
+            $is_admin = in_array( 'administrator', (array) $current_user->roles ) || is_super_admin( $current_user_id );
+
+            if ( $is_admin ) {
+                $requested_user_id = $current_user_id;
+            } else {
+                $admin_users = get_users( array(
+                    'role'   => 'administrator',
+                    'number' => 1,
+                    'fields' => 'ID',
+                ) );
+                $requested_user_id = ! empty( $admin_users ) ? $admin_users[0] : $current_user_id;
+            }
+
+            $files = Memy_Safe_Upload::get_user_files( $requested_user_id );
 
             if ( ! is_array( $files ) ) {
                 $files = array();
@@ -151,6 +183,15 @@ if ( ! class_exists( 'Memy_Safe_Upload_AJAX' ) ) {
                 ) );
             }
 
+            $current_user = wp_get_current_user();
+            $user_id = get_current_user_id();
+            $is_admin = in_array( 'administrator', (array) $current_user->roles ) || is_super_admin( $user_id );
+            if ( ! $is_admin ) {
+                wp_send_json_error( array(
+                    'message' => 'Nur Administratoren können Dateien löschen.',
+                ) );
+            }
+
             $file_name = isset( $_POST['file_name'] )
                 ? sanitize_text_field( $_POST['file_name'] )
                 : '';
@@ -161,7 +202,6 @@ if ( ! class_exists( 'Memy_Safe_Upload_AJAX' ) ) {
                 ) );
             }
 
-            $user_id = get_current_user_id();
             $result = Memy_Safe_Upload::delete_file( $file_name, $user_id );
 
             if ( is_wp_error( $result ) ) {
@@ -189,6 +229,10 @@ if ( ! class_exists( 'Memy_Safe_Upload_AJAX' ) ) {
                 ) );
             }
 
+            $current_user = wp_get_current_user();
+            $current_user_id = get_current_user_id();
+            $is_admin = in_array( 'administrator', (array) $current_user->roles ) || is_super_admin( $current_user_id );
+
             $file_name = isset( $_POST['file_name'] )
                 ? sanitize_text_field( $_POST['file_name'] )
                 : '';
@@ -203,10 +247,19 @@ if ( ! class_exists( 'Memy_Safe_Upload_AJAX' ) ) {
                 ) );
             }
 
-            $user_id = get_current_user_id();
-            
+            if ( $is_admin ) {
+                $requested_user_id = $current_user_id;
+            } else {
+                $admin_users = get_users( array(
+                    'role'   => 'administrator',
+                    'number' => 1,
+                    'fields' => 'ID',
+                ) );
+                $requested_user_id = ! empty( $admin_users ) ? $admin_users[0] : $current_user_id;
+            }
+
             // Download durchführen
-            Memy_Safe_Upload::download_file( $file_name, $user_id, $mode );
+            Memy_Safe_Upload::download_file( $file_name, $requested_user_id, $mode );
         }
     }
 

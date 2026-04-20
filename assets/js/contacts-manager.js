@@ -94,5 +94,32 @@
             $inputs.prop('readonly', !isReadonly);
         });
         */
+
+        /**
+         * Send Invitation zu Email
+         */
+        $('.send-invitation').on('click', function(e) {
+            e.preventDefault();
+            let $container   = $(this).closest('.setup-contact-person-data');
+            let id           = $container.attr('id').replace('setup-contact-person-','');
+            let contact_name = $container.find('#contact-name-'+id).val();
+            let contact_mail = $container.find('#contact-email-'+id).val();
+
+            var formData = {
+                _wpnonce:     ajax_object_contacts.nonce,
+                contact_mail: contact_mail,
+                contact_name: contact_name
+            };
+
+            console.log(formData)
+
+            wp.ajax.post('handle_send_contact_invitation', formData)
+            .done(function(response) {
+                console.log(response);
+            }).fail(function(response) {
+                console.log(response);
+            });
+
+        })
     })
 })(jQuery)

@@ -47,11 +47,11 @@ if ( ! class_exists( 'Memy_Safe_Upload' ) ) {
             return self::$base_path;
         }
 
-        /**
+        /*
          * Basis-URL abrufen
-         * 
+         * @deprecated
          * @return string
-         */
+         * 
         public static function get_base_url() {
             if ( self::$base_url === null ) {
                 $upload_dir = wp_upload_dir();
@@ -59,6 +59,7 @@ if ( ! class_exists( 'Memy_Safe_Upload' ) ) {
             }
             return self::$base_url;
         }
+        */
 
         /**
          * Benutzerspezifischen Ordner-Pfad abrufen
@@ -401,13 +402,13 @@ if ( ! class_exists( 'Memy_Safe_Upload' ) ) {
             return $valid_files;
         }
 
-        /**
+        /*
          * Datei abrufen (nur für authentifizierte Benutzer)
          * 
          * @param int $file_id
          * @param int $user_id
          * @return array|WP_Error
-         */
+         * @deprecated
         public static function get_file( $file_id, $user_id = null ) {
             if ( empty( $user_id ) ) {
                 $user = wp_get_current_user();
@@ -426,6 +427,7 @@ if ( ! class_exists( 'Memy_Safe_Upload' ) ) {
 
             return $file_meta[ $file_id ];
         }
+        */
 
         /**
          * Datei zum Download bereitstellen (mit Zugriffsprüfung)

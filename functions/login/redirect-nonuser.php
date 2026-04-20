@@ -26,15 +26,16 @@ function multisite_force_login() {
         if (in_array($script_name, $public_pages) || 
             in_array($current_page, $public_pages) ||
             strpos($_SERVER['REQUEST_URI'], 'wp-login') !== false ||
-            strpos($_SERVER['REQUEST_URI'], 'wp-admin') !== false) {
-            return; // Keine Weiterleitung bei Login-Seiten
+            strpos($_SERVER['REQUEST_URI'], 'wp-admin') !== false ||
+            isset($_GET['accept_invitation'])) {
+            return; // Keine Weiterleitung bei Login-Seiten oder Einladungsannahme
         }
         
         // Weiterleitung durchführen
         wp_redirect($login_url);
         exit;
     }else{
-        // Fremde bekannte
+        // Bekannte
         
         // Aktuelle Site-ID abrufen
         $current_site_id = get_current_blog_id();
@@ -55,7 +56,13 @@ function multisite_force_login() {
         
         // Aktuellen Benutzer abrufen
         $current_user_id = get_current_user_id();
-        
+        $current_user = wp_get_current_user();
+
+        // Subscriber dürfen helpermodus aufrufen
+        if (isset($_SERVER['REQUEST_URI']) && strpos($_SERVER['REQUEST_URI'], '/helpermodus') !== false && in_array('subscriber', (array) $current_user->roles, true)) {
+            return;
+        }
+
         // Prüfen ob Benutzer eingeloggt und Eigentümer ist
         $is_owner = ($current_user_id && $current_user_id == $site_owner_id);
         

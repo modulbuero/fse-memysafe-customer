@@ -22,7 +22,7 @@ foreach (range(1, 3) as $i):
             echo "Hauptkontakt";
         }
         ?>        
-        <div>
+        <div class="contact-data">
             <?php 
             addInput('Name', $person_name, 'contact-name-'.$i);
             addInput('E-Mail-Adresse', $person_email, 'contact-email-'.$i, 'email');
@@ -39,6 +39,8 @@ foreach (range(1, 3) as $i):
         <?php
         addInput('', 'Notfallkontakt', 'contact-typ-'.$i, '','hidden');     
         ?>
+
+        <button class="send-invitation"><i class='mmsi-icon speichern'></i> Einladung senden</button>
         
         <div class="spalte save-wrapper">
             <button id="save"><i class='mmsi-icon speichern'></i> Speichern</button>
