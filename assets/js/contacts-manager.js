@@ -3,7 +3,7 @@
         /**
          * SAVE/EDIT Contact Information
          */
-        $('.setup-contact-person-data button#save').on('click', function(e) {
+        $('.setup-contact-person-data button#save-contact').on('click', function(e) {
             e.preventDefault();
             let $container = $(this).closest('.setup-contact-person-data');
             let id         = $container.attr('id').replace('setup-contact-person-','');

@@ -10,9 +10,8 @@
 **/
 foreach (range(1, 3) as $i): 
 
-    $person_email   = get_user_meta(get_current_user_id(), 'contact-person-'.$i, true)['email'] ?? '';
-    $person_status  = get_user_meta(get_current_user_id(), 'contact-person-'.$i, true)['status'] ?? '';
-    
+    $person_email   = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['email'] ?? '';
+    $person_status  = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['status'] ?? '';
     ?>
         
     <div data-goto="contact-person-<?php echo $i; ?>" class="contact-person-mail memy-button goto-btn" data-step="4">
@@ -24,11 +23,7 @@ foreach (range(1, 3) as $i):
     <p id="status-contact-person-<?php echo $i; ?>" class="status-contact-person memy-short-info">
         <?php 
         if(!empty($person_email)){
-            if($person_status != 'aktiv') {
-                echo 'Ausstehend';
-            }else{
-                echo "Aktiv";   
-            }
+            echo contactIsActive($person_email);
         }else{
             echo 'Nicht benannt';
         }        

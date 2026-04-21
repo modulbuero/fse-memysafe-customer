@@ -107,6 +107,7 @@ add_action('init', 'register_main_blog_title_block');
 
 /**
  * Status eines Kontakts ausgeben.
+ * @return 
  */
 function contactIsActive($person_email){
     // Wenn Benutzer mit dieser Email existiert, Status auf "Aktiv" setzen

@@ -14,10 +14,7 @@
 
     <div class="item-content">        
         <?php
-        /*
-        TODO: Nach Status Abfragen
-        */
-        $user_id    = get_current_user_id();
+        $user_id    = getAdminUserID();
         $kontakte   = [];
         $vertrauensperson = get_user_meta($user_id, 'contact-person-4', true);
         
