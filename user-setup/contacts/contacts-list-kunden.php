@@ -13,7 +13,7 @@
      * Übersichtsliste der Kunden
      * Zeigt Status und Buttons zur Bearbeitung
      */
-    $user_id     = get_current_user_id();
+    $user_id     = getAdminUserID();
     $kunden_list = get_user_meta($user_id, 'kunden_list', true);
 
     // Fallback wenn noch keine Kunden angelegt sind

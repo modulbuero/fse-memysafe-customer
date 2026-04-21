@@ -11,10 +11,10 @@
     <?php 
     $i = 4; //Vertrauensperson
     //Variable
-    $v_person_name    = get_user_meta(get_current_user_id(), 'contact-person-'.$i, true)['name'] ?? '';
-    $v_person_email   = get_user_meta(get_current_user_id(), 'contact-person-'.$i, true)['email'] ?? '';
-    $v_person_tel     = get_user_meta(get_current_user_id(), 'contact-person-'.$i, true)['tel'] ?? '';
-    $v_person_firma   = get_user_meta(get_current_user_id(), 'contact-person-'.$i, true)['firma'] ?? '';
+    $v_person_name    = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['name'] ?? '';
+    $v_person_email   = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['email'] ?? '';
+    $v_person_tel     = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['tel'] ?? '';
+    $v_person_firma   = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['firma'] ?? '';
     ?>        
     <div>
         <?php 
@@ -26,9 +26,7 @@
         ?>
     </div>
 
-    <div class="spalte save-wrapper">
-        <button id="save"><i class='mmsi-icon speichern'></i> Speichern</button>
-        <button class="delete-btn-pop"><i class='mmsi-icon delete'></i> Löschen</button>
-    </div>
-    <?php deletePopup('delete-contact', 'Kontaktperson ' . $v_person_name . ' löschen'); ?>
+    <?php 
+    saveDeleteButton('contact');
+    deletePopup('delete-contact', 'Vertrauensperson ' . $v_person_name . ' löschen'); ?>
 </div>

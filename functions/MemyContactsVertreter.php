@@ -34,7 +34,7 @@ class MemyContactsVertreter {
             return;
         }
         
-        $user_id    = get_current_user_id();
+        $user_id    = getAdminUserID();
         $vertreter_id = isset($_POST['vertreter_id']) ? sanitize_text_field($_POST['vertreter_id']) : null;
         $name       = sanitize_text_field($_POST['name']);
         $email      = sanitize_email($_POST['email']);
@@ -110,7 +110,7 @@ class MemyContactsVertreter {
         }
         
         $vertreter_id = isset($_POST['vertreter_id']) ? sanitize_text_field($_POST['vertreter_id']) : null;
-        $user_id = get_current_user_id();
+        $user_id = getAdminUserID();
         
         // Für neuen Vertreter leere Daten
         if (!$vertreter_id || $vertreter_id === 'new') {
@@ -152,7 +152,7 @@ class MemyContactsVertreter {
         
         ob_start();
         
-        $user_id        = get_current_user_id();
+        $user_id        = getAdminUserID();
         $vertreter_list = get_user_meta($user_id, 'vertreter_list', true);
         
         // Fallback wenn noch keine Vertreter angelegt sind

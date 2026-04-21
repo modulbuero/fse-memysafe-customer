@@ -110,7 +110,7 @@ class MemyContactsKunden {
         }
         
         $kunden_id = isset($_POST['kunden_id']) ? sanitize_text_field($_POST['kunden_id']) : null;
-        $user_id = get_current_user_id();
+        $user_id = getAdminUserID();
         
         // Für neuen Kunde leere Daten
         if (!$kunden_id || $kunden_id === 'new') {
@@ -152,7 +152,7 @@ class MemyContactsKunden {
         
         ob_start();
         
-        $user_id        = get_current_user_id();
+        $user_id     = getAdminUserID();
         $kunden_list = get_user_meta($user_id, 'kunden_list', true);
         
         // Fallback wenn noch keine Kunden angelegt sind

@@ -13,7 +13,7 @@
      * Übersichtsliste der Vertreter
      * Zeigt Status und Buttons zur Bearbeitung
      */
-    $user_id        = get_current_user_id();
+    $user_id        = getAdminUserID();
     $vertreter_list = get_user_meta($user_id, 'vertreter_list', true);
 
     // Fallback wenn noch keine Vertreter angelegt sind
