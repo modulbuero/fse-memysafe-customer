@@ -224,4 +224,12 @@ label.is-checkbox .radio-label {
 }
 .profile-bearbeiten-wrap h4 + div > .settings-labels > div {
   padding-left: 40px;
+}
+
+/*Inputs sperren bei Helpermode*/
+.helper-mode > .container-wrapper input {
+  border: none;
+  border-bottom: var(--memy-border);
+  pointer-events: none;
+  cursor: not-allowed;
 }/*# sourceMappingURL=form.css.map */

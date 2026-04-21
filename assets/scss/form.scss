@@ -238,3 +238,15 @@ label.is-checkbox{
         }
     }
 }
+
+/*Inputs sperren bei Helpermode*/
+.helper-mode{
+    > .container-wrapper{
+        input{
+            border:none;
+            border-bottom: var(--memy-border);
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+    }
+}

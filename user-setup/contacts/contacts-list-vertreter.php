@@ -45,8 +45,11 @@
     }
     ?>
 </div><!-- Ende Vertreter-Liste -->
+
+<?php if(get_current_user_id() == getAdminUserID() ) : ?>
 <div class="vertreter-add-button-container goto-btn save-wrapper" data-goto="vertretungskontakt" data-step="5">
     <button id="btn-add-vertreter">
         <i class='mmsi-icon neu'></i> Vertreter hinzufügen
     </button>
 </div>
+<?php endif; ?>

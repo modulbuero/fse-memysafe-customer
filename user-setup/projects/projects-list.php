@@ -28,10 +28,11 @@
     }
     ?>
 </div>
-
+<?php if(get_current_user_id() == getAdminUserID() ): ?>
 <div class='spalte save-wrapper'>
     <button id='btn-add-project' class='memy-button goto-btn' data-goto='manage-projects' data-step="2">
         <i class="mmsi-icon neu"></i>
         Neues Projekt hinzufügen
     </button>
 </div>
+<?php endif; ?>

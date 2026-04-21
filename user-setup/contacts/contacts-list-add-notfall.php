@@ -29,20 +29,23 @@ foreach (range(1, 3) as $i):
             addInput('E-Mail-Adresse', $person_email, 'contact-email-'.$i, 'email');
             addInput('Telefonnummer', $person_tel, 'contact-tel-'.$i, 'number');
             addInput('Firma (Optional)', $person_firma, 'contact-firma-'.$i);            
-            addSelect('Status', ['Aktiv' => 'Aktiv', 'Ausstehend' => 'Ausstehend'], $person_status, 'contact-person-status-'.$i, false);
+            //addSelect('Status', ['Aktiv' => 'Aktiv', 'Ausstehend' => 'Ausstehend'], $person_status, 'contact-person-status-'.$i, false);
             ?>
         </div>
-        
         <br>
-        
         <?php 
-        addCheckbox('Darf MMSI den Safe öffnen?', $mmsi_can, 'contact-mmsi-can-'.$i); 
-        addInput('', 'Notfallkontakt', 'contact-typ-'.$i, '','hidden');     
-        ?>
+        addInput('', 'Notfallkontakt', 'contact-typ-'.$i, '','hidden'); 
+        
+        if(get_current_user_id() == getAdminUserID() ):
 
-        <button class="send-invitation"><i class='mmsi-icon speichern'></i> Einladung senden</button>
-        
+            addCheckbox('Darf MMSI den Safe öffnen?', $mmsi_can, 'contact-mmsi-can-'.$i); 
+        ?>
+            <button class="send-invitation">
+                <i class='mmsi-icon speichern'></i> Einladung senden
+            </button>
         <?php 
+        endif;
+        
         saveDeleteButton('contact');
         deletePopup('delete-contact', 'Kontaktperson ' . $person_name . ' löschen'); 
         ?>

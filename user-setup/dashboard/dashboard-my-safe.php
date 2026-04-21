@@ -14,10 +14,5 @@
 
     <div class="item-content">   
         <div id="memy-file-list-short"></div>
-         <!--   
-        <div class='spalte' style='margin-top: 20px;'>
-            <button id='btn-add-project' class='memy-button goto-btn' data-goto="manage-safe"  data-step="1">+ Datei hinzufügen</button>
-        </div>
-        -->
     </div>
 </div>

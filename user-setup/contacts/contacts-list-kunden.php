@@ -46,8 +46,10 @@
     ?>
 </div><!-- Ende Kunden-Liste -->
 
+<?php if(get_current_user_id() == getAdminUserID() ) : ?>
 <div class="kunden-add-button-container goto-btn save-wrapper" data-goto="kundenkontakt" data-step="5">
     <button id="btn-add-kunden">
         <i class='mmsi-icon neu'></i> Kunde hinzufügen
     </button>
 </div>
+<?php endif; ?>

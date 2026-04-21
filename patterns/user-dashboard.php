@@ -10,12 +10,13 @@
  */
 $current_user   = wp_get_current_user();
 $user_ID        = $current_user->ID;
+$isAdmin = (get_current_user_id() == getAdminUserID() ) ? 'is-admin' : 'helper-mode'; 
 global $wpdb;
 
 if ( is_user_logged_in() ) : 
 
 ?>
-<div class="wp-block-group" id="memy-dashboard" data-user-id="<?php echo esc_html( wp_get_current_user()->ID ); ?>">
+<div class="wp-block-group <?php echo $isAdmin; ?>" id="memy-dashboard" data-user-id="<?php echo esc_html( wp_get_current_user()->ID ); ?>">
 
     <!--  ------- --->
     <!--  Kacheln --->
