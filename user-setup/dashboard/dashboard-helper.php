@@ -11,14 +11,29 @@
             ?>
         </div>
     </div>
+    
     <div class="spalte">
         <div class="protokoll full-width">
-            <button data-goto="helper-protocol" class="dash-goto-btn">Protokoll erfassen</button>
-            <p>Bitte hier das Helfer-Aktivitäts-Protokoll erfassen</p>
+            <button data-goto="helper-protocol" class="dash-goto-btn">
+                Protokoll
+                <?php if(get_current_user_id() == getAdminUserID()) : ?>
+                    anzeigen
+                <?php else: ?>
+                    erfassen
+                <?php endif; ?>
+            </button>
+            <?php if(get_current_user_id() != getAdminUserID()) : ?>
+                <p>Bitte hier das Helfer-Aktivitäts-Protokoll erfassen</p>
+            <?php else: ?>
+                <p>&nbsp;</p>
+            <?php endif; ?>
         </div>
+        <?php if(get_current_user_id() == getAdminUserID()) : ?>
         <div class="wieder-da full-width">
-            <button>Ich bin wieder da</button>
+            <button id="finish-helper-mode">Ich bin wieder da</button>
             <p>Beende hier den Helfer-Modus</p>
         </div>
+        <?php endif; ?>
     </div>
+    
 </div>

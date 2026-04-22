@@ -20,7 +20,9 @@
                     <th>Datum</th>
                     <th>Aktivität</th>
                     <th>Status</th>
-                    <th>Bearbeiten</th>
+                    <?php if(get_current_user_id() != getAdminUserID() ): ?>
+                    <th class="edit-column">Bearbeiten</th>
+                    <?php endif; ?>
                 </tr>
                 <?php
                 foreach ($protocol_list as $protocol) {
@@ -30,16 +32,21 @@
                     $protocol_status     = $protocol['status'];
                     
                     echo "
-                    <tr>
+                    <tr class='protocol-row clickable-row'>
                         <td>$protocol_id.</td>
                         <td>$protocol_datum</td>
                         <td>$protocol_aktivitaet</td>
                         <td>$protocol_status</td>
-                        <td>
-                            <button class=\"memy-button goto-btn edit-protocol\" data-goto=\"manage-protocol\" data-step=\"2\" data-edit-id=\"$protocol_id\">
+                        ";
+                        if(get_current_user_id() != getAdminUserID() ): 
+                    echo "<td class='edit-column'>
+                            <button class='memy-button goto-btn edit-protocol' data-goto='manage-protocol' data-step='2' data-edit-id='$protocol_id'>
                                 <i class='mmsi-icon bearbeiten'></i>
                             </button>
-                        </td>
+                        </td>";
+                        endif;
+                    
+                    echo "
                     </tr>";
                 }
                 echo "</table>";

@@ -76,18 +76,6 @@ function memy_deathman_query_function() {
                     error_log("MeMySafe: Reminder Mail 1 gesendet an " . $adminEmail);
                     return;
                 }
-
-                
-            
-                // 2. Check: Sende Eskalation an Notfallkontakt
-                // if ($notfall_date_obj && $curr_date_obj >= $notfall_date_obj && $hasSendNotfall !== $curr_date_string) {
-                //     $subject = "WICHTIG: Benachrichtigung über Sicherheits-Timer";
-                //     $message = "Dies ist eine automatische Nachricht. Der Sicherheits-Timer von " . $adminEmail . " wurde nicht deaktiviert.";
-                //     wp_mail($notfall_email, $subject, $message);
-
-                //     update_option('has_send_notfall', $curr_date_string);
-                //     error_log("MeMySafe: NOTFALL Mail gesendet an " . $notfall_email);
-                // }
             }
 
             if(empty($hasSendReminderTwo) && $hasSendReminderOne){

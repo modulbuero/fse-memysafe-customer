@@ -291,7 +291,7 @@ table.table-aktivitaeten{
             text-align: left;
         }
         th,td{
-            &:last-child{
+            &.edit-column{
                 max-width: 75px !important;
                 text-align: right;
                 white-space: nowrap;
@@ -312,5 +312,19 @@ table.table-aktivitaeten{
                 min-width: 140px !important;
             }
         }
+    }
+    .clickable-row {
+        cursor: pointer;
+    }
+
+    .clickable-row:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+}
+
+.info-popup-wrap.activitaeten-info{
+    .content{
+        width:98%;
+        max-width: var(--memy-dash-container);
     }
 }

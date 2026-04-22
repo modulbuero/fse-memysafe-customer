@@ -313,12 +313,12 @@ table.table-aktivitaeten::-webkit-scrollbar-thumb:hover {
 table.table-aktivitaeten tr th {
   text-align: left;
 }
-table.table-aktivitaeten tr th:last-child, table.table-aktivitaeten tr td:last-child {
+table.table-aktivitaeten tr th.edit-column, table.table-aktivitaeten tr td.edit-column {
   max-width: 75px !important;
   text-align: right;
   white-space: nowrap;
 }
-table.table-aktivitaeten tr th:last-child button, table.table-aktivitaeten tr td:last-child button {
+table.table-aktivitaeten tr th.edit-column button, table.table-aktivitaeten tr td.edit-column button {
   margin-left: auto;
   margin-right: auto;
 }
@@ -331,4 +331,9 @@ table.table-aktivitaeten tr td {
 }
 table.table-aktivitaeten tr td:nth-child(2) {
   min-width: 140px !important;
+}
+
+.info-popup-wrap.activitaeten-info .content {
+  width: 98%;
+  max-width: var(--memy-dash-container);
 }/*# sourceMappingURL=elemente.css.map */

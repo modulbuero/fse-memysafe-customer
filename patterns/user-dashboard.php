@@ -46,12 +46,13 @@ if ( is_user_logged_in() ) :
         <!-- Zeitschaltuhr -->
         
         <div id="chooser-exam-clock" class="tile">  
-            <?php if(get_current_user_id() == getAdminUserID() ): ?>      
+            <?php if((get_current_user_id() == getAdminUserID()) && empty(get_option('has_send_notfall')) ): ?>      
                 <?php require_once get_stylesheet_directory() . '/user-setup/dashboard/dashboard-my-exam-clock.php'; ?>
-            <?php else: ?>
-                <?php require_once get_stylesheet_directory() . '/user-setup/dashboard/dashboard-helper.php'; ?>
             <?php endif; ?>
 
+            <?php if(!empty(get_option('has_send_notfall')) ) : ?>
+                <?php require_once get_stylesheet_directory() . '/user-setup/dashboard/dashboard-helper.php'; ?>
+            <?php endif; ?>
         </div>
 
         <div class="spalte">
@@ -149,7 +150,7 @@ if ( is_user_logged_in() ) :
         <!-- Einstellungen -->
         <!-- wp:pattern {"slug":"fse-memysafe-customer/user-settings"} /-->
 
-        <!-- Einstellungen -->
+        <!-- Profil -->
         <!-- wp:pattern {"slug":"fse-memysafe-customer/user-profile"} /-->
 
         <!-- Helper-Protokoll -->
@@ -163,7 +164,7 @@ if ( is_user_logged_in() ) :
         </div>
     </div>
     
-    <!--  --------- -->
+    <!--  -------------- -->
     <!--  First-Settings -->
     <?php 
     if( ! get_user_meta($user_ID, 'first_settings', true) && current_user_can('administrator')) : 
