@@ -23,3 +23,4 @@ require_once($theme_directory.'MemyFirstSettings.php');
 require_once($theme_directory.'MemyContactHelperModus.php');
 require_once($theme_directory.'cron/exam-clock-cron.php');
 require_once($theme_directory.'cron/custom_wp_mail.php');
+require_once($theme_directory.'MemyProtocolManager.php');

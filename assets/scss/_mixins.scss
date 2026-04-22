@@ -34,3 +34,26 @@
     margin-bottom:20px;
     border-bottom: var(--memy-trenner)
 }
+
+@mixin memyScrolbar{
+    scrollbar-width: 2px;
+    scrollbar-color: rgb(0 0 0 / 60%) rgb(204 204 204 / 10%);
+
+    /* WebKit (Chrome, Edge, Safari) */
+    &::-webkit-scrollbar {
+        width: thin;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #cccccc43; // grauer Hintergrund
+        left: 15px; // optischer Versatz nach rechts
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #00000054; // schwarzer Balken
+        border-radius: 2px;
+        &:hover{
+            background: #Ff000054; // schwarzer Balken
+        }
+    }
+}

@@ -42,10 +42,18 @@ if ( is_user_logged_in() ) :
         <?php
         endif;
         ?>
+
         <!-- Zeitschaltuhr -->
-        <div id="chooser-exam-clock" class="tile">        
-            <?php require_once get_stylesheet_directory() . '/user-setup/dashboard/dashboard-my-exam-clock.php'; ?>
+        
+        <div id="chooser-exam-clock" class="tile">  
+            <?php if(get_current_user_id() == getAdminUserID() ): ?>      
+                <?php require_once get_stylesheet_directory() . '/user-setup/dashboard/dashboard-my-exam-clock.php'; ?>
+            <?php else: ?>
+                <?php require_once get_stylesheet_directory() . '/user-setup/dashboard/dashboard-helper.php'; ?>
+            <?php endif; ?>
+
         </div>
+
         <div class="spalte">
             <!-- Kontakte -->
             <div id="chooser-contacts" class="tile">
@@ -143,6 +151,16 @@ if ( is_user_logged_in() ) :
 
         <!-- Einstellungen -->
         <!-- wp:pattern {"slug":"fse-memysafe-customer/user-profile"} /-->
+
+        <!-- Helper-Protokoll -->
+        <div class="container" data-target="helper-protocol" data-step="1">
+            <div data-target="helper-protocol">
+                <?php require_once get_stylesheet_directory() . '/user-setup/helper/protocol.php'; ?>
+            </div>
+            <div data-step="3" data-target='manage-protocol'>
+                <?php require_once get_stylesheet_directory() . '/user-setup/helper/protocol-add.php'; ?>
+            </div>
+        </div>
     </div>
     
     <!--  --------- -->

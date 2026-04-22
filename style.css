@@ -19,6 +19,7 @@ Version:        1.0.2
     /*Abstände*/
     --memy-padding-root:30px;
     --memy-padding-inner-container-side:20px;
+    --memy-dashbox-gap:var(--memy-padding-root);
     --memy-padding-inner-container:var(--memy-padding-root) var(--memy-padding-inner-container-side) var(--memy-padding-inner-container-side);
     --memy-padding-small-dashbox:20px;
     --memy-padding-button:5px 20px;

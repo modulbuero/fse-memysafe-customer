@@ -1,3 +1,5 @@
+@use 'mixins' as m;
+
 /*Buttons*/
 button,
 .memy-button{
@@ -8,6 +10,7 @@ button,
     border:var(--memy-border);
     padding:var(--memy-padding-button);
     gap:5px;
+    text-transform: uppercase;
     h5{
         flex:1
     }
@@ -185,24 +188,8 @@ div,p{
         background: linear-gradient(to top, #ffffff, transparent);
     }
 
-    /* Firefox */
-    scrollbar-width: 2px;
-    scrollbar-color: #00000055 #cccccc63;
-
-    /* WebKit (Chrome, Edge, Safari) */
-    &::-webkit-scrollbar {
-        width: 2px;
-    }
-
-    &::-webkit-scrollbar-track {
-        background: #cccccc43; // grauer Hintergrund
-        left: 15px; // optischer Versatz nach rechts
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: #00000054; // schwarzer Balken
-        border-radius: 2px;
-    }
+    /*Scrollbar*/
+    @include m.memyScrolbar;
 }
 
 /*Mehrer Button Elemente untereinander*/
@@ -274,6 +261,7 @@ div,p{
 .full-height{
     height:100%
 }
+
 /*Kontakt Status*/
 .status-contact-person{
     background: #000;
@@ -293,4 +281,36 @@ div,p{
 
 .justify-center{
     justify-content: center !important
+}
+
+/*Tabelle*/
+table.table-aktivitaeten{
+    @include m.memyScrolbar;
+    tr{
+        th{
+            text-align: left;
+        }
+        th,td{
+            &:last-child{
+                max-width: 75px !important;
+                text-align: right;
+                white-space: nowrap;
+                button{
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+
+        td{
+            max-height: 35px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 320px !important;
+            &:nth-child(2){
+                min-width: 140px !important;
+            }
+        }
+    }
 }

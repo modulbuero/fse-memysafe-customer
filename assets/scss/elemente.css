@@ -8,6 +8,7 @@ button,
   border: var(--memy-border);
   padding: var(--memy-padding-button);
   gap: 5px;
+  text-transform: uppercase;
 }
 button h5,
 .memy-button h5 {
@@ -180,13 +181,13 @@ div, p {
   background: linear-gradient(to top, #ffffff, transparent);
 }
 .overflow-wrapper {
-  /* Firefox */
+  /*Scrollbar*/
   scrollbar-width: 2px;
-  scrollbar-color: rgba(0, 0, 0, 0.3333333333) rgba(204, 204, 204, 0.3882352941);
+  scrollbar-color: rgba(0, 0, 0, 0.6) rgba(204, 204, 204, 0.1);
   /* WebKit (Chrome, Edge, Safari) */
 }
 .overflow-wrapper::-webkit-scrollbar {
-  width: 2px;
+  width: thin;
 }
 .overflow-wrapper::-webkit-scrollbar-track {
   background: rgba(204, 204, 204, 0.262745098);
@@ -195,6 +196,9 @@ div, p {
 .overflow-wrapper::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.3294117647);
   border-radius: 2px;
+}
+.overflow-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 0, 0, 0.3294117647);
 }
 
 /*Mehrer Button Elemente untereinander*/
@@ -284,4 +288,47 @@ div, p {
 
 .justify-center {
   justify-content: center !important;
+}
+
+/*Tabelle*/
+table.table-aktivitaeten {
+  scrollbar-width: 2px;
+  scrollbar-color: rgba(0, 0, 0, 0.6) rgba(204, 204, 204, 0.1);
+  /* WebKit (Chrome, Edge, Safari) */
+}
+table.table-aktivitaeten::-webkit-scrollbar {
+  width: thin;
+}
+table.table-aktivitaeten::-webkit-scrollbar-track {
+  background: rgba(204, 204, 204, 0.262745098);
+  left: 15px;
+}
+table.table-aktivitaeten::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3294117647);
+  border-radius: 2px;
+}
+table.table-aktivitaeten::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 0, 0, 0.3294117647);
+}
+table.table-aktivitaeten tr th {
+  text-align: left;
+}
+table.table-aktivitaeten tr th:last-child, table.table-aktivitaeten tr td:last-child {
+  max-width: 75px !important;
+  text-align: right;
+  white-space: nowrap;
+}
+table.table-aktivitaeten tr th:last-child button, table.table-aktivitaeten tr td:last-child button {
+  margin-left: auto;
+  margin-right: auto;
+}
+table.table-aktivitaeten tr td {
+  max-height: 35px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 320px !important;
+}
+table.table-aktivitaeten tr td:nth-child(2) {
+  min-width: 140px !important;
 }/*# sourceMappingURL=elemente.css.map */

@@ -2,8 +2,9 @@
 /*Content | Dashboard*/
 #memy-dashboard{
    *{
-         max-width: 100%;
-      }
+      max-width: 100%;
+   }
+
    /*Dashboard Kacheln*/
    .tile{
       background: #fff;
@@ -52,7 +53,6 @@
       }
    }
    
-
    /*Urlaubsmodus*/
    #chooser-urlaubsmodus{
       @include m.dashcontainer;
@@ -63,6 +63,20 @@
          padding: var(--memy-padding-small-dashbox);
       }
    }
+
+   /*Helper-Dashboard*/
+   .dashboard-helper{
+      padding: var(--memy-padding-small-dashbox);
+      gap: var(--memy-dashbox-gap);
+      >.spalte{
+         gap: var(--memy-dashbox-gap);
+         text-align: center;
+         button{
+            justify-content: center;
+            margin-bottom: 15px;
+         }
+      }      
+   }   
 }
 
 

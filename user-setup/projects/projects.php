@@ -44,7 +44,7 @@
 
     ?> 
     <div class="overflow-wrapper">
-        <div class="spalte project-data-show-hide"><p>Hinterlegte Informationen</p> <i class="bi bi-pen"></i></div>
+        <div class="spalte project-data-show-hide"><p>Hinterlegte Informationen</p> <i class="mmsi-icon bearbeiten"></i></div>
 
         <div class="project-data-container">
             <?php addInput('Projektinformationen', '', 'project-name', 'Name, Projektnummer, Aktenzeichen,…'); ?>
@@ -85,7 +85,7 @@
             </div>
         </div>
 
-        <div class="spalte project-data-show-hide"><p>Kontakte</p> <i class="bi bi-pen"></i></div>
+        <div class="spalte project-data-show-hide"><p>Kontakte</p> <i class="mmsi-icon bearbeiten"></i></div>
 
         <div class="project-data-container">
             <div id="project-kontakt-container">

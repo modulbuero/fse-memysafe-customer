@@ -9,6 +9,9 @@
     &.abo{
         background-image: url(../icons/MMSI_Icon_ABO.svg);
     }
+    &.bearbeiten{
+        background-image: url(../icons/MMSI_Icon_BEARBEITEN.svg);
+    }
     &.dashboard{
         background-image: url(../icons/MMSI_Icon_DASHBOARD.svg);
     }
@@ -23,6 +26,9 @@
     }
     &.download{
         background-image: url(../icons/MMSI_Icon_DOWNLOAD.svg);
+    }
+    &.helper{
+        background-image: url(../icons/MMSI_Icon_HILFE.svg);
     }
     &.info{
         background-image: url(../icons/MMSI_Icon_INFO.svg);
@@ -74,6 +80,9 @@
     &.projekte{
         background-image: url(../icons/MMSI_Icon_PROJEKTE.svg);
     }
+    &.protokoll{
+        background-image: url(../icons/MMSI_Icon_PROTOKOLL.svg);
+    }    
     &.safe{
         background-image: url(../icons/MMSI_Icon_SAFE.svg);
     }

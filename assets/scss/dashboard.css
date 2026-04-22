@@ -62,6 +62,21 @@
 #memy-dashboard #chooser-urlaubsmodus > div {
   padding: var(--memy-padding-small-dashbox);
 }
+#memy-dashboard {
+  /*Helper-Dashboard*/
+}
+#memy-dashboard .dashboard-helper {
+  padding: var(--memy-padding-small-dashbox);
+  gap: var(--memy-dashbox-gap);
+}
+#memy-dashboard .dashboard-helper > .spalte {
+  gap: var(--memy-dashbox-gap);
+  text-align: center;
+}
+#memy-dashboard .dashboard-helper > .spalte button {
+  justify-content: center;
+  margin-bottom: 15px;
+}
 
 /*InnerBoxeWrapper*/
 .container-wrapper {
