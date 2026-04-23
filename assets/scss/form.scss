@@ -44,6 +44,8 @@ textarea{
 
 .input-wrapper{
     label{
+        display: flex;
+        align-items: center;
         margin-left: var(--memy-padding-inner-container-side);
         margin-bottom: 10px;
         &:before{
@@ -55,7 +57,7 @@ textarea{
         }
     }
     input{
-        margin-left: calc(var(--memy-padding-inner-container-side) * 1.5)
+        margin-left: calc(var(--memy-padding-inner-container-side) * 1.65)
     }
 
     &:not(:last-child){
@@ -110,6 +112,7 @@ label.is-checkbox{
     cursor: pointer;
     user-select: none;
     gap:20px;
+
     /* Verstecke die originale Checkbox */
     input[type="checkbox"] {
         position: absolute;
@@ -162,6 +165,19 @@ label.is-checkbox{
         white-space: nowrap;
         flex-shrink: 0;
         line-height: 1.25;
+    }
+
+    /*Einfache Checkbox ohne Slider*/
+    &.simple{
+        .slider{
+            width: calc(var(--memy-knopf-size) + var(--memy-check-space) * 2);
+            &:before{
+                left:calc(var(--memy-knopf-size) * -1)
+            }
+        }
+        input[type=checkbox]:checked + .slider::before{
+            transform: translateX(calc(var(--memy-knopf-size) + var(--memy-check-space)));
+        }
     }
 }
 

@@ -8,7 +8,7 @@ Text Domain:  	fse-memysafe-customer
 Version:        1.0.2
 */
 
-:root {
+body{
     /*Farben*/
     --memy-color-border:#000;
     --memy-border:1px solid var(--memy-color-border);
@@ -24,7 +24,7 @@ Version:        1.0.2
     --memy-padding-small-dashbox:20px;
     --memy-padding-button:5px 20px;
     --memy-padding-input:5px 20px;
-    
+    --mbfse--padding-footer: 5px 0;
     /*DashboardBreite*/
     --memy-dash-container:calc(82% - var(--memy-padding-root));
 
@@ -35,6 +35,7 @@ Version:        1.0.2
     --memy-clock-middle-height:90px;
     --memy-clock-inner-height:50px;
     --memy-size-button-icon:20px;
+    --memy-header-height:34px;
 
     /*Anzahl der Schritte bei Ersteinrichtung*/
     --memy-first-step-max:9;

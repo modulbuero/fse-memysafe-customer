@@ -69,6 +69,12 @@ function mbfse_child_style_Files(){
     wp_enqueue_style('memysafe-frontpage-formular', $memysafeFrontpage, array(), '1.0.0');
 
 	
+	wp_enqueue_style(
+		'memy-footer',
+		get_stylesheet_directory_uri().$f_CSS.'footer.css',
+		array(),
+		wp_get_theme()->get( 'Version' )
+	);
 
 	wp_enqueue_style(
 		'memy-child-projects',

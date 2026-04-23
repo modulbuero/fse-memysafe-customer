@@ -1,5 +1,6 @@
 .wp-site-blocks > main{
     padding-bottom: 0;
+    max-height: calc(100vh - var(--memy-header-height));
 }
 
 /*Container Allgemein*/

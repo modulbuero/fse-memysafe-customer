@@ -26,9 +26,9 @@ function addInput($label, $value, $id='1', $placeholder='', $type='text'){
  * @width ob das Label die volle Breite ausnutzt
  * return echo
 */
-function addCheckbox($label, $value, $id='1', $width=''){    
+function addCheckbox($label, $value, $id='1', $class=''){    
     $checked = ($value == 1) ? 'checked' : '';
-    echo "<label class='is-checkbox $width'><span class='checkbox-label'>$label</span><input type='checkbox' id='$id' value='1' $checked/><span class='slider'></span></label>";
+    echo "<label class='is-checkbox $class'><span class='checkbox-label'>$label</span><input type='checkbox' id='$id' value='1' $checked/><span class='slider'></span></label>";
 }
 
 /**

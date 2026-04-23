@@ -6,8 +6,7 @@
  * Benutzt in user-menu.html
  * Author: Modulbüro
  */
-
-if( !get_user_meta(get_current_user_id(), 'first_settings', true) 
+if( get_user_meta(get_current_user_id(), 'first_settings', true) 
     && 
     current_user_can('administrator')) : 
     ?>

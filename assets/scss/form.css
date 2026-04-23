@@ -44,6 +44,8 @@ textarea {
 }
 
 .input-wrapper label {
+  display: flex;
+  align-items: center;
   margin-left: var(--memy-padding-inner-container-side);
   margin-bottom: 10px;
 }
@@ -55,7 +57,7 @@ textarea {
   line-height: 1;
 }
 .input-wrapper input {
-  margin-left: calc(var(--memy-padding-inner-container-side) * 1.5);
+  margin-left: calc(var(--memy-padding-inner-container-side) * 1.65);
 }
 .input-wrapper:not(:last-child) {
   margin-bottom: 20px;
@@ -158,6 +160,18 @@ label.is-checkbox .radio-label {
   white-space: nowrap;
   flex-shrink: 0;
   line-height: 1.25;
+}
+label.is-checkbox {
+  /*Einfache Checkbox ohne Slider*/
+}
+label.is-checkbox.simple .slider {
+  width: calc(var(--memy-knopf-size) + var(--memy-check-space) * 2);
+}
+label.is-checkbox.simple .slider:before {
+  left: calc(var(--memy-knopf-size) * -1);
+}
+label.is-checkbox.simple input[type=checkbox]:checked + .slider::before {
+  transform: translateX(calc(var(--memy-knopf-size) + var(--memy-check-space)));
 }
 
 /*CheckboxGroup*/

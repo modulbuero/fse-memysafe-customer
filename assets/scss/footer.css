@@ -1,0 +1,23 @@
+footer {
+  background-color: #000;
+}
+footer > div {
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 1210px;
+  margin: 0 auto;
+  align-items: center;
+}
+footer > div p, footer > div a {
+  color: #fff;
+  font-size: 12px;
+}
+footer > div ul {
+  display: flex;
+  gap: 10px;
+  list-style-type: none;
+}
+footer > div ul li:not(:first-child):before {
+  content: " - ";
+  color: #fff;
+}/*# sourceMappingURL=footer.css.map */

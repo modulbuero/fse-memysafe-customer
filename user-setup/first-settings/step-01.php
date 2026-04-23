@@ -21,7 +21,7 @@
             <li>wie auf Informationen zugegriffen werden kann</li>
         </ul>
         
-        <?php addCheckbox('Ich habe verstanden, wie MMSI funktioniert','0','mmsi-verstanden') ?>
+        <?php addCheckbox('Ich habe verstanden, wie MMSI funktioniert','0','mmsi-verstanden', 'simple') ?>
 
     </div>
 

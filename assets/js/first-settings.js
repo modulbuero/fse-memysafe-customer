@@ -1,15 +1,15 @@
 (($) => {
 	$(document).ready(()=>{
-        saveFirstSettings()
         setStepsFreeByCheckbox('#mmsi-verstanden')
+        setStepsFreeByCheckbox('#mmsi-uploadcheck')
         nextStepButton()
         hasInputValues('adresse')
-        setStepsFreeByCheckbox('#mmsi-uploadcheck')
-        hasInputValues('kontakt')
+        hasInputValues('kontakt')                
         setStepsFree('willkommen')
         setStepsFree('einrichten')
         setStepsFree('safe-info')
         setStepsFree('zweifaktor')
+        saveFirstSettings()
 
         $('#zyklus-ersteinrichtung').on('click', function(event) {
             event.preventDefault();
@@ -98,7 +98,7 @@
     }
 
     function hasInputValues(inputwrapper){
-        const sel = '.checkvalues-'+inputwrapper
+        const sel = '#checkvalues-'+inputwrapper
 
         const $stepButton = $(sel).parent().closest('.full-height').next().find('.first-step-button');
         const $textInputs = $(sel + ' input');

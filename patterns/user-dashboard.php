@@ -14,7 +14,6 @@ $isAdmin        = (get_current_user_id() == getAdminUserID() ) ? 'is-admin' : 'h
 global $wpdb;
 
 if ( is_user_logged_in() ) : 
-
 ?>
 <div class="wp-block-group <?php echo $isAdmin; ?>" id="memy-dashboard" data-user-id="<?php echo esc_html( wp_get_current_user()->ID ); ?>">
 
@@ -166,8 +165,8 @@ if ( is_user_logged_in() ) :
     <!--  -------------- -->
     <!--  First-Settings -->
     <?php 
-    if( get_user_meta($user_ID, 'first_settings', true) && current_user_can('administrator')) : 
-    #if( ! get_user_meta($user_ID, 'first_settings', true) && current_user_can('administrator')) : 
+    #if( get_user_meta($user_ID, 'first_settings', true) && current_user_can('administrator')) : 
+    if( ! get_user_meta($user_ID, 'first_settings', true) && current_user_can('administrator')) : 
     ?>
         <div id="first-settings"><div calss="container-wrapper">
                 <div class="container willkommen">
