@@ -14,4 +14,4 @@
         
     </div>
 
-    <?php firstStepNavi(true,false,'','Jetzt einrichten') ?>
+    <?php firstStepNavi('0',true,false,'','Jetzt einrichten') ?>

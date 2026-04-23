@@ -150,14 +150,15 @@ function deletePopup($btn_id, $title="Löschen"){
 /**
  * First Step Navigationbuttons
  */
-function firstStepNavi($next=true, $back=true, $backtext='Zurück', $nexttext='Weiter'){
-    $html = "<div class='fs-naviwrapper'>";
+function firstStepNavi($step='1', $next=true, $back=true, $backtext='Zurück', $nexttext='Weiter'){
+    $html = "<div class='fs-naviwrapper'>
+        <div class='progress' data-step='$step' style='--step:$step'></div>";
     
     if($back == true){
-        $html .= '<button class="goback">'.$backtext.'</button>';
+        $html .= '<button class="goback"><i class="mmsi-icon pfeil pfeil-links"></i>'.$backtext.'</button>';
     }
     if($next == true){
-        $html .= '<button class="first-step-button" disabled="disabled">'.$nexttext.'</button>';
+        $html .= '<button class="first-step-button" disabled="disabled">'.$nexttext.'<i class="mmsi-icon pfeil"></i></button>';
     }
     
     $html .= '</div>';

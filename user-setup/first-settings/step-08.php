@@ -17,29 +17,28 @@
     </div>
     <div class="overflow-wrapper full-height settings-labels">
         <h4>
-            Timer
+            Timer aktivieren
         </h4>
         <p>
-            Infotext
-        </p>
+            Der Timer sorgt dafür, dass deine Notfallkontakte informiert werden, wenn du nicht mehr reagierst.
+        </p>    
         <p>
-            Lorem Ipsum -..-
+            Erst durch die Aktivierung wird MMSI wirksam.
         </p>
+
+        <p class="label-like">Timer</p>
         
         <div class="spalte">
             <?php numberInput("fs-exam-clock-zyklus-one", esc_attr($exam_clock_zyklus_one), 2, 14, "1. Timer", "Tage"); ?>
-            <span><?php echo $eskalation_stufe_one ?></span>
         </div>
         <div class="spalte">
             <?php numberInput("fs-exam-clock-zyklus-two", esc_attr($exam_clock_zyklus_two), 1, 7, "2. Timer", "Tage"); ?>
-            <span><?php echo $eskalation_stufe_two ?></span>
         </div>
-        <div class="spalte">
+        <div class="spalte txt-distance-bottom">
             <?php numberInput("fs-exam-clock-zyklus-three", esc_attr($exam_clock_zyklus_three), 1, 3, "3. Timer", "Tage"); ?>
-            <span><?php echo $eskalation_stufe_three ?></span>
         </div>
 
-        <button id="zyklus-ersteinrichtung">Zeit übernehmen</button>
+        <button id="zyklus-ersteinrichtung" class="half-width">Zeit übernehmen <i class="mmsi-icon speichern"></i></button>
     </div>
 
-    <?php firstStepNavi() ?>
+    <?php firstStepNavi('8') ?>

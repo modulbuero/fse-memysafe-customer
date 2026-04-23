@@ -6,7 +6,15 @@
         hasInputValues('adresse')
         setStepsFreeByCheckbox('#mmsi-uploadcheck')
         hasInputValues('kontakt')
-        
+        setStepsFree('willkommen')
+        setStepsFree('einrichten')
+        setStepsFree('safe-info')
+        setStepsFree('zweifaktor')
+
+        $('#zyklus-ersteinrichtung').on('click', function(event) {
+            event.preventDefault();
+            setStepsFree('timer')
+        });
 	});
 
     function saveFirstSettings(){
@@ -111,5 +119,8 @@
         updateStepButton();
     }
 
-    
+    function setStepsFree(container){
+        const $stepButtons = $('.container.'+container+' .first-step-button');
+        $stepButtons.prop('disabled', false);
+    }
 })(jQuery);

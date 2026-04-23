@@ -21,5 +21,5 @@
     </div> 
 </div>
 <?php 
-    firstStepNavi();
+    firstStepNavi('6');
 ?>

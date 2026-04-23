@@ -66,6 +66,9 @@
 .mmsi-icon.pfeil {
   background-image: url(../icons/MMSI_Icon_PFEIL-BUTTON.svg);
 }
+.mmsi-icon.pfeil.pfeil-links {
+  transform: rotate(180deg);
+}
 .mmsi-icon.pfeil.pfeil-oben {
   transform: rotate(270deg);
 }

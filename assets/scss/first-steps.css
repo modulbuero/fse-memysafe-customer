@@ -32,17 +32,56 @@
 }
 #first-settings > div .container .is-checkbox {
   margin-top: auto;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+#first-settings > div .container button {
+  justify-content: space-between;
+}
+#first-settings > div .container button a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+#first-settings > div .container button a:hover i {
+  filter: brightness(1);
+  background-image: url(../icons/MMSI_Icon_WEITER-DOWN.svg);
 }
 #first-settings > div .container .fs-naviwrapper {
   flex-direction: row;
   margin-top: auto;
   gap: var(--memy-padding-root);
   justify-content: flex-end;
+  padding-top: 20px;
 }
 #first-settings > div .container .fs-naviwrapper button {
   max-width: 50%;
   flex: 1;
 }
+#first-settings > div .container .fs-naviwrapper .progress {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background-color: var(--memy-trenner-color);
+  top: 0;
+  left: 0;
+}
+#first-settings > div .container .fs-naviwrapper .progress:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;
+  width: calc(var(--step) / var(--memy-first-step-max) * 100%);
+}
+#first-settings > div .container .final-btns {
+  justify-content: flex-end;
+}
+#first-settings > div .container .final-btns .fs-naviwrapper {
+  position: absolute;
+  width: 100%;
+  top: -20px;
+}
 #first-settings > div .container .final-btns .fs-naviwrapper button {
-  max-width: 100%;
+  display: none;
 }/*# sourceMappingURL=first-steps.css.map */

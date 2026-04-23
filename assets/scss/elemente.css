@@ -24,6 +24,7 @@ button:hover {
   background-color: #000;
   color: #fff;
 }
+button:hover a,
 button:hover i {
   filter: invert(1);
 }
@@ -331,6 +332,12 @@ table.table-aktivitaeten tr td {
 }
 table.table-aktivitaeten tr td:nth-child(2) {
   min-width: 140px !important;
+}
+table.table-aktivitaeten .clickable-row {
+  cursor: pointer;
+}
+table.table-aktivitaeten .clickable-row:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .info-popup-wrap.activitaeten-info .content {

@@ -4,23 +4,25 @@
     </div>
     <div class="overflow-wrapper full-height settings-labels">
          <h4>
-            Willkommen bei MMSI
+            WICHTIG VOR DEM START
         </h4>
         <p class="txt-distance-bottom">
             MMSI speichert keine Passwörter oder direkten Zugänge.
             <br>
             Damit MMSI im Ernstfall funktioniert, müssen wichtige Informationen außerhalb des Systems vorhanden und zugänglich sein.
-            <br>
+        </p>
+        <p>
             MMSI sorgt dafür, dass klar ist:
         </p>
+        
         <ul>
             <li>wer informiert wird</li>
             <li>was zu tun ist</li>
             <li>wie auf Informationen zugegriffen werden kann</li>
         </ul>
         
-        <?php addCheckbox('Ich habe verstanden, wie MMSI funktioniert','','mmsi-verstanden') ?>
+        <?php addCheckbox('Ich habe verstanden, wie MMSI funktioniert','0','mmsi-verstanden') ?>
 
     </div>
 
-    <?php firstStepNavi(true,true) ?>
+    <?php firstStepNavi('1',true,false) ?>

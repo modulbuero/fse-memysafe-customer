@@ -35,4 +35,7 @@ Version:        1.0.2
     --memy-clock-middle-height:90px;
     --memy-clock-inner-height:50px;
     --memy-size-button-icon:20px;
+
+    /*Anzahl der Schritte bei Ersteinrichtung*/
+    --memy-first-step-max:9;
 }

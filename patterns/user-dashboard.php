@@ -167,30 +167,40 @@ if ( is_user_logged_in() ) :
     <!--  -------------- -->
     <!--  First-Settings -->
     <?php 
-    if( ! get_user_meta($user_ID, 'first_settings', true) && current_user_can('administrator')) : 
+    if( get_user_meta($user_ID, 'first_settings', true) && current_user_can('administrator')) : 
+    #if( ! get_user_meta($user_ID, 'first_settings', true) && current_user_can('administrator')) : 
     ?>
         <div id="first-settings"><div calss="container-wrapper">
             <!--<form id="first-settings-form" method="post">-->
-                <div class="container welcome">
-                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-start.php'; ?>
-                </div>
-                <div class="container verstanden">
-                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-0.php'; ?>
+                <div class="container willkommen">
+                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-00.php'; ?>
                 </div>    
-                <div class="container adresse">
-                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-1.php'; ?>
-                </div>
-                <div class="container upload">
-                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-2.php'; ?>
+                <div class="container wichtig">
+                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-01.php'; ?>
+                </div>                              
+                <div class="container einrichten">
+                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-02.php'; ?>
                 </div>
                 <div class="container kontakt">
-                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-3.php'; ?>
+                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-03.php'; ?>
+                </div>
+                <div class="container ">
+                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-04.php'; ?>
+                </div>
+                <div class="container safe-info">
+                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-05.php'; ?>
+                </div>
+                <div class="container ">
+                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-06.php'; ?>
+                </div>
+                <div class="container zweifaktor">
+                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-07.php'; ?>
                 </div>
                 <div class="container timer">
-                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-4.php'; ?>
+                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-08.php'; ?>
                 </div>
                 <div class="container final">
-                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-final.php'; ?>
+                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-09.php'; ?>
                 </div>
             <!--</form>-->
         </div></div>

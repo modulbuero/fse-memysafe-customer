@@ -3,16 +3,13 @@
         <h3>Ersteinrichtung</h3>
     </div>
     <div class="overflow-wrapper full-height settings-labels">
-         <h4>
-            Deine Adresse
+        <h4>
+            Deine Profil
         </h4>
         <p>
-            Infotext
+            Lege die Grundlage für deine Erreichbarkeit fest.
         </p>
-        <p>
-            Lorem Ipsum -..-
-        </p>
-        <h5>Adresse</h5>
+        
         <div class="settings-labels checkvalues-adresse">
             <?php 
             $current_user = wp_get_current_user();
@@ -20,13 +17,15 @@
             $strasze = (!empty($user_metas['strasze'][0])) ? $user_metas['strasze'][0] : "";
             $plz     = (!empty($user_metas['plz'][0])) ? $user_metas['plz'][0] : "";
             $ort     = (!empty($user_metas['ort'][0])) ? $user_metas['ort'][0] : "";
+            $telefon = (!empty($user_metas['telefon'][0])) ? $user_metas['telefon'][0] : "";
             ?>
             <?php 
-            addInput('', $strasze, 'strasze', 'Straße');
-            addInput('', $plz, 'plz', 'PLZ', 'number');
-            addInput('', $ort, 'ort', 'Ort');
+            addInput('Straße', $strasze, 'strasze', 'Straße');
+            addInput('PLZ', $plz, 'plz', 'PLZ', 'number');
+            addInput('Ort', $ort, 'ort', 'Ort');
+            addInput('Telefonnummer', $telefon, 'telefon', 'Telefonnummer', 'number');            
             ?>
         </div>
     </div>
 
-    <?php firstStepNavi(true,true) ?>
+    <?php firstStepNavi('3',true,true) ?>
