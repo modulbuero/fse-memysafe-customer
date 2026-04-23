@@ -10,7 +10,7 @@
  */
 $current_user   = wp_get_current_user();
 $user_ID        = $current_user->ID;
-$isAdmin = (get_current_user_id() == getAdminUserID() ) ? 'is-admin' : 'helper-mode'; 
+$isAdmin        = (get_current_user_id() == getAdminUserID() ) ? 'is-admin' : 'helper-mode'; 
 global $wpdb;
 
 if ( is_user_logged_in() ) : 
@@ -44,7 +44,6 @@ if ( is_user_logged_in() ) :
         ?>
 
         <!-- Zeitschaltuhr -->
-        
         <div id="chooser-exam-clock" class="tile">  
             <?php if((get_current_user_id() == getAdminUserID()) && empty(get_option('has_send_notfall')) ): ?>      
                 <?php require_once get_stylesheet_directory() . '/user-setup/dashboard/dashboard-my-exam-clock.php'; ?>
@@ -171,7 +170,6 @@ if ( is_user_logged_in() ) :
     #if( ! get_user_meta($user_ID, 'first_settings', true) && current_user_can('administrator')) : 
     ?>
         <div id="first-settings"><div calss="container-wrapper">
-            <!--<form id="first-settings-form" method="post">-->
                 <div class="container willkommen">
                     <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-00.php'; ?>
                 </div>    
@@ -190,7 +188,7 @@ if ( is_user_logged_in() ) :
                 <div class="container safe-info">
                     <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-05.php'; ?>
                 </div>
-                <div class="container ">
+                <div class="container safe-file">
                     <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-06.php'; ?>
                 </div>
                 <div class="container zweifaktor">
@@ -202,7 +200,6 @@ if ( is_user_logged_in() ) :
                 <div class="container final">
                     <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-09.php'; ?>
                 </div>
-            <!--</form>-->
         </div></div>
     <?php 
     endif;

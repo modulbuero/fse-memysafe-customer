@@ -380,6 +380,9 @@
 
                 if(success == true) {
                     showMessage('Upload der Datei '+filename+' abgeschlossen!', 'success');
+                    if($('#first-settings').length){
+                        $('.container.safe-file .first-step-button').attr('disabled', false);
+                    }
                 } else {
                     showMessage('Upload fehlgeschlagen', 'fail');
                 }
