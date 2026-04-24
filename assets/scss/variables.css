@@ -1,0 +1,32 @@
+body{
+    /*Farben*/
+    --memy-color-border:#000;
+    --memy-border:1px solid var(--memy-color-border);
+    --memy-trenner-color:#F5F5F5;
+    --memy-trenner:1px solid var(--memy-trenner-color);
+    --memy-check-color:#6094ff;
+    
+    /*Abstände*/
+    --memy-padding-root:30px;
+    --memy-padding-inner-container-side:20px;
+    --memy-dashbox-gap:var(--memy-padding-root);
+    --memy-padding-inner-container:var(--memy-padding-root) var(--memy-padding-inner-container-side) var(--memy-padding-inner-container-side);
+    --memy-padding-small-dashbox:20px;
+    --memy-padding-button:5px 20px;
+    --memy-padding-input:5px 20px;
+    --mbfse--padding-footer: 5px 0;
+    /*DashboardBreite*/
+    --memy-dash-container:calc(82% - var(--memy-padding-root));
+
+    /*Höhen*/
+    --memy-kachel-height:215px;
+    --memy-menu-height: calc( (var(--memy-kachel-height) * 3) + (var(--memy-padding-root) * 3) );
+    --memy-clock-outher-height:133px;
+    --memy-clock-middle-height:90px;
+    --memy-clock-inner-height:50px;
+    --memy-size-button-icon:20px;
+    --memy-header-height:34px;
+
+    /*Anzahl der Schritte bei Ersteinrichtung*/
+    --memy-first-step-max:9;
+}

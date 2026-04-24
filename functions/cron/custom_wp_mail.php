@@ -1,6 +1,6 @@
 <?php
 /**
- * SMTP Konfiguration für wp_mail()
+ * Siehe MU-Plugin
  */
 
 /**

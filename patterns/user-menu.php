@@ -6,12 +6,10 @@
  * Benutzt in user-menu.html
  * Author: Modulbüro
  */
-if( get_user_meta(get_current_user_id(), 'first_settings', true) 
-    && 
-    current_user_can('administrator')) : 
-    ?>
+?>
 
     <div id="menu">
+        <?php if( get_user_meta(get_current_user_id(), 'first_settings', true) && current_user_can('administrator')) : ?>
         <!-- wp:list -->
         <ul class="wp-block-list">
         <!-- wp:list-item -->
@@ -29,17 +27,20 @@ if( get_user_meta(get_current_user_id(), 'first_settings', true)
         <!-- wp:list-item -->
         <li id="memy-menu-profile" data-goto="memy-profile" class="dash-goto-btn"><i class="mmsi-icon profil"></i> <span>Profil</span></li>
         <!-- /wp:list-item -->
-
+        <?php endif; ?>
+        
         <form method="post" action="/wp-login.php" id="logout-form">
             <input type="hidden" name="action" value="logout">
             <input type="hidden" name="redirect_to" value="/">
             <i class="mmsi-icon logout"></i> <input type="submit" class="icon-logout-btn" value="Abmelden">
         </form>
+
         </ul>
         <!-- /wp:list -->
     </div>
     
 
+    <?php if( get_user_meta(get_current_user_id(), 'first_settings', true) && current_user_can('administrator')) : ?>
     <button id="goback" data-from="">
         <svg xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -102,5 +103,4 @@ if( get_user_meta(get_current_user_id(), 'first_settings', true)
         </svg>
         Zurück
     </button>
-
-<?php endif; ?>
+    <?php endif; ?>

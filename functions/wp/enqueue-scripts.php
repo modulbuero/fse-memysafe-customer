@@ -16,7 +16,14 @@ function mbfse_child_style_Files(){
 
 	/*CSS*/
 	wp_enqueue_style(
-		'memy-child-header',
+		'memy-variables',
+		get_stylesheet_directory_uri().$f_CSS.'variables.css',
+		array(),
+		wp_get_theme()->get( 'Version' )
+	);
+
+	wp_enqueue_style(
+		'memy-child-struktur',
 		get_stylesheet_directory_uri().$f_CSS.'struktur.css',
 		array(),
 		wp_get_theme()->get( 'Version' )
