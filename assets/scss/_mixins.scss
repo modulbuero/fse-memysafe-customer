@@ -57,3 +57,14 @@
         }
     }
 }
+
+@mixin inputsLayout{
+    box-sizing: border-box;
+    width:100%;
+    border:var(--memy-border);
+    padding:var(--memy-padding-input);
+    font-size: var(--form-font-size);
+    outline: none;
+    transition: all 0.3s ease;
+    min-width: 300px;
+};

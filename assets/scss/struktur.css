@@ -17,9 +17,6 @@ div.spalte {
 div.spalte p {
   flex-basis: 100%;
 }
-div.spalte > .input-wrapper {
-  margin-bottom: 0;
-}
 
 /* Front Page Styles */
 #front-page-html {
