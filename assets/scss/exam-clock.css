@@ -139,6 +139,9 @@
 #manage-exam-clock-wrapper #exam-clock-zyklus-input label {
   min-width: 70px;
 }
+#manage-exam-clock-wrapper #exam-clock-zyklus-input input {
+  padding: 5px 15px;
+}
 #manage-exam-clock-wrapper .save-wrapper {
   top: 20px;
   left: -20px;

@@ -29,7 +29,7 @@ label:not(.is-checkbox){
     align-items: center;
     margin-bottom: 10px;
     
-    &:not(.no-label){
+    &:not(.no-label):not(.is-radio ){
         &:before{
             content: "■";
             display: inline-block;
@@ -49,14 +49,13 @@ label:not(.is-checkbox){
  * Input
  */
 input{
-    &:not([type=checkbox]),
-    &:not([type=submit]){
+    &:not([type=checkbox]):not([type=submit]){
         @include m.inputsLayout;
         
         &:focus,
         &:hover{
             &:not(:disabled){
-                box-shadow: inset 0px 0px 0px 3px var(--input-border-color);
+                box-shadow: inset 0px 0px 0px 1px var(--input-border-color);
             }               
         }
     }
@@ -81,7 +80,7 @@ textarea{
     @include m.inputsLayout;
     &:focus,
     &:hover{
-        box-shadow: inset 0px 0px 0px 3px var(--input-border-color);
+        box-shadow: inset 0px 0px 0px 1px var(--input-border-color);
     }
 }
 
@@ -150,7 +149,7 @@ form{
 }
 
 .input-wrapper{
-    &:not(:last-child){
+    &:not(:last-child)::is(visible){
         margin-bottom: 20px;
     }
 }
@@ -171,7 +170,7 @@ form{
     &::after {
         content: '▼';
         position: absolute;
-        bottom: 0%;
+        bottom: 9px;
         right: 10px;
         transform: translateY(-5px);
         pointer-events: none;

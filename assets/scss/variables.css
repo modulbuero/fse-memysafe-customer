@@ -3,7 +3,7 @@ body{
     --memy-color-border:#000;
     --input-border-color: #000000;
     --input-border-error: red;
-    --memy-border:1px solid var(--memy-color-border);
+    --memy-border:2px solid var(--memy-color-border);
     --memy-trenner-color:#F5F5F5;
     --memy-trenner:1px solid var(--memy-trenner-color);
     --memy-check-color:#6094ff;

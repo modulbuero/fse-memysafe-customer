@@ -1,23 +1,31 @@
 footer{
     background-color: #000;
-    >div{
+    .parts-footer{
         flex-direction: row;
         justify-content: space-between;
         max-width: 1210px;
         margin: 0 auto;
         align-items: center;
+        width:100%;
+
+        >*{
+            margin: 0 !important;
+        } 
+        .wp-block-navigation-item__label,
         p,a{
             color: #fff;
-            font-size: 12px
+            font-size: 12px;
         }
+        
         ul{
             display: flex;
             gap: 10px;
             list-style-type: none;
             li{
                 &:not(:first-child):before {
-                    content: " - ";
+                    content: "-";
                     color: #fff; 
+                    padding-right: 10px;
                 }
             }
         }

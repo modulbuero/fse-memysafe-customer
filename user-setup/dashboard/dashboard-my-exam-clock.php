@@ -18,6 +18,7 @@ $eskalation_stufe_three  = get_user_meta( $get_user_id, 'eskalation_stufe_three'
 $exam_clock_urlaubsmodus = MemyOptionManager::get('exam_clock_urlaubsmodus', '0');
 //ResetOption
 $selected_reset = MemyOptionManager::get('examclock-reset', 'button-klick');
+
 //HTML ausgeben
 if(!empty($exam_clock_zyklus_one)) : ?>
     

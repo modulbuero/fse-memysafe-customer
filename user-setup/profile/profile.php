@@ -23,7 +23,7 @@ $ort          = (!empty($user_metas['ort'][0])) ? $user_metas['ort'][0] : "";
     <div class="spalte">
         <div id="profile-persoenliche-daten" class="settings-labels three-quarters-width">
 
-            <h5>Vorname und Nachname</h5>
+            <h5 class="memy-label">Vorname und Nachname</h5>
             <div class="spalte">
                 <?php 
                 addInput('', $current_user->first_name, 'first_name', 'Vorname');
@@ -31,7 +31,7 @@ $ort          = (!empty($user_metas['ort'][0])) ? $user_metas['ort'][0] : "";
                 ?>
             </div>
 
-            <h5>Adresse</h5>
+            <h5 class="memy-label">Adresse</h5>
             <div class="settings-labels">
                 <?php 
                 addInput('', $strasze, 'strasze', 'Straße');
@@ -40,7 +40,7 @@ $ort          = (!empty($user_metas['ort'][0])) ? $user_metas['ort'][0] : "";
                 ?>
             </div>
 
-            <h5>Telefonnummer</h5>
+            <h5 class="memy-label">Telefonnummer</h5>
             <?php 
             addInput('', $telefon, 'telefon', 'Telefonnummer');
             ?>

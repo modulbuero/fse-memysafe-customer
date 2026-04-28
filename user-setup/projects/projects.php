@@ -44,7 +44,7 @@
 
     ?> 
     <div class="overflow-wrapper">
-        <div class="spalte project-data-show-hide"><p>Hinterlegte Informationen</p> <i class="mmsi-icon bearbeiten"></i></div>
+        <div class="spalte project-data-show-hide"><p style="display:flex;gap:10px"><i class="mmsi-icon informationen"></i> Hinterlegte Informationen</p> <i class="mmsi-icon bearbeiten"></i></div>
 
         <div class="project-data-container">
             <?php addInput('Projektinformationen', '', 'project-name', 'Name, Projektnummer, Aktenzeichen,…'); ?>
@@ -61,7 +61,7 @@
                 ?>
             </div>
             
-            <div class="spalte input-wrapper">
+            <div class="spalte input-wrapper project-status-wrap">
                 <?php
                 addCheckboxGroup('Projektstatus', [
                     'Geplant'       => 'Geplant',
@@ -73,16 +73,16 @@
                 ?>
             </div>
 
-            <div>
-                <?php 
-                echo '<div class="spalte input-wrapper">';
-                    addInput('Andere beteiligte und/oder Dienstleister', '', 'project-dienstleister-name', 'Name_');
-                    addInput(' ', '', 'project-dienstleister-funktion', 'Funktion_');
-                echo '</div>';
+            
+            <?php 
+            echo '<div class="spalte input-wrapper">';
+                addInput('Andere beteiligte und/oder Dienstleister', '', 'project-dienstleister-name', 'Name_');
+                addInput('&nbsp;', '', 'project-dienstleister-funktion', 'Funktion_');
+            echo '</div>';
 
-                addInput('Datenzugriff Speicherort', '', 'project-dateizugriff', 'Speicherort_');
-                ?>
-            </div>
+            addInput('Datenzugriff Speicherort', '', 'project-dateizugriff', 'Speicherort_');
+            ?>
+        
         </div>
 
         <div class="spalte project-data-show-hide"><p>Kontakte</p> <i class="mmsi-icon bearbeiten"></i></div>

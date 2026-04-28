@@ -31,6 +31,9 @@
 .mmsi-icon.helper {
   background-image: url(../icons/MMSI_Icon_HILFE.svg);
 }
+.mmsi-icon.informationen {
+  background-image: url(../icons/MMSI_Icon_HINTERLEGTE-INFORMATIONEN.svg);
+}
 .mmsi-icon.info {
   background-image: url(../icons/MMSI_Icon_INFO.svg);
 }

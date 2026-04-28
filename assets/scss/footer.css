@@ -1,23 +1,29 @@
 footer {
   background-color: #000;
 }
-footer > div {
+footer .parts-footer {
   flex-direction: row;
   justify-content: space-between;
   max-width: 1210px;
   margin: 0 auto;
   align-items: center;
+  width: 100%;
 }
-footer > div p, footer > div a {
+footer .parts-footer > * {
+  margin: 0 !important;
+}
+footer .parts-footer .wp-block-navigation-item__label,
+footer .parts-footer p, footer .parts-footer a {
   color: #fff;
   font-size: 12px;
 }
-footer > div ul {
+footer .parts-footer ul {
   display: flex;
   gap: 10px;
   list-style-type: none;
 }
-footer > div ul li:not(:first-child):before {
-  content: " - ";
+footer .parts-footer ul li:not(:first-child):before {
+  content: "-";
   color: #fff;
+  padding-right: 10px;
 }/*# sourceMappingURL=footer.css.map */

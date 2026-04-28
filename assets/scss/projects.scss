@@ -30,19 +30,13 @@
     --project-padding-outer: 30px;
     --project-padding-inner: 20px;
     --project-field-margin: 10px;
+    padding-right: calc(var(--project-padding-outer) + var(--project-padding-inner));
 
     >div{
         margin-bottom: var(--project-padding-inner);
         
         label{
             padding-left:var(--project-padding-outer);
-            &:before{
-                content:"\F582";
-                font-family: "bootstrap-icons";
-                display: inline-block;
-                margin-right: 10px;
-                font-size: 7px;
-            }
         }
 
         .checkbox-group {
@@ -58,7 +52,7 @@
 
         input{
             margin-top: var(--project-field-margin);
-            margin-left: calc(var(--project-padding-outer) + var(--project-padding-inner));
+            margin-left: calc(var(--project-padding-outer) + var(--project-padding-inner)) !important;
             margin-bottom: var(--project-field-margin);
         }
 
@@ -79,12 +73,12 @@
                 }
             }
         }
-        
-        /*eine Textare*/
+
         #project-anmerkungen{
             margin-top:var(--project-field-margin);
             margin-left:calc(var(--project-padding-outer) + var(--project-padding-inner));
         }
+        
 
         /*Hidden Labels*/
         .project-anmerkung label,
@@ -98,6 +92,7 @@
             &:not(.show){
                 display:none
             }
+            width:calc(100% - var(--project-padding-outer) - var(--project-padding-inner)) !important;
         }
     
         /**
@@ -123,6 +118,14 @@
         }
     }
 
+    .project-status-wrap{
+        align-items: flex-start;
+        /*kleine Textarea*/
+        #project-anmerkung{
+            width: 100% !important;
+        }
+    }
+    
     .spalte{
         >div{
             width: 100%;

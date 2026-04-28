@@ -49,6 +49,7 @@ button:hover{
         background-image: url(../icons/MMSI_Icon_PFEIL-BUTTON.svg);
         background-size: contain;
         background-repeat: no-repeat;
+        background-position: center;
         position: absolute;
         right: 10px;
         height: 100%;
@@ -64,7 +65,7 @@ button:hover{
 }
 
 .short-button{
-    max-width: 250px !important;
+    max-width: 290px !important;
 }
 
 /*kleines Info Feld*/
@@ -269,8 +270,9 @@ div,p{
     color:#fff;
     left:10px;
     max-width: 125px !important;
-    font-size: 8px;
+    font-size: 10px;
     text-transform: uppercase;
+    padding:10px;
 }
 
 .gotocontacts-wrapper{

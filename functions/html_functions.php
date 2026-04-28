@@ -62,7 +62,9 @@ function addCheckboxGroup($label, $options, $selected='', $id='1'){
  * return echo
 */
 function addRadioGroup($label, $options, $selected='', $id='1'){
-    echo "<div class='$id radio-boxes'><label>$label</label><div class='radio-group'>";
+    echo "<div class='$id radio-boxes'>";
+    echo (!empty($label)) ? "<label>$label</label>" : '';
+    echo  "<div class='radio-group'>";
    
     foreach ($options as $value => $optionLabel) {
         $checked = ($selected === $value) ? 'checked' : '';

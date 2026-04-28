@@ -28,16 +28,16 @@ label:not(.is-checkbox) {
   align-items: center;
   margin-bottom: 10px;
 }
-.memy-label:not(.no-label):before,
-label:not(.is-checkbox):not(.no-label):before {
+.memy-label:not(.no-label):not(.is-radio):before,
+label:not(.is-checkbox):not(.no-label):not(.is-radio):before {
   content: "■";
   display: inline-block;
   margin-right: 8px;
   font-size: 8px;
   line-height: 1;
 }
-.memy-label:not(.no-label) + input,
-label:not(.is-checkbox):not(.no-label) + input {
+.memy-label:not(.no-label):not(.is-radio) + input,
+label:not(.is-checkbox):not(.no-label):not(.is-radio) + input {
   margin-left: 15px;
   width: calc(100% - 15px);
 }
@@ -45,18 +45,17 @@ label:not(.is-checkbox):not(.no-label) + input {
 /**
  * Input
  */
-input:not([type=checkbox]), input:not([type=submit]) {
+input:not([type=checkbox]):not([type=submit]) {
   box-sizing: border-box;
   width: 100%;
   border: var(--memy-border);
   padding: var(--memy-padding-input);
-  font-size: var(--form-font-size);
   outline: none;
   transition: all 0.3s ease;
   min-width: 300px;
 }
-input:not([type=checkbox]):focus:not(:disabled), input:not([type=checkbox]):hover:not(:disabled), input:not([type=submit]):focus:not(:disabled), input:not([type=submit]):hover:not(:disabled) {
-  box-shadow: inset 0px 0px 0px 3px var(--input-border-color);
+input:not([type=checkbox]):not([type=submit]):focus:not(:disabled), input:not([type=checkbox]):not([type=submit]):hover:not(:disabled) {
+  box-shadow: inset 0px 0px 0px 1px var(--input-border-color);
 }
 input.error {
   box-shadow: inset 0px 0px 0px 3px var(--input-border-error);
@@ -77,7 +76,6 @@ textarea {
   width: 100%;
   border: var(--memy-border);
   padding: var(--memy-padding-input);
-  font-size: var(--form-font-size);
   outline: none;
   transition: all 0.3s ease;
   min-width: 300px;
@@ -85,7 +83,7 @@ textarea {
 select:focus, select:hover,
 textarea:focus,
 textarea:hover {
-  box-shadow: inset 0px 0px 0px 3px var(--input-border-color);
+  box-shadow: inset 0px 0px 0px 1px var(--input-border-color);
 }
 
 /*Passwort Wrapper*/
@@ -143,7 +141,7 @@ form div {
   flex-basis: 50%;
 }
 
-.input-wrapper:not(:last-child) {
+.input-wrapper:not(:last-child)::is(visible) {
   margin-bottom: 20px;
 }
 
@@ -161,7 +159,7 @@ form div {
 .selectbox::after {
   content: "▼";
   position: absolute;
-  bottom: 0%;
+  bottom: 9px;
   right: 10px;
   transform: translateY(-5px);
   pointer-events: none;

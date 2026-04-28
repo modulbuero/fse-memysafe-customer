@@ -24,19 +24,13 @@
   --project-padding-outer: 30px;
   --project-padding-inner: 20px;
   --project-field-margin: 10px;
+  padding-right: calc(var(--project-padding-outer) + var(--project-padding-inner));
 }
 .project-data-container > div {
   margin-bottom: var(--project-padding-inner);
 }
 .project-data-container > div label {
   padding-left: var(--project-padding-outer);
-}
-.project-data-container > div label:before {
-  content: "\f582";
-  font-family: "bootstrap-icons";
-  display: inline-block;
-  margin-right: 10px;
-  font-size: 7px;
 }
 .project-data-container > div .checkbox-group {
   margin-top: var(--project-field-margin);
@@ -50,7 +44,7 @@
 }
 .project-data-container > div input {
   margin-top: var(--project-field-margin);
-  margin-left: calc(var(--project-padding-outer) + var(--project-padding-inner));
+  margin-left: calc(var(--project-padding-outer) + var(--project-padding-inner)) !important;
   margin-bottom: var(--project-field-margin);
 }
 .project-data-container > div .selectbox {
@@ -67,9 +61,6 @@
 .project-data-container > div .selectbox:not(.show) select, .project-data-container > div .selectbox:not(.show):after {
   display: none;
 }
-.project-data-container > div {
-  /*eine Textare*/
-}
 .project-data-container > div #project-anmerkungen {
   margin-top: var(--project-field-margin);
   margin-left: calc(var(--project-padding-outer) + var(--project-padding-inner));
@@ -85,6 +76,11 @@
 .project-data-container > div input:not(.show),
 .project-data-container > div textarea:not(.show) {
   display: none;
+}
+.project-data-container > div label.is-checkbox,
+.project-data-container > div input,
+.project-data-container > div textarea {
+  width: calc(100% - var(--project-padding-outer) - var(--project-padding-inner)) !important;
 }
 .project-data-container > div {
   /**
@@ -104,6 +100,13 @@
 }
 .project-data-container > div .checkbox-group label.is-checkbox.show .slider {
   display: block;
+}
+.project-data-container .project-status-wrap {
+  align-items: flex-start;
+  /*kleine Textarea*/
+}
+.project-data-container .project-status-wrap #project-anmerkung {
+  width: 100% !important;
 }
 .project-data-container .spalte > div {
   width: 100%;

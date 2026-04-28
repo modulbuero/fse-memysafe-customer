@@ -36,13 +36,15 @@ foreach (range(1, 3) as $i):
         <?php 
         addInput('', 'Notfallkontakt', 'contact-typ-'.$i, '','hidden'); 
         
-        if(get_current_user_id() == getAdminUserID() ):
-
-            addCheckbox('Darf MMSI den Safe öffnen?', $mmsi_can, 'contact-mmsi-can-'.$i); 
-        ?>
-            <button class="send-invitation">
-                <i class='mmsi-icon speichern'></i> Einladung senden
-            </button>
+        if(get_current_user_id() == getAdminUserID() ): ?>
+            <div class="spalte">
+                <?php addCheckbox('Darf MMSI den Safe öffnen?', $mmsi_can, 'contact-mmsi-can-'.$i); ?>
+                <?php if(!email_exists($person_email)): ?>
+                    <button class="send-invitation" style="padding: 5px; font-size: 14px;">
+                        <i class='mmsi-icon speichern'></i> Einladung senden
+                    </button>
+                <?php endif; ?>
+            </div>
         <?php 
         endif;
         

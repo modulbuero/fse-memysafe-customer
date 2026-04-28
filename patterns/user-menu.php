@@ -17,11 +17,12 @@
         <!-- /wp:list-item -->
 
         <!-- wp:list-item -->
-        <li id="memy-menu-einstellungen" data-goto="memy-settings" class="dash-goto-btn"><i class="mmsi-icon setting"></i> <span>Einstellungen</span></li>
+        <!--<li id="memy-menu-einstellungen" data-goto="memy-settings" class="dash-goto-btn"><i class="mmsi-icon setting"></i> <span>Einstellungen</span></li>-->
+        <li id="memy-menu-einstellungen" class="disabled"><i class="mmsi-icon setting"></i> Einstellungen</li>
         <!-- /wp:list-item -->
 
         <!-- wp:list-item -->
-        <li id="memy-menu-abo"><i class="mmsi-icon abo"></i> Abo: That's me</li>
+        <li id="memy-menu-abo" class="disabled"><i class="mmsi-icon abo"></i> Abo: That's me</li>
         <!-- /wp:list-item -->
 
         <!-- wp:list-item -->
