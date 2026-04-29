@@ -19,6 +19,7 @@ class MemyTotmanschalter {
         add_action('wp_ajax_handle_reload_exam-clock_final', array($this, 'handle_reload_exam-clock_final'));
         add_action('wp_ajax_handle_update_exam_clock_reload', array($this, 'handle_update_exam_clock_reload'));
         add_action('wp_ajax_handle_update_exam_clock_cycles', array($this, 'handle_update_exam_clock_cycles'));
+        add_action('wp_loaded', array($this, 'memy_after_login_update_exam_clock_settings_multisite'));
     }
     
     /**
@@ -376,7 +377,7 @@ class MemyTotmanschalter {
      * @param int $tage
      * @return bool
      */
-    protected function update_escalation_for_cycle($userID, $zyklus_id, $tage) {
+    public function update_escalation_for_cycle($userID, $zyklus_id, $tage) {
         $tage = (int) $tage;
     
         //Startzeit erstellen
@@ -408,6 +409,58 @@ class MemyTotmanschalter {
         }
 
         return false;
+    }
+
+    /**
+     * Diese Methode prüft, ob der Benutzer gerade angemeldet wurde
+     */
+    public function memy_after_login_update_exam_clock_settings_multisite() {
+        // Nur für angemeldete Benutzer
+        if (!is_user_logged_in()) {
+            return;
+        }
+
+        $user = wp_get_current_user();
+        $userID = $user->ID;
+
+        // Nur für den Seitenbesitzer (Admin)
+        if($userID != getAdminUserID()){
+            return;
+        }
+
+        // Prüfen, ob gerade angemeldet (über Cookie oder Session)
+        // und ob Update noch nicht durchgeführt wurde
+        if (isset($_COOKIE['memy_login_processed_' . $userID])) {
+            return;
+        }
+
+        // Sicherheit: Prüfe ob die letzte Login-Zeit sehr nah beieinander liegt
+        $lastLoginTime = get_user_meta($userID, 'memy_last_login_time', true);
+        $currentTime = time();
+
+        if ($lastLoginTime && ($currentTime - $lastLoginTime) > 300) {
+            return; // Nur innerhalb von 5 Minuten nach dem letzten gespeicherten Login
+        }
+
+        // Zyklen abrufen
+        $cyclusOne = get_user_meta($userID, 'exam-clock-zyklus-one', true);
+
+        if (!empty($cyclusOne)) {
+            error_log("Multisite Login erkannt, aktualisiere Eskalationszeiten für User ID: " . $userID);
+
+            // Eskalationszeiten für alle drei Zyklen aktualisieren
+            $this->update_escalation_for_cycle($userID, 'exam-clock-zyklus-one', $cyclusOne);
+
+            $cyclusTwo = get_user_meta($userID, 'exam-clock-zyklus-two', true);
+            $this->update_escalation_for_cycle($userID, 'exam-clock-zyklus-two', $cyclusTwo);
+
+            $cyclusThree = get_user_meta($userID, 'exam-clock-zyklus-three', true);
+            $this->update_escalation_for_cycle($userID, 'exam-clock-zyklus-three', $cyclusThree);
+
+            // Marker setzen, dass bereits verarbeitet
+            setcookie('memy_login_processed_' . $userID, time(), time() + 3600, '/');
+            update_user_meta($userID, 'memy_last_login_time', $currentTime + 1000); // Zeitstempel erhöhen
+        }
     }
 }
 
