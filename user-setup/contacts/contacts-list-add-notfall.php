@@ -17,12 +17,12 @@ foreach (range(1, 3) as $i):
     $mmsi_can       = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['mmsi_can'] ?? '';    
 
     echo "<div class='setup-contact-person-data full-height' data-target='contact-person-$i' id='setup-contact-person-$i' data-step='5'>
-        <div class='spalte inner-main-heading'><h3>$i. Notfallkontakt</h3></div>
+        <div class='spalte inner-main-heading'><h3><i class='mmsi-icon kontakte'></i> Notfallkontakte</h3></div>
         ";
-        if($i == 1){
-            echo "Hauptkontakt";
-        }
+        
+        echo "<h4>".$i.". Notfallkontakt</h4>";
         ?>        
+        <div class="inner-input-wrapper">
         <div class="contact-data">
             <?php 
             addInput('Name', $person_name, 'contact-name-'.$i);
@@ -47,6 +47,7 @@ foreach (range(1, 3) as $i):
             </div>
         <?php 
         endif;
+        echo '</div>';
         
         saveDeleteButton('contact');
         deletePopup('delete-contact', 'Kontaktperson ' . $person_name . ' löschen'); 

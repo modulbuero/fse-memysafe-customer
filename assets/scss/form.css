@@ -26,6 +26,9 @@ select, input, textarea, button {
 label:not(.is-checkbox) {
   display: flex;
   align-items: center;
+}
+.memy-label:not(.number-label),
+label:not(.is-checkbox):not(.number-label) {
   margin-bottom: 10px;
 }
 .memy-label:not(.no-label):not(.is-radio):before,
@@ -139,6 +142,14 @@ form div {
 }
 .input-section .spalte > div {
   flex-basis: 50%;
+}
+
+.inner-input-wrapper {
+  padding-left: var(--memy-padding-inner-container-side);
+  padding-right: var(--memy-padding-inner-container-side);
+}
+.inner-input-wrapper > div {
+  gap: 20px;
 }
 
 .input-wrapper:not(:last-child)::is(visible) {

@@ -2,7 +2,7 @@
 // 1. Eigenes Cron-Intervall von 5 Minuten registrieren
 function add_memy_cron_interval($schedules) {
     $schedules['every_memy_hours'] = array(
-        'interval' => 5 * MINUTE_IN_SECONDS,
+        'interval' => 3 * MINUTE_IN_SECONDS,
         'display'  => 'Alle 5 Minuten (MeMySafe)',
     );
     return $schedules;
@@ -37,8 +37,9 @@ function memy_deathman_query_function() {
             $adminID   = $adminuser->ID;
             $adminEmail = $adminuser->user_email;
             $adminName  = $adminuser->first_name . ' ' . $adminuser->last_name;
+            error_log("MeMySafe_Cron: Benutzer gefunden für Blog " . get_current_blog_id());
         } else {
-            error_log("MeMySafe: Kein Benutzer gefunden für Blog " . get_current_blog_id());
+            error_log("MeMySafe_Cron: Kein Benutzer gefunden für Blog " . get_current_blog_id());
             return;
         }
 
@@ -57,7 +58,7 @@ function memy_deathman_query_function() {
         $notfall_email         = get_user_meta($adminID, 'contact-person-1', true)['email'] ?? '';
         $hasSendNotfall        = get_option('has_send_notfall');
 
-        error_log("MeMySafe: ESK | currDate: " . $curr_date_string);
+        error_log("MeMySafe_Cron: ESK | currDate: " . $curr_date_string);
         
         if(!empty($adminEmail) && !empty($notfall_email)
             ){
@@ -73,7 +74,7 @@ function memy_deathman_query_function() {
                     wp_mail($adminEmail, $subject, $message);
                     
                     update_option('has_send_reminder_one', $curr_date_string);
-                    error_log("MeMySafe: Reminder Mail 1 gesendet an " . $adminEmail);
+                    error_log("MeMySafe_Cron: Reminder Mail 1 gesendet an " . $adminEmail);
                     return;
                 }
             }
@@ -122,7 +123,7 @@ function memy_deathman_query_function() {
             }
 
         }else{
-            error_log("MeMySafe: Cron läuft, aber fehlende Daten (Zeiten/Email) für Blog " . get_current_blog_id());
+            error_log("MeMySafe_Cron: Cron läuft, aber fehlende Daten (Zeiten/Email) für Blog " . get_current_blog_id());
         }
     }
 }

@@ -175,7 +175,7 @@ div, p {
 .overflow-wrapper:after {
   content: "";
   position: fixed;
-  bottom: 75px;
+  bottom: 90px;
   left: 0;
   width: 100%;
   border-top: 1px solid var(--memy-trenner-color);

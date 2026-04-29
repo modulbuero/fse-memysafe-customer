@@ -2,7 +2,6 @@
     'use strict';
 
     $(document).ready(function() {
-        console.log('Helpermodus JS geladen');
         $('#finish-helper-mode').on('click', function() {
             $.ajax({
                 url: memy_ajax_object.ajax_url,

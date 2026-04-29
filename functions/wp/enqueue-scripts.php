@@ -71,10 +71,6 @@ function mbfse_child_style_Files(){
 		array(),
 		wp_get_theme()->get( 'Version' )
 	);
-
-	$memysafeFrontpage = content_url() . '/themes/fse-memysafe-frontpage/assets/scss/form.css';
-    wp_enqueue_style('memysafe-frontpage-formular', $memysafeFrontpage, array(), '1.0.0');
-
 	
 	wp_enqueue_style(
 		'memy-footer',

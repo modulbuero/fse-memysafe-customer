@@ -152,6 +152,8 @@
         display: none;
         margin-top: 20px;
         padding: var(--memy-padding-small-dashbox);
+        border-top:var(--memy-trenner);
+        
         .spalte{
             justify-content: flex-start;
             >span{
@@ -160,7 +162,12 @@
         }
     }
 
+    #exam-clock-reset-input,
     #exam-clock-zyklus-input{
+        
+    }
+    #exam-clock-zyklus-input{
+    
         label{
             min-width: 70px;
         }

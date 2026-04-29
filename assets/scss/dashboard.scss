@@ -128,6 +128,15 @@
          /*Wenn kein Overflow-Container davor*/
          .save-wrapper{
             margin-top: auto;
+            &:after{
+               content: "";
+               position: absolute;
+               left:0;
+               bottom: 70px;
+               width: 100%;
+               height: 1px;
+               background-color: var(--memy-trenner-color);
+            }
          }
       }
 

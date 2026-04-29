@@ -85,7 +85,7 @@
         
         </div>
 
-        <div class="spalte project-data-show-hide"><p>Kontakte</p> <i class="mmsi-icon bearbeiten"></i></div>
+        <div class="spalte project-data-show-hide"><p style="display:flex;gap:10px"><i class="mmsi-icon kontakte"></i> Kontakte</p> <i class="mmsi-icon bearbeiten"></i></div>
 
         <div class="project-data-container">
             <div id="project-kontakt-container">

@@ -129,6 +129,7 @@
   display: none;
   margin-top: 20px;
   padding: var(--memy-padding-small-dashbox);
+  border-top: var(--memy-trenner);
 }
 #manage-exam-clock-wrapper .step-2 .spalte {
   justify-content: flex-start;

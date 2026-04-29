@@ -107,6 +107,8 @@
 }
 .mmsi-icon.weiter {
   background-image: url(../icons/MMSI_Icon_WEITER.svg);
+  width: 22px;
+  background-size: 40px;
 }
 .mmsi-icon.zyklus {
   background-image: url(../icons/MMSI_Icon_ZYKLUS.svg);
