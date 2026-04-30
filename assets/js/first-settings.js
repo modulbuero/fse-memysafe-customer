@@ -3,7 +3,7 @@
         setStepsFreeByCheckbox('#mmsi-verstanden')
         setStepsFreeByCheckbox('#mmsi-uploadcheck')
         nextStepButton()
-        hasInputValues('adresse')
+        hasInputValues('adress')
         hasInputValues('kontakt')                
         setStepsFree('willkommen')
         setStepsFree('einrichten')
@@ -23,6 +23,22 @@
 
             const nonce = $('#fsettingn-wp').val();
 
+            // Sammle User Metas aus step-03.php
+            const userMeta = {
+                strasze: $('#checkvalues-adress #strasze').val(),
+                plz: $('#checkvalues-adress #plz').val(),
+                ort: $('#checkvalues-adress #ort').val(),
+                telefon: $('#checkvalues-adress #telefon').val()
+            };
+
+            // Sammle Kontakt-Daten aus step-04.php
+            const contactMeta = {
+                name: $('#checkvalues-kontakt #contact-name-1').val(),
+                email: $('#checkvalues-kontakt #contact-email-1').val(),
+                tel: $('#checkvalues-kontakt #contact-tel-1').val(),
+                typ: $('#checkvalues-kontakt #contact-typ-1').val()
+            };
+
             $.ajax({
                 url: memyFirstSettingsAjax.ajax_url,
                 type: 'POST',
@@ -30,7 +46,9 @@
                 data: {
                     action: 'save_first_settings_meta',
                     nonce: nonce,
-                    first_settings: 'done'
+                    first_settings: 'done',
+                    user_meta: userMeta,
+                    contact_meta: contactMeta
                 },
                 success(response) {
                     if (response.success) {

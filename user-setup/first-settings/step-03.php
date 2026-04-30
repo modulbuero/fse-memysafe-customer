@@ -9,7 +9,7 @@
     <p>
         Lege die Grundlage für deine Erreichbarkeit fest.
     </p>
-    <div id="checkvalues-kontakt">
+    <div id="checkvalues-adress">
         <?php 
         $current_user = wp_get_current_user();
         $user_metas   = get_user_meta($current_user->ID);       

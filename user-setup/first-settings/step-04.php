@@ -11,7 +11,7 @@
         <br>
         Die Kontakte werden per E-Mail eingeladen und können ihre Rolle bestätigen.
     </p>
-    <div id="checkvalues-adresse">
+    <div id="checkvalues-kontakt">
         <?php 
         $v_person_name  = get_user_meta(get_current_user_id(), 'contact-person-1', true)['name'] ?? '';
         $v_person_email = get_user_meta(get_current_user_id(), 'contact-person-1', true)['email'] ?? '';

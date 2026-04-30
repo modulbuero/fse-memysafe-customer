@@ -84,4 +84,8 @@
 }
 #first-settings > div .container .final-btns .fs-naviwrapper button {
   display: none;
+}
+#first-settings > div .container #checkvalues-adresse,
+#first-settings > div .container #checkvalues-kontakt {
+  gap: 20px;
 }/*# sourceMappingURL=first-steps.css.map */

@@ -44,9 +44,51 @@ class MemyFirstSettings {
             wp_send_json_error(array('message' => 'Ungültiger Benutzer.'), 400);
         }
 
+        // Speichere first_settings Flag
         update_user_meta($user_id, 'first_settings', 'done');
 
-        wp_send_json_success(array('message' => 'first_settings updated'));
+        // Speichere User Meta aus step-03.php
+        if (isset($_POST['user_meta']) && is_array($_POST['user_meta'])) {
+            $user_meta = array_map('sanitize_text_field', $_POST['user_meta']);
+            
+            if (!empty($user_meta['strasze'])) {
+                update_user_meta($user_id, 'strasze', $user_meta['strasze']);
+            }
+            if (!empty($user_meta['plz'])) {
+                update_user_meta($user_id, 'plz', $user_meta['plz']);
+            }
+            if (!empty($user_meta['ort'])) {
+                update_user_meta($user_id, 'ort', $user_meta['ort']);
+            }
+            if (!empty($user_meta['telefon'])) {
+                update_user_meta($user_id, 'telefon', $user_meta['telefon']);
+            }
+        }
+
+        // Speichere Kontakt-Meta aus step-04.php
+        if (isset($_POST['contact_meta']) && is_array($_POST['contact_meta'])) {
+            $contact_meta = array_map('sanitize_text_field', $_POST['contact_meta']);
+            
+            $contact_data = array(
+                'name'      => $contact_meta['name'] ?? '',
+                'email'     => sanitize_email($contact_meta['email'] ?? ''),
+                'tel'       => $contact_meta['tel'] ?? '',
+                'typ'       => 'Notfallkontakt',
+                'firma'     => '',
+                'status'    => 'Ausstehend',
+                'mmsi_safe' => '',
+                'mmsi_can'  => '',
+                'hauptkontakt' => ''
+            );
+            
+            update_user_meta($user_id, 'contact-person-1', $contact_data);
+        }
+
+        wp_send_json_success(array(
+            'message'     => 'first_settings updated',
+            'dataUser'    => json_encode($$_POST['user_meta']),
+            'dataContact' => json_encode($contact_data)
+        ));
     }
 }
 
