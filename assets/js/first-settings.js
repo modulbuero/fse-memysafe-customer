@@ -2,14 +2,17 @@
 	$(document).ready(()=>{
         setStepsFreeByCheckbox('#mmsi-verstanden')
         setStepsFreeByCheckbox('#mmsi-uploadcheck')
+        setStepsFreeByRadioGroup()
         nextStepButton()
         hasInputValues('adress')
-        hasInputValues('kontakt')                
+        hasInputValues('kontakt') 
+        //hasInputValues('safeinfo')                
         setStepsFree('willkommen')
         setStepsFree('einrichten')
-        setStepsFree('safe-info')
+        //setStepsFree('safe-info')
         setStepsFree('zweifaktor')
         saveFirstSettings()
+        saveSafeInfo()
 
         $('#zyklus-ersteinrichtung').on('click', function(event) {
             event.preventDefault();
@@ -75,20 +78,34 @@
 
         $('#first-settings .welcome button').attr('disabled', false)
 
-        // $containers.each(function(index) {
-        //     const $container = $(this);
-
-        //     if (index > 0 && $container.find('.goback').length === 0) {
-        //         const $backButton = $('<button type="button" class="goback">Zurück</button>');
-        //         $container.prepend($backButton);
-        //     }
-        // });
-
         $firstSettings.on('click', '.first-step-button', function(event) {
             event.preventDefault();
 
             const $currentContainer = $(this).closest('.container');
-            const $nextContainer = $currentContainer.nextAll('.container').first();
+            
+            // Prüfe, ob Radio-Gruppe "mmsi-uploadcheck" vorhanden ist
+            const $radioGroup = $currentContainer.find('input[name="mmsi-uploadcheck"]:checked');
+            let $nextContainer;
+            
+            if ($radioGroup.length) {
+                const selectedValue = $radioGroup.val();
+                
+                switch(selectedValue) {
+                    case 'mmsi-file-later':
+                        $nextContainer = $firstSettings.find('.container.zweifaktor');
+                        break;
+                    case 'mmsi-file-entry':
+                        $nextContainer = $firstSettings.find('.container.safe-file-2');
+                        break;
+                    case 'mmsi-file-completed':
+                        $nextContainer = $firstSettings.find('.container.safe-file-1');
+                        break;
+                    default:
+                        $nextContainer = $currentContainer.nextAll('.container').first();
+                }
+            } else {
+                $nextContainer = $currentContainer.nextAll('.container').first();
+            }
 
             if ($nextContainer.length) {
                 $nextContainer.addClass('show');
@@ -113,6 +130,12 @@
 
         $checkbox.on('change', updateStepButtons);
         updateStepButtons();
+    }
+
+    function setStepsFreeByRadioGroup(){
+        $('.mmsi-uploadcheck.radio-boxes').on('change', 'input[type="radio"]', function() {
+            setStepsFree('safe-info');
+        });
     }
 
     function hasInputValues(inputwrapper){
@@ -140,5 +163,70 @@
     function setStepsFree(container){
         const $stepButtons = $('.container.'+container+' .first-step-button');
         $stepButtons.prop('disabled', false);
+    }
+
+    function saveSafeInfo(){
+        $('#safe-info-save').on('click', function(event) {
+            event.preventDefault();
+
+            // Nutze das Nonce aus der Lokalisierung
+            const nonce = memyFirstSettingsAjax.nonce;
+
+            // Sammle Safe-Info Daten mit Labels
+            const safeInfoData = [];
+
+            // Sammle Daten aus #checkvalues-safeinfo
+            $('#checkvalues-safeinfo input').each(function() {
+                const $input = $(this);
+                const $wrapper = $input.closest('.input-wrapper');
+                const label = $wrapper.find('label').text();
+                const value = $input.val();
+                
+                if (label && value) {
+                    safeInfoData.push({
+                        label: label,
+                        value: value
+                    });
+                }
+            });
+
+            // Sammle Daten aus #checkvalues-safeinfo-soft
+            $('#checkvalues-safeinfo-soft input').each(function() {
+                const $input = $(this);
+                const $wrapper = $input.closest('.input-wrapper');
+                const label = $wrapper.find('label').text();
+                const value = $input.val();
+                
+                if (label && value) {
+                    safeInfoData.push({
+                        label: label,
+                        value: value
+                    });
+                }
+            });
+
+            $.ajax({
+                url: memyFirstSettingsAjax.ajax_url,
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    action: 'save_safe_info_txt',
+                    nonce: nonce,
+                    safe_info_data: safeInfoData
+                },
+                success(response) {
+                    if (response.success) {
+                        setStepsFree('safe-file-2')
+                    } else {
+                        console.error(response.data);
+                        alert('Speichern fehlgeschlagen: ' + response.data.message);
+                    }
+                },
+                error(response) {
+                    console.log(response)
+                    alert('Ein Fehler ist aufgetreten. Bitte versuche es erneut.');
+                }
+            });
+        });
     }
 })(jQuery);

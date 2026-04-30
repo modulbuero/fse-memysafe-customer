@@ -11,10 +11,12 @@ if (!defined('ABSPATH')) {
 
 class MemyFirstSettings {
     const AJAX_ACTION = 'save_first_settings_meta';
+    const AJAX_ACTION_SAFE_INFO = 'save_safe_info_txt';
 
     public function __construct() {
         add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
         add_action('wp_ajax_' . self::AJAX_ACTION, array($this, 'ajax_save_first_settings_meta'));
+        add_action('wp_ajax_' . self::AJAX_ACTION_SAFE_INFO, array($this, 'ajax_save_safe_info_txt'));
     }
 
     public function enqueue_scripts() {
@@ -88,6 +90,65 @@ class MemyFirstSettings {
             'message'     => 'first_settings updated',
             'dataUser'    => json_encode($$_POST['user_meta']),
             'dataContact' => json_encode($contact_data)
+        ));
+    }
+
+    public function ajax_save_safe_info_txt() {
+        if (!is_user_logged_in()) {
+            wp_send_json_error(array('message' => 'Sie müssen angemeldet sein.'), 403);
+        }
+
+        check_ajax_referer('save_first_settings', 'nonce');
+
+        $user_id = get_current_user_id();
+        if (!$user_id) {
+            wp_send_json_error(array('message' => 'Ungültiger Benutzer.'), 400);
+        }
+
+        // Sammle Safe-Info Daten
+        if (!isset($_POST['safe_info_data']) || !is_array($_POST['safe_info_data'])) {
+            wp_send_json_error(array('message' => 'Keine Daten vorhanden.'), 400);
+        }
+
+        $safe_info_data = $_POST['safe_info_data'];
+
+        // Erstelle TXT-Inhalt mit Labels und Werten
+        $txt_content = "SICHERHEITSINFORMATIONEN für NOTFALLKONTAKT\n";
+        $txt_content .= "Erstellungsdatum: " . date('d.m.Y', current_time('timestamp')) . "\n";
+        $txt_content .= "==========================================\n\n";
+
+        foreach ($safe_info_data as $item) {
+            $label = sanitize_text_field($item['label']);
+            $value = sanitize_textarea_field($item['value']);
+            
+            $txt_content .= $label . ":\n";
+            $txt_content .= $value . "\n\n";
+        }
+
+        // Bestimme Upload-Verzeichnis
+        $upload_dir = wp_upload_dir();
+        $base_dir = $upload_dir['basedir'];
+        $safe_data_dir = $base_dir . '/safe-data/user-' . $user_id;
+
+        // Erstelle Verzeichnis, falls nicht vorhanden
+        if (!file_exists($safe_data_dir)) {
+            wp_mkdir_p($safe_data_dir);
+        }
+
+        // Speichere TXT-Datei
+        $file_name = 'notfallkontakt-informationen.txt';
+        $file_path = $safe_data_dir . '/' . $file_name;
+
+        $saved = file_put_contents($file_path, $txt_content);
+
+        if ($saved === false) {
+            wp_send_json_error(array('message' => 'Datei konnte nicht gespeichert werden.'), 500);
+        }
+
+        wp_send_json_success(array(
+            'message'     => 'Sicherheitsinformationen erfolgreich gespeichert.',
+            'file_name'   => $file_name,
+            'file_path'   => $file_path
         ));
     }
 }

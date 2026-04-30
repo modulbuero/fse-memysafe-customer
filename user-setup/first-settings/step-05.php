@@ -16,6 +16,17 @@
             <a href="your-link-here" class="button" target="_blank">Vorlage Herunterladen <i class="mmsi-icon download"></i></a> 
         </button>
 
+        <p>Wie möchtest du fortfahren?</p>
+        <?php 
+        #addCheckbox('Ich nutze die Vorlagen und lade meine Informationen später hoch','','mmsi-uploadcheck');
+        $auswahl = [
+            'mmsi-file-later'  => 'Ich nutze die Vorlagen und lade meine Informationen später hoch',
+            'mmsi-file-entry'   => 'Ich hinterlege die wichtigsten Informationen jetzt direkt',
+            'mmsi-file-completed' => 'Ich habe die Vorlagen bereits ausgefüllt und lade sie jetzt hoch'
+            ];
+        addRadioGroup('', $auswahl, '', 'mmsi-uploadcheck');
+        ?>
+
     </div>
 
     <?php firstStepNavi('5') ?>

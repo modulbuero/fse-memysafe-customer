@@ -16,8 +16,6 @@
         </div>
         <input type="file" id="memy-file-input" multiple>
         <div id="memy-upload-progress"></div>
-        
-        <?php addCheckbox('Ich nutze die Vorlagen und lade meine Informationen später hoch','','mmsi-uploadcheck') ?>
     </div> 
 </div>
 <?php 

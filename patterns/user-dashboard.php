@@ -187,8 +187,11 @@ if ( is_user_logged_in() ) :
                 <div class="container safe-info">
                     <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-05.php'; ?>
                 </div>
-                <div class="container safe-file">
-                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-06.php'; ?>
+                <div class="container safe-file-1">
+                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-060.php'; ?>
+                </div>
+                <div class="container safe-file-2">
+                    <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-061.php'; ?>
                 </div>
                 <div class="container zweifaktor">
                     <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-07.php'; ?>
