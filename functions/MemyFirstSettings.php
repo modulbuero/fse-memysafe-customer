@@ -42,6 +42,7 @@ class MemyFirstSettings {
         check_ajax_referer('save_first_settings', 'nonce');
 
         $user_id = get_current_user_id();
+
         if (!$user_id) {
             wp_send_json_error(array('message' => 'Ungültiger Benutzer.'), 400);
         }
@@ -87,9 +88,9 @@ class MemyFirstSettings {
         }
 
         wp_send_json_success(array(
-            'message'     => 'first_settings updated',
-            'dataUser'    => json_encode($$_POST['user_meta']),
-            'dataContact' => json_encode($contact_data)
+            'message'     => 'Ersteinrichtung abgeschlossen.',
+            'dataUser'    => json_encode($_POST['user_meta']),
+            'dataContact' => json_encode($_POST['contact_meta'])
         ));
     }
 
@@ -146,7 +147,7 @@ class MemyFirstSettings {
         }
 
         wp_send_json_success(array(
-            'message'     => 'Sicherheitsinformationen erfolgreich gespeichert.',
+            'message'     => 'Sicherheitsinformationen erfolgreich gespeichert und im Safe abgelegt.',
             'file_name'   => $file_name,
             'file_path'   => $file_path
         ));

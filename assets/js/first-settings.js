@@ -217,9 +217,10 @@
                 success(response) {
                     if (response.success) {
                         setStepsFree('safe-file-2')
+                        showMessage(response.data.message, 'success')
                     } else {
                         console.error(response.data);
-                        alert('Speichern fehlgeschlagen: ' + response.data.message);
+                        showMessage('Speichern fehlgeschlagen: ' + response.data.message);
                     }
                 },
                 error(response) {
