@@ -66,6 +66,9 @@ input.error {
 input:disabled {
   opacity: 0.3;
 }
+input[type=number] {
+  padding: 5px 15px !important;
+}
 
 /*Submit*/
 input[type=submit] {
@@ -146,7 +149,6 @@ form div {
 
 .inner-input-wrapper {
   padding-left: var(--memy-padding-inner-container-side);
-  padding-right: var(--memy-padding-inner-container-side);
 }
 .inner-input-wrapper > div {
   gap: 20px;

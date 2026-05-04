@@ -13,18 +13,27 @@
     /*
         Alle Kunden Projekte ausgeben
     */
-    foreach ($projects_list as $project_id => $project_data) {
-        $project_name = $project_data['projektname'] ?? '';
-        
-        if (!empty($project_name)) {
-            ?>
-            <div data-project="<?php echo esc_attr($project_id); ?>" class="project-person-mail goto-btn spalte" data-goto='manage-projects' data-step="2" >
-                <i class="mmsi-icon projekt"></i>
-                <p><?php echo htmlspecialchars($project_name); ?></p>
-                <i class="mmsi-icon weiter"></i>
-            </div>
-            <?php
+    if (!empty($projects_list)) {
+
+        foreach ($projects_list as $project_id => $project_data) {
+            $project_name = $project_data['projektname'] ?? '';
+            
+            if (!empty($project_name)) {
+                ?>
+                <div data-project="<?php echo esc_attr($project_id); ?>" class="project-person-mail goto-btn spalte" data-goto='manage-projects' data-step="2" >
+                    <i class="mmsi-icon projekt"></i>
+                    <p><?php echo htmlspecialchars($project_name); ?></p>
+                    <i class="mmsi-icon weiter"></i>
+                </div>
+                <?php
+            }
         }
+    }else{
+        ?>
+        <div class="no-projects spalte">
+            <p>Keine Projekte gefunden. Bitte füge ein neues Projekt hinzu.</p>
+        </div>
+        <?php        
     }
     ?>
 </div>

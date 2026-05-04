@@ -69,6 +69,10 @@ input{
     &:disabled{
         opacity: .3;
     }
+
+    &[type=number]{
+        padding: 5px 15px !important;
+    }
 }
 
 /*Submit*/
@@ -152,7 +156,6 @@ form{
 
 .inner-input-wrapper{
     padding-left: var(--memy-padding-inner-container-side);
-    padding-right: var(--memy-padding-inner-container-side);
     >div{
         gap: 20px;
     }

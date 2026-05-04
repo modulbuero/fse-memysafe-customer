@@ -47,19 +47,7 @@ if ( ! class_exists( 'Memy_Safe_Upload' ) ) {
             return self::$base_path;
         }
 
-        /*
-         * Basis-URL abrufen
-         * @deprecated
-         * @return string
-         * 
-        public static function get_base_url() {
-            if ( self::$base_url === null ) {
-                $upload_dir = wp_upload_dir();
-                self::$base_url = $upload_dir['baseurl'] . '/safe-data';
-            }
-            return self::$base_url;
-        }
-        */
+        
 
         /**
          * Benutzerspezifischen Ordner-Pfad abrufen
@@ -347,7 +335,7 @@ if ( ! class_exists( 'Memy_Safe_Upload' ) ) {
          * @param array $meta
          * @return int Meta-ID
          */
-        private static function save_file_meta( $user_id, $meta ) {
+        public static function save_file_meta( $user_id, $meta ) {
             return add_user_meta( $user_id, '_safe_upload_file', $meta );
         }
 
@@ -402,32 +390,7 @@ if ( ! class_exists( 'Memy_Safe_Upload' ) ) {
             return $valid_files;
         }
 
-        /*
-         * Datei abrufen (nur für authentifizierte Benutzer)
-         * 
-         * @param int $file_id
-         * @param int $user_id
-         * @return array|WP_Error
-         * @deprecated
-        public static function get_file( $file_id, $user_id = null ) {
-            if ( empty( $user_id ) ) {
-                $user = wp_get_current_user();
-                $user_id = $user->ID;
-            }
-
-            if ( ! $user_id ) {
-                return new WP_Error( 'not_authenticated', 'Benutzer ist nicht angemeldet.' );
-            }
-
-            $file_meta = get_user_meta( $user_id, '_safe_upload_file', false );
-            
-            if ( empty( $file_meta[ $file_id ] ) ) {
-                return new WP_Error( 'file_not_found', 'Datei nicht gefunden.' );
-            }
-
-            return $file_meta[ $file_id ];
-        }
-        */
+        
 
         /**
          * Datei zum Download bereitstellen (mit Zugriffsprüfung)
