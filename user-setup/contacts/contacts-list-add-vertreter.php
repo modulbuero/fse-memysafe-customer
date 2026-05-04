@@ -15,13 +15,15 @@
     $vertreter_tel   = '';
     $vertreter_firma = '';
     ?>        
-    <div class="overflow-wrapper full-height">
+    <div class="overflow-wrapper full-height inner-input-wrapper">
+        <div>
         <?php 
         addInput('Name', $vertreter_name, 'vertreter-name', 'Vorname Nachname');
         addInput('E-Mail-Adresse', $vertreter_email, 'vertreter-email');
         addInput('Telefonnummer', $vertreter_tel, 'vertreter-tel');
         addInput('Firma (Optional)', $vertreter_firma, 'vertreter-firma');            
         ?>
+        </div>
     </div>
 
     

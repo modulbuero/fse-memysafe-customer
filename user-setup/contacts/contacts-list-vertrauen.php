@@ -7,7 +7,7 @@
     ?>
 </div>
 
-<div class='setup-contact-person-data full-height' id='setup-contact-person-4' data-target='vertrauenskontakt'>
+<div class='setup-contact-person-data full-height inner-input-wrapper' id='setup-contact-person-4' data-target='vertrauenskontakt'>
     <?php 
     $i = 4; //Vertrauensperson
     //Variable

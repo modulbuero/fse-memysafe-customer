@@ -69,11 +69,14 @@ input{
     &:disabled{
         opacity: .3;
     }
+}
 
+.number-input-container{
     &[type=number]{
         padding: 5px 15px !important;
     }
 }
+
 
 /*Submit*/
 input[type=submit]{
@@ -163,6 +166,22 @@ form{
 .input-wrapper{
     &:not(:last-child)::is(visible){
         margin-bottom: 20px;
+    }
+}
+
+#profile-persoenliche-daten{
+    gap:20px;
+    padding-left: var(--memy-padding-inner-container-side);
+    >div>div{
+        padding-left: var(--memy-padding-inner-container-side);
+        &.spalte{
+            div{
+                flex: 1;
+            }
+            input{
+                min-width: 50%;
+            }
+        }
     }
 }
 

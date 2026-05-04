@@ -21,35 +21,43 @@ $ort          = (!empty($user_metas['ort'][0])) ? $user_metas['ort'][0] : "";
     <h4>Persönliche Daten</h4>
 
     <div class="spalte">
-        <div id="profile-persoenliche-daten" class="settings-labels three-quarters-width">
+        <div id="profile-persoenliche-daten" class="three-quarters-width">
 
-            <h5 class="memy-label">Vorname und Nachname</h5>
-            <div class="spalte">
+            <div>
+                <h5 class="memy-label">Vorname und Nachname</h5>
+                <div class="spalte">
+                    <?php 
+                    addInput('', $current_user->first_name, 'first_name', 'Vorname');
+                    addInput('', $current_user->last_name, 'last_name', 'Nachname');
+                    ?>
+                </div>
+            </div>
+
+            <div>
+                <h5 class="memy-label">Adresse</h5>
+                <div class="settings-labels">
+                    <?php 
+                    addInput('', $strasze, 'strasze', 'Straße');
+                    addInput('', $plz, 'plz', 'PLZ', 'number');
+                    addInput('', $ort, 'ort', 'Ort');
+                    ?>
+                </div>
+            </div>
+
+            <div>
+                <h5 class="memy-label">Telefonnummer</h5>
                 <?php 
-                addInput('', $current_user->first_name, 'first_name', 'Vorname');
-                addInput('', $current_user->last_name, 'last_name', 'Nachname');
+                addInput('', $telefon, 'telefon', 'Telefonnummer');
                 ?>
             </div>
 
-            <h5 class="memy-label">Adresse</h5>
-            <div class="settings-labels">
+            <div>
+                <h5>E-Mail-Adresse</h5>
+                <div><?php echo $current_user->user_email; ?></div>
                 <?php 
-                addInput('', $strasze, 'strasze', 'Straße');
-                addInput('', $plz, 'plz', 'PLZ', 'number');
-                addInput('', $ort, 'ort', 'Ort');
+                #addInput('', $current_user->user_email, 'user_email', 'E-Mail', 'hidden');
                 ?>
             </div>
-
-            <h5 class="memy-label">Telefonnummer</h5>
-            <?php 
-            addInput('', $telefon, 'telefon', 'Telefonnummer');
-            ?>
-
-            <h5>E-Mail-Adresse</h5>
-            <div><?php echo $current_user->user_email; ?></div>
-            <?php 
-            #addInput('', $current_user->user_email, 'user_email', 'E-Mail', 'hidden');
-            ?>
         </div>
 
         <div id="profile-persoenliche-daten-imgs">

@@ -15,13 +15,15 @@
     $kunden_tel      = '';
     $kunden_firma    = '';
     ?>        
-    <div class="overflow-wrapper full-height">
+    <div class="overflow-wrapper full-height inner-input-wrapper">
+        <div>
         <?php 
+        addInput('Firma (Optional)', $kunden_firma, 'kunden-firma');            
         addInput('Name', $kunden_name, 'kunden-name', 'Vorname Nachname');
         addInput('E-Mail-Adresse', $kunden_email, 'kunden-email');
         addInput('Telefonnummer', $kunden_tel, 'kunden-tel');
-        addInput('Firma (Optional)', $kunden_firma, 'kunden-firma');            
         ?>
+        </div>
     </div>
 
     <?php 

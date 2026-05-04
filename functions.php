@@ -4,6 +4,7 @@
  */
 $theme_directory = 'functions/';
 require_once($theme_directory.'wp/enqueue-scripts.php');
+require_once($theme_directory.'wp/custom_2fa_extend.php');
 require_once($theme_directory.'functions.php');
 require_once($theme_directory.'html_functions.php');
 require_once($theme_directory.'login/redirect-nonuser.php');

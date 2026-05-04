@@ -7,7 +7,7 @@
     ?>
 </div>
 
-<div id='kunden-section' class="overflow-wrapper full-height">
+<div id='kunden-section' class="overflow-wrapper full-height inner-input-wrapper">
     <?php 
     /**
      * Übersichtsliste der Kunden

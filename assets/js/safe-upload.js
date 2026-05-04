@@ -38,7 +38,7 @@
             });
 
             // Datei-Löschen, Confirm Popup
-            $(document).on('click', '.delete-btn-pop', function(e) {
+            $(document).on('click', '#delete-safe-file.delete-btn', function(e) {
                 e.preventDefault();
                 const fileName = $(this).data('file');
                 SafeUpload.deleteFile(fileName);
