@@ -9,13 +9,14 @@
 ?>
 
     <div id="menu">
-        <?php if( get_user_meta(get_current_user_id(), 'first_settings', true) && current_user_can('administrator')) : ?>
+        
         <!-- wp:list -->
         <ul class="wp-block-list">
         <!-- wp:list-item -->
         <li id="memy-menu-dashboard"><i class="mmsi-icon dashboard"></i> <span>Dashboard</span></li>
         <!-- /wp:list-item -->
 
+        <?php if( get_user_meta(get_current_user_id(), 'first_settings', true) && current_user_can('administrator')) : ?>            
         <!-- wp:list-item -->
         <!--<li id="memy-menu-einstellungen" data-goto="memy-settings" class="dash-goto-btn"><i class="mmsi-icon setting"></i> <span>Einstellungen</span></li>-->
         <li id="memy-menu-einstellungen" class="disabled"><i class="mmsi-icon setting"></i> Einstellungen</li>
@@ -41,7 +42,7 @@
     </div>
     
 
-    <?php if( get_user_meta(get_current_user_id(), 'first_settings', true) && current_user_can('administrator')) : ?>
+    <?php if( get_user_meta(get_current_user_id(), 'first_settings', true) || in_array( 'subscriber', (array) wp_get_current_user()->roles ) ) : ?>
     <button id="goback" data-from="">
         <svg xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"

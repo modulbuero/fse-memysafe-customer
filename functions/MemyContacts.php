@@ -186,7 +186,10 @@ class MemyContacts {
     private function send_contact_invitation_email($email, $name, $username, $password, $token){
         $invitation_url = home_url('/?accept_invitation=' . rawurlencode($token));
         $inviter = wp_get_current_user();
-        $inviter_name = $inviter->display_name ?: $inviter->user_login;
+        
+        $first_name = get_user_meta($inviter->ID, 'first_name', true);
+        $last_name  = get_user_meta($inviter->ID, 'last_name', true);
+        $inviter_name = trim($first_name . ' ' . $last_name) ?: ($inviter->display_name ?: $inviter->user_login);
 
         $subject = 'Ihre Einladung zum Memy Safe';
         $headers = array('Content-Type: text/html; charset=UTF-8');
@@ -195,12 +198,36 @@ class MemyContacts {
         $message .= "<h2>Hallo " . esc_html($name ?: 'Kontakt') . ",</h2>";
         $message .= "<p>Sie wurden von " . esc_html($inviter_name) . " eingeladen, auf den Memy Safe zuzugreifen.</p>";
         $message .= "<p>Benutzername: <strong>" . esc_html($email) . "</strong><br>";
-        $message .= "Temporäres Passwort: <strong>" . esc_html($password) . "</strong></p>";
+        $message .= "Passwort: <strong>" . esc_html($password) . "</strong></p>";
         $message .= "<p>Bitte bestätigen Sie Ihre Einladung, indem Sie auf den folgenden Link klicken:</p>";
-        $message .= "<p><a href=\"" . esc_url($invitation_url) . "\">Einladung bestätigen</a></p>";
+
+        $message .= '<p>
+            <!--[if mso]>
+            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml"
+            href="' . esc_url($invitation_url) . '"
+            style="height:44px; width:180px; v-text-anchor:middle;"
+            arcsize="10%" fillcolor="#007bff" strokecolor="#007bff">
+            <w:anchorlock/>
+            <center style="color:#ffffff; font-family:Arial; font-size:16px;">
+                Einladung bestätigen
+            </center>
+            </v:roundrect>
+            <![endif]-->
+
+            <!-- Alle anderen Clients -->
+            <!--[if !mso]><!-->
+
+            <a href="' . esc_url($invitation_url) . '" style="background-color:#007bff; color:#ffffff;
+          display:inline-block; padding:12px 24px;
+          text-decoration:none; border-radius:6px;
+          font-family:Arial, sans-serif; font-size:16px;">Einladung bestätigen</a>
+        <!--<![endif]-->
+        </p>';
+        
         $message .= "<p>Oder kopieren Sie den Link in Ihren Browser:<br>" . esc_html($invitation_url) . "</p>";
         $message .= "<p>Nach der Bestätigung können Sie Ihr Passwort im Konto ändern.</p>";
-        $message .= "<p>Falls Sie diese Einladung nicht erwartet haben, ignorieren Sie bitte diese E-Mail.</p>";
+        $message .= "<p>Falls Sie diese Einladung nicht erwartet haben, ignorieren Sie bitte diese E-Mail.</p><br><br>";
+        $message .= "<p>Euer Team von Me My Safe and I.</p>";
         $message .= "</body></html>";
 
         return wp_mail($email, $subject, $message, $headers);

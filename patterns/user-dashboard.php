@@ -53,6 +53,7 @@ if ( is_user_logged_in() ) :
             <?php endif; ?>
         </div>
 
+        <?php if(!empty(get_option('has_send_notfall') || get_current_user_id() == getAdminUserID()) ) : ?>
         <div class="spalte">
             <!-- Kontakte -->
             <div id="chooser-contacts" class="tile">
@@ -74,6 +75,9 @@ if ( is_user_logged_in() ) :
                 <?php require_once get_stylesheet_directory() . '/user-setup/dashboard/dashboard-my-notifications.php'; ?>
             </div>
         </div>
+
+        <?php endif; ?>
+        
     </div>
     
     <!--  --------- -->
@@ -85,6 +89,7 @@ if ( is_user_logged_in() ) :
                 <?php require_once get_stylesheet_directory() . '/user-setup/exam-clock/exam-clock-settings.php'; ?>
             </div>
         </div>
+
         
         <!-- Kontakte -->
         <div class="container" data-target="manage-contacts" data-step="1">

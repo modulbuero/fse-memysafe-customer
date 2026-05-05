@@ -6,7 +6,7 @@
         </div>
         <div>
             <?php 
-            $helperText = "Lorem Ipsum";
+            $helperText = "Erfassen Sie hier im Protokoll alle Schritte, um dem Besitzer einen schnellen neuanstieg zu gewährleisten.";
             infoPopup($helperText, "Helper Modus"); 
             ?>
         </div>
