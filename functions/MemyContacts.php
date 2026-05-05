@@ -24,6 +24,10 @@ class MemyContacts {
             'ajax_url' => admin_url('admin-ajax.php'),
             'nonce' => wp_create_nonce('contacts_manager_nonce')
         ));
+        wp_localize_script('memy-first-settings', 'ajax_object_contacts', array(
+            'ajax_url' => admin_url('admin-ajax.php'),
+            '_nonce' => wp_create_nonce('contacts_manager_nonce')
+        ));
     }
 
     /**
@@ -190,7 +194,7 @@ class MemyContacts {
         $message = "<html><body>";
         $message .= "<h2>Hallo " . esc_html($name ?: 'Kontakt') . ",</h2>";
         $message .= "<p>Sie wurden von " . esc_html($inviter_name) . " eingeladen, auf den Memy Safe zuzugreifen.</p>";
-        $message .= "<p>Benutzername: <strong>" . esc_html($username) . "</strong><br>";
+        $message .= "<p>Benutzername: <strong>" . esc_html($email) . "</strong><br>";
         $message .= "Temporäres Passwort: <strong>" . esc_html($password) . "</strong></p>";
         $message .= "<p>Bitte bestätigen Sie Ihre Einladung, indem Sie auf den folgenden Link klicken:</p>";
         $message .= "<p><a href=\"" . esc_url($invitation_url) . "\">Einladung bestätigen</a></p>";

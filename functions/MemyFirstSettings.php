@@ -40,7 +40,7 @@ class MemyFirstSettings {
         if (!is_user_logged_in()) {
             wp_send_json_error(array('message' => 'Sie müssen angemeldet sein.'), 403);
         }
-
+        $contact_data=[];
         check_ajax_referer('save_first_settings', 'nonce');
 
         $user_id = get_current_user_id();
@@ -89,6 +89,13 @@ class MemyFirstSettings {
             update_user_meta($user_id, 'contact-person-1', $contact_data);
         }
 
+        //Sende Notfallkontakt eine Einladung
+        $notfallkontakt = $contact_data['email'];
+        if ($notfallkontakt) {
+            $memycontact = new MemyContacts();
+            $memycontact->handle_send_contact_invitation();
+        }
+
         wp_send_json_success(array(
             'message'     => 'Ersteinrichtung abgeschlossen.',
             'dataUser'    => json_encode($_POST['user_meta']),
@@ -110,7 +117,7 @@ class MemyFirstSettings {
 
         // Sammle Safe-Info Daten
         if (!isset($_POST['safe_info_data']) || !is_array($_POST['safe_info_data'])) {
-            wp_send_json_error(array('message' => 'Keine Daten vorhanden.'), 400);
+            wp_send_json_error(array('message' => 'Keine Daten hinterlegt.'), 400);
         }
 
         $safe_info_data = $_POST['safe_info_data'];

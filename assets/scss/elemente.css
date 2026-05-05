@@ -184,8 +184,9 @@ div, p {
 }
 .overflow-wrapper {
   /*Scrollbar*/
+  --scroll-bg:rgba(255, 255, 255, 0)
   scrollbar-width: 2px;
-  scrollbar-color: rgba(0, 0, 0, 0.6) rgba(204, 204, 204, 0.1);
+  scrollbar-color: rgba(0, 0, 0, 0.6) var(--scroll-bg);
   /* WebKit (Chrome, Edge, Safari) */
 }
 .overflow-wrapper::-webkit-scrollbar {
@@ -303,8 +304,9 @@ div, p {
 
 /*Tabelle*/
 table.table-aktivitaeten {
+  --scroll-bg:rgba(255, 255, 255, 0)
   scrollbar-width: 2px;
-  scrollbar-color: rgba(0, 0, 0, 0.6) rgba(204, 204, 204, 0.1);
+  scrollbar-color: rgba(0, 0, 0, 0.6) var(--scroll-bg);
   /* WebKit (Chrome, Edge, Safari) */
 }
 table.table-aktivitaeten::-webkit-scrollbar {

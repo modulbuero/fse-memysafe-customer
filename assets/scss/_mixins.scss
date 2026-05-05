@@ -36,8 +36,9 @@
 }
 
 @mixin memyScrolbar{
+    --scroll-bg:rgba(255, 255, 255, 0)
     scrollbar-width: 2px;
-    scrollbar-color: rgb(0 0 0 / 60%) rgb(204 204 204 / 10%);
+    scrollbar-color: rgb(0 0 0 / 60%) var(--scroll-bg);
 
     /* WebKit (Chrome, Edge, Safari) */
     &::-webkit-scrollbar {

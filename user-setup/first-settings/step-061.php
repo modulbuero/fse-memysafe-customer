@@ -1,7 +1,7 @@
 <div class="spalte inner-main-heading">
     <h3>Ersteinrichtung</h3>
 </div>
-<div class="overflow-wrapper full-height">
+<div class="overflow-wrapper full-height" id="anweisung-von-ersteinrichtung">
     <h4>
         Anweisung für den Notfallkontakt
     </h4>
@@ -11,7 +11,7 @@
     ?>
     
     <div class="spalte safe-info-save-wrapper" style="justify-content: flex-end;padding-top: 20px;">
-        <button id="safe-info-save">Informationen speichern <i class="mmsi-icon speichern"></i></button>
+        <button id="safe-info-save" disabled>Informationen speichern <i class="mmsi-icon speichern"></i></button>
     </div>
     
 </div>

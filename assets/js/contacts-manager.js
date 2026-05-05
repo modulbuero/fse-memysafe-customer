@@ -107,6 +107,7 @@
 
             var formData = {
                 _wpnonce:     ajax_object_contacts.nonce,
+                contact_id:   id,
                 contact_mail: contact_mail,
                 contact_name: contact_name
             };
@@ -116,8 +117,10 @@
             wp.ajax.post('handle_send_contact_invitation', formData)
             .done(function(response) {
                 console.log(response);
+                showMessage(response.message || 'Einladung wurde versendet.', 'success');
             }).fail(function(response) {
                 console.log(response);
+                showMessage(response.message || 'Fehler beim Senden der Einladung.', 'error');
             });
 
         })

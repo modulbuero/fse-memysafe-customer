@@ -2,7 +2,7 @@
     <h3>Erzeuge eine Informationsdatei im Safe</h3>
 </div>
 
-<div class="overflow-wrapper full-height settings-labels">
+<div class="overflow-wrapper full-height settings-labels" id="anweisung-vom-safe">
     <h4>
         Anweisung für den Notfallkontakt
     </h4>

@@ -5,15 +5,14 @@
         setStepsFreeByRadioGroup()
         nextStepButton()
         hasInputValues('adress')
-        hasInputValues('kontakt') 
-        //hasInputValues('safeinfo')                
+        hasInputValues('kontakt')              
         setStepsFree('willkommen')
         setStepsFree('einrichten')
-        //setStepsFree('safe-info')
         setStepsFree('zweifaktor')
-        saveFirstSettings()
-        saveSafeInfo()
+        hasInputValuesTXT() 
+        saveSafeInfo()//Wird auch vom Safe genutzt
 
+        saveFirstSettings()
         $('#zyklus-ersteinrichtung').on('click', function(event) {
             event.preventDefault();
             setStepsFree('timer')
@@ -49,9 +48,13 @@
                 data: {
                     action: 'save_first_settings_meta',
                     nonce: nonce,
+                    _wpnonce:ajax_object_contacts.nonce,
                     first_settings: 'done',
                     user_meta: userMeta,
-                    contact_meta: contactMeta
+                    contact_meta: contactMeta,
+                    //Für MemyContacts->handle_send_contact_invitation
+                    contact_mail: $('#checkvalues-kontakt #contact-email-1').val(),
+                    contact_name: $('#checkvalues-kontakt #contact-name-1').val()
                 },
                 success(response) {
                     if (response.success) {
@@ -165,9 +168,28 @@
         $stepButtons.prop('disabled', false);
     }
 
+    function hasInputValuesTXT(){
+        const $textInputs = $('#anweisung-von-ersteinrichtung #checkvalues-safeinfo input');
+
+        function updateStepButton() {
+            
+            const allFilled = $textInputs.toArray().every((input) => {
+                return $(input).val().trim().length > 0;
+            });
+
+            $('#anweisung-von-ersteinrichtung #safe-info-save').prop('disabled', !allFilled);
+        }
+
+        $textInputs.on('input change', updateStepButton);
+        updateStepButton();
+    }
+    
     function saveSafeInfo(){
-        $('#safe-info-save').on('click', function(event) {
+        $(document).on('click', '#safe-info-save', function(event) {
             event.preventDefault();
+
+            let isFirstStep = ($(this).hasClass('from-safe-upload')) ? false: true;
+            let parent      = (isFirstStep) ? "#anweisung-von-ersteinrichtung" : "#anweisung-vom-safe";
 
             // Nutze das Nonce aus der Lokalisierung
             const nonce = memyFirstSettingsAjax.nonce;
@@ -176,7 +198,7 @@
             const safeInfoData = [];
 
             // Sammle Daten aus #checkvalues-safeinfo
-            $('#checkvalues-safeinfo input').each(function() {
+            $(parent + ' #checkvalues-safeinfo input').each(function() {
                 const $input = $(this);
                 const $wrapper = $input.closest('.input-wrapper');
                 const label = $wrapper.find('label').text();
@@ -191,7 +213,7 @@
             });
 
             // Sammle Daten aus #checkvalues-safeinfo-soft
-            $('#checkvalues-safeinfo-soft input').each(function() {
+            $(parent + ' #checkvalues-safeinfo-soft input').each(function() {
                 const $input = $(this);
                 const $wrapper = $input.closest('.input-wrapper');
                 const label = $wrapper.find('label').text();
@@ -205,10 +227,6 @@
                 }
             });
 
-            isFirstStep = true;
-            if($(this).hasClass('from-safe-upload')){
-                isFirstStep = false;
-            }
             $.ajax({
                 url: memyFirstSettingsAjax.ajax_url,
                 type: 'POST',
@@ -222,10 +240,9 @@
                     if (response.success) {
                         setStepsFree('safe-file-2')
                         showMessage(response.data.message, 'success')
-                        console.log($(this).hasClass('from-safe-upload'))
-                        console.log($(this))
+                        
                         if (!isFirstStep && typeof SafeUpload !== 'undefined') {
-                            // Dateien via AJAX neu laden und rendern
+                            // Safe-Dateien via AJAX neu laden
                             SafeUpload.loadFileList();
                             SafeUpload.loadFileListShort();
                             
@@ -239,7 +256,7 @@
                 },
                 error(response) {
                     console.log(response)
-                    alert('Ein Fehler ist aufgetreten. Bitte versuche es erneut.');
+                    showMessage(response.message);
                 }
             });
         });
