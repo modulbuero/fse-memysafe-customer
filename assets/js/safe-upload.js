@@ -40,7 +40,7 @@
             // Datei-Löschen, Confirm Popup
             $(document).on('click', '#delete-safe-file.delete-btn', function(e) {
                 e.preventDefault();
-                const fileName = $(this).data('file');
+                const fileName = $(this).attr('data-file'); // Benutze .attr() um den jQuery-Cache zu umgehen
                 SafeUpload.deleteFile(fileName);
             });
 
@@ -428,6 +428,9 @@
             return div.innerHTML;
         }        
     };
+
+    // SafeUpload global verfügbar machen, damit andere Scripte darauf zugreifen können
+    window.SafeUpload = SafeUpload;
 
     // Beim Document Ready initialisieren
     $(document).ready(function() {

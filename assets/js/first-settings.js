@@ -205,6 +205,10 @@
                 }
             });
 
+            isFirstStep = true;
+            if($(this).hasClass('from-safe-upload')){
+                isFirstStep = false;
+            }
             $.ajax({
                 url: memyFirstSettingsAjax.ajax_url,
                 type: 'POST',
@@ -218,6 +222,16 @@
                     if (response.success) {
                         setStepsFree('safe-file-2')
                         showMessage(response.data.message, 'success')
+                        console.log($(this).hasClass('from-safe-upload'))
+                        console.log($(this))
+                        if (!isFirstStep && typeof SafeUpload !== 'undefined') {
+                            // Dateien via AJAX neu laden und rendern
+                            SafeUpload.loadFileList();
+                            SafeUpload.loadFileListShort();
+                            
+                            //Zurück zum Dashboard
+                            $('#memy-menu-dashboard').click()
+                        }
                     } else {
                         console.error(response.data);
                         showMessage('Speichern fehlgeschlagen: ' + response.data.message);

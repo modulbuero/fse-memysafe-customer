@@ -138,7 +138,8 @@ class MemyFirstSettings {
         }
 
         // Speichere TXT-Datei im files Ordner
-        $file_name = 'Notfallkontakt_Informationen.txt';
+        $date_time = date('ymdHis', current_time('timestamp'));
+        $file_name = 'Notfallkontakt_Informationen_'.$date_time.'.txt';
         $file_path = $files_path . '/' . $file_name;
 
         $saved = file_put_contents($file_path, $txt_content);
@@ -262,7 +263,7 @@ class MemyFirstSettings {
         // Basis-Struktur sicherstellen
         self::initialize_folder_structure();
 
-        $user_path = self::get_user_path($user_id);
+        $user_path  = self::get_user_path($user_id);
         $files_path = self::get_user_files_path($user_id);
 
         // 1. Benutzer-Ordner erstellen

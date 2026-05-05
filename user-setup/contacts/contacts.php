@@ -42,7 +42,7 @@ if('abo' == 'grosz'){
                 <i class='mmsi-icon pfeil'></i>
             </button>
             <?php 
-            $infotxt_vt = "ist jemand, der dir nahesteht und im Alltag unterstützend wirken kann – z.B. durch physischen Zugang zu Wohnung, Büro oder Doku-menten. Sie muss nicht digital eingebunden sein, kann aber bei Bedarf Zugriff auf bestimmte SafenInhalte erhalten.";
+            $infotxt_vt = "ist eine Person, die berufliche Aufgaben oder Projekte übernimmt, wenn du vorübergehend nicht verfügbar bist. Sie erhält nur Zugriff auf die für sie relevanten Informationen oder Projekte.";
             infoPopup($infotxt_vt, "VERTRETER");
             ?>
         </div>

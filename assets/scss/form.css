@@ -67,7 +67,7 @@ input:disabled {
   opacity: 0.3;
 }
 
-.number-input-container[type=number] {
+.number-input-container input[type=number] {
   padding: 5px 15px !important;
 }
 
@@ -148,6 +148,7 @@ form div {
   flex-basis: 50%;
 }
 
+/*Gruppierung Eingabefelder*/
 .inner-input-wrapper {
   padding-left: var(--memy-padding-inner-container-side);
 }

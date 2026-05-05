@@ -264,6 +264,14 @@ div,p{
     height:100%
 }
 
+.centered{
+    margin:0 auto;
+    text-align: center;
+    button{
+        justify-content: center;
+    }
+}
+
 /*Kontakt Status*/
 .status-contact-person{
     background: #000;
@@ -330,4 +338,22 @@ table.table-aktivitaeten{
         width:98%;
         max-width: var(--memy-dash-container);
     }
+}
+
+/*First-Step und Safe TXT-File*/
+#checkvalues-safeinfo,
+#checkvalues-safeinfo-soft,
+#checkvalues-adress,
+#checkvalues-kontakt{
+    gap:20px
+}
+
+#checkvalues-safeinfo{
+    input{
+        border-left: 6px solid #000;
+    }
+}
+#checkvalues-safeinfo-soft{
+    padding-left: var(--memy-padding-inner-container-side);
+    padding-right: var(--memy-padding-inner-container-side);
 }

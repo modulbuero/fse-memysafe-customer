@@ -129,6 +129,9 @@ if ( is_user_logged_in() ) :
             <div data-target="manage-safe" data-step="2">
                 <?php require_once get_stylesheet_directory() . '/user-setup/safe/safe.php'; ?>
             </div>
+            <div data-target="manage-safe-file" data-step="2">
+                <?php require_once get_stylesheet_directory() . '/user-setup/safe/safe-file.php'; ?>
+            </div>
         </div>
 
         <!-- Projekte -->
