@@ -17,8 +17,3 @@
     <input type="file" id="memy-file-input" multiple>
     <div id="memy-upload-progress"></div>
 </div>
-
-<div class="half-width centered">
-    Informationen direkt hinterlegen.
-    <button class="goto-btn" data-goto="manage-safe-file" data-step="3"><i class="mmsi-icon datei"></i> Starten</button>
-</div>

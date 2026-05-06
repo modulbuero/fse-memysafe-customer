@@ -127,7 +127,8 @@
         let menu     = $('#memy-user-menu').width()
         let space    = menuWrap - menu
         $('.user-content').css('paddingRight', space + 'px')
-        $('.message-container').css('marginRight', space + 'px')
+        //$('.message-container').css('marginRight', space + 'px')
+        $('.message-container').css('width', 'calc(60% - ' +space + 'px)')
     }
 
     /**

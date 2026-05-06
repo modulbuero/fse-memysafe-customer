@@ -138,16 +138,20 @@ button:hover i.mmsi-icon.download {
   position: absolute;
   z-index: 11;
   padding: 20px;
-  top: var(--memy-padding-root);
+  top: calc((40px + var(--memy-padding-root)) * -1);
   border: 1px solid #000;
   background: #fff;
   transition: all 1s ease;
-  right: 20px;
   opacity: 0;
   visibility: hidden;
+  margin-right: 20%;
+  margin-left: 20%;
+  left: auto;
+  right: auto;
+  text-align: center;
 }
 .message-container.show {
-  top: calc(var(--memy-padding-root) + 20px);
+  top: 0;
   opacity: 1;
   visibility: visible;
 }
