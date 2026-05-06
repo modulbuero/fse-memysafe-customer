@@ -113,6 +113,7 @@ function memy_deathman_query_function() {
 
             if(empty($hasSendNotfall) && $hasSendReminderThree){
                 //Sende an den Notfallkontakt, wenn Eskalation 3 erreicht ist
+                //Todo: Hinweise auf gesendet im Dashboard mit Maik klären
                 $subject = "Hinweis: Sicherheits-Timer erreicht Eskalationsstufe";
                 $message = "Hallo, der Benutzer " . $adminName . " hat die Eskalationsstufe 3 erreicht.";
                 wp_mail($notfall_email, $subject, $message);
