@@ -200,11 +200,9 @@ class MemyContacts {
         $headers = array('Content-Type: text/html; charset=UTF-8');
 
         $message = "<html><body>";
-        $message .= "<h2>Hallo " . esc_html($name ?: 'Kontakt') . ",</h2>";
-        $message .= "<p>Sie wurden von " . esc_html($inviter_name) . " eingeladen, auf den Memy Safe zuzugreifen.</p>";
-        $message .= "<p>Benutzername: <strong>" . esc_html($email) . "</strong><br>";
-        $message .= "Passwort: <strong>" . esc_html($password) . "</strong></p>";
-        $message .= "<p>Bitte bestätigen Sie Ihre Einladung, indem Sie auf den folgenden Link klicken:</p>";
+        $message .= "<p>Hallo " . esc_html($name ?: 'Kontakt') . ",</p>";
+        $message .= "<p>" . esc_html($inviter_name) . "  hat dich zu Me, My Safe and I eingeladen.</p>";
+        $message .= "<p>Bitte bestätige deine Einladung, um Zugriff auf die für dich freigegebenen Informationen zu erhalten.</p>";
 
         $message .= '<p>
             <!--[if mso]>
@@ -229,12 +227,17 @@ class MemyContacts {
         <!--<![endif]-->
         </p>';
         
-        $message .= "<p>Oder kopieren Sie den Link in Ihren Browser:<br>" . esc_html($invitation_url) . "</p>";
-        $message .= "<p>Nach der Bestätigung können Sie Ihr Passwort im Konto ändern.</p>";
-        $message .= "<p>Falls Sie diese Einladung nicht erwartet haben, ignorieren Sie bitte diese E-Mail.</p><br><br>";
-        $message .= "<p>Euer Team von Me My Safe and I.</p>";
+        $message .= "<p>Alternativ kannst du diesen Link verwenden:<br>" . esc_html($invitation_url) . "</p>";
+        $message .= "<p>Benutzername: <strong>" . esc_html($email) . "</strong><br>";
+        $message .= "Passwort: <strong>" . esc_html($password) . "</strong></p>";        
+        
+        $message .= "<p>Du kannst dein Passwort nach der ersten Anmeldung ändern.</p>";
+        $message .= "<p>Da es sich um eine persönliche Einladung handelt, empfehlen wir dir, vor dem Ignorieren der Nachricht kurz mit Markus Krauss Rücksprache zu halten.</p>";
+        $message .= "<br><br>
+            <img src='https://mmsi.de/wp-content/uploads/email-logo.jpg' title='Me, My Safe and I - Digital, business continuity'>
+            <p><a href='mailto:support@mmsi.de'>support@mmsi.de</a></p>
+            <p><a href='https://mmsi.de'>mmsi.de</a></p>";
         $message .= "</body></html>";
-
         return wp_mail($email, $subject, $message, $headers);
     }
 
