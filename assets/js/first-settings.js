@@ -33,9 +33,14 @@
                 telefon: $('#checkvalues-adress #telefon').val()
             };
 
+            const k_f_name = $('#checkvalues-kontakt #contact-first-name-1').val()
+            const k_l_name = $('#checkvalues-kontakt #contact-last-name-1').val()
+            const k_name = k_f_name + ' ' + k_l_name
+
             // Sammle Kontakt-Daten aus step-04.php
             const contactMeta = {
-                name: $('#checkvalues-kontakt #contact-name-1').val(),
+                f_name: k_f_name,
+                l_name: k_l_name,
                 email: $('#checkvalues-kontakt #contact-email-1').val(),
                 tel: $('#checkvalues-kontakt #contact-tel-1').val(),
                 typ: $('#checkvalues-kontakt #contact-typ-1').val()
@@ -54,7 +59,7 @@
                     contact_meta: contactMeta,
                     //Für MemyContacts->handle_send_contact_invitation
                     contact_mail: $('#checkvalues-kontakt #contact-email-1').val(),
-                    contact_name: $('#checkvalues-kontakt #contact-name-1').val()
+                    contact_name: k_name
                 },
                 success(response) {
                     if (response.success) {

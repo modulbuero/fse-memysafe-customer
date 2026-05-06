@@ -40,11 +40,12 @@
             // Ausgabe
             foreach ($kontakte as $kontakt) {
                 $status = contactIsActive($kontakt['email']);
-                if (!empty($kontakt['name'])) {
+                
+                if (!empty($kontakt['last_name'])) {
                     $goto = $kontakt['pers_number'];
                     echo "<div class='spalte dash-item goto-btn' data-goto='".$goto."'>
                         <i class='mmsi-icon kontakt'></i>
-                        <p>" . esc_html($kontakt['name']) . "</p>
+                        <p>" . esc_html($kontakt['first_name']) . " " . esc_html($kontakt['last_name']) . "</p>
                         <i style='white-space: nowrap;'>$status</i>
                     </div>";
                 }else{

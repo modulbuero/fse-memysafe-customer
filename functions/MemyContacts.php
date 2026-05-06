@@ -43,7 +43,8 @@ class MemyContacts {
         $email      = sanitize_text_field($_POST['email']);
         $typ        = sanitize_text_field($_POST['typ']);
         $status     = sanitize_text_field($_POST['status']);
-        $name       = sanitize_text_field($_POST['name']);
+        $fname      = sanitize_text_field($_POST['fname']);
+        $lname      = sanitize_text_field($_POST['lname']);
         $tel        = sanitize_text_field($_POST['tel']);
         $firma      = sanitize_text_field($_POST['firma']);
         $mmsi_safe  = sanitize_text_field($_POST['mmsi_safe']);
@@ -54,7 +55,8 @@ class MemyContacts {
         $contact_data= [
             'email'         => $email,
             'typ'           => $typ,
-            'name'          => $name,
+            'first_name'    => $fname,
+            'last_name'     => $lname,
             'tel'           => $tel,
             'firma'         => $firma,
             'mmsi_safe'     => $mmsi_safe,
@@ -127,7 +129,9 @@ class MemyContacts {
         }
 
         $contact_mail = sanitize_email($_POST['contact_mail'] ?? '');
-        $contact_name = sanitize_text_field($_POST['contact_name'] ?? '');
+        $contact_fname = sanitize_text_field($_POST['contact_fname'] ?? '');
+        $contact_lname = sanitize_text_field($_POST['contact_lname'] ?? '');
+        $contact_name = $contact_fname . ' ' . $contact_lname;
 
         if(empty($contact_mail) || !is_email($contact_mail)){
             wp_send_json_error('Ungültige E-Mail-Adresse.');
@@ -135,7 +139,8 @@ class MemyContacts {
         }
 
         if(email_exists($contact_mail)){
-            wp_send_json_error('Diese E-Mail-Adresse ist bereits registriert.');
+            wp_send_json_success('Diese E-Mail-Adresse ist bereits registriert. Aber kein Ding.');
+            //Todo sende Email-Benachrichtigung an diese Adresse
             return;
         }
 

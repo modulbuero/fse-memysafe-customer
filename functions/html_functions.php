@@ -15,7 +15,7 @@ function boxHeading($heading, $typ = '3'){
 function addInput($label, $value, $id='1', $placeholder='', $type='text'){
     $htmlLabel = empty($label) ? '' : "<label>$label</label>";
     $value     = esc_attr($value); //Security
-    echo "<div class='input-wrapper $id'>
+    echo "<div class='input-wrapper flex-one $id'>
         $htmlLabel
         <input id='$id' type='$type' value='$value' placeholder='$placeholder'/>
         </div>";

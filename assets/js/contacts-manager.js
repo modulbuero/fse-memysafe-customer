@@ -7,7 +7,8 @@
             e.preventDefault();
             let $container = $(this).closest('.setup-contact-person-data');
             let id         = $container.attr('id').replace('setup-contact-person-','');
-            let name       = $container.find('#contact-name-'+id).val();
+            let fname       = $container.find('#contact-first_name-'+id).val();
+            let lname       = $container.find('#contact-last_name-'+id).val();
             let email      = $container.find('#contact-email-'+id).val();
             let tel        = $container.find('#contact-tel-'+id).val();
             let firma      = $container.find('#contact-firma-'+id).val();
@@ -20,7 +21,8 @@
             var formData = {
                 _wpnonce:   ajax_object_contacts.nonce,
                 contact_id: id,
-                name:       name,
+                fname:      fname,
+                lname:      lname,
                 email:      email,
                 tel:        tel,
                 firma:      firma,
@@ -54,11 +56,13 @@
             e.preventDefault();
             let $container   = $(this).closest('.setup-contact-person-data');
             let id           = $container.attr('id').replace('setup-contact-person-','');
-            let contact_name = $container.find('#contact-name-'+id).val();
+            let contact_fname = $container.find('#contact-first_name-'+id).val();
+            let contact_lname = $container.find('#contact-last_name-'+id).val();
             var formData = {
                 _wpnonce:   ajax_object_contacts.nonce,
                 contact_id: id,
-                contact_name: contact_name
+                contact_fname: contact_fname,
+                contact_lname: contact_lname
             };
             
             wp.ajax.post('handle_delete_contacts', formData)
@@ -102,14 +106,16 @@
             e.preventDefault();
             let $container   = $(this).closest('.setup-contact-person-data');
             let id           = $container.attr('id').replace('setup-contact-person-','');
-            let contact_name = $container.find('#contact-name-'+id).val();
+            let contact_fname = $container.find('#contact-first_name-'+id).val();
+            let contact_lname = $container.find('#contact-last_name-'+id).val();
             let contact_mail = $container.find('#contact-email-'+id).val();
 
             var formData = {
                 _wpnonce:     ajax_object_contacts.nonce,
                 contact_id:   id,
                 contact_mail: contact_mail,
-                contact_name: contact_name
+                contact_fname: contact_fname,
+                contact_lname: contact_lname
             };
 
             console.log(formData)

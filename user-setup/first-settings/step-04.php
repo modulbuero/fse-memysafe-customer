@@ -17,8 +17,14 @@
         $v_person_email = get_user_meta(get_current_user_id(), 'contact-person-1', true)['email'] ?? '';
         $v_person_tel   = get_user_meta(get_current_user_id(), 'contact-person-1', true)['tel'] ?? '';
         #$v_person_firma = get_user_meta(get_current_user_id(), 'contact-person-1', true)['firma'] ?? '';
-            
-        addInput('Name', $v_person_name, 'contact-name-1');
+        ?>
+        <div class="spalte">
+        <?php     
+            addInput('Vorname', $v_person_name, 'contact-first-name-1');
+            addInput('Nachname', $v_person_name, 'contact-last-name-1');
+        ?>
+        </div>
+        <?php 
         addInput('E-Mail-Adresse', $v_person_email, 'contact-email-1', 'email');
         addInput('Telefonnummer', $v_person_tel, 'contact-tel-1', 'number');
         addInput('', 'Notfallkontakt', 'contact-typ-1', '','hidden'); 

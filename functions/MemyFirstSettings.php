@@ -75,6 +75,9 @@ class MemyFirstSettings {
             $contact_meta = array_map('sanitize_text_field', $_POST['contact_meta']);
             
             $contact_data = array(
+                'first_name' => $contact_meta['f_name'] ?? '',
+                'last_name'  => $contact_meta['l_name'] ?? '',
+                'firma'    => $contact_meta['name'] ?? '',
                 'name'      => $contact_meta['name'] ?? '',
                 'email'     => sanitize_email($contact_meta['email'] ?? ''),
                 'tel'       => $contact_meta['tel'] ?? '',
