@@ -69,14 +69,14 @@ function memy_deathman_query_function() {
             $headers = array('Content-Type: text/html; charset=UTF-8');
             
             $mail_footer = "<br><br>
-            <img src='https://mmsi.de/wp-content/uploads/email-logo.jpg' title='Me, My Safe and I - Digital, business continuity'>
+            <img src='https://mmsi.de/wp-content/uploads/email-logo.jpg' style='width:100px'  title='Me, My Safe and I - Digital, business continuity'>
             <p><a href='mailto:support@mmsi.de'>support@mmsi.de</a></p>
             <p><a href='https://mmsi.de'>mmsi.de</a></p>";
             
             $login_button = '<p>
                         <!--[if mso]>
                         <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml"
-                        href="' . network_home_url() . '"
+                        href="' . network_home_url() . '/login/"
                         style="height:44px; width:180px; v-text-anchor:middle;"
                         arcsize="10%" fillcolor="#007bff" strokecolor="#007bff">
                         <w:anchorlock/>
@@ -89,7 +89,7 @@ function memy_deathman_query_function() {
                         <!-- Alle anderen Clients -->
                         <!--[if !mso]><!-->
 
-                        <a href="' . network_home_url() . '" style="background-color:#007bff; color:#ffffff;
+                        <a href="' . network_home_url() . '/login/" style="background-color:#007bff; color:#ffffff;
                     display:inline-block; padding:12px 24px;
                     text-decoration:none; border-radius:6px;
                     font-family:Arial, sans-serif; font-size:16px;">Zum Login</a>
