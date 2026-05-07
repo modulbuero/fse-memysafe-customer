@@ -125,7 +125,7 @@ textarea:hover {
   font-weight: 400 !important;
 }
 #password-requirements .valid {
-  color: #000;
+  color: var(--memy-secondary);
 }
 #password-requirements .valid:after {
   font-family: "bootstrap-icons";
@@ -176,14 +176,14 @@ form div {
 
 /* Selectbox */
 .selectbox * {
-  color: #000;
+  color: var(--memy-secondary);
 }
 .selectbox select {
   cursor: pointer;
 }
 .selectbox selectoption {
   padding: 10px;
-  background: #fff;
+  background: var(--memy-primary);
 }
 .selectbox::after {
   content: "▼";
@@ -193,7 +193,7 @@ form div {
   transform: translateY(-5px);
   pointer-events: none;
   font-size: 12px;
-  color: #000;
+  color: var(--memy-secondary);
 }
 @supports (-webkit-appearance: none) and ((-webkit-appearance: none) or (-moz-appearance: none) or (appearance: none)) {
   .selectbox select {
@@ -230,7 +230,7 @@ label.is-checkbox .slider {
   position: relative;
   width: calc(var(--memy-knopf-size) * 2 + var(--memy-check-space) * 4);
   height: calc((var(--memy-knopf-size)) + var(--memy-check-space) * 2);
-  background-color: #fff;
+  background-color: var(--memy-primary);
   transition: background-color 0.3s;
   border: var(--memy-border);
   border-width: 1.5px;
@@ -243,7 +243,7 @@ label.is-checkbox .slider::before {
   height: var(--memy-knopf-size);
   left: var(--memy-check-space);
   top: var(--memy-check-space);
-  background-color: #000;
+  background-color: var(--memy-secondary);
   transition: transform 0.3s;
 }
 label.is-checkbox input[type=checkbox]:checked + .slider::before {
@@ -251,16 +251,6 @@ label.is-checkbox input[type=checkbox]:checked + .slider::before {
   background-color: var(--memy-check-color);
 }
 label.is-checkbox {
-  /* Wenn Checkbox gecheckt ist *
-  input[type="checkbox"]:checked + .slider {
-      background-color: #fff;
-  }
-
-  /* Focus-Stil für Accessibility *
-  input[type="checkbox"]:focus + .slider {
-      box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.3);
-  }
-
   /* Label Text */
 }
 label.is-checkbox .checkbox-label,
@@ -317,9 +307,9 @@ label.is-checkbox.simple input[type=checkbox]:checked + .slider::before {
 .radio-group label.is-radio .slider {
   width: 25px;
   height: 10px;
-  background-color: #000;
+  background-color: var(--memy-secondary);
   margin-right: 20px;
-  border: 2px solid #000;
+  border: 2px solid var(--memy-secondary);
   /*Knopf*/
 }
 .radio-group label.is-radio .slider::before {
@@ -329,11 +319,11 @@ label.is-checkbox.simple input[type=checkbox]:checked + .slider::before {
   height: 8px;
   left: 1px;
   top: 1px;
-  background-color: #fff;
+  background-color: var(--memy-primary);
   transition: left 0.3s;
 }
 .radio-group label.is-radio input[type=radio]:checked + .slider {
-  background-color: #fff;
+  background-color: var(--memy-primary);
 }
 .radio-group label.is-radio input[type=radio]:checked + .slider::before {
   left: 15px; /* gecheckte Radiobutton */

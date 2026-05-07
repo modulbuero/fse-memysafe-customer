@@ -22,15 +22,15 @@ div.spalte p {
 #front-page-html {
   display: grid;
   grid-template-columns: 1fr var(--memy-menu-width) var(--memy-container) 1fr;
-  background-color: #F5F5F5;
+  background-color: var(--memy-tertiery);
   gap: 0;
 }
 #front-page-html .space-left {
   height: 100%;
-  background: #fff;
+  background: var(--memy-primary);
 }
 #front-page-html .wp-block-template-part.user-menu {
-  background: #fff;
+  background: var(--memy-primary);
   min-height: 100vh;
   align-items: flex-end;
 }

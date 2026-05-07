@@ -6,7 +6,7 @@
   /*Dashboard Kacheln*/
 }
 #memy-dashboard .tile {
-  background: #fff;
+  background: var(--memy-primary);
   height: var(--memy-kachel-height);
 }
 #memy-dashboard .tile .dashboard-item .item-headline {
@@ -54,9 +54,9 @@
   top: 0%;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: var(--memy-primary);
   z-index: 1;
-  background-color: rgba(255, 255, 255, 0.2117647059);
+  background-color: var(--memy-primary) 36;
   backdrop-filter: blur(3px);
 }
 #memy-dashboard #chooser-urlaubsmodus > div {
@@ -86,7 +86,7 @@
   top: 0%;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: var(--memy-primary);
   left: 100%;
 }
 .container-wrapper * {
@@ -98,7 +98,7 @@
   top: 0%;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: var(--memy-primary);
 }
 .container-wrapper .container > div {
   position: absolute;
@@ -106,7 +106,7 @@
   top: 0%;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: var(--memy-primary);
   justify-content: flex-start;
   transform: translateX(0%);
   padding: var(--memy-padding-inner-container);

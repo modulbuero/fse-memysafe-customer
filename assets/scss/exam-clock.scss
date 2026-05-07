@@ -5,15 +5,8 @@
 //DashboardWrapper
 .exam-clock-wrapper {
     --ex-clock-thickness: 15px;
-    --ex-clock-bg-empty:#ffffff;
-    
-    /*Farbwerte Stufe 1*/
-    --ex-clock-bg-full-1:#9CA3DB;
-    /*Farbwerte Stufe 2*/
-    --ex-clock-bg-full-2:#61639F;
-    /*Farbwerte Stufe 3*/
-    --ex-clock-bg-full-3:#27233A;
-    
+    --ex-clock-bg-empty:var(--memy-primary);
+
     width: 100%;
     padding:var(--memy-padding-small-dashbox);
 
@@ -116,7 +109,7 @@
                     justify-content: center;
                     width: 14px;
                     height: 14px;
-                    border: 2px solid #000;
+                    border: 2px solid var(--memy-secondary);
                     border-radius: 50%;
                     &:before{
                         content:"";
@@ -162,12 +155,7 @@
         }
     }
 
-    #exam-clock-reset-input,
-    #exam-clock-zyklus-input{
-        
-    }
-    #exam-clock-zyklus-input{
-    
+    #exam-clock-zyklus-input{    
         label{
             min-width: 70px;
         }
@@ -200,7 +188,7 @@
         padding: 0;
         background:none !important;
         span{
-            background: #000;
+            background: var(--memy-secondary);
             border-radius: 99px;
             transition: all .3s ease;
             width:3px;

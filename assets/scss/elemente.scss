@@ -20,8 +20,8 @@ button,
     }
 }
 button:hover{
-    background-color: #000;
-    color: #fff;
+    background-color: var(--memy-secondary);
+    color: var(--memy-primary);
     a,
     i{
         filter: invert(1);
@@ -86,7 +86,7 @@ button:hover{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: var(--memy-primary)50;
     backdrop-filter: blur(3px);    
     z-index: 10;
 
@@ -106,7 +106,7 @@ button:hover{
     }
     .content{
         position: absolute;
-        background-color: #fff;
+        background-color:var(--memy-primary);
         border: var(--memy-border);
         padding: var(--memy-padding-small-dashbox);
         width: 325px;
@@ -145,8 +145,8 @@ button:hover{
     z-index: 11;
     padding: 20px;
     top:calc((40px + var(--memy-padding-root)) * -1);
-    border: 1px solid #000;
-    background: #fff;
+    border: 1px solid var(--memy-secondary);
+    background: var(--memy-primary);
     transition: all 1s ease;    
     opacity: 0;
     visibility: hidden;
@@ -191,7 +191,7 @@ div,p{
         width: 100%;
         border-top:1px solid var(--memy-trenner-color);
         height: calc(100px + var(--memy-padding-inner-container));
-        background: linear-gradient(to top, #ffffff, transparent);
+        background: linear-gradient(to top, var(--memy-primary), transparent);
     }
 
     /*Scrollbar*/
@@ -278,8 +278,8 @@ div,p{
 
 /*Kontakt Status*/
 .status-contact-person{
-    background: #000;
-    color:#fff;
+    background: var(--memy-secondary);
+    color:var(--memy-primary);
     left:10px;
     max-width: 125px !important;
     font-size: 10px;
@@ -353,7 +353,7 @@ table.table-aktivitaeten{
 
 #checkvalues-safeinfo{
     input{
-        border-left: 6px solid #000;
+        border-left: 6px solid var(--memy-secondary);
     }
 }
 #checkvalues-safeinfo-soft{

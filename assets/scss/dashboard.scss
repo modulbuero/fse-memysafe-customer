@@ -7,7 +7,7 @@
 
    /*Dashboard Kacheln*/
    .tile{
-      background: #fff;
+      background: var(--memy-primary);
       height:var(--memy-kachel-height);
 
       .dashboard-item{
@@ -57,7 +57,7 @@
    #chooser-urlaubsmodus{
       @include m.dashcontainer;
       z-index: 1;
-      background-color: #ffffff36;
+      background-color: var(--memy-primary)36;
       backdrop-filter: blur(3px);
       >div{
          padding: var(--memy-padding-small-dashbox);

@@ -4,13 +4,7 @@
  */
 .exam-clock-wrapper {
   --ex-clock-thickness: 15px;
-  --ex-clock-bg-empty:#ffffff;
-  /*Farbwerte Stufe 1*/
-  --ex-clock-bg-full-1:#9CA3DB;
-  /*Farbwerte Stufe 2*/
-  --ex-clock-bg-full-2:#61639F;
-  /*Farbwerte Stufe 3*/
-  --ex-clock-bg-full-3:#27233A;
+  --ex-clock-bg-empty:var(--memy-primary);
   width: 100%;
   padding: var(--memy-padding-small-dashbox);
 }
@@ -100,7 +94,7 @@
   justify-content: center;
   width: 14px;
   height: 14px;
-  border: 2px solid #000;
+  border: 2px solid var(--memy-secondary);
   border-radius: 50%;
 }
 .exam-clock-wrapper .time-information-wrapper .time-information p i:before {
@@ -166,7 +160,7 @@
   background: none !important;
 }
 #exam-clock-setting-dashboard .dash-clock-menu span {
-  background: #000;
+  background: var(--memy-secondary);
   border-radius: 99px;
   transition: all 0.3s ease;
   width: 3px;

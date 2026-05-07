@@ -4,7 +4,7 @@
   top: 0%;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: var(--memy-primary);
 }
 #first-settings > div {
   height: 100%;
@@ -15,7 +15,7 @@
   top: 0%;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: var(--memy-primary);
   transition: left 0.3s ease;
   padding: var(--memy-padding-inner-container);
 }
@@ -78,7 +78,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: #000;
+  background: var(--memy-secondary);
   width: calc(var(--step) / var(--memy-first-step-max) * 100%);
 }
 #first-settings > div .container .final-btns {

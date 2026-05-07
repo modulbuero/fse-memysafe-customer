@@ -1,13 +1,23 @@
 body{
     /*Farben*/
-    --memy-color-border:#000;
-    --input-border-color: #000000;
+    --memy-primary:#ffffff;                             /*Kachel und Menü BG*/
+    --memy-secondary:#000000;                           /*Schrift Icons und Rahmen*/
+    --memy-tertiery:#F5F5F5;                            /*Dashboard Flächen*/
+    --wp--preset--color--contrast:var(--memy-secondary);
+    --memy-color-border:var(--memy-secondary);
+    --input-border-color: var(--memy-secondary);
     --input-border-error: red;
     --memy-border:2px solid var(--memy-color-border);
-    --memy-trenner-color:#F5F5F5;
+    --memy-trenner-color:var(--memy-tertiery);
     --memy-trenner:1px solid var(--memy-trenner-color);
-    --memy-check-color:#6094ff;
-    
+    --memy-check-color:#6094ff;    
+     /*Farbwerte Stufe 1*/
+    --ex-clock-bg-full-1:#9CA3DB;
+    /*Farbwerte Stufe 2*/
+    --ex-clock-bg-full-2:#61639F;
+    /*Farbwerte Stufe 3*/
+    --ex-clock-bg-full-3:#27233A;
+
     /*Abstände*/
     --memy-padding-root:30px;
     --memy-padding-inner-container-side:20px;
@@ -23,6 +33,8 @@ body{
     /*Breiten*/
     --memy-container: 980px;
     --memy-menu-width: 200px;
+    --memy-footer-width: calc( var(--memy-container) + var(--memy-menu-width) + (2 * var(--memy-padding-root)) );
+
 
     /*Höhen*/
     --memy-kachel-height:215px;
@@ -35,4 +47,18 @@ body{
 
     /*Anzahl der Schritte bei Ersteinrichtung*/
     --memy-first-step-max:9;
+}
+
+body.darkmode{
+    --memy-primary:#000000;
+    --memy-secondary:#ffffff;
+    --memy-tertiery:#2e2e2e;
+    --ex-clock-bg-full-3: #4c3e91;
+}
+body.darkmode #memy-user-menu h1,
+body.darkmode .mmsi-icon{
+    filter: invert(1);
+}
+body.darkmode button:hover .mmsi-icon{
+    filter: invert(0);
 }

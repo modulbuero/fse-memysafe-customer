@@ -3,7 +3,7 @@ footer{
     .parts-footer{
         flex-direction: row;
         justify-content: space-between;
-        max-width: 1150px;
+        max-width: var(--memy-footer-width);
         margin: 0 auto;
         align-items: center;
         width:100%;

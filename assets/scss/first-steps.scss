@@ -74,7 +74,7 @@
                         content: "";
                         position: absolute;
                         inset: 0;
-                        background: #000;
+                        background: var(--memy-secondary);
                         width: calc(var(--step) / var(--memy-first-step-max) * 100%);
                     }
                 }
