@@ -210,7 +210,7 @@ div, p {
 
 /*Mehrer Button Elemente untereinander*/
 #memy-dashboard .settings-labels {
-  gap: 10px;
+  gap: var(--memy-list-gap);
 }
 #memy-dashboard .settings-labels > div {
   min-width: 200px;
@@ -366,7 +366,7 @@ table.table-aktivitaeten .clickable-row:hover {
 #checkvalues-safeinfo-soft,
 #checkvalues-adress,
 #checkvalues-kontakt {
-  gap: 20px;
+  gap: var(--memy-list-gap);
 }
 
 #checkvalues-safeinfo input {

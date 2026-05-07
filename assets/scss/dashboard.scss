@@ -31,7 +31,7 @@
          }
          .item-content{
             padding:var(--memy-padding-small-dashbox);
-            gap:20px;
+            gap:var(--memy-list-gap);
             div[data-goto]{
                p{
                   transition: all .3s ease;

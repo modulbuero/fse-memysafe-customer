@@ -4,7 +4,7 @@ footer {
 footer .parts-footer {
   flex-direction: row;
   justify-content: space-between;
-  max-width: 1210px;
+  max-width: 1150px;
   margin: 0 auto;
   align-items: center;
   width: 100%;

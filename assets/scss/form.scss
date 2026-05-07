@@ -161,17 +161,17 @@ form{
 .inner-input-wrapper{
     padding-left: var(--memy-padding-inner-container-side);
     >div{
-        gap: 20px;
+        gap:var(--memy-list-gap);
     }
 }
 .input-wrapper{
     &:not(:last-child)::is(visible){
-        margin-bottom: 20px;
+        margin-bottom: var(--memy-list-gap)
     }
 }
 
 #profile-persoenliche-daten{
-    gap:20px;
+    gap:var(--memy-list-gap);
     padding-left: var(--memy-padding-inner-container-side);
     >div>div{
         padding-left: var(--memy-padding-inner-container-side);
@@ -228,7 +228,7 @@ label.is-checkbox{
     align-items: center;
     cursor: pointer;
     user-select: none;
-    gap:20px;
+   gap:var(--memy-list-gap);
 
     /* Verstecke die originale Checkbox */
     input[type="checkbox"] {

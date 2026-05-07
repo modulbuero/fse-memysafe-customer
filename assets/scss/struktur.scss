@@ -20,26 +20,27 @@ div{
 
 /* Front Page Styles */
 #front-page-html{
-    align-items: flex-start;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 200px 890px 1fr;
     background-color: #F5F5F5;
-    gap:var(--memy-padding-root);
-    padding-right: var(--memy-padding-root);
+    gap:0;
+    
+    .space-left{
+        height: 100%;
+        background: #fff;
+    }
+    
 
     .wp-block-template-part.user-menu{
-        background-color: #fff;
+        background: #fff;
         min-height: 100vh;
-        flex-basis:25%;
         align-items: flex-end;
-        padding-left: 5%;
     }
 
     .wp-block-template-part.user-content{
         padding-top: var(--memy-padding-root);
-        flex-basis:70%;
         min-height: 100vh;
-        padding-right: 5%;
-
+        padding-left: var(--memy-padding-root);;
         #memy-user-content-wrapper{
             overflow: hidden;
         }
@@ -55,7 +56,7 @@ div{
     min-height: var(--memy-menu-height);
 
     h1{
-        width: 184px;
+        width: 170px;
         height: var(--memy-kachel-height);
         margin-bottom: 0;
         background-image: url(../imgs/MMSI_Logo_Desktop.svg);
@@ -79,7 +80,7 @@ div{
             padding: 0;
             display: flex;
             flex-direction: column;
-            gap:20px;
+            gap:var(--memy-list-gap);
             li{
                 cursor: pointer;
                 display: flex;

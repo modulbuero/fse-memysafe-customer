@@ -20,24 +20,24 @@ div.spalte p {
 
 /* Front Page Styles */
 #front-page-html {
-  align-items: flex-start;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 200px 890px 1fr;
   background-color: #F5F5F5;
-  gap: var(--memy-padding-root);
-  padding-right: var(--memy-padding-root);
+  gap: 0;
+}
+#front-page-html .space-left {
+  height: 100%;
+  background: #fff;
 }
 #front-page-html .wp-block-template-part.user-menu {
-  background-color: #fff;
+  background: #fff;
   min-height: 100vh;
-  flex-basis: 25%;
   align-items: flex-end;
-  padding-left: 5%;
 }
 #front-page-html .wp-block-template-part.user-content {
   padding-top: var(--memy-padding-root);
-  flex-basis: 70%;
   min-height: 100vh;
-  padding-right: 5%;
+  padding-left: var(--memy-padding-root);
 }
 #front-page-html .wp-block-template-part.user-content #memy-user-content-wrapper {
   overflow: hidden;
@@ -52,7 +52,7 @@ div.spalte p {
   min-height: var(--memy-menu-height);
 }
 #memy-user-menu h1 {
-  width: 184px;
+  width: 170px;
   height: var(--memy-kachel-height);
   margin-bottom: 0;
   background-image: url(../imgs/MMSI_Logo_Desktop.svg);
@@ -76,7 +76,7 @@ div.spalte p {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--memy-list-gap);
 }
 #memy-user-menu #menu .wp-block-list li {
   cursor: pointer;

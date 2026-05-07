@@ -27,7 +27,7 @@
 }
 #memy-dashboard .tile .dashboard-item .item-content {
   padding: var(--memy-padding-small-dashbox);
-  gap: 20px;
+  gap: var(--memy-list-gap);
 }
 #memy-dashboard .tile .dashboard-item .item-content div[data-goto] p {
   transition: all 0.3s ease;

@@ -5,12 +5,13 @@
      */
 	$(document).ready(()=>{
         dashNavigation()
-        getNaviSpaceToDashboard()
+        //getNaviSpaceToDashboard()
         examClockNavigation()
         showDasboard()
         manageShortInfoPopup()
         numberInputArrow()
         deletePopup()
+        noBrowserBackEvent()
     })
 
     function dashNavigation(){
@@ -91,6 +92,18 @@
     }
 
     /**
+     * Verhindert Zurückbutton und löst eigenen "Zurückbutton" aus
+     */
+    function noBrowserBackEvent(){
+        history.pushState(null, null, location.href);
+
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, location.href);
+            $('#goback').click()
+        });
+    }
+
+    /**
      * Short Info Popup
      * needs:
      *      class info-popup-wrap
@@ -149,5 +162,5 @@
         getNaviSpaceToDashboard()
     }
 
-    window.addEventListener("resize", mmsiDebounce(refreshFunctions, 300));
+    //window.addEventListener("resize", mmsiDebounce(refreshFunctions, 300));
 })(jQuery)
