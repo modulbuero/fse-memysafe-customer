@@ -27,9 +27,9 @@ label:not(.is-checkbox) {
   display: flex;
   align-items: center;
 }
-.memy-label:not(.number-label),
-label:not(.is-checkbox):not(.number-label) {
-  margin-bottom: 10px;
+.memy-label:not(.number-label):not(.is-radio),
+label:not(.is-checkbox):not(.number-label):not(.is-radio) {
+  margin-bottom: var(--memy-text-gap);
 }
 .memy-label:not(.no-label):not(.is-radio):before,
 label:not(.is-checkbox):not(.no-label):not(.is-radio):before {
@@ -202,12 +202,28 @@ form div {
 }
 
 /*
-* Checkbox Styles
+* Checkbox & Checkslider Styles
 */
-label.is-checkbox {
-  --memy-knopf-size: 9px;
-  --memy-check-space: 2px;
+.slider {
+  width: 25px;
+  height: 12px;
+  background-color: var(--memy-secondary);
+  border: var(--memy-border);
+  /*Knopf*/
+}
+.slider::before {
+  content: "";
+  display: block;
   position: relative;
+  width: 9px;
+  height: 10px;
+  left: 1px;
+  top: 1px;
+  background-color: var(--memy-primary);
+  transition: all 0.3s ease;
+}
+
+label.is-radio, label.is-checkbox {
   display: inline-flex;
   align-items: center;
   cursor: pointer;
@@ -217,82 +233,72 @@ label.is-checkbox {
   gap: var(--memy-list-gap);
   /* Verstecke die originale Checkbox */
 }
-label.is-checkbox input[type=checkbox] {
+label.is-radio input[type=checkbox], label.is-checkbox input[type=checkbox] {
   position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
 }
-label.is-checkbox {
-  /* Der Slider Hintergrund */
-}
-label.is-checkbox .slider {
-  position: relative;
-  width: calc(var(--memy-knopf-size) * 2 + var(--memy-check-space) * 4);
-  height: calc((var(--memy-knopf-size)) + var(--memy-check-space) * 2);
-  background-color: var(--memy-primary);
-  transition: background-color 0.3s;
-  border: var(--memy-border);
-  border-width: 1.5px;
-  /*Knopf*/
-}
-label.is-checkbox .slider::before {
-  content: "";
-  position: absolute;
-  width: var(--memy-knopf-size);
-  height: var(--memy-knopf-size);
-  left: var(--memy-check-space);
-  top: var(--memy-check-space);
-  background-color: var(--memy-secondary);
-  transition: transform 0.3s;
-}
-label.is-checkbox input[type=checkbox]:checked + .slider::before {
-  transform: translateX(calc(var(--memy-knopf-size) + var(--memy-check-space) * 2));
-  background-color: var(--memy-check-color);
-}
-label.is-checkbox {
+label.is-radio, label.is-checkbox {
   /* Label Text */
 }
-label.is-checkbox .checkbox-label,
+label.is-radio .checkbox-label,
+label.is-radio .radio-label, label.is-checkbox .checkbox-label,
 label.is-checkbox .radio-label {
   white-space: nowrap;
   flex-shrink: 0;
   line-height: 1.25;
 }
-label.is-checkbox {
-  /*Einfache Checkbox ohne Slider*/
+
+/*Checked Slider*/
+input[type=checkbox]:checked + .slider,
+input[type=radio]:checked + .slider {
+  background-color: var(--memy-primary);
 }
-label.is-checkbox.simple .slider {
-  width: calc(var(--memy-knopf-size) + var(--memy-check-space) * 2);
-}
-label.is-checkbox.simple .slider:before {
-  left: calc(var(--memy-knopf-size) * -1);
-}
-label.is-checkbox.simple input[type=checkbox]:checked + .slider::before {
-  transform: translateX(calc(var(--memy-knopf-size) + var(--memy-check-space)));
+input[type=checkbox]:checked + .slider:before,
+input[type=radio]:checked + .slider:before {
+  left: 15px;
+  background-color: var(--memy-check-color);
 }
 
 /*CheckboxGroup*/
+.radio-group,
+.checkbox-group {
+  gap: var(--memy-text-gap);
+}
+.radio-group label,
 .checkbox-group label {
   flex-direction: row-reverse;
   justify-content: flex-end;
+}
+.radio-group .slider,
+.checkbox-group .slider {
+  overflow: hidden;
+  width: 13px;
+}
+.radio-group .slider::before,
+.checkbox-group .slider::before {
+  left: -11px;
+}
+.radio-group.checked,
+.checkbox-group.checked {
+  display: flex;
+}
+.radio-group.show .slider,
+.checkbox-group.show .slider {
+  display: block;
+}
+.radio-group input[type=checkbox]:checked + .slider:before,
+.radio-group input[type=radio]:checked + .slider:before,
+.checkbox-group input[type=checkbox]:checked + .slider:before,
+.checkbox-group input[type=radio]:checked + .slider:before {
+  left: 2px;
 }
 
 /*
 * Radio Styles
 */
-.radio-group {
-  gap: var(--memy-text-gap);
-}
 .radio-group label.is-radio {
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
   /* Verstecke die originale Radio */
 }
 .radio-group label.is-radio input[type=radio] {
@@ -301,34 +307,6 @@ label.is-checkbox.simple input[type=checkbox]:checked + .slider::before {
   width: 0;
   height: 0;
 }
-.radio-group label.is-radio {
-  /* Der Slider Hintergrund */
-}
-.radio-group label.is-radio .slider {
-  width: 25px;
-  height: 10px;
-  background-color: var(--memy-secondary);
-  margin-right: 20px;
-  border: 2px solid var(--memy-secondary);
-  /*Knopf*/
-}
-.radio-group label.is-radio .slider::before {
-  content: "";
-  position: absolute;
-  width: 9px;
-  height: 8px;
-  left: 1px;
-  top: 1px;
-  background-color: var(--memy-primary);
-  transition: left 0.3s;
-}
-.radio-group label.is-radio input[type=radio]:checked + .slider {
-  background-color: var(--memy-primary);
-}
-.radio-group label.is-radio input[type=radio]:checked + .slider::before {
-  left: 15px; /* gecheckte Radiobutton */
-  background-color: var(--memy-check-color);
-}
 
 /*Profil bearbeiten*/
 .profile-bearbeiten-wrap h4 + div > .settings-labels h5 {
@@ -336,6 +314,18 @@ label.is-checkbox.simple input[type=checkbox]:checked + .slider::before {
 }
 .profile-bearbeiten-wrap h4 + div > .settings-labels > div {
   padding-left: 40px;
+}
+
+/*Einstellungen*/
+#memy-settings.container .settings-labels {
+  gap: calc(var(--memy-list-gap) * 2);
+}
+#memy-settings.container .settings-labels label:not(.is-radio) {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+#memy-settings.container .settings-labels label:not(.is-radio):before {
+  display: none;
 }
 
 /*Inputs sperren bei Helpermode*/

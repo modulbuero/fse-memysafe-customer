@@ -10,7 +10,8 @@ body{
     --memy-border:2px solid var(--memy-color-border);
     --memy-trenner-color:var(--memy-tertiery);
     --memy-trenner:1px solid var(--memy-trenner-color);
-    --memy-check-color:#6094ff;    
+    --memy-check-color:#6094ff;
+    --mmsi-drag-over: var(--memy-tertiery);
      /*Farbwerte Stufe 1*/
     --ex-clock-bg-full-1:#9CA3DB;
     /*Farbwerte Stufe 2*/
@@ -49,16 +50,23 @@ body{
     --memy-first-step-max:9;
 }
 
+/*
+    Darkmode Farben
+*/
 body.darkmode{
     --memy-primary:#000000;
     --memy-secondary:#ffffff;
     --memy-tertiery:#2e2e2e;
     --ex-clock-bg-full-3: #4c3e91;
 }
+body.darkmode .memy-upload-wrapper #memy-upload-zone img,
 body.darkmode #memy-user-menu h1,
 body.darkmode .mmsi-icon{
     filter: invert(1);
 }
 body.darkmode button:hover .mmsi-icon{
     filter: invert(0);
+}
+body.darkmode .memy-upload-wrapper #memy-upload-zone.drag-over{
+
 }

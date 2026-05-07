@@ -146,7 +146,7 @@ function memy_deathman_query_function() {
                 
                 $subject = "Hinweis: " . $adminName . " hat nicht auf seinen Sicherheits-Timer reagiert";
                 $message = emailParts('head') . "<p>Hallo ".$notfall_name.",</p>
-                <p>" . $adminName . " hat innerhalb des festgelegten Zeitraums nicht auf seinen Sicherheits-Timer reagiert</p>.
+                <p>" . $adminName . " hat innerhalb des festgelegten Zeitraums nicht auf seinen Sicherheits-Timer reagiert.</p>
                 <p>Deshalb erhältst du diese Nachricht als hinterlegter Notfallkontakt.</p>
                 <p>Bitte versuche, Markus zu erreichen oder prüfe gemeinsam mit weiteren Kontaktpersonen, ob alles in Ordnung ist.</p>
                 <p>Weitere Informationen findest du in deinem Account.</p>";

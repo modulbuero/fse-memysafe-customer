@@ -27,8 +27,8 @@ select, input, textarea, button{
 label:not(.is-checkbox){
     display: flex;
     align-items: center;
-    &:not(.number-label){
-        margin-bottom: 10px;
+    &:not(.number-label):not(.is-radio){
+        margin-bottom: var(--memy-text-gap);
     }
     
     &:not(.no-label):not(.is-radio ){
@@ -217,82 +217,84 @@ form{
 }
 
 /*
-* Checkbox Styles
+* Checkbox & Checkslider Styles
 */
-label.is-checkbox{
-    --memy-knopf-size: 9px;
-    --memy-check-space: 2px;
+.slider {
+    @include m.checkboxSlider;
+}
 
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
-    user-select: none;
-   gap:var(--memy-list-gap);
+label{
+    &.is-radio,
+    &.is-checkbox{
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+        gap:var(--memy-list-gap);
 
-    /* Verstecke die originale Checkbox */
-    input[type="checkbox"] {
-        position: absolute;
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-    
-    /* Der Slider Hintergrund */
-    .slider {     
-        position: relative;
-        width: calc((var(--memy-knopf-size) * 2) + (var(--memy-check-space) * 4));
-        height: calc((var(--memy-knopf-size)) + (var(--memy-check-space) * 2));
-        background-color: var(--memy-primary);
-        transition: background-color 0.3s;
-        border: var(--memy-border);
-        border-width: 1.5px;
-
-        /*Knopf*/
-        &::before {
-            content: "";
+        /* Verstecke die originale Checkbox */
+        input[type="checkbox"] {
             position: absolute;
-            width: var(--memy-knopf-size);
-            height: var(--memy-knopf-size);
-            left: var(--memy-check-space);
-            top: var(--memy-check-space);
-            background-color: var(--memy-secondary);
-            transition: transform 0.3s;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        /* Label Text */
+        .checkbox-label,
+        .radio-label {
+            white-space: nowrap;
+            flex-shrink: 0;
+            line-height: 1.25;
         }
     }
-    
-    input[type="checkbox"]:checked + .slider::before {
-        transform: translateX(calc((var(--memy-knopf-size) + (var(--memy-check-space) * 2))));
-        background-color: var(--memy-check-color);
-    }
-    
-    /* Label Text */
-    .checkbox-label,
-    .radio-label {
-        white-space: nowrap;
-        flex-shrink: 0;
-        line-height: 1.25;
-    }
+}
 
-    /*Einfache Checkbox ohne Slider*/
-    &.simple{
-        .slider{
-            width: calc(var(--memy-knopf-size) + var(--memy-check-space) * 2);
-            &:before{
-                left:calc(var(--memy-knopf-size) * -1)
-            }
-        }
-        input[type=checkbox]:checked + .slider::before{
-            transform: translateX(calc(var(--memy-knopf-size) + var(--memy-check-space)));
+/*Checked Slider*/
+input[type="checkbox"]:checked,
+input[type="radio"]:checked{
+    + .slider{
+        background-color: var(--memy-primary);
+        &:before {
+            left:15px;
+            background-color: var(--memy-check-color);        
         }
     }
 }
 
 /*CheckboxGroup*/
+.radio-group,
 .checkbox-group{
+    gap: var(--memy-text-gap);
+
     label{
         flex-direction: row-reverse;
         justify-content: flex-end;
+    }
+
+    .slider{
+        overflow: hidden;
+        width: 13px;
+        &::before{
+            left:-11px
+        }
+    }
+
+    &.checked{
+        display: flex;
+    }
+    
+    &.show .slider{
+        display: block;
+    }
+
+    input[type="checkbox"]:checked,
+    input[type="radio"]:checked{
+        + .slider{
+            &:before {
+                left:2px;
+            }
+        }
     }
 }
 
@@ -300,50 +302,13 @@ label.is-checkbox{
 * Radio Styles
 */
 .radio-group{
-    gap: var(--memy-text-gap);
     label.is-radio{
-        flex-direction: row-reverse;
-        justify-content: flex-end;
-        display: inline-flex;
-        align-items: center;
-        cursor: pointer;
-        user-select: none;
-
         /* Verstecke die originale Radio */
         input[type="radio"] {
             position: absolute;
             opacity: 0;
             width: 0;
             height: 0;
-        }
-        
-        /* Der Slider Hintergrund */
-        .slider {     
-            width: 25px;
-            height: 10px;
-            background-color: var(--memy-secondary);
-            margin-right: 20px;
-            border:2px solid var(--memy-secondary);
-
-            /*Knopf*/
-            &::before {
-                content: "";
-                position: absolute;
-                width: 9px;
-                height: 8px;
-                left: 1px;
-                top: 1px;
-                background-color: var(--memy-primary);
-                transition: left 0.3s;
-            }
-        }
-        
-        input[type="radio"]:checked + .slider{
-            background-color: var(--memy-primary);
-            &::before {
-                left:15px; /* gecheckte Radiobutton */
-                background-color: var(--memy-check-color);
-            }
         }
     }
 }
@@ -357,6 +322,20 @@ label.is-checkbox{
             }
             >div{
                 padding-left:40px;
+            }
+        }
+    }
+}
+
+/*Einstellungen*/
+#memy-settings.container{
+    .settings-labels{
+        gap:calc(var(--memy-list-gap) * 2);
+        label:not(.is-radio){
+            font-weight: 700;
+            text-transform: uppercase;
+            &:before{
+                display: none;        
             }
         }
     }

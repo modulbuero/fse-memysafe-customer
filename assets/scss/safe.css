@@ -101,7 +101,7 @@ ul.memy-file-list li button {
   margin-bottom: 30px;
 }
 .memy-upload-wrapper #memy-upload-zone.drag-over {
-  background-color: #e6f3ff;
+  background-color: var(--mmsi-drag-over);
   /* Wichtig: Verhindert, dass das Drop-Event von Text/Bild abgefangen wird */
 }
 .memy-upload-wrapper #memy-upload-zone.drag-over * {

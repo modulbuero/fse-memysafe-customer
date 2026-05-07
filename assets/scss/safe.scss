@@ -120,7 +120,7 @@ ul.memy-file-list{
         }
 
         &.drag-over{
-            background-color: #e6f3ff;            
+            background-color: var(--mmsi-drag-over);;            
             /* Wichtig: Verhindert, dass das Drop-Event von Text/Bild abgefangen wird */
             * {
                 pointer-events: none;

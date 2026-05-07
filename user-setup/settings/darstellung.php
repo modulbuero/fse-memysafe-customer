@@ -9,22 +9,23 @@ $opt_clockstyles = [
 ];
 
 $current_user = wp_get_current_user();
-$opt_clockstyle = '';
-$opt_darkmode   = '';
+$opt_clockstyle = get_user_meta($current_user->ID, 'mmsi_clockstyle', true) ?: 'analog';
+$opt_darkmode   = get_user_meta($current_user->ID, 'mmsi_darkmode', true);
 $opt_fontsize   = '';
 ?>
 
-<h3>Einstellungen</h3>
-
-<div class="overflow-wrapper full-height profile-bearbeiten-wrap">
-    <?php
-    wp_nonce_field('user_option_nonce', '_wpnonce'); 
-    ?>
-    
-    <div class="settings-labels">
-        <h4>Uhrdarstellung</h4>    
-        <?php addCheckboxGroup('', $opt_clockstyles, 'Numerisch', 'clockstyle'); ?>
-
-        <?php addCheckbox('DARK MODE',$opt_darkmode,'opt_darkmode'); ?>
-    </div>
+<div class="spalte inner-main-heading">
+    <h3><i class='mmsi-icon setting'></i> Darstellung</h3>
 </div>
+
+<div class="overflow-wrapper full-height profile-bearbeiten-wrap settings-labels">
+    <?php 
+    wp_nonce_field('user_data_nonce', '_wpnonce');
+
+    addRadioGroup('Uhrdarstellung', $opt_clockstyles, $opt_clockstyle, 'clockstyle');
+
+    addCheckbox('DARK MODE',$opt_darkmode,'opt_darkmode'); 
+    ?>
+</div>
+
+<button id="einstellung-darstellung-save" class="save-wrapper short-button"><i class="mmsi-icon speichern"></i>Änderungen speichern</button>

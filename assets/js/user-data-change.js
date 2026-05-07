@@ -58,14 +58,40 @@
             });
         });
         
-        // function showMessage(message, type = "error") {
-        //     var messageHtml = '<div class="message ' + type + '">' + message + '</div>';
-        //     $('.message-container').html(messageHtml).fadeIn();
+
+        //Speicher Darstellungen
+        $(document).on('click', '#einstellung-darstellung-save', function(e) {
+            e.preventDefault();
+            var $button = $(this);
+            const selectedClockstyle = $('input[name="clockstyle"]:checked').val();
             
-        //     // Nach 5 Sekunden ausblenden
-        //     setTimeout(function() {
-        //         $('.message-container').fadeOut().html('');
-        //     }, 5000);
-        // }
+            var formData = {
+                _wpnonce:       ajax_object_userdata.nonce,
+                opt_darkmode:   $('#opt_darkmode').is(':checked') ? 1 : 0,
+                clockstyle:     selectedClockstyle,
+            };
+            
+            $button.prop('disabled', true);
+            $('#loading').show();
+            
+            wp.ajax.post('handle_update_settings_darstellung', formData)
+            .done(function(response) {
+                $('#loading').hide();
+                console.log(response)
+                $button.prop('disabled', false);
+                showMessage(response.message, 'success');
+                if(response.darkmode == "1"){
+                    $("body").addClass("darkmode")
+                }else{
+                    $("body").removeClass("darkmode")
+                }
+            }).fail(function(response) {
+                $('#loading').hide();
+                console.log(response)
+                $button.prop('disabled', false);
+                var errorMsg = response.message || 'Ein Fehler ist aufgetreten.';
+                showMessage(errorMsg, 'error');
+            });
+        })
     })
 })(jQuery)

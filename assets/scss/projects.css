@@ -82,25 +82,6 @@
 .project-data-container > div textarea {
   width: calc(100% - var(--project-padding-outer) - var(--project-padding-inner)) !important;
 }
-.project-data-container > div {
-  /**
-  *   Custom-Checkboxgroup-Style
-  */
-}
-.project-data-container > div .checkbox-group label.is-checkbox .slider {
-  overflow: hidden;
-  width: 13px;
-  display: none;
-}
-.project-data-container > div .checkbox-group label.is-checkbox .slider::before {
-  left: -11px;
-}
-.project-data-container > div .checkbox-group label.is-checkbox.checked {
-  display: flex;
-}
-.project-data-container > div .checkbox-group label.is-checkbox.show .slider {
-  display: block;
-}
 .project-data-container .project-status-wrap {
   align-items: flex-start;
   /*kleine Textarea*/

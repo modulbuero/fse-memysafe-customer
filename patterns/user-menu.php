@@ -22,8 +22,7 @@
 
         <?php if( get_user_meta(get_current_user_id(), 'first_settings', true) && current_user_can('administrator')) : ?>            
         <!-- wp:list-item -->
-        <!--<li id="memy-menu-einstellungen" data-goto="memy-settings" class="dash-goto-btn"><i class="mmsi-icon setting"></i> <span>Einstellungen</span></li>-->
-        <li id="memy-menu-einstellungen" class="disabled"><i class="mmsi-icon setting"></i> Einstellungen</li>
+        <li id="memy-menu-einstellungen" data-goto="memy-settings" class="dash-goto-btn"><i class="mmsi-icon setting"></i> <span>Einstellungen</span></li>
         <!-- /wp:list-item -->
 
         <!-- wp:list-item -->

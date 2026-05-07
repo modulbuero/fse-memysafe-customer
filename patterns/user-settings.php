@@ -11,17 +11,17 @@ if ( is_user_logged_in() ) :
 
 $setting_names = [
     'darstellung'       => 'Darstellung',
-    'nachrichten'       => 'Nachrichten',
-    'daten-speicher'    => 'Daten-Speicher',
-    'sicherheit'        => 'Sicherheit',
-    'system'            => 'System',
-    'rechtliches'       => 'Rechtliches',
+    // 'nachrichten'       => 'Nachrichten',
+    // 'daten-speicher'    => 'Daten-Speicher',
+    // 'sicherheit'        => 'Sicherheit',
+    // 'system'            => 'System',
+    // 'rechtliches'       => 'Rechtliches',
 ];
 ?>
 <div class="container"  data-target="memy-settings" data-step="1" id="memy-settings" data-user-id="<?php echo esc_html( wp_get_current_user()->ID ); ?>">
 
     <div data-target="memy-settings" >
-        <h3>Einstellungen</h3>
+        <h3><i class='mmsi-icon setting'></i> Einstellungen</h3>
         <div class="settings-labels">
         <?php
         foreach ( $setting_names as $setting_slug => $setting_title ) : ?>

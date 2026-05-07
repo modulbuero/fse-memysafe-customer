@@ -29,3 +29,17 @@ add_filter('pre_get_document_title', function ($title) {
 
     return $title;
 });
+
+/**
+ * Fügt die 'darkmode'-Klasse zur Body-Klasse hinzu, wenn der Benutzer-Meta 'mmsi_darkmode' auf '1' gesetzt ist.
+ */
+add_filter('body_class', function ($classes) {
+    if (is_user_logged_in()) {
+        $user_id = get_current_user_id();
+        $darkmode_setting = get_user_meta($user_id, 'mmsi_darkmode', true);
+        if ($darkmode_setting === '1') {
+            $classes[] = 'darkmode';
+        }
+    }
+    return $classes;
+});

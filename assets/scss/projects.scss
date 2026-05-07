@@ -94,28 +94,6 @@
             }
             width:calc(100% - var(--project-padding-outer) - var(--project-padding-inner)) !important;
         }
-    
-        /**
-        *   Custom-Checkboxgroup-Style
-        */
-        .checkbox-group{
-            label.is-checkbox{
-                .slider{
-                    overflow: hidden;
-                    width: 13px;
-                    display:none;
-                    &::before{
-                        left:-11px
-                    }
-                }
-                &.checked{
-                    display: flex;
-                }
-                &.show .slider{
-                    display: block;
-                }
-            }
-        }
     }
 
     .project-status-wrap{

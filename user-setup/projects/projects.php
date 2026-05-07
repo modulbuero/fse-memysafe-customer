@@ -63,7 +63,7 @@
             
             <div class="spalte input-wrapper project-status-wrap">
                 <?php
-                addCheckboxGroup('Projektstatus', [
+                addRadioGroup('Projektstatus', [
                     'Geplant'       => 'Geplant',
                     'Laufend'       => 'Laufend',
                     'Abgeschlossen' => 'Abgeschlossen',

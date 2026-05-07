@@ -16,6 +16,7 @@ class MemyUserDataEditor {
         add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
         add_shortcode('user_data_change', array($this, 'user_data_change'));
         add_action('wp_ajax_handle_update_user_data', array($this, 'handle_update_user_data'));
+        add_action('wp_ajax_handle_update_settings_darstellung', array($this, 'handle_update_settings_darstellung'));
     }
     
     /**
@@ -127,6 +128,38 @@ class MemyUserDataEditor {
             'logger'  => $user_meta
             )
         );
+    }
+
+    /**
+     * AjX Handling zum Update der Einstellungen Darstellung
+     */    
+    public function handle_update_settings_darstellung() {
+        /**
+         * Safety first - Nonce aus darstellung.php prüfen
+         */
+        if (!wp_verify_nonce($_POST['_wpnonce'], 'user_data_nonce')) {
+            wp_send_json_error(array('message' => 'Sicherheitsüberprüfung fehlgeschlagen.'));
+        }
+        
+        if (!is_user_logged_in()) {
+            wp_send_json_error(array('message' => 'Sie müssen angemeldet sein.'));
+        }
+
+        $user_id = get_current_user_id();
+
+        // Daten sammeln und bereinigen
+        $clockstyle = sanitize_text_field($_POST['clockstyle'] ?? 'analog');
+        $darkmode   = (isset($_POST['opt_darkmode']) && $_POST['opt_darkmode'] === '1') ? '1' : '0';
+
+        // Als User-Meta speichern
+        update_user_meta($user_id, 'mmsi_clockstyle', $clockstyle);
+        update_user_meta($user_id, 'mmsi_darkmode', $darkmode);
+
+        wp_send_json_success(array(
+            'message'    => 'Darstellungs-Einstellungen wurden erfolgreich gespeichert.',
+            'clockstyle' => $clockstyle,
+            'darkmode'   => $darkmode
+        ));
     }
 
     /**
