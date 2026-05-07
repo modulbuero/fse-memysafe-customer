@@ -9,7 +9,7 @@ ul.memy-file-list{
     li{
         display: flex;
         justify-content: space-between;
-        gap:10px;
+        gap: var(--memy-text-gap);
         max-height: 24px;
         overflow: hidden;
 
@@ -22,7 +22,7 @@ ul.memy-file-list{
 
             .memy-file-name-wrap{
                 display:flex;
-                gap: 10px;
+                gap: var(--memy-text-gap);
                 flex: 1;
                 white-space: nowrap;
                 .memy-file-name{
@@ -52,7 +52,7 @@ ul.memy-file-list{
 
         .memy-file-actions{
             flex-direction: row;
-            gap: 10px;
+            gap: var(--memy-text-gap);
             flex-shrink: 0;
             button{
                 padding:5px;

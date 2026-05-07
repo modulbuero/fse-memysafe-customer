@@ -17,6 +17,6 @@
 
     <div class="spalte final-btns">
         <?php firstStepNavi('9',false, true);?>
-        <button id="save-first-settings" type="submit" class="button">Zum Dashboard und abschließen <i class="mmsi-icon dashboard"></i></button>
+        <button id="save-first-settings" type="submit" class="button">Abschließen <i class="mmsi-icon pfeil"></i></button>
     </div>
     

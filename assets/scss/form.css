@@ -292,7 +292,7 @@ label.is-checkbox.simple input[type=checkbox]:checked + .slider::before {
 * Radio Styles
 */
 .radio-group {
-  gap: 10px;
+  gap: var(--memy-text-gap);
 }
 .radio-group label.is-radio {
   flex-direction: row-reverse;

@@ -12,9 +12,13 @@
         
         <!-- wp:list -->
         <ul class="wp-block-list">
+
+        <?php if( get_user_meta(get_current_user_id(), 'first_settings', true)) : ?>
         <!-- wp:list-item -->
         <li id="memy-menu-dashboard"><i class="mmsi-icon dashboard"></i> <span>Dashboard</span></li>
         <!-- /wp:list-item -->
+        <?php endif; ?>
+
 
         <?php if( get_user_meta(get_current_user_id(), 'first_settings', true) && current_user_can('administrator')) : ?>            
         <!-- wp:list-item -->

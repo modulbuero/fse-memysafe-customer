@@ -12,14 +12,17 @@ body{
     --memy-padding-root:30px;
     --memy-padding-inner-container-side:20px;
     --memy-dashbox-gap:var(--memy-padding-root);
+    --memy-text-gap:10px;
     --memy-list-gap:20px;
     --memy-padding-inner-container:var(--memy-padding-root) var(--memy-padding-inner-container-side) var(--memy-padding-inner-container-side);
     --memy-padding-small-dashbox:20px;
     --memy-padding-button:12px 20px;
     --memy-padding-input:12px 20px;
     --mbfse--padding-footer: 5px 0;
-    /*DashboardBreite*/
-    --memy-dash-container:calc(82% - var(--memy-padding-root));
+
+    /*Breiten*/
+    --memy-container: 980px;
+    --memy-menu-width: 200px;
 
     /*Höhen*/
     --memy-kachel-height:215px;

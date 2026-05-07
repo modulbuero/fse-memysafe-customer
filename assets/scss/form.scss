@@ -310,7 +310,7 @@ label.is-checkbox{
 * Radio Styles
 */
 .radio-group{
-    gap:10px;
+    gap: var(--memy-text-gap);
     label.is-radio{
         flex-direction: row-reverse;
         justify-content: flex-end;

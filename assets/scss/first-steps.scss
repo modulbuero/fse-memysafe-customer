@@ -17,6 +17,10 @@
                 left:-100%;
             }
 
+            h4{
+                text-transform: inherit
+            }
+
             .inner-main-heading{
                 @include m.headingContainer;
             }
@@ -44,15 +48,20 @@
             }
             
             .fs-naviwrapper{
-                flex-direction: row;
                 margin-top: auto;
                 gap:var(--memy-padding-root);
-                justify-content: flex-end;
                 padding-top:20px;
-                button{
-                    max-width: 50%;
-                    flex:1;
+                .nav-btns{
+                    flex-direction: row;
+                    justify-content: space-between;
+                    button{
+                        width:33%;
+                        &:only-child {
+                            margin-left: auto;
+                        }
+                    }
                 }
+                
                 .progress{
                     position: absolute;
                     width: 100%;

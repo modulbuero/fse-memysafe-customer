@@ -66,38 +66,14 @@ function memy_deathman_query_function() {
         if(!empty($adminEmail) && !empty($notfall_email)
             ){
             
-            $headers = array('Content-Type: text/html; charset=UTF-8');
+            $mail_headers = array('Content-Type: text/html; charset=UTF-8');
             
-            $mail_footer = "<br><br>
-            <img src='https://mmsi.de/wp-content/uploads/email-logo.jpg' style='width:100px'  title='Me, My Safe and I - Digital, business continuity'>
-            <p><a href='mailto:support@mmsi.de'>support@mmsi.de</a></p>
-            <p><a href='https://mmsi.de'>mmsi.de</a></p>";
+            $mail_footer = emailParts('footer');            
+            $login_button = emailParts('button');
+
+            $grusz_admin = emailParts('head') . "<p>Hallo ".$adminName.",<br></p>";
             
-            $login_button = '<p>
-                        <!--[if mso]>
-                        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml"
-                        href="' . network_home_url() . '/login/"
-                        style="height:44px; width:180px; v-text-anchor:middle;"
-                        arcsize="10%" fillcolor="#007bff" strokecolor="#007bff">
-                        <w:anchorlock/>
-                        <center style="color:#ffffff; font-family:Arial; font-size:16px;">
-                            Zum Login
-                        </center>
-                        </v:roundrect>
-                        <![endif]-->
-
-                        <!-- Alle anderen Clients -->
-                        <!--[if !mso]><!-->
-
-                        <a href="' . network_home_url() . '/login/" style="background-color:#007bff; color:#ffffff;
-                    display:inline-block; padding:12px 24px;
-                    text-decoration:none; border-radius:6px;
-                    font-family:Arial, sans-serif; font-size:16px;">Zum Login</a>
-                    <!--<![endif]-->
-                </p>';
-
-            $grusz_admin = "<p>Hallo ".$adminName.",<br></p>";
-            
+            //1. Stufe
             if(empty($hasSendReminderOne)){
                 // 1. Check: Sende Reminder an den User selbst
                 // String aus Meta in ein Objekt umwandeln, um es mit $curr_date_obj vergleichen zu können
@@ -111,7 +87,7 @@ function memy_deathman_query_function() {
                     $message .= "<p>Bitte logge dich kurz bei Me, My Safe and I ein und bestätige deine Erreichbarkeit. So stellst du sicher, dass keine weiteren Schritte ausgelöst werden.</p>";
                     $message .= $login_button;
                     $message .= $mail_footer;
-                    wp_mail($adminEmail, $subject, $message, $headers);
+                    wp_mail($adminEmail, $subject, $message, $mail_headers);
                     
                     update_option('has_send_reminder_one', $curr_date_string);
                     error_log("MeMySafe_Cron: Reminder Mail 1 gesendet an " . $adminEmail);
@@ -119,6 +95,7 @@ function memy_deathman_query_function() {
                 }
             }
 
+            //2. Stufe
             if(empty($hasSendReminderTwo) && $hasSendReminderOne){
                 // 2. Check: Sende Reminder an den User selbst
                 // String aus Meta in ein Objekt umwandeln, um es mit $curr_date_obj vergleichen zu können
@@ -131,7 +108,7 @@ function memy_deathman_query_function() {
                     $message .= "<p>Bitte logge dich zeitnah bei Me, My Safe and I ein und bestätige deine Erreichbarkeit, damit keine Sicherheitsprozesse gestartet werden.</p>";
                     $message .= $login_button;
                     $message .= $mail_footer;
-                    wp_mail($adminEmail, $subject, $message, $headers);
+                    wp_mail($adminEmail, $subject, $message, $mail_headers);
                     
                     update_option('has_send_reminder_two', $curr_date_string);
                     error_log("MeMySafe: Reminder Mail 2 gesendet an " . $adminEmail);
@@ -139,6 +116,7 @@ function memy_deathman_query_function() {
                 }
             }
 
+            //3. Stufe
             if(empty($hasSendReminderThree) && $hasSendReminderTwo){
                 // 3. Check: Sende Reminder an den User selbst
                 // String aus Meta in ein Objekt umwandeln, um es mit $curr_date_obj vergleichen zu können
@@ -153,7 +131,7 @@ function memy_deathman_query_function() {
                     $message .= $login_button;
                     $message .= $mail_footer;
 
-                    wp_mail($adminEmail, $subject, $message, $headers);
+                    wp_mail($adminEmail, $subject, $message, $mail_headers);
                     
                     update_option('has_send_reminder_three', $curr_date_string);
                     error_log("MeMySafe: Reminder Mail 3 gesendet an " . $adminEmail);
@@ -161,25 +139,22 @@ function memy_deathman_query_function() {
                 }
             }
 
+            //Notfall erreicht
             if(empty($hasSendNotfall) && $hasSendReminderThree){
                 //Sende an den Notfallkontakt, wenn Eskalation 3 erreicht ist
                 //Todo: Hinweise auf gesendet im Dashboard mit Maik klären
                 
                 $subject = "Hinweis: " . $adminName . " hat nicht auf seinen Sicherheits-Timer reagiert";
-                $message = "Hallo ".$notfall_name.",<br>" . $adminName . " hat innerhalb des festgelegten Zeitraums nicht auf seinen Sicherheits-Timer reagiert.
-                <br>
-                Deshalb erhältst du diese Nachricht als hinterlegter Notfallkontakt.
-                <br>
-                <br>
-                Bitte versuche, Markus zu erreichen oder prüfe gemeinsam mit weiteren Kontaktpersonen, ob alles in Ordnung ist.
-                <br>
-                <br>        
-                Weitere Informationen findest du in deinem Account.";
+                $message = emailParts('head') . "<p>Hallo ".$notfall_name.",</p>
+                <p>" . $adminName . " hat innerhalb des festgelegten Zeitraums nicht auf seinen Sicherheits-Timer reagiert</p>.
+                <p>Deshalb erhältst du diese Nachricht als hinterlegter Notfallkontakt.</p>
+                <p>Bitte versuche, Markus zu erreichen oder prüfe gemeinsam mit weiteren Kontaktpersonen, ob alles in Ordnung ist.</p>
+                <p>Weitere Informationen findest du in deinem Account.</p>";
 
                 $message .= $login_button;
                 $message .= $mail_footer;
 
-                wp_mail($notfall_email, $subject, $message, $headers);
+                wp_mail($notfall_email, $subject, $message, $mail_headers);
                 
                 update_option('has_send_notfall', $curr_date_string);
                 error_log("MeMySafe: Notfall Mail gesendet an " . $notfall_email);

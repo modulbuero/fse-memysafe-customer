@@ -144,11 +144,12 @@ button:hover i.mmsi-icon.download {
   transition: all 1s ease;
   opacity: 0;
   visibility: hidden;
-  margin-right: 20%;
-  margin-left: 20%;
-  left: auto;
-  right: auto;
+  margin-right: auto;
+  margin-left: auto;
+  left: var(--memy-padding-root);
+  right: 0;
   text-align: center;
+  max-width: 50%;
 }
 .message-container.show {
   top: 0;
@@ -357,8 +358,7 @@ table.table-aktivitaeten .clickable-row:hover {
 }
 
 .info-popup-wrap.activitaeten-info .content {
-  width: 98%;
-  max-width: var(--memy-dash-container);
+  width: 100%;
 }
 
 /*First-Step und Safe TXT-File*/

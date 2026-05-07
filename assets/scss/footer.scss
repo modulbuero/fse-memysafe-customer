@@ -19,13 +19,13 @@ footer{
         
         ul{
             display: flex;
-            gap: 10px;
+            gap: var(--memy-text-gap);
             list-style-type: none;
             li{
                 &:not(:first-child):before {
                     content: "-";
                     color: #fff; 
-                    padding-right: 10px;
+                    padding-right: var(--memy-text-gap);;
                 }
             }
         }

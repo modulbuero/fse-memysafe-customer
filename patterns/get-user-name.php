@@ -10,7 +10,7 @@ $user = wp_get_current_user();
 $name = ( in_array( 'subscriber', (array) $user->roles ) ) ? 'Helfer': $user->first_name;
 
 ?>
-<p>
+<p class="no-distance-bottom">
     <strong>
         Hallo <?php echo $name ?>!
     </strong>

@@ -150,11 +150,12 @@ button:hover{
     transition: all 1s ease;    
     opacity: 0;
     visibility: hidden;
-    margin-right: 20%;
-    margin-left: 20%;
-    left: auto;
-    right: auto;
+    margin-right: auto;
+    margin-left: auto;
+    left: var(--memy-padding-root);;
+    right: 0;
     text-align: center;
+    max-width: 50%;
     &.show{
         top: 0;
         opacity: 1;
@@ -338,8 +339,7 @@ table.table-aktivitaeten{
 
 .info-popup-wrap.activitaeten-info{
     .content{
-        width:98%;
-        max-width: var(--memy-dash-container);
+        width:100%;
     }
 }
 

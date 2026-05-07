@@ -19,11 +19,11 @@ footer .parts-footer p, footer .parts-footer a {
 }
 footer .parts-footer ul {
   display: flex;
-  gap: 10px;
+  gap: var(--memy-text-gap);
   list-style-type: none;
 }
 footer .parts-footer ul li:not(:first-child):before {
   content: "-";
   color: #fff;
-  padding-right: 10px;
+  padding-right: var(--memy-text-gap);
 }/*# sourceMappingURL=footer.css.map */
