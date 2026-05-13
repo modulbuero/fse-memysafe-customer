@@ -2,7 +2,7 @@
 // 1. Eigenes Cron-Intervall von 5 Minuten registrieren
 function add_memy_cron_interval($schedules) {
     $schedules['every_memy_hours'] = array(
-        'interval' => 3 * MINUTE_IN_SECONDS,
+        'interval' => 15 * MINUTE_IN_SECONDS,
         'display'  => 'Alle 5 Minuten (MeMySafe)',
     );
     return $schedules;
