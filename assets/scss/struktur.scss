@@ -39,8 +39,8 @@ div{
 
     .wp-block-template-part.user-content{
         padding-top: var(--memy-padding-root);
-        min-height: 100vh;
-        padding-left: var(--memy-padding-root);;
+        max-height: calc(100vh - var(--memy-header-height));
+        padding-left: var(--memy-padding-root);
         #memy-user-content-wrapper{
             overflow: hidden;
         }
@@ -163,13 +163,33 @@ div{
     }
 }
 
-/*Only Desktop*/
-@media screen and (max-width: 1118px) {
+/* Only Desktop*/
+@media screen and (min-width: 1119px) {
     body{
         .wp-site-blocks{
             .only-desktop {
                 display: none;
             }
         }
+    }
+}
+
+/* Tablet*/
+@media (max-width: 1118px){	
+    .wp-site-blocks > main{
+        max-height: none;
+        .user-content {
+            padding-bottom: var(--memy-padding-root);
+            max-height: none !important;
+            .memy-dash-wrapper > div .tile-wrapper > .spalte{
+                flex-direction: column;
+            }
+        }
+    }
+}
+@media (max-width: 1023px){	
+    div.spalte {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }

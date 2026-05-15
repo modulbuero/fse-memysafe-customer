@@ -126,7 +126,11 @@
                 &:nth-child(3) i:before {
                     background-color: var(--ex-clock-bg-full-3);
                 }
-            }        
+            }  
+            
+            @media (max-width: 1118px){
+                display:none
+            }
         }
 
         #exam-clock-reset-button{

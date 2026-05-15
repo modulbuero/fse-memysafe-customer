@@ -224,49 +224,47 @@ function inputFieldsTxtFile(){
 /**
  *  Email Parts
  */
-function emailParts($part) {
+function emailParts($part="", $button_link = 'login', $button_txt='Zum Login') {
     $html = "";
 
     if($part == 'head'){
         $html = "
         <head>
             <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
-            <style>
-            a{
-                text-decoration: none;
-                color:#000;
-            }
-            </style>
         </head>
     ";
     }
 
     if($part == 'footer'){
         $html = "<br><br>
-        <img src='https://mmsi.de/wp-content/uploads/email-logo.jpg' style='width:150px'  title='Me, My Safe and I - Digital, business continuity'>
+        <img src='https://mmsi.de/wp-content/uploads/email-logo.jpg' style='width:150px'  title='Me, My Safe and I - Digital, business continuity' alt='Me, My Safe and I - Digital, business continuity'>
         <p><a href='mailto:support@mmsi.de' style='text-decoration:none; color:#000000'>support@mmsi.de</a></p>
         <p><a href='https://mmsi.de' style='text-decoration:none; color:#000000'>mmsi.de</a></p></body></html>";
     }
 
     if($part == 'button'){
+        if($button_link == 'login'){
+            $button_link = network_home_url() . '/login/';
+        }
+        $btn_bg = '#9CA3DB';
         $html = '<p>
                 <!--[if mso]>
                 <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml"
-                href="' . network_home_url() . '/login/"
+                href="'.$button_link.'"
                 style="height:44px; width:180px; v-text-anchor:middle;"
-                arcsize="10%" fillcolor="#007bff" strokecolor="#007bff">
+                arcsize="10%" fillcolor="'.$btn_bg.'" strokecolor="'.$btn_bg.'">
                 <w:anchorlock/>
                 <center style="color:#ffffff; font-family:Arial; font-size:16px;">
-                    Zum Login
+                    '.$button_txt.'
                 </center>
                 </v:roundrect>
                 <![endif]-->
                 
                 <!--[if !mso]><!-->
-                <a href="' . network_home_url() . '/login/" style="background-color:#007bff; color:#ffffff;
+                <a href="'.$button_link.'" style="background-color:'.$btn_bg.'; color:#ffffff;
             display:inline-block; padding:12px 24px;
             text-decoration:none; border-radius:6px;
-            font-family:Arial, sans-serif; font-size:16px;">Zum Login</a>
+            font-family:Arial, sans-serif; font-size:16px;">'.$button_txt.'</a>
             <!--<![endif]-->
         </p>';
     }

@@ -70,3 +70,18 @@ body.darkmode button:hover .mmsi-icon{
 body.darkmode .memy-upload-wrapper #memy-upload-zone.drag-over{
 
 }
+
+
+/* 
+    Tablet 
+*/
+@media (max-width: 1118px){
+    body{
+        --memy-container:750px
+    }
+}
+@media (max-width: 900px){
+    body{
+        --memy-container:500px
+    }
+}

@@ -36,7 +36,7 @@ div.spalte p {
 }
 #front-page-html .wp-block-template-part.user-content {
   padding-top: var(--memy-padding-root);
-  min-height: 100vh;
+  max-height: calc(100vh - var(--memy-header-height));
   padding-left: var(--memy-padding-root);
 }
 #front-page-html .wp-block-template-part.user-content #memy-user-content-wrapper {
@@ -142,9 +142,28 @@ div.spalte p {
 .user-content {
   /*Einstellungen*/
 }
-/*Only Desktop*/
-@media screen and (max-width: 1118px) {
+/* Only Desktop*/
+@media screen and (min-width: 1119px) {
   body .wp-site-blocks .only-desktop {
     display: none;
+  }
+}
+/* Tablet*/
+@media (max-width: 1118px) {
+  .wp-site-blocks > main {
+    max-height: none;
+  }
+  .wp-site-blocks > main .user-content {
+    padding-bottom: var(--memy-padding-root);
+    max-height: none !important;
+  }
+  .wp-site-blocks > main .user-content .memy-dash-wrapper > div .tile-wrapper > .spalte {
+    flex-direction: column;
+  }
+}
+@media (max-width: 1023px) {
+  div.spalte {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }/*# sourceMappingURL=struktur.css.map */

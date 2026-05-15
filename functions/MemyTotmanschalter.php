@@ -481,11 +481,15 @@ function tillEscalation($date){
     // Zeitdifferenz berechnen
     $differenz = $jetzt->diff($zielDatum);
 
+    //Ausgabe des Begriffs Tage oder Tag
+    $dayWord = ($differenz->days == 1) ? 'Tag' : 'Tage';
+
+    //($differenz->days == '1')
     // Ergebnis ausgeben
     if ($zielDatum > $jetzt) {
         $output = "";
         if ($differenz->days > 0) {
-            $output .= $differenz->days . " Tage ";
+            $output .= $differenz->days . " $dayWord ";
         }
         $output .= $differenz->h . " Std. " . $differenz->i . " Min.";
 

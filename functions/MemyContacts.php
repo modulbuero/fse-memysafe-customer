@@ -159,7 +159,7 @@ class MemyContacts {
 
         update_option('memy_contact_invitation_' . $token, $invite_data);
 
-        $sent = $this->send_contact_invitation_email($contact_mail, $contact_name, $username, $password, $token);
+        $sent = $this->send_contact_invitation_email($contact_mail, $contact_name, $password, $token);
         if(!$sent){
             wp_send_json_error('Einladung konnte nicht versendet werden.');
             return;
@@ -188,56 +188,38 @@ class MemyContacts {
         return $candidate;
     }
 
-    private function send_contact_invitation_email($email, $name, $username, $password, $token){
+    private function send_contact_invitation_email($email, $name, $password, $token){
         $invitation_url = home_url('/?accept_invitation=' . rawurlencode($token));
         $inviter = wp_get_current_user();
         
-        $first_name = get_user_meta($inviter->ID, 'first_name', true);
-        $last_name  = get_user_meta($inviter->ID, 'last_name', true);
-        $inviter_name = trim($first_name . ' ' . $last_name) ?: ($inviter->display_name ?: $inviter->user_login);
+        $first_name     = get_user_meta($inviter->ID, 'first_name', true);
+        $last_name      = get_user_meta($inviter->ID, 'last_name', true);
+        $inviter_name   = trim($first_name . ' ' . $last_name) ?: ($inviter->display_name ?: $inviter->user_login);
+        $c_email        = '';
+
+        for ($i = 0; $i < strlen($email); $i++) {
+            $c_email .= '&#' . ord($email[$i]) . ';';
+        }
 
         $subject = 'Ihre Einladung zum Memy Safe';
         $headers = array('Content-Type: text/html; charset=UTF-8');
 
-        $message = "<html><body>";
-        $message .= "<p>Hallo " . esc_html($name ?: 'Kontakt') . ",</p>";
+        $message =  emailParts('head') . "<p>Hallo " . esc_html($name ?: 'Kontakt') . ",</p>";
         $message .= "<p>" . esc_html($inviter_name) . "  hat dich zu Me, My Safe and I eingeladen.</p>";
         $message .= "<p>Bitte bestätige deine Einladung, um Zugriff auf die für dich freigegebenen Informationen zu erhalten.</p>";
 
-        $message .= '<p>
-            <!--[if mso]>
-            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml"
-            href="' . esc_url($invitation_url) . '"
-            style="height:44px; width:180px; v-text-anchor:middle;"
-            arcsize="10%" fillcolor="#007bff" strokecolor="#007bff">
-            <w:anchorlock/>
-            <center style="color:#ffffff; font-family:Arial; font-size:16px;">
-                Einladung bestätigen
-            </center>
-            </v:roundrect>
-            <![endif]-->
-
-            <!-- Alle anderen Clients -->
-            <!--[if !mso]><!-->
-
-            <a href="' . esc_url($invitation_url) . '" style="background-color:#007bff; color:#ffffff;
-          display:inline-block; padding:12px 24px;
-          text-decoration:none; border-radius:6px;
-          font-family:Arial, sans-serif; font-size:16px;">Einladung bestätigen</a>
-        <!--<![endif]-->
-        </p>';
+        $message .= emailParts('button', esc_url($invitation_url), 'Einladung bestätigen');
         
         $message .= "<p>Alternativ kannst du diesen Link verwenden:<br>" . esc_html($invitation_url) . "</p>";
-        $message .= "<p>Benutzername: <strong>" . esc_html($email) . "</strong><br>";
+
+        $message .= "<p>Benutzername: <strong>" . $c_email . "</strong><br>";
         $message .= "Passwort: <strong>" . esc_html($password) . "</strong></p>";        
         
         $message .= "<p>Du kannst dein Passwort nach der ersten Anmeldung ändern.</p>";
-        $message .= "<p>Da es sich um eine persönliche Einladung handelt, empfehlen wir dir, vor dem Ignorieren der Nachricht kurz mit Markus Krauss Rücksprache zu halten.</p>";
-        $message .= "<br><br>
-            <img src='https://mmsi.de/wp-content/uploads/email-logo.jpg' title='Me, My Safe and I - Digital, business continuity'>
-            <p><a href='mailto:support@mmsi.de'>support@mmsi.de</a></p>
-            <p><a href='https://mmsi.de'>mmsi.de</a></p>";
+        $message .= "<p>Da es sich um eine persönliche Einladung handelt, empfehlen wir dir, vor dem Ignorieren der Nachricht kurz mit $inviter_name Rücksprache zu halten.</p>";
+        $message .= emailParts('footer');
         $message .= "</body></html>";
+
         return wp_mail($email, $subject, $message, $headers);
     }
 
