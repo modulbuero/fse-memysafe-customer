@@ -29,8 +29,22 @@
         addInput('Telefonnummer', $v_person_tel, 'contact-tel-'.$i, 'number');
         addInput('Firma (Optional)', $v_person_firma, 'contact-firma-'.$i);
         addInput('', 'Vertrauensperson', 'contact-typ-'.$i, '','hidden'); 
-        ?>
+
+        if(get_current_user_id() == getAdminUserID() ): ?>
+            <div class="spalte">
+                <!--mmsi can -->
+                <?php if(!email_exists($v_person_email)): ?>
+                    <button class="send-invitation" style="padding: 5px; font-size: 14px;">
+                        <i class='mmsi-icon speichern'></i> Einladung senden
+                    </button>
+                <?php endif; ?>
+            </div>
+        <?php 
+        endif;
+        ?>        
     </div>
+
+     
 
     <?php 
     saveDeleteButton('contact');

@@ -24,9 +24,8 @@
         addInput('Firma (Optional)', $vertreter_firma, 'vertreter-firma');            
         ?>
         </div>
+       
     </div>
-
-    
     
     <?php 
     saveDeleteButton('vertreter');
