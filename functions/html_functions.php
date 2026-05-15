@@ -191,21 +191,21 @@ function saveDeleteButton($typ){
  */
 function inputFieldsTxtFile(){
    echo "
-    <p>Zwei Angaben sind entscheidend. Sie ermöglichen anderen, im Bedarfsfall zu handeln.</p>
+    <p>Die ersten beiden Angaben sind wichtig, denn diese Informationen helfen anderen, im Ernstfall schnell zu handeln.</p>
     <div id='checkvalues-safeinfo' class='txt-distance-bottom'>";
         
-        $quest_1 = 'Wo befinden sich deine wichtigsten Unterlagen und Informationen?';
+        $quest_1 = 'Wo befinden sich wichtige Unterlagen und Informationen?';
         addInput($quest_1, '', 'upload-txt-1');
-        $quest_2 = 'Wie kann auf deine digitalen Daten zugegriffen werden? (Keine Passwörter angeben.)';
+        $quest_2 = 'Wie erhalten andere Zugriff auf wichtige digitale Informationen? (Keine Passwörter angeben.)';
         addInput($quest_2, '', 'upload-txt-2');
     
     echo "
     </div>
     <br>
     <div id='checkvalues-safeinfo-soft' class='txt-distance-bottom'>
-        <p class='no-distance-bottom'>Zusätzliche Hilfsinformationen</p>";
+        <p class='no-distance-bottom'>Zusätzliche Hinweise</p>";
     
-        $quest_3 = 'Wie kann deine Buchhaltung eingesehen werden?';
+        $quest_3 = 'Wo befinden sich Buchhaltungsunterlagen und wer hat Zugriff darauf?';
         addInput($quest_3, '', 'upload-txt-3');
         $quest_4 = 'Wer kann beim Zugang zu wichtigen Informationen unterstützen?';
         addInput($quest_4, '', 'upload-txt-4');

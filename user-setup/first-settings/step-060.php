@@ -3,7 +3,7 @@
 </div>
 <div class="overflow-wrapper full-height">
      <h4>
-        Anweisung für den Notfallkontakt
+        Hinweise für den Notfallkontakt
     </h4>
     <div class="memy-upload-wrapper">
         <!-- Dateien hochladen -->

@@ -4,7 +4,7 @@
 </div>
 <div class="overflow-wrapper full-height settings-labels">
     <h4>
-        Deine Profil
+        Dein Profil
     </h4>
     <p>
         Lege die Grundlage für deine Erreichbarkeit fest.
@@ -19,9 +19,11 @@
         $telefon = (!empty($user_metas['telefon'][0])) ? $user_metas['telefon'][0] : "";
         
         addInput('Straße', $strasze, 'strasze', 'Straße');
+        echo "<div class='spalte'>";
         addInput('PLZ', $plz, 'plz', 'PLZ', 'number');
         addInput('Ort', $ort, 'ort', 'Ort');
-        addInput('Telefonnummer', $telefon, 'telefon', 'Telefonnummer', 'number');            
+        echo "</div>";
+        addInput('Telefonnummer', $telefon, 'telefon', 'Telefonnummer');            
         ?>
     </div>
 </div>

@@ -24,7 +24,7 @@ foreach (range(1, 3) as $i):
         echo "<h4>".$i.". Notfallkontakt</h4>";
         ?>        
         <div class="inner-input-wrapper">
-        <div class="contact-data">
+        <div class="contact-data txt-distance-bottom">
             <div class="spalte">
                 <?php     
                 addInput('Vorname', $person_f_name, 'contact-first_name-'.$i);
@@ -38,7 +38,7 @@ foreach (range(1, 3) as $i):
             //addSelect('Status', ['Aktiv' => 'Aktiv', 'Ausstehend' => 'Ausstehend'], $person_status, 'contact-person-status-'.$i, false);
             ?>
         </div>
-        <br>
+        
         <?php 
         addInput('', 'Notfallkontakt', 'contact-typ-'.$i, '','hidden'); 
         

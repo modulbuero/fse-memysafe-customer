@@ -12,6 +12,6 @@ $name = ( in_array( 'subscriber', (array) $user->roles ) ) ? 'Helfer': $user->fi
 ?>
 <p class="no-distance-bottom">
     <strong>
-        Hallo <?php echo $name ?>!
+        Hallo <?php echo $name ?>
     </strong>
 </p>

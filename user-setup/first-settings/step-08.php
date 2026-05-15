@@ -4,13 +4,15 @@
     //den Tag für die Zyklus Starten holen
     $exam_clock_start_date   = get_user_meta( $get_user_id, 'exam-clock-start', true );
     //Die Tage für die Zyklus Einstellungen holen
-    $exam_clock_zyklus_one   = get_user_meta( $get_user_id, 'exam-clock-zyklus-one', true );
-    $exam_clock_zyklus_two   = get_user_meta( $get_user_id, 'exam-clock-zyklus-two', true );
-    $exam_clock_zyklus_three = get_user_meta( $get_user_id, 'exam-clock-zyklus-three', true );
+    $exam_clock_zyklus_one   = (get_user_meta( $get_user_id, 'exam-clock-zyklus-one', true )) ? get_user_meta( $get_user_id, 'exam-clock-zyklus-one', true ) : 2;
+    $exam_clock_zyklus_two   = get_user_meta( $get_user_id, 'exam-clock-zyklus-two', true ) ? get_user_meta( $get_user_id, 'exam-clock-zyklus-two', true ) : 3;
+    $exam_clock_zyklus_three = get_user_meta( $get_user_id, 'exam-clock-zyklus-three', true ) ? get_user_meta( $get_user_id, 'exam-clock-zyklus-three', true ) : 4;
     //Datum für die Eskalationsstufen holen
+    /*
     $eskalation_stufe_one    = get_user_meta( $get_user_id, 'eskalation_stufe_one', true );
     $eskalation_stufe_two    = get_user_meta( $get_user_id, 'eskalation_stufe_two', true );
     $eskalation_stufe_three  = get_user_meta( $get_user_id, 'eskalation_stufe_three', true );
+    */
 ?>
     <div class="spalte inner-main-heading">
         <h3>Ersteinrichtung</h3>

@@ -7,7 +7,7 @@
             Willkommen bei MMSI
         </h4>
         <p>
-            Richte MMSI jetzt Schritt für Schritt ein.
+            Die Einrichtung führt dich Schritt für Schritt durch MMSI.
             <br>
             Die Einrichtung ist erst abgeschlossen, wenn dein Timer aktiviert ist.
         </p>

@@ -3,7 +3,7 @@
 </div>
 <div class="overflow-wrapper full-height" id="anweisung-von-ersteinrichtung">
     <h4>
-        Anweisung für den Notfallkontakt
+        Hinweise für den Notfallkontakt
     </h4>
     
     <?php 

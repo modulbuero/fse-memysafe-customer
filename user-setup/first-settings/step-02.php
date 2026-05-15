@@ -4,19 +4,17 @@
     </div>
     <div class="overflow-wrapper full-height settings-labels">
          <h4>
-            SO RICHTEST DU MMSI EIN
+            Einrichtungsschritte
         </h4>
-        <p>
-            Führe die folgenden Schritte der Reihe nach aus. 
-            <br>
-            Die Einrichtung ist erst abgeschlossen, wenn dein Timer aktiviert ist.
-        </p>
+        
         <ol>
-            <li>Dein Profil</li>
+            <li>Profil</li>
             <li>Notfallkontakte</li>
-            <li>Dein Safe</li>
-            <li>Timer aktivieren</li>
+            <li>Safe</li>
+            <li>Timer</li>
         </ol>
+
+        <p>Die Einrichtung ist erst abgeschlossen, wenn dein Timer aktiviert ist.</p>
     </div>
 
     <?php firstStepNavi('2',true,true, 'Zurück', 'Profil Einrichten') ?>

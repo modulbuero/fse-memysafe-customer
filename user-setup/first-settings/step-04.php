@@ -25,8 +25,8 @@
         ?>
         </div>
         <?php 
-        addInput('E-Mail-Adresse', $v_person_email, 'contact-email-1', 'email');
-        addInput('Telefonnummer', $v_person_tel, 'contact-tel-1', 'number');
+        addInput('E-Mail-Adresse', $v_person_email, 'contact-email-1', 'E-Mail-Adresse');
+        addInput('Telefonnummer', $v_person_tel, 'contact-tel-1', 'Telefonnummer');
         addInput('', 'Notfallkontakt', 'contact-typ-1', '','hidden'); 
         ?>  
     </div>          

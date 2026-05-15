@@ -7,9 +7,9 @@
             Dein Safe
         </h4>
         <p class="txt-distance-bottom">
-            Lege fest, wie andere im Ernstfall handlungsfähig werden. Der Safe enthält keine Zugangsdaten. Er beschreibt, wo Informationen liegen, wie darauf zugegriffen wird und wer dabei unterstützen kann. 
-            <br>
-            Du kannst unsere Vorlagen nutzen, um deine Informationen strukturiert vorzubereiten – jetzt oder später.
+            Lege fest, wie andere im Ernstfall handlungsfähig werden.<br>
+            Der Safe enthält keine Zugangsdaten. Er beschreibt, wo Informationen hinterlegt sind, wie darauf zugegriffen werden kann und wer
+            unterstützen kann. Du kannst unsere Vorlagen nutzen, um wichtige Informationen übersichtlich festzuhalten – jetzt oder später.
         </p>
         
         <button class="half-width">
@@ -18,11 +18,10 @@
 
         <p>Wie möchtest du fortfahren?</p>
         <?php 
-        #addCheckbox('Ich nutze die Vorlagen und lade meine Informationen später hoch','','mmsi-uploadcheck');
         $auswahl = [
-            'mmsi-file-later'  => 'Ich nutze die Vorlagen und lade meine Informationen später hoch',
-            'mmsi-file-entry'   => 'Ich hinterlege die wichtigsten Informationen jetzt direkt',
-            'mmsi-file-completed' => 'Ich habe die Vorlagen bereits ausgefüllt und lade sie jetzt hoch'
+            'mmsi-file-later'       => 'Ich nutze die Vorlagen und lade meine Informationen später hoch',
+            'mmsi-file-entry'       => 'Ich hinterlege die wichtigsten Informationen direkt in MMSI',
+            'mmsi-file-completed'   => 'Ich habe die Vorlagen bereits ausgefüllt und lade sie jetzt hoch'
             ];
         addRadioGroup('', $auswahl, '', 'mmsi-uploadcheck');
         ?>
