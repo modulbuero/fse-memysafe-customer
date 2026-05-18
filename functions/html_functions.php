@@ -207,13 +207,13 @@ function inputFieldsTxtFile(){
     
         $quest_3 = 'Wo befinden sich Buchhaltungsunterlagen und wer hat Zugriff darauf?';
         addInput($quest_3, '', 'upload-txt-3');
-        $quest_4 = 'Wer kann beim Zugang zu wichtigen Informationen unterstützen?';
+        $quest_4 = 'Wer kann helfen, wichtige Informationen zugänglich zu machen?';
         addInput($quest_4, '', 'upload-txt-4');
         $quest_5 = 'Gibt es etwas, das zuerst geklärt oder gesichert werden sollte?';
         addInput($quest_5, '', 'upload-txt-5');
-        $quest_6 = 'Welche laufenden Verpflichtungen dürfen nicht übersehen werden?';
+        $quest_6 = 'Welche wiederkehrenden Aufgaben müssen weitergeführt werden?';
         addInput($quest_6, '', 'upload-txt-6');
-        $quest_7 = 'Gibt es wichtige Hinweise, die unbedingt beachtet werden müssen?';
+        $quest_7 = 'Gibt es Hinweise, die beachtet werden sollten?';
         addInput($quest_7, '', 'upload-txt-7');
     
     echo "
@@ -244,7 +244,7 @@ function emailParts($part="", $button_link = 'login', $button_txt='Zum Login') {
 
     if($part == 'button'){
         if($button_link == 'login'){
-            $button_link = network_home_url() . '/login/';
+            $button_link = network_home_url() . 'login/';
         }
         $btn_bg = '#9CA3DB';
         $html = '<p>

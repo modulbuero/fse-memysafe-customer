@@ -4,13 +4,13 @@
 </div>
 <div class="overflow-wrapper full-height settings-labels">
     <h4>
-        Der Notfallkontakt
+        Notfallkontakt
     </h4>
     <p>
         Bestimme mindestens eine Person, die im Ernstfall informiert wird und handeln kann.
         <br>
-        Die Kontakte werden per E-Mail eingeladen und können ihre Rolle bestätigen.
-    </p>
+        Für die Ersteinrichtung genügt ein Notfallkontakt. Weitere Kontakte kannst du später über dein Dashboard hinzufügen.
+        Der Kontakt wird per E-Mail eingeladen und kann seine Rolle bestätigen.</p>
     <div id="checkvalues-kontakt">
         <?php 
         $v_person_name  = get_user_meta(get_current_user_id(), 'contact-person-1', true)['name'] ?? '';

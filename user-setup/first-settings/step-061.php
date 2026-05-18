@@ -11,7 +11,7 @@
     ?>
     
     <div class="spalte safe-info-save-wrapper" style="justify-content: flex-end;padding-top: 20px;">
-        <button id="safe-info-save" disabled>Informationen speichern <i class="mmsi-icon speichern"></i></button>
+        <button id="safe-info-save" disabled>Hinweise speichern <i class="mmsi-icon speichern"></i></button>
     </div>
     
 </div>

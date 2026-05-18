@@ -7,9 +7,10 @@
         <input type="hidden" name="nonce" value="<?php echo esc_attr(wp_create_nonce('save_first_settings')); ?>" id="fsettingn-wp">
         
         <p>
-            Dein MMSI ist jetzt eingerichtet.
+            Einrichtung abgeschlossen
         </p>
         <p>
+            MMSI ist jetzt aktiv.<br>
             Du kannst deine Angaben jederzeit über das Dashboard anpassen und ergänzen.
         </p>
         

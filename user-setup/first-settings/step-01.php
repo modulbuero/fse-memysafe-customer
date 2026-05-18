@@ -18,7 +18,7 @@
         <ul>
             <li>wer informiert wird</li>
             <li>was zu tun ist</li>
-            <li>ie wichtige Informationen zugänglich sind</li>
+            <li>wie wichtige Informationen zugänglich sind</li>
         </ul>
         
         <?php addCheckbox('Ich habe verstanden, wie MMSI funktioniert','0','mmsi-verstanden', 'simple') ?>

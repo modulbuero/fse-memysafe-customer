@@ -22,25 +22,28 @@
             Timer aktivieren
         </h4>
         <p>
-            Der Timer sorgt dafür, dass deine Notfallkontakte informiert werden, wenn du nicht mehr reagierst.
+            Der Timer wird aktiv, wenn du über einen festgelegten Zeitraum nicht reagierst.
         </p>    
         <p>
             Erst durch die Aktivierung wird MMSI wirksam.
         </p>
+        <p>
+            Die Timer bestimmen, wann Erinnerungen und Benachrichtigungen ausgelöst werden.
+        </p>
 
-        <p class="label-like">Timer</p>
+        
         
         <div class="spalte">
-            <?php numberInput("fs-exam-clock-zyklus-one", esc_attr($exam_clock_zyklus_one), 2, 14, "1. Timer", "Tage"); ?>
+            <?php numberInput("fs-exam-clock-zyklus-one", esc_attr($exam_clock_zyklus_one), 2, 14, "Erste Erinnerung nach …", "Tage"); ?>
         </div>
         <div class="spalte">
-            <?php numberInput("fs-exam-clock-zyklus-two", esc_attr($exam_clock_zyklus_two), 1, 7, "2. Timer", "Tage"); ?>
+            <?php numberInput("fs-exam-clock-zyklus-two", esc_attr($exam_clock_zyklus_two), 1, 7, "Zweite Erinnerung nach …", "Tage"); ?>
         </div>
         <div class="spalte txt-distance-bottom">
-            <?php numberInput("fs-exam-clock-zyklus-three", esc_attr($exam_clock_zyklus_three), 1, 3, "3. Timer", "Tage"); ?>
+            <?php numberInput("fs-exam-clock-zyklus-three", esc_attr($exam_clock_zyklus_three), 1, 3, "Benachrichtigung der Kontakte nach …", "Tage"); ?>
         </div>
 
-        <button id="zyklus-ersteinrichtung" class="half-width">Zeit übernehmen <i class="mmsi-icon speichern"></i></button>
+        <button id="zyklus-ersteinrichtung" class="half-width">Timer-Einstellungen speichern <i class="mmsi-icon speichern"></i></button>
     </div>
 
     <?php firstStepNavi('8') ?>

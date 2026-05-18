@@ -3,16 +3,16 @@
 </div>
 <div class="overflow-wrapper full-height">
      <h4>
-        Hinweise für den Notfallkontakt
+        Informationen für den Ernstfall hochladen
     </h4>
     <div class="memy-upload-wrapper">
         <!-- Dateien hochladen -->
         <div id="memy-upload-zone">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/icons/MMSI_Icon_UPLOAD.svg" alt="Upload Icon">
-            <p>DATEI HIER ABLEGEN ODER AUSWÄHLEN</p>
+            <p>Lade deine vorbereiteten Informationen hoch. Du kannst Dateien hier ablegen oder über den Button auswählen.
+            <p>Mehrere Dateien möglich · PDF empfohlen · Änderungen jederzeit möglich</p>
             
             <button type="button" class="memy-upload-trigger"><i class='mmsi-icon upload'></i> Dateien auswählen</button>
-            <p>Sie können Ihre Datei hierher ziehen oder über den Button auswählen.</p>
+            
         </div>
         <input type="file" id="memy-file-input" multiple>
         <div id="memy-upload-progress"></div>
