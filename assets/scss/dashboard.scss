@@ -45,10 +45,13 @@
       }
    }
 
-   .spalte .tile{
-      max-width: 460px;
+   //Desktop
+   @media (min-width: 1119px){
+      .spalte .tile{
+         max-width: 460px;
+      }
    }
-   
+
    /*Uhranzeige*/
    #chooser-exam-clock {
       justify-content: center;

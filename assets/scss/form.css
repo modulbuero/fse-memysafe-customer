@@ -150,8 +150,10 @@ form div {
 #profile-persoenliche-daten > div > div.spalte div {
   flex: 1;
 }
-#profile-persoenliche-daten > div > div.spalte input {
-  min-width: 50%;
+@media (min-width: 1024px) {
+  #profile-persoenliche-daten > div > div.spalte input {
+    min-width: 50%;
+  }
 }
 
 /* Selectbox */

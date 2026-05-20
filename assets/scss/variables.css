@@ -84,8 +84,19 @@ body.darkmode .memy-upload-wrapper #memy-upload-zone.drag-over{
         --memy-container:750px
     }
 }
-@media (max-width: 900px){
+@media (max-width: 960px){
     body{
-        --memy-container:500px
+        --memy-container:700px
+    }
+}
+@media (max-width: 834px){
+    body{
+        --memy-container: 75%;
+        --memy-menu-width: 210px;
+    }
+}
+@media (max-width: 834px){
+    body{
+        --memy-container: 72%;
     }
 }

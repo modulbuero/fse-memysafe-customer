@@ -14,7 +14,7 @@ if('abo' == 'grosz'){
         </h3>
     </div>
     <div class="settings-labels gotocontacts-wrapper">
-        <div class="spalte">
+        <div class="spalte is-line">
             <button class="goto-btn memy-button full-width" data-goto="notfallkontakte" data-step="2">
                 Notfallkontakte
                 <i class='mmsi-icon pfeil'></i>
@@ -25,7 +25,7 @@ if('abo' == 'grosz'){
             ?>
         </div>
         
-        <div class="spalte">
+        <div class="spalte is-line">
             <button class="goto-btn memy-button full-width" data-goto="vertrauensperson" data-step="2">
                 Vertrauensperson 
                 <i class='mmsi-icon pfeil'></i>
@@ -36,7 +36,7 @@ if('abo' == 'grosz'){
             ?>
         </div>
         
-        <div class="spalte">
+        <div class="spalte is-line">
             <button class="goto-btn memy-button full-width" data-goto="vertretungskontakte" data-step="2">
                 Vertreter 
                 <i class='mmsi-icon pfeil'></i>
@@ -47,7 +47,7 @@ if('abo' == 'grosz'){
             ?>
         </div>
         
-        <div class="spalte">
+        <div class="spalte is-line">
             <button class="goto-btn memy-button full-width" data-goto="kundenkontakte" data-step="2">
                 Kunden 
                 <i class='mmsi-icon pfeil'></i>

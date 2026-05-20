@@ -9,7 +9,7 @@
 ?>
 
 <?php if( get_user_meta(get_current_user_id(), 'first_settings', true) || in_array( 'subscriber', (array) wp_get_current_user()->roles ) ) : ?>
-    <button id="goback" data-from="">
+    <button id="goback" class="hide" data-from="">
         <svg xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             id="zurueck-btn-animation"

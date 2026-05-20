@@ -102,6 +102,14 @@ function mbfse_child_style_Files(){
 		wp_get_theme()->get( 'Version' )
 	);
 
+	// First Settings
+	wp_enqueue_style(
+		'memy-mobile',
+		get_stylesheet_directory_uri().$f_CSS.'mobile.css',
+		array(),
+		wp_get_theme()->get( 'Version' )
+	);
+
 	/*JS*/
 	wp_enqueue_script(
 		'memy-child-menu',

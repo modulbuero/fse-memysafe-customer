@@ -38,8 +38,10 @@
 #memy-dashboard .tile .dashboard-item .item-content div[data-goto]:hover p {
   transform: translateX(10px);
 }
-#memy-dashboard .spalte .tile {
-  max-width: 460px;
+@media (min-width: 1119px) {
+  #memy-dashboard .spalte .tile {
+    max-width: 460px;
+  }
 }
 #memy-dashboard {
   /*Uhranzeige*/

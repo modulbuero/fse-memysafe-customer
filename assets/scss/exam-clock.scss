@@ -98,7 +98,7 @@
                 margin-bottom: 0;
                 //Uhrzeit-Text
                 span:last-child{
-                    text-align: center;
+                    text-align: left;
                     flex: 1;
                 }
 
@@ -140,6 +140,12 @@
             text-transform: uppercase;
             gap: var(--memy-text-gap);
         }
+
+        @media (max-width: 1023px){	
+            flex-direction: row !important;
+            align-items: center !important;
+        }
+        
     }
 }
 
