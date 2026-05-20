@@ -47,10 +47,12 @@ if ( is_user_logged_in() ) :
             <?php if((get_current_user_id() == getAdminUserID()) && empty(get_option('has_send_notfall')) ): ?>      
                 <?php require_once get_stylesheet_directory() . '/user-setup/dashboard/dashboard-my-exam-clock.php'; ?>
             <?php else: ?>
+                <?php if(get_current_user_id() != getAdminUserID()) : ?>
                 <p style="text-align: center;padding:30px">
                     Willkommen. Aktuell ist der Notfall-Modus deaktiviert.<br>
                     Sie erhalten dazu eine entsprechende Benachrichtigung.
                 </p>
+                <?php endif; ?>
             <?php endif; ?>
 
             <?php if(!empty(get_option('has_send_notfall')) ) : ?>
@@ -219,6 +221,8 @@ if ( is_user_logged_in() ) :
     <?php 
     endif;
     ?>
+
+    
 </div>
 
 <?php endif; ?>

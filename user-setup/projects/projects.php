@@ -6,43 +6,6 @@
         </h3>
     </div>
 
-    <?php 
-    /** 
-     *  Daten für die Select-Felder holen
-     * */ 
-    $user_id            = get_current_user_id();
-    //Get Vertreter-Liste für Select-Feld
-    $vertreter_list     = get_user_meta($user_id, 'vertreter_list', true);
-    $vertreter_option   = [];
-    $vertreter_option[] = 'Vertreter wählen';
-    if(!empty($vertreter_list) && is_array($vertreter_list)){
-        foreach ($vertreter_list as $id => $daten) {
-            if (strpos($id, 'vertreter_') === 0 && isset($daten['name'])) {
-                $id_var   = $id;
-                $name_var = $daten['name'];
-                $vertreter_option[$id_var] = $name_var;
-            }
-        }
-    }else{
-        $vertreter_option   = [];
-        $vertreter_option[] = 'Keine Vertreter hinterlegt';
-    }
-        
-    //Get Notfallkontakt-Liste für Select-Feld
-    $notfallkontakt_option   = [];
-    $notfallkontakt_option[] = 'Notfallkontakt wählen';
-    foreach (range(1, 3) as $i): 
-        $person_email   = get_user_meta(get_current_user_id(), 'contact-person-'.$i, true)['email'] ?? '';
-        if(!empty($person_email)){
-            $notfallkontakt_option['contact-person-'.$i] = $person_email;
-        }
-    endforeach;
-    if (count($notfallkontakt_option) === 1){
-        $notfallkontakt_option   = [];
-        $notfallkontakt_option[] = 'Kein Notfallkontakt hinterlegt';
-    }
-
-    ?> 
     <div class="overflow-wrapper">
         <div class="spalte project-data-show-hide"><p style="display:flex;gap:10px"><i class="mmsi-icon informationen"></i> Hinterlegte Informationen</p> <i class="mmsi-icon bearbeiten"></i></div>
 
@@ -66,7 +29,6 @@
                 addRadioGroup('Projektstatus', [
                     'Geplant'       => 'Geplant',
                     'Laufend'       => 'Laufend',
-                    'Abgeschlossen' => 'Abgeschlossen',
                 ], 'Geplant', 'project-status');
 
                 addTextarea('', '', 'project-anmerkung', 'Anmerkung_', 5);
@@ -76,11 +38,11 @@
             
             <?php 
             echo '<div class="spalte input-wrapper">';
-                addInput('Andere beteiligte und/oder Dienstleister', '', 'project-dienstleister-name', 'Name_');
+                addInput('Andere Beteiligte und/oder Dienstleister', '', 'project-dienstleister-name', 'Name_');
                 addInput('&nbsp;', '', 'project-dienstleister-funktion', 'Funktion_');
             echo '</div>';
 
-            addInput('Datenzugriff Speicherort', '', 'project-dateizugriff', 'Speicherort_');
+            addInput('Datenzugriff, Speicherort', '', 'project-dateizugriff', 'Speicherort_');
             ?>
         
         </div>
@@ -89,11 +51,11 @@
 
         <div class="project-data-container">
             <div id="project-kontakt-container">
-                <?php addSelect('Kontakt zuweisen (Optional)', $notfallkontakt_option , '', 'project-notfallkontakt'); ?>
+                <?php addSelect('Kontakt zuweisen (Optional)', '' , '', 'project-notfallkontakt'); ?>
             </div>
 
             <div id="project-vertreter-container">
-                <?php addSelect('Vertretung', $vertreter_option , '', 'project-vertreter'); ?>
+                <?php addSelect('Vertretung', '' , '', 'project-vertreter'); ?>
             </div>
             
             <?php addTextarea('Anmerkungen', '', 'project-anmerkungen', 'Anmerkungen_', 8); ?>

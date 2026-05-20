@@ -12,6 +12,7 @@ body{
     --memy-trenner:1px solid var(--memy-trenner-color);
     --memy-check-color:#6094ff;
     --mmsi-drag-over: var(--memy-tertiery);
+
      /*Farbwerte Stufe 1*/
     --ex-clock-bg-full-1:#9CA3DB;
     /*Farbwerte Stufe 2*/
@@ -21,7 +22,7 @@ body{
 
     /*Abstände*/
     --memy-padding-root:30px;
-    --memy-padding-inner-container-side:20px;
+    --memy-padding-inner-container-side:30px;
     --memy-dashbox-gap:var(--memy-padding-root);
     --memy-text-gap:10px;
     --memy-list-gap:20px;
@@ -34,18 +35,21 @@ body{
     /*Breiten*/
     --memy-container: 980px;
     --memy-menu-width: 200px;
+    --memy-menu-min-width:150px;
     --memy-footer-width: calc( var(--memy-container) + var(--memy-menu-width) + (2 * var(--memy-padding-root)) );
 
 
     /*Höhen*/
     --memy-kachel-height:215px;
     --memy-menu-height: calc( (var(--memy-kachel-height) * 3) + (var(--memy-padding-root) * 3) );
+    /* min höhe: --memy-menu-height: calc( 100vh - var(--memy-padding-root) * 2);*/
     --memy-clock-outher-height:133px;
     --memy-clock-middle-height:90px;
     --memy-clock-inner-height:50px;
     --memy-size-button-icon:20px;
     --memy-header-height:34px;
-
+    --memy-button-height:52px;
+    
     /*Anzahl der Schritte bei Ersteinrichtung*/
     --memy-first-step-max:9;
 }

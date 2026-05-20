@@ -52,10 +52,7 @@ if('abo' == 'grosz'){
                 Kunden 
                 <i class='mmsi-icon pfeil'></i>
             </button>
-            <?php 
-            $infotxt_kd = "ist jemand, der dir nahesteht und im Alltag unterstützend wirken kann – z.B. durch physischen Zugang zu Wohnung, Büro oder Doku-menten. Sie muss nicht digital eingebunden sein, kann aber bei Bedarf Zugriff auf bestimmte SafenInhalte erhalten.";
-            infoPopup($infotxt_kd, "KUNDEN");
-            ?>
+            
         </div>
     </div>
 <?php

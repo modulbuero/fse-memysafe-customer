@@ -49,6 +49,7 @@
                 $button.prop('disabled', false);
                 // Erfolg: Nachricht anzeigen und 'success' Klasse nutzen
                 showMessage(response.message, 'success');
+                $('#memy-menu-dashboard').click()
             }).fail(function(response) {
                 $('#loading').hide();
                 $button.prop('disabled', false);

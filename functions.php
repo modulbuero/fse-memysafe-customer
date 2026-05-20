@@ -14,7 +14,7 @@ require_once($theme_directory.'login/logout.php');
 require_once($theme_directory.'MemyUserDataEditor.php');
 require_once($theme_directory.'MemyOptionManager.php');
 require_once($theme_directory.'MemyTotmanschalter.php');
-require_once($theme_directory.'MemyTimerMail.php');
+#require_once($theme_directory.'MemyTimerMail.php');
 require_once($theme_directory.'MemyContacts.php');
 require_once($theme_directory.'MemyContactsVertreter.php');
 require_once($theme_directory.'MemyContactsKunden.php');

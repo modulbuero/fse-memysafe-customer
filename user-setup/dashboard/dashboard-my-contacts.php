@@ -17,7 +17,7 @@
         $user_id    = getAdminUserID();
         $kontakte   = [];
         $vertrauensperson = get_user_meta($user_id, 'contact-person-4', true);
-        
+        $person_typ = "";
         if(!empty(get_user_meta($user_id, 'contact-person-1', true))):
             // Bestimme die maximale Anzahl Notfallkontakte
             $max_notfall = !empty($vertrauensperson['email']) ? 2 : 3;
@@ -28,13 +28,16 @@
                 if (!empty($contact['email'])) {
                     $contact['pers_number'] = 'contact-person-' . $i;
                     $kontakte[] = $contact;
+                    
                 }
             }
 
             // Vertrauensperson hinzufügen, falls vorhanden
             if (!empty($vertrauensperson['email'])) {
                 $vertrauensperson['pers_number'] = 'vertrauensperson';
+                $vertrauensperson['pers_number'] = 'vertrauensperson';
                 $kontakte[] = $vertrauensperson;
+                
             }
 
             // Ausgabe
@@ -43,11 +46,15 @@
                 
                 if (!empty($kontakt['last_name'])) {
                     $goto = $kontakt['pers_number'];
+                    $typ  = ($kontakt['typ'] == 'Notfallkontakt')?"N":"V";
                     echo "<div class='spalte dash-item goto-btn' data-goto='".$goto."'>
                         <i class='mmsi-icon kontakt'></i>
                         <p>" . esc_html($kontakt['first_name']) . " " . esc_html($kontakt['last_name']) . "</p>
                         <i style='white-space: nowrap;'>$status</i>
+                        <span>$typ</span>
                     </div>";
+
+                    
                 }else{
                     echo "<div class='spalte dash-item'>
                         <i class='mmsi-icon kontakt'></i>

@@ -16,7 +16,12 @@ $profile_names = [
 <div class="container"  data-target="memy-profile" data-step="1" id="memy-profile" data-user-id="<?php echo esc_html( wp_get_current_user()->ID ); ?>">
     
     <div data-target="memy-profile">
-        <h3>Profil</h3>
+        <div class="spalte inner-main-heading">
+            <h3>
+                <i class="mmsi-icon profil"></i>
+                Profil
+            </h3>
+        </div>
         <div class="settings-labels">
         <?php
         foreach ( $profile_names as $profile_slug => $profile_title ) : 

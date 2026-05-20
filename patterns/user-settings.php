@@ -21,7 +21,12 @@ $setting_names = [
 <div class="container"  data-target="memy-settings" data-step="1" id="memy-settings" data-user-id="<?php echo esc_html( wp_get_current_user()->ID ); ?>">
 
     <div data-target="memy-settings" >
-        <h3><i class='mmsi-icon setting'></i> Einstellungen</h3>
+        <div class="spalte inner-main-heading">
+            <h3>
+                <i class="mmsi-icon setting"></i>
+                Einstellungen
+            </h3>
+        </div>
         <div class="settings-labels">
         <?php
         foreach ( $setting_names as $setting_slug => $setting_title ) : ?>

@@ -1,6 +1,8 @@
-.wp-site-blocks > main{
-    padding-bottom: 0;
-    max-height: calc(100vh - var(--memy-header-height));
+.wp-site-blocks{
+    overflow-x: inherit;
+    > main{
+        padding-bottom: 0;
+    }
 }
 
 /*Container Allgemein*/
@@ -24,25 +26,25 @@ div{
     grid-template-columns: 1fr var(--memy-menu-width) var(--memy-container) 1fr;
     background-color: var(--memy-tertiery);
     gap:0;
-    
+    flex-grow: 1;
+
     .space-left{
-        height: 100%;
         background: var(--memy-primary);
     }
     
 
     .wp-block-template-part.user-menu{
         background: var(--memy-primary);
-        min-height: 100vh;
+        min-height: calc(100vh - var(--memy-header-height));
         align-items: flex-end;
     }
 
     .wp-block-template-part.user-content{
-        padding-top: var(--memy-padding-root);
-        max-height: calc(100vh - var(--memy-header-height));
-        padding-left: var(--memy-padding-root);
+        padding:var(--memy-padding-root) 0 var(--memy-padding-root) var(--memy-padding-root);
+        
         #memy-user-content-wrapper{
             overflow: hidden;
+            min-height: 100%;
         }
     }
 }
@@ -127,13 +129,6 @@ div{
             }
         }
     }
-    
-    #goback{
-        margin-top: auto;
-        display: flex;
-        justify-content: center;
-        margin-bottom:var(--memy-padding-inner-container-side);
-    }
 }
 
 /**
@@ -161,6 +156,20 @@ div{
     #memy-user-settings-wrapper{
         
     }
+}
+
+/**
+*   Zurückbutton
+*/
+#goback{
+    --memy-backbutton-verschieben: calc((var(--memy-menu-min-width) + (2 * var(--memy-padding-root))) * -1);
+    left: var(--memy-backbutton-verschieben);
+    top:calc((var(--memy-padding-inner-container-side) + var(--memy-button-height)) * -1);
+    display: flex;
+    justify-content: center;
+    margin-bottom:0;
+    max-width: calc(var(--memy-menu-width) - (2 * var(--memy-padding-root)));
+    min-width: var(--memy-menu-min-width);
 }
 
 /* Only Desktop*/

@@ -12,7 +12,7 @@
     <?php deletePopup('delete-safe-file', 'Datei löschen'); ?>
 </div>
 <?php if(get_current_user_id() == getAdminUserID() ): ?>
-<div class='spalte' class="save-wrapper">
+<div class='spalte save-wrapper'>
     <button class='memy-button goto-btn' data-goto="manage-safe"  data-step="2">
         <i class='mmsi-icon neu'></i>
         Datei hochladen

@@ -1,4 +1,7 @@
 /*Content | Dashboard*/
+#memy-dashboard {
+  height: 100%;
+}
 #memy-dashboard * {
   max-width: 100%;
 }
@@ -34,6 +37,9 @@
 }
 #memy-dashboard .tile .dashboard-item .item-content div[data-goto]:hover p {
   transform: translateX(10px);
+}
+#memy-dashboard .spalte .tile {
+  max-width: 460px;
 }
 #memy-dashboard {
   /*Uhranzeige*/
@@ -139,14 +145,22 @@
 .container-wrapper .container > div .save-wrapper {
   margin-top: auto;
 }
-.container-wrapper .container > div .save-wrapper:after {
+.container-wrapper .container > div .save-wrapper:not(button):before, .container-wrapper .container > div .save-wrapper:not(button):after {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: 68px;
+  display: block;
   width: 100%;
-  height: 1px;
-  background-color: var(--memy-trenner-color);
+  height: var(--memy-padding-inner-container-side);
+  top: calc(var(--memy-padding-inner-container-side) * -1);
+}
+.container-wrapper .container > div .save-wrapper:not(button):before {
+  border-top: 1px solid var(--memy-trenner-color);
+  background-color: #fff;
+}
+.container-wrapper .container > div .save-wrapper:not(button):after {
+  top: calc(var(--memy-padding-inner-container-side) * -2);
+  background: #FFFFFF;
+  background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.5) 70% 70%, rgba(255, 255, 255, 0) 100%);
 }
 .container-wrapper .container .inner-main-heading {
   padding-bottom: 20px;

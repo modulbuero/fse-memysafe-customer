@@ -31,19 +31,6 @@ label:not(.is-checkbox) {
 label:not(.is-checkbox):not(.number-label):not(.is-radio) {
   margin-bottom: var(--memy-text-gap);
 }
-.memy-label:not(.no-label):not(.is-radio):before,
-label:not(.is-checkbox):not(.no-label):not(.is-radio):before {
-  content: "■";
-  display: inline-block;
-  margin-right: 8px;
-  font-size: 8px;
-  line-height: 1;
-}
-.memy-label:not(.no-label):not(.is-radio) + input,
-label:not(.is-checkbox):not(.no-label):not(.is-radio) + input {
-  margin-left: 15px;
-  width: calc(100% - 15px);
-}
 
 /**
  * Input
@@ -149,9 +136,6 @@ form div {
 }
 
 /*Gruppierung Eingabefelder*/
-.inner-input-wrapper {
-  padding-left: var(--memy-padding-inner-container-side);
-}
 .inner-input-wrapper > div {
   gap: var(--memy-list-gap);
 }
@@ -162,10 +146,6 @@ form div {
 
 #profile-persoenliche-daten {
   gap: var(--memy-list-gap);
-  padding-left: var(--memy-padding-inner-container-side);
-}
-#profile-persoenliche-daten > div > div {
-  padding-left: var(--memy-padding-inner-container-side);
 }
 #profile-persoenliche-daten > div > div.spalte div {
   flex: 1;
@@ -207,7 +187,6 @@ form div {
 .slider {
   width: 25px;
   height: 12px;
-  background-color: var(--memy-secondary);
   border: var(--memy-border);
   /*Knopf*/
 }
@@ -216,10 +195,10 @@ form div {
   display: block;
   position: relative;
   width: 9px;
-  height: 10px;
+  height: 8px;
   left: 1px;
-  top: 1px;
-  background-color: var(--memy-primary);
+  top: 2px;
+  background-color: var(--memy-secondary);
   transition: all 0.3s ease;
 }
 
@@ -334,4 +313,13 @@ input[type=radio]:checked + .slider:before {
   border-bottom: var(--memy-border);
   pointer-events: none;
   cursor: not-allowed;
+}
+
+/*PLZ*/
+#plz {
+  -moz-appearance: textfield;
+}
+#plz::-webkit-outer-spin-button, #plz::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }/*# sourceMappingURL=form.css.map */

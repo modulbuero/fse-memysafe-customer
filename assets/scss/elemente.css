@@ -173,21 +173,9 @@ div, p {
 
 /*Der Overflowcontainer*/
 .overflow-wrapper {
-  padding-bottom: 15px;
+  --overflow-shadow-abstand: calc(20px + var(--memy-padding-inner-container-side));
+  padding-bottom: var(--overflow-shadow-abstand);
   overflow-y: auto;
-  margin-bottom: 26px;
-}
-.overflow-wrapper:after {
-  content: "";
-  position: fixed;
-  bottom: 90px;
-  left: 0;
-  width: 100%;
-  border-top: 1px solid var(--memy-trenner-color);
-  height: calc(100px + var(--memy-padding-inner-container));
-  background: linear-gradient(to top, var(--memy-primary), transparent);
-}
-.overflow-wrapper {
   /*Scrollbar*/
   --scroll-bg:rgba(255, 255, 255, 0)
   scrollbar-width: 2px;
@@ -376,4 +364,9 @@ table.table-aktivitaeten .clickable-row:hover {
 #checkvalues-safeinfo-soft {
   padding-left: var(--memy-padding-inner-container-side);
   padding-right: var(--memy-padding-inner-container-side);
+}
+
+/*KundenButton*/
+button[data-goto=kundenkontakte] {
+  margin-right: 25px;
 }/*# sourceMappingURL=elemente.css.map */

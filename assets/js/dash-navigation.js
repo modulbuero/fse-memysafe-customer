@@ -25,9 +25,15 @@
          *      attr data-goto, data-step
          */
         $(document).on('click','.dashboard-item > .item-headline, .dash-goto-btn', function(){
+            if ($(this).hasClass('dash-goto-btn') && $(this).closest('.wp-block-list').length) {
+                $('.container, .container div').removeClass('show');
+            }
             let target  = $(this).attr('data-goto')
             let step    = $(this).attr('data-step')
             $(dashContainer + ' > div').removeClass('show');
+
+            //Prüft ob .dash-goto-btn ist ein Menü Itemm. Wenn ja, remove all show Container
+            
             manageDashcontainer(target, step)
         })
 

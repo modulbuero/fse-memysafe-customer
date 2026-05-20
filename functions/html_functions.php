@@ -238,8 +238,8 @@ function emailParts($part="", $button_link = 'login', $button_txt='Zum Login') {
     if($part == 'footer'){
         $html = "<br><br>
         <img src='https://mmsi.de/wp-content/uploads/email-logo.jpg' style='width:150px'  title='Me, My Safe and I - Digital, business continuity' alt='Me, My Safe and I - Digital, business continuity'>
-        <p><a href='mailto:support@mmsi.de' style='text-decoration:none; color:#000000'>support@mmsi.de</a></p>
-        <p><a href='https://mmsi.de' style='text-decoration:none; color:#000000'>mmsi.de</a></p></body></html>";
+        <p><a href='mailto:support@mmsi.de' style='text-decoration:none; color:#000000'>support@mmsi.de</a><br>
+        <a href='https://mmsi.de' style='text-decoration:none; color:#000000'>mmsi.de</a></p></body></html>";
     }
 
     if($part == 'button'){

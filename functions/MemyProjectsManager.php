@@ -281,9 +281,10 @@ class MemyProjectsManager {
         // Notfall-Kontakte laden (aus den 3 statischen Kontakten)
         foreach (range(1, 3) as $i) {
             $contact_data = get_user_meta($user_id, 'contact-person-' . $i, true);
-            $contact_name = $contact_data['name'] ?? '';
+            $contact_name = $contact_data['first_name'] . " " .$contact_data['last_name'];
             
-            if (!empty($contact_name)) {
+            
+            if (!empty($contact_data)) {
                 $contact_id = 'contact_' . $i;
                 $selected = ($contact_id === $selected_kontakt) ? 'selected' : '';
                 $html .= sprintf(

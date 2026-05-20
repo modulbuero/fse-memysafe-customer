@@ -21,6 +21,15 @@
 */
 .project-data-show-hide{
     margin-bottom: 20px;
+
+    &:not(:first-child){
+        padding-top: 20px;
+        border-top: 1px solid var(--memy-trenner-color);
+    }
+
+    .mmsi-icon.bearbeiten{
+        left:-5px
+    }
 }
 
 /**
@@ -30,20 +39,14 @@
     --project-padding-outer: 30px;
     --project-padding-inner: 20px;
     --project-field-margin: 10px;
-    padding-right: calc(var(--project-padding-outer) + var(--project-padding-inner));
+    padding-right: var(--project-padding-outer);
 
     >div{
         margin-bottom: var(--project-padding-inner);
         
-        label{
-            padding-left:var(--project-padding-outer);
-        }
-
         .checkbox-group {
             margin-top:var(--project-field-margin);
-            padding-left:var(--project-padding-outer);
-            label{
-                padding-left: var(--project-padding-inner);
+            label{                
                 &:before{
                     display:none
                 }
@@ -52,19 +55,15 @@
 
         input{
             margin-top: var(--project-field-margin);
-            margin-left: calc(var(--project-padding-outer) + var(--project-padding-inner)) !important;
             margin-bottom: var(--project-field-margin);
         }
 
         .selectbox{
-            padding-left:var(--project-padding-outer);
             label{
                 padding:0;
             }
             select{
                 margin-top: var(--project-field-margin);
-                margin-left: var(--project-padding-inner);
-                max-width: calc(100% - var(--project-padding-inner)) !important;
             }
             &:not(.show){
                 select,
@@ -75,10 +74,8 @@
         }
 
         #project-anmerkungen{
-            margin-top:var(--project-field-margin);
-            margin-left:calc(var(--project-padding-outer) + var(--project-padding-inner));
+            margin-top:var(--project-field-margin);            
         }
-        
 
         /*Hidden Labels*/
         .project-anmerkung label,
@@ -91,8 +88,7 @@
         textarea{
             &:not(.show){
                 display:none
-            }
-            width:calc(100% - var(--project-padding-outer) - var(--project-padding-inner)) !important;
+            }            
         }
     }
 

@@ -38,6 +38,8 @@
                     } else {
                         $('#delete-project').show();
                     }
+
+                    openClosedContainer()
                 }).fail(function(response) {
                     console.log('Fehler beim Laden der Daten:', response);
                 });
@@ -271,10 +273,20 @@
         /**
          * Eingabefelder anzeigen/ausblenden
         */
-       $(document).on('click', '.project-data-show-hide', function() {
+        $(document).on('click', '.project-data-show-hide', function() {
             let $wrap = $(this).next('.project-data-container');
             $(this).toggleClass('active');
             $wrap.find('input, .selectbox, textarea, label.is-checkbox').toggleClass('show');
         });
+
+        function openClosedContainer() {
+            const $projectName = $('#project-name');
+            if ($projectName.val() && $projectName.val().trim() !== '') {
+                $projectName.closest('.setup-project-data').find('.bearbeiten').first().click();
+                console.log('Container geöffnet');
+            
+            }
+        }
+
     })
 })(jQuery)

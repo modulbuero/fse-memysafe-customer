@@ -12,7 +12,12 @@ $plz          = (!empty($user_metas['plz'][0])) ? $user_metas['plz'][0] : "";
 $ort          = (!empty($user_metas['ort'][0])) ? $user_metas['ort'][0] : "";
 ?>
 
-<h3>Profil bearbeiten</h3>
+<div class="spalte inner-main-heading">
+    <h3>
+        <i class="mmsi-icon profil"></i>
+        Profil bearbeiten
+    </h3>
+</div>
 
 <div class="overflow-wrapper full-height profile-bearbeiten-wrap">
     <?php
@@ -90,7 +95,7 @@ $ort          = (!empty($user_metas['ort'][0])) ? $user_metas['ort'][0] : "";
     -->
 </div>
 
-<div class="spalte">
+<div class="spalte save-wrapper">
     <button id="user-data-save"><i class="mmsi-icon speichern"></i>Speichern</button>
     <span id="loading" style="display: none;">Speichere...</span>
 </div>

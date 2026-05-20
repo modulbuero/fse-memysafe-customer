@@ -30,21 +30,6 @@ label:not(.is-checkbox){
     &:not(.number-label):not(.is-radio){
         margin-bottom: var(--memy-text-gap);
     }
-    
-    &:not(.no-label):not(.is-radio ){
-        &:before{
-            content: "■";
-            display: inline-block;
-            margin-right: 8px;
-            font-size: 8px;
-            line-height: 1;
-        }
-
-        + input{
-            margin-left: 15px;
-            width:calc(100% - 15px);
-        }
-    }
 }
 
 /**
@@ -159,7 +144,6 @@ form{
 
 /*Gruppierung Eingabefelder*/
 .inner-input-wrapper{
-    padding-left: var(--memy-padding-inner-container-side);
     >div{
         gap:var(--memy-list-gap);
     }
@@ -172,9 +156,9 @@ form{
 
 #profile-persoenliche-daten{
     gap:var(--memy-list-gap);
-    padding-left: var(--memy-padding-inner-container-side);
+    
     >div>div{
-        padding-left: var(--memy-padding-inner-container-side);
+        
         &.spalte{
             div{
                 flex: 1;
@@ -350,5 +334,15 @@ input[type="radio"]:checked{
             pointer-events: none;
             cursor: not-allowed;
         }
+    }
+}
+
+/*PLZ*/
+#plz{
+    -moz-appearance: textfield;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
     }
 }

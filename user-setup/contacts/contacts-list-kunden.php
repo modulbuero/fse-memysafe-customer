@@ -1,10 +1,7 @@
 <div class='spalte inner-main-heading'>
     <i class='mmsi-icon kontakte'></i>
     <h3>Kunden</h3>
-    <?php
-    $infotxt_vp = "ist jemand, der dir nahesteht und im Alltag unterstützend wirken kann – z.B. durch physischen Zugang zu Wohnung, Büro oder Doku-menten. Sie muss nicht digital eingebunden sein, kann aber bei Bedarf Zugriff auf bestimmte SafenInhalte erhalten.";
-    infoPopup($infotxt_vp, "KUNDEN");
-    ?>
+    
 </div>
 
 <div id='kunden-section' class="overflow-wrapper full-height inner-input-wrapper">

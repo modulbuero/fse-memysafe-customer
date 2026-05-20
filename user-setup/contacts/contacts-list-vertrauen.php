@@ -11,8 +11,8 @@
     <?php 
     $i = 4; //Vertrauensperson
     //Variable
-    $v_person_fname    = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['first_name'] ?? '';
-    $v_person_lname    = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['last_name'] ?? '';
+    $v_person_fname   = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['first_name'] ?? '';
+    $v_person_lname   = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['last_name'] ?? '';
     $v_person_email   = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['email'] ?? '';
     $v_person_tel     = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['tel'] ?? '';
     $v_person_firma   = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['firma'] ?? '';
@@ -32,7 +32,7 @@
 
         if(get_current_user_id() == getAdminUserID() ): ?>
             <div class="spalte">
-                <!--mmsi can -->
+                <div><!--mmsi can --></div>
                 <?php if(!email_exists($v_person_email)): ?>
                     <button class="send-invitation" style="padding: 5px; font-size: 14px;">
                         <i class='mmsi-icon speichern'></i> Einladung senden

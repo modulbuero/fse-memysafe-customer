@@ -72,7 +72,7 @@
 @mixin checkboxSlider{
     width: 25px;
     height: 12px;
-    background-color: var(--memy-secondary);    
+    // background-color: var(--memy-secondary);    
     border: var(--memy-border);
     
     /*Knopf*/
@@ -81,10 +81,10 @@
         display:block;
         position: relative;
         width: 9px;
-        height: 10px;
+        height: 8px;
         left: 1px;
-        top: 1px;
-        background-color: var(--memy-primary);
+        top: 2px;
+        background-color: var(--memy-secondary);
         transition: all 0.3s ease;
     }
 }

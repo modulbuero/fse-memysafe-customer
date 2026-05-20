@@ -27,5 +27,8 @@ $opt_fontsize   = '';
     addCheckbox('DARK MODE',$opt_darkmode,'opt_darkmode'); 
     ?>
 </div>
-
-<button id="einstellung-darstellung-save" class="save-wrapper short-button"><i class="mmsi-icon speichern"></i>Änderungen speichern</button>
+<div class='save-wrapper'>
+    <button id="einstellung-darstellung-save" class="short-button">
+        <i class="mmsi-icon speichern"></i>Änderungen speichern
+    </button>
+</div>

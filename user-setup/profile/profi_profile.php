@@ -5,7 +5,12 @@
  */
 ?>
 
-<h3>Profil bearbeiten</h3>
+<div class="spalte inner-main-heading">
+    <h3>
+        <i class="mmsi-icon profil"></i>
+        Profil bearbeiten
+    </h3>
+</div>
 
 <div class="overflow-wrapper full-height profile-bearbeiten-wrap">
     <?php
@@ -45,7 +50,7 @@
 
 </div>
 
-<div class="spalte">
+<div class="spalte save-wrapper">
     <button id="user-data-save"><i class="mmsi-icon speichern"></i>Speichern</button>
     <span id="loading" style="display: none;">Speichere...</span>
 </div>

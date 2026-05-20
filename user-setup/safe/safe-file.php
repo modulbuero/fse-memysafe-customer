@@ -14,6 +14,6 @@
     <input type="hidden" name="nonce" value="<?php echo esc_attr(wp_create_nonce('save_first_settings')); ?>" id="fsettingn-wp">
 </div>
 
-<div class='spalte safe-info-save-wrapper' style='justify-content: flex-end;padding-top: 20px;'>
+<div class='spalte safe-info-save-wrapper save-wrapper' style='justify-content: flex-end;padding-top: 20px;'>
     <button id='safe-info-save' class='from-safe-upload'>Informationen speichern <i class='mmsi-icon speichern'></i></button>
 </div>
