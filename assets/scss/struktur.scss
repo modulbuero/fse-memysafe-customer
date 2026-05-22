@@ -28,16 +28,19 @@ div{
     background-color: var(--memy-tertiery);
     gap:0;
     flex-grow: 1;
+    max-height: calc(100vh - var(--memy-header-height));
+    >div{
+        height: calc(100vh - var(--memy-header-height));
+        height: calc(100dvh - var(--memy-header-height));
+    }
 
     .space-left{
         background: var(--memy-primary);
-        height:calc(100vh - var(--memy-header-height));
+        padding-bottom:var(--memy-padding-root)
     }
-    
 
     .wp-block-template-part.user-menu{
         background: var(--memy-primary);
-        
         align-items: flex-end;
     }
 
@@ -55,10 +58,10 @@ div{
 *   Menu
 **/
 #memy-user-menu{
-    padding: var(--memy-padding-root) var(--memy-padding-root) 0 0;
+    height: 100%;
+    padding: var(--memy-padding-root);
     gap: var(--memy-padding-root);
     
-    min-width: 175px;
     h1{
         height: var(--memy-kachel-height);
         margin-bottom: 0;
@@ -84,6 +87,8 @@ div{
             display: flex;
             flex-direction: column;
             gap:var(--memy-list-gap);
+            height: 100%;
+
             li{
                 cursor: pointer;
                 display: flex;
@@ -165,13 +170,11 @@ div{
 */
 #goback{
     --memy-backbutton-verschieben: calc((var(--memy-menu-min-width) + (2 * var(--memy-padding-root))) * -1);
-    left: var(--memy-backbutton-verschieben);
-    top:calc((var(--memy-padding-inner-container-side) + var(--memy-button-height)) * -1);
     display: flex;
     justify-content: center;
-    margin-bottom:0;
-    max-width: calc(var(--memy-menu-width) - (2 * var(--memy-padding-root)));
-    min-width: var(--memy-menu-min-width);
+    margin-bottom:var(--memy-padding-root);
+    font-size: 14px;
+    margin-top:auto;
 }
 
 /* Only Desktop*/
@@ -198,12 +201,18 @@ div{
 
             &.no-tiles {
                 max-height: calc(100vh - var(--memy-header-height))!important;
+                max-height: calc(100dvh - var(--memy-header-height))!important;
             }
         }
     }
 }
 @media (max-width: 1023px){	
-    div.spalte:not(.is-line):not(.item-headline):not(.dash-item):not(.save-wrapper):not(.inner-main-heading) {
+    div.spalte:not(.is-line)
+        :not(.item-headline)
+        :not(.dash-item)
+        :not(.save-wrapper)
+        :not(.inner-main-heading)
+        :not(.project-person-mail){
         flex-direction: column;
         align-items: flex-start;
     }
@@ -222,10 +231,6 @@ div{
 
         >div:not(.wp-block-template-part){
            display: none;
-        }
-    
-        .user-menu.wp-block-template-part {
-           padding-left: var(--memy-padding-root);
         }
     } 
 }

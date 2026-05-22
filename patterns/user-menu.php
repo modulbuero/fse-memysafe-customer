@@ -26,7 +26,7 @@
         <!-- /wp:list-item -->
 
         <!-- wp:list-item -->
-        <li id="memy-menu-abo" class="disabled"><i class="mmsi-icon abo"></i> Abo: That's me</li>
+        <li id="memy-menu-abo" class="disabled"><i class="mmsi-icon abo"></i> <span>Abo: That's me</span></li>
         <!-- /wp:list-item -->
 
         <!-- wp:list-item -->
@@ -40,6 +40,7 @@
             <i class="mmsi-icon logout"></i> <input type="submit" class="icon-logout-btn" value="Abmelden">
         </form>
 
+        <!-- wp:pattern {"slug":"fse-memysafe-customer/goback-button"} /-->
         </ul>
         <!-- /wp:list -->
     </div>

@@ -1,0 +1,185 @@
+@media (max-width: 601px) {
+  body {
+    --memy-padding-root: 20px;
+    --memy-padding-inner-container:20px;
+    --memy-menu-icon-size: 50px;
+    --memy-footer-height: 91px;
+    --font-ueberschrift:16px;
+    background-color: var(--memy-tertiery);
+    background: linear-gradient(0deg, var(--memy-primary) 30%, var(--memy-tertiery) 70%, var(--memy-tertiery) 100%);
+  }
+  #front-page-html {
+    display: flex;
+    flex-direction: column-reverse;
+    max-height: 100vh;
+    max-height: 100dvh;
+    /*Spalten*/
+  }
+  #front-page-html .project-data-container > .spalte,
+  #front-page-html .project-data-kunde > .spalte,
+  #front-page-html .contact-data > .spalte {
+    flex-direction: column;
+  }
+  #front-page-html {
+    /**
+    *   Menu
+    */
+  }
+  #front-page-html .user-menu.wp-block-template-part {
+    height: auto;
+    align-items: flex-start;
+    border-top: 1px solid var(--memy-tertiery);
+  }
+  #front-page-html .user-menu.wp-block-template-part #memy-user-menu {
+    min-height: auto;
+    flex-direction: row;
+    width: 100%;
+  }
+  #front-page-html .user-menu.wp-block-template-part #memy-user-menu > h1, #front-page-html .user-menu.wp-block-template-part #memy-user-menu > p {
+    display: none;
+  }
+  #front-page-html .user-menu.wp-block-template-part #memy-user-menu #menu {
+    width: 100%;
+  }
+  #front-page-html .user-menu.wp-block-template-part #memy-user-menu #menu ul.wp-block-list {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  #front-page-html .user-menu.wp-block-template-part #memy-user-menu #menu ul.wp-block-list li {
+    height: var(--memy-menu-icon-size);
+    width: var(--memy-menu-icon-size);
+  }
+  #front-page-html .user-menu.wp-block-template-part #memy-user-menu #menu ul.wp-block-list li span {
+    display: none;
+  }
+  #front-page-html .user-menu.wp-block-template-part #logout-form {
+    width: var(--memy-menu-icon-size);
+    height: var(--memy-menu-icon-size);
+  }
+  #front-page-html .user-menu.wp-block-template-part #logout-form .icon-logout-btn {
+    font-size: 0 !important;
+  }
+  #front-page-html .user-menu.wp-block-template-part .mmsi-icon {
+    width: 100%;
+    height: 100%;
+    background-size: 170%;
+  }
+  #front-page-html #goback {
+    margin-bottom: 0;
+    border: none;
+    padding: 10px;
+    background: transparent;
+    width: var(--memy-menu-icon-size);
+    height: var(--memy-menu-icon-size);
+    max-height: var(--memy-menu-icon-size);
+    max-width: initial;
+    min-width: initial;
+  }
+  #front-page-html #goback span {
+    display: none;
+  }
+  #front-page-html #goback #zurueck-btn-animation {
+    transform: scale(1.4);
+    width: 100%;
+    height: 100%;
+  }
+  #front-page-html #goback.hide {
+    display: block !important;
+    opacity: 0.3;
+  }
+  #front-page-html {
+    /**
+    *   Dashboard Kacheln
+    */
+  }
+  #front-page-html .user-content {
+    overflow-y: auto;
+    max-height: calc(100vh - var(--memy-footer-height)) !important;
+    max-height: calc(100dvh - var(--memy-footer-height)) !important;
+  }
+  #front-page-html .user-content .memy-dash-wrapper > div .tile-wrapper {
+    overflow-y: auto;
+    margin-bottom: calc(var(--memy-padding-root) * -1);
+  }
+  #front-page-html .user-content .memy-dash-wrapper > div .tile-wrapper #chooser-exam-clock {
+    height: auto;
+  }
+  #front-page-html .user-content .memy-dash-wrapper > div .tile-wrapper #chooser-exam-clock .exam-clock-wrapper .time-information-wrapper {
+    flex-direction: column !important;
+  }
+  #front-page-html .user-content .memy-dash-wrapper > div .tile-wrapper #chooser-exam-clock .exam-clock-wrapper .time-information-wrapper #exam-clock-reset-button {
+    width: 100%;
+  }
+  #front-page-html .user-content .memy-dash-wrapper > div .tile-wrapper > .spalte {
+    flex-direction: row;
+  }
+  #front-page-html .user-content .memy-dash-wrapper > div .tile-wrapper > .spalte .tile {
+    height: 100%;
+    aspect-ratio: 15/14;
+    max-height: 25vh;
+  }
+  #front-page-html .user-content .memy-dash-wrapper > div .tile-wrapper .tile .dashboard-item {
+    height: 100%;
+  }
+  #front-page-html .user-content .memy-dash-wrapper > div .tile-wrapper .tile .dashboard-item .item-headline {
+    height: 100%;
+    flex-direction: column;
+    gap: 0;
+  }
+  #front-page-html .user-content .memy-dash-wrapper > div .tile-wrapper .tile .dashboard-item .item-headline h2 {
+    text-align: center;
+  }
+  #front-page-html .user-content .memy-dash-wrapper > div .tile-wrapper .tile .dashboard-item .item-headline h2:before {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--memy-trenner-color);
+    position: relative;
+    margin-bottom: 10px;
+  }
+  #front-page-html .user-content .memy-dash-wrapper > div .tile-wrapper .tile .dashboard-item .item-headline > .mmsi-icon:first-child {
+    height: 100%;
+    width: 100%;
+    background-size: 100%;
+  }
+  #front-page-html .user-content .memy-dash-wrapper > div .tile-wrapper .tile .dashboard-item .item-headline .mmsi-icon.weiter {
+    display: none;
+  }
+  #front-page-html .user-content .memy-dash-wrapper > div .tile-wrapper .tile .dashboard-item .item-content {
+    display: none;
+  }
+  #front-page-html .user-content .memy-dash-wrapper > div .tile-wrapper::after {
+    content: "";
+    display: block;
+    bottom: var(--memy-padding-root);
+    position: sticky;
+    width: 100%;
+    min-height: 10px;
+    background: #F5F5F5;
+    background: linear-gradient(0deg, var(--memy-tertiery) 0%, rgba(255, 255, 255, 0) 100%);
+  }
+  #front-page-html {
+    /**
+    *   Button
+    */
+  }
+  #front-page-html button {
+    max-height: 45px;
+  }
+  #front-page-html {
+    /**
+    *   MessageContainer
+    */
+  }
+  #front-page-html .message-container {
+    left: 0;
+    max-width: calc(100% - var(--memy-padding-root) * 2);
+  }
+  /**
+  *   Footer 
+  */
+  .wp-site-blocks > footer {
+    display: none;
+  }
+}/*# sourceMappingURL=mobile.css.map */

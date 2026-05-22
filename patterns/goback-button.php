@@ -53,22 +53,24 @@
             
             <script>
                 (($) => {
-                    $(document).ready(()=>{
-                        const $target = $('#goback');
+                    if($(window).width() > 601){
+                        $(document).ready(()=>{
+                            const $target = $('#goback');
 
-                        $target.on('mouseenter', () => {
-                        $('#anim-out')[0].endElement();
-                        $('#anim-in')[0].beginElement();
-                        });
+                            $target.on('mouseenter', () => {
+                            $('#anim-out')[0].endElement();
+                            $('#anim-in')[0].beginElement();
+                            });
 
-                        $target.on('mouseleave', () => {
-                        $('#anim-in')[0].endElement();
-                        $('#anim-out')[0].beginElement();
-                        });
-                    })
+                            $target.on('mouseleave', () => {
+                            $('#anim-in')[0].endElement();
+                            $('#anim-out')[0].beginElement();
+                            });
+                        })
+                    }
                 })(jQuery)
             </script>
         </svg>
-        Zurück
+        <span>Zurück</span>
     </button>
 <?php endif; ?>

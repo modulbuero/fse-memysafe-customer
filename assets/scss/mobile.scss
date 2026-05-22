@@ -1,0 +1,215 @@
+@media (max-width: 601px){
+    //Variablen
+    body{
+        --memy-padding-root: 20px;
+        --memy-padding-inner-container:20px;
+        --memy-menu-icon-size: 50px;
+        --memy-footer-height: 91px;
+        --font-ueberschrift:16px;
+
+        background-color: var(--memy-tertiery);
+        background: linear-gradient(0deg,var(--memy-primary) 30%, var(--memy-tertiery) 70%, var(--memy-tertiery) 100%);
+    }
+
+    //Strukturen
+    #front-page-html{
+        display: flex;
+        flex-direction: column-reverse;
+        max-height: 100vh;
+        max-height: 100dvh;
+
+        /*Spalten*/
+        .project-data-container,
+        .project-data-kunde,
+        .contact-data{
+            >.spalte{
+                flex-direction: column;
+            }
+        }
+
+        /**
+        *   Menu
+        */
+        .user-menu.wp-block-template-part{
+            height: auto;
+            align-items: flex-start;
+            border-top: 1px solid var(--memy-tertiery);
+
+            #memy-user-menu{
+                min-height: auto;
+                flex-direction: row;
+                width: 100%;
+                
+                >h1, >p{
+                    display: none;
+                }
+
+                #menu {
+                    width: 100%;
+                    ul.wp-block-list{
+                        flex-direction: row;
+                        justify-content: space-between;
+
+                        li{
+                            height: var(--memy-menu-icon-size);
+                            width: var(--memy-menu-icon-size);
+                            
+                            span{
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            //Abmelden-Button
+            #logout-form {
+                width: var(--memy-menu-icon-size);
+                height: var(--memy-menu-icon-size);
+                .icon-logout-btn {
+                   font-size: 0 !important;
+                }
+            }
+
+            .mmsi-icon{
+                width: 100%;
+                height: 100%;
+                background-size: 170%;
+            }
+        }
+
+        //Zurück-Button
+        #goback{
+            margin-bottom: 0;
+            border: none;
+            padding: 10px;
+            background: transparent;
+            width: var(--memy-menu-icon-size);
+            height: var(--memy-menu-icon-size);
+            max-height: var(--memy-menu-icon-size);
+            max-width: initial;
+            min-width: initial;
+            span{
+                display: none;
+            }
+            #zurueck-btn-animation{
+                transform: scale(1.4);
+                width: 100%;
+                height: 100%;
+            }
+
+            &.hide{
+                display: block !important;
+                opacity: .3;
+            }
+        }
+
+        /**
+        *   Dashboard Kacheln
+        */
+        .user-content {
+            overflow-y: auto;
+            max-height: calc(100vh - var(--memy-footer-height)) !important;
+            max-height: calc(100dvh - var(--memy-footer-height)) !important;
+
+            .memy-dash-wrapper > div .tile-wrapper {
+                overflow-y: auto;
+                margin-bottom: calc(var(--memy-padding-root) * -1);
+                //ExamClock-Dashboard
+                #chooser-exam-clock{
+                    height: auto;
+
+                    .dashboard-helper{
+
+                    }
+                    //Uhr und Zurücksetzen-Button
+                    .exam-clock-wrapper .time-information-wrapper {
+                        flex-direction: column !important;
+                        #exam-clock-reset-button{
+                            width: 100%;
+                        }
+                    }
+                }
+                
+                //Spalten der Kacheln
+                >.spalte{
+                    flex-direction: row;
+                    .tile{
+                        height: 100%;
+                        aspect-ratio: 15 / 14;
+                        max-height: 25vh;
+                    }
+                }
+                
+                //Kacheln
+                .tile{
+                    .dashboard-item{
+                        height: 100%;
+                        .item-headline{
+                            height: 100%;
+                            flex-direction: column;
+                            gap: 0;
+                            h2{
+                                text-align: center;
+                                &:before{
+                                    content: "";
+                                    display: block;
+                                    height: 2px;
+                                    width: 100%;
+                                    background-color: var(--memy-trenner-color);
+                                    position: relative;
+                                    margin-bottom: 10px;
+                                }
+                            }
+                            >.mmsi-icon:first-child{
+                                height: 100%;
+                                width: 100%;
+                                background-size: 100%;
+                            }
+                            .mmsi-icon.weiter{
+                                display: none;
+                            }
+                        }
+                        .item-content{
+                            display:none
+                        }
+                    }       
+                }
+
+                //Verlauf bei kleinen screens
+                &::after{
+                    content: "";
+                    display: block;
+                    bottom:var(--memy-padding-root);
+                    position: sticky;
+                    width: 100%;
+                    min-height:10px;
+                    background: #F5F5F5;
+                    background: linear-gradient(0deg,var(--memy-tertiery) 0%, rgba(255, 255, 255, 0) 100%);
+                }
+            }    
+        }
+
+        /**
+        *   Button
+        */
+        button{
+            max-height: 45px;
+        }
+
+        /**
+        *   MessageContainer
+        */
+        .message-container{
+            left:0;
+            max-width: calc(100% - (var(--memy-padding-root) * 2));
+        }
+    }
+
+    /**
+    *   Footer 
+    */
+    .wp-site-blocks > footer{
+        display:none;
+    }
+}

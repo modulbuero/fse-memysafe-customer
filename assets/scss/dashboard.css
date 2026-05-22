@@ -129,18 +129,6 @@
   justify-content: flex-start;
   gap: var(--memy-text-gap);
 }
-.container-wrapper .container > div h3:after {
-  content: "";
-  display: block;
-  width: calc(100% + 2 * var(--memy-padding-inner-container));
-  height: 1px;
-  background-color: var(--memy-trenner-color);
-  margin-top: var(--memy-padding-inner-container);
-  margin-bottom: var(--memy-padding-inner-container);
-  position: relative;
-  left: calc(var(--memy-padding-inner-container-side) * -1);
-  margin-top: var(--memy-padding-inner-container-side);
-}
 .container-wrapper .container > div {
   /*Wenn kein Overflow-Container davor*/
 }

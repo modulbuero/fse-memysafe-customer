@@ -28,15 +28,15 @@ input[type=submit]:not(.icon-logout-btn),
 .memy-button {
   /*kleine Buttons, wie zurück, oder speichern*/
 }
-button:not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button),
-input[type=submit]:not(.icon-logout-btn):not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button),
-.memy-button:not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button) {
+button:not(.full-width) :not(.contact-person-mail) :not(.memy-file-actions > button) :not(#kunden-section > div > button) :not(#vertreter-section > div > button),
+input[type=submit]:not(.icon-logout-btn):not(.full-width) :not(.contact-person-mail) :not(.memy-file-actions > button) :not(#kunden-section > div > button) :not(#vertreter-section > div > button),
+.memy-button:not(.full-width) :not(.contact-person-mail) :not(.memy-file-actions > button) :not(#kunden-section > div > button) :not(#vertreter-section > div > button) {
   background-color: var(--memy-secondary);
   color: var(--memy-primary);
 }
-button:not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button) i,
-input[type=submit]:not(.icon-logout-btn):not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button) i,
-.memy-button:not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button) i {
+button:not(.full-width) :not(.contact-person-mail) :not(.memy-file-actions > button) :not(#kunden-section > div > button) :not(#vertreter-section > div > button) i,
+input[type=submit]:not(.icon-logout-btn):not(.full-width) :not(.contact-person-mail) :not(.memy-file-actions > button) :not(#kunden-section > div > button) :not(#vertreter-section > div > button) i,
+.memy-button:not(.full-width) :not(.contact-person-mail) :not(.memy-file-actions > button) :not(#kunden-section > div > button) :not(#vertreter-section > div > button) i {
   filter: invert(1);
 }
 button > a,
@@ -44,40 +44,43 @@ input[type=submit]:not(.icon-logout-btn) > a,
 .memy-button > a {
   color: var(--memy-primary);
 }
-
-input[type=submit]:hover,
-.memy-button:hover,
-button:hover {
-  background-color: var(--memy-secondary);
-  color: var(--memy-primary);
-}
-input[type=submit]:hover:not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button),
-.memy-button:hover:not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button),
-button:hover:not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button) {
+button:hover,
+input[type=submit]:not(.icon-logout-btn):hover,
+.memy-button:hover {
   background-color: var(--memy-border-hover-bg);
   color: var(--memy-secondary);
 }
-input[type=submit]:hover:not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button) i,
-.memy-button:hover:not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button) i,
-button:hover:not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button) i {
-  filter: invert(0);
+button:hover.contact-person-mail, button:hover.memy-file-actions > button,
+input[type=submit]:not(.icon-logout-btn):hover.contact-person-mail,
+input[type=submit]:not(.icon-logout-btn):hover.memy-file-actions > button,
+.memy-button:hover.contact-person-mail,
+.memy-button:hover.memy-file-actions > button {
+  background-color: var(--memy-secondary);
+  color: var(--memy-primary);
 }
-input[type=submit]:hover a,
-input[type=submit]:hover i,
-.memy-button:hover a,
-.memy-button:hover i,
-button:hover a,
-button:hover i {
+button:hover.contact-person-mail i, button:hover.memy-file-actions > button i,
+input[type=submit]:not(.icon-logout-btn):hover.contact-person-mail i,
+input[type=submit]:not(.icon-logout-btn):hover.memy-file-actions > button i,
+.memy-button:hover.contact-person-mail i,
+.memy-button:hover.memy-file-actions > button i {
   filter: invert(1);
 }
-input[type=submit]:hover i.mmsi-icon.delete,
-.memy-button:hover i.mmsi-icon.delete,
-button:hover i.mmsi-icon.delete {
+button:hover a,
+button:hover i,
+input[type=submit]:not(.icon-logout-btn):hover a,
+input[type=submit]:not(.icon-logout-btn):hover i,
+.memy-button:hover a,
+.memy-button:hover i {
+  filter: invert(0);
+}
+button:hover i.mmsi-icon.delete,
+input[type=submit]:not(.icon-logout-btn):hover i.mmsi-icon.delete,
+.memy-button:hover i.mmsi-icon.delete {
   background-image: url(../icons/MMSI_Icon_DELETE-OPEN.svg);
 }
-input[type=submit]:hover i.mmsi-icon.download,
-.memy-button:hover i.mmsi-icon.download,
-button:hover i.mmsi-icon.download {
+button:hover i.mmsi-icon.download,
+input[type=submit]:not(.icon-logout-btn):hover i.mmsi-icon.download,
+.memy-button:hover i.mmsi-icon.download {
   background-image: url(../icons/MMSI_Icon_WEITER-DOWN.svg);
 }
 
@@ -334,6 +337,7 @@ div, p {
 
 /*Kontakt Status*/
 .status-contact-person {
+  top: -2px;
   background: var(--memy-border-hover-bg);
   color: var(--memy-secondary);
   left: 10px;

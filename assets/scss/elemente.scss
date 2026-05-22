@@ -22,7 +22,11 @@ input[type="submit"]:not(.icon-logout-btn),
     }
 
     /*kleine Buttons, wie zurück, oder speichern*/
-    &:not(.full-width):not(.contact-person-mail):not(.memy-file-actions>button){
+    &:not(.full-width)
+    :not(.contact-person-mail)
+    :not(.memy-file-actions>button)
+    :not(#kunden-section>div>button)
+    :not(#vertreter-section>div>button){
         background-color: var(--memy-secondary);
         color:var(--memy-primary);
         i{
@@ -32,32 +36,35 @@ input[type="submit"]:not(.icon-logout-btn),
     >a{
         color:var(--memy-primary);
     }  
-}
-input[type="submit"]:hover,
-.memy-button:hover,
-button:hover{
-    background-color: var(--memy-secondary);
-    color: var(--memy-primary);
-    
-    &:not(.full-width):not(.contact-person-mail):not(.memy-file-actions>button){
+
+    &:hover{
         background-color: var(--memy-border-hover-bg);
         color:var(--memy-secondary);
+        
+
+        &.contact-person-mail,
+        &.memy-file-actions>button{
+            background-color: var(--memy-secondary);
+            color: var(--memy-primary);
+            i{
+                filter: invert(1);
+            }    
+        }
+
+        a,
         i{
             filter: invert(0);
         }
-    }
-    a,
-    i{
-        filter: invert(1);
-    }
-    
-    i.mmsi-icon.delete{
-        background-image: url(../icons/MMSI_Icon_DELETE-OPEN.svg);
-    }
-    i.mmsi-icon.download{
-        background-image: url(../icons/MMSI_Icon_WEITER-DOWN.svg);
+        
+        i.mmsi-icon.delete{
+            background-image: url(../icons/MMSI_Icon_DELETE-OPEN.svg);
+        }
+        i.mmsi-icon.download{
+            background-image: url(../icons/MMSI_Icon_WEITER-DOWN.svg);
+        }
     }
 }
+
 
 .dash-goto-btn,
 .goto-btn,
@@ -308,6 +315,7 @@ div,p{
 
 /*Kontakt Status*/
 .status-contact-person{
+    top: -2px;
     background: var(--memy-border-hover-bg);
     color:var(--memy-secondary);
     left:10px;

@@ -120,16 +120,16 @@
             gap: var(--memy-text-gap);
 
             &:after{
-               content: "";
-               display: block;
-               width: calc(100% + (2 * var(--memy-padding-inner-container)));
-               height: 1px;
-               background-color: var(--memy-trenner-color);
-               margin-top: var(--memy-padding-inner-container);
-               margin-bottom: var(--memy-padding-inner-container);
-               position: relative;
-               left:calc(var(--memy-padding-inner-container-side) * -1);
-               margin-top:var(--memy-padding-inner-container-side);
+               // content: "";
+               // display: block;
+               // width: calc(100% + (2 * var(--memy-padding-inner-container)));
+               // height: 1px;
+               // background-color: var(--memy-trenner-color);
+               // margin-top: var(--memy-padding-inner-container);
+               // margin-bottom: var(--memy-padding-inner-container);
+               // position: relative;
+               // left:calc(var(--memy-padding-inner-container-side) * -1);
+               // margin-top:var(--memy-padding-inner-container-side);
             }
          }
 
