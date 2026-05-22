@@ -5,7 +5,7 @@
  *  @deprecated 
 */
 function boxHeading($heading, $typ = '3'){
-    echo "<div class='spalte memy-add-heading'><i class='bi bi-people-fill'></i><h$typ>$heading</h$typ></div>";
+    echo "<div class='spalte memy-add-heading'><i class='mmsi-icon kontakt'></i><h$typ>$heading</h$typ></div>";
 }
 
 /**
@@ -191,6 +191,12 @@ function saveDeleteButton($typ){
  */
 function inputFieldsTxtFile(){
    echo "
+    <p>
+        WICHTIGE INFORMATIONEN IM SAFE HINTERLEGEN<br>
+        Die hier eingetragenen Informationen werden als Textdatei in deinem Safe gespeichert.<br>
+        Du kannst die Angaben jederzeit anpassen.<br>
+        Im Ernstfall erhalten deine Notfallkontakte Zugriff auf die aktuelle Version.<br>
+    </p>
     <p>Die ersten beiden Angaben sind wichtig, denn diese Informationen helfen anderen, im Ernstfall schnell zu handeln.</p>
     <div id='checkvalues-safeinfo' class='txt-distance-bottom'>";
         
@@ -246,25 +252,35 @@ function emailParts($part="", $button_link = 'login', $button_txt='Zum Login') {
         if($button_link == 'login'){
             $button_link = network_home_url() . 'login/';
         }
-        $btn_bg = '#9CA3DB';
-        $html = '<p>
+        $btn_bg = '#000000';
+        $html = '
+        <style>
+            a.memy-btn:hover {
+                background-color:#000000 !important;
+                color:#ffffff !important;
+            }
+        </style>
+        <p>
                 <!--[if mso]>
-                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml"
-                href="'.$button_link.'"
-                style="height:44px; width:180px; v-text-anchor:middle;"
-                arcsize="10%" fillcolor="'.$btn_bg.'" strokecolor="'.$btn_bg.'">
+                <v:rect xmlns:v="urn:schemas-microsoft-com:vml"
+                    href="'.$button_link.'"
+                    style="height:44px; width:180px; v-text-anchor:middle;"
+                    fillcolor="'.$btn_bg.'"
+                    strokecolor="'.$btn_bg.'">
                 <w:anchorlock/>
                 <center style="color:#ffffff; font-family:Arial; font-size:16px;">
                     '.$button_txt.'
                 </center>
-                </v:roundrect>
+            </v:rect>
                 <![endif]-->
                 
                 <!--[if !mso]><!-->
-                <a href="'.$button_link.'" style="background-color:'.$btn_bg.'; color:#ffffff;
-            display:inline-block; padding:12px 24px;
-            text-decoration:none; border-radius:6px;
-            font-family:Arial, sans-serif; font-size:16px;">'.$button_txt.'</a>
+                <a href="'.$button_link.'" style="background-color:'.$btn_bg.'; 
+                    color:#ffffff; display:inline-block; padding:12px 24px;
+                    text-decoration:none; border-radius:0px; 
+                    font-family:Arial, sans-serif; font-size:16px;" class="memy-btn">
+                        '.$button_txt.'
+                </a>
             <!--<![endif]-->
         </p>';
     }

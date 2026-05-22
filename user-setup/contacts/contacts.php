@@ -20,7 +20,7 @@ if('abo' == 'grosz'){
                 <i class='mmsi-icon pfeil'></i>
             </button>
             <?php 
-            $infotxt_nk = "Eine Person, die im falle längerer Inaktivität digital benachrichtigt wird. Sie kann überall auf der Welt leben und erhält zugriff auf zuvor definierte informationen, sobald das System die automatische Prüfung auslöst.";
+            $infotxt_nk = "Wird automatisch informiert, wenn du über längere Zeit nicht auf die Sicherheitsabfragen von MMSI reagierst. Erhält Zugriff auf die von dir freigegebenen Informationen und koordiniert die ersten Schritte im Ernstfall.<br>Mehr dazu im Glossar.";
             infoPopup($infotxt_nk, "NOTFALLKONTAKT");
             ?>
         </div>
@@ -31,7 +31,7 @@ if('abo' == 'grosz'){
                 <i class='mmsi-icon pfeil'></i>
             </button>
             <?php 
-            $infotxt_vp = "ist jemand, der dir nahesteht und im Alltag unterstützend wirken kann – z.B. durch physischen Zugang zu Wohnung, Büro oder Doku-menten. Sie muss nicht digital eingebunden sein, kann aber bei Bedarf Zugriff auf bestimmte SafenInhalte erhalten.";
+            $infotxt_vp = "Person aus deinem persönlichen Umfeld, die dich im Ernstfall vor Ort unterstützen kann — zum Beispiel beim Zugang zu Wohnung, Büro, Unterlagen oder Geräten. Kann zusätzlich digital in MMSI eingebunden werden.<br>Mehr dazu im Glossar.";
             infoPopup($infotxt_vp, "VERTRAUENSPERSON");
             ?>
         </div>
@@ -42,7 +42,7 @@ if('abo' == 'grosz'){
                 <i class='mmsi-icon pfeil'></i>
             </button>
             <?php 
-            $infotxt_vt = "ist eine Person, die berufliche Aufgaben oder Projekte übernimmt, wenn du vorübergehend nicht verfügbar bist. Sie erhält nur Zugriff auf die für sie relevanten Informationen oder Projekte.";
+            $infotxt_vt = "Person deines Vertrauens, die im Ernstfall bestimmte Aufgaben, Projekte oder Abläufe für dich übernehmen kann. Du entscheidest, welche Informationen sichtbar sind und auf welche Projekte Zugriff besteht.<br>Mehr dazu im Glossar.";
             infoPopup($infotxt_vt, "VERTRETER");
             ?>
         </div>

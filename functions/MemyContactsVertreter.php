@@ -169,7 +169,7 @@ class MemyContactsVertreter {
                     <div data-vertreter="<?php echo esc_attr($vertreter_id); ?>" class="vertreter-person-mail memy-button">
                         <i class="bi bi-person-fill"></i>
                         <h5><?php echo htmlspecialchars($vertreter_name ?? 'Vertreter'); ?></h5>
-                        <i class="bi bi-caret-right-fill"></i>        
+                        <i class="mmsi-icon pfeil"></i>        
                     </div>
                     <?php
                 }

@@ -4,22 +4,38 @@
 </div>
 
 <?php 
+$order = [];
+
+// Zuerst prüfen und sortieren
+foreach (range(1, 3) as $i) {
+
+    $person = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true);
+
+    // Bedingung für "nach oben"
+    if (!empty($person['email'])) {
+        array_unshift($order, $i); // vorne einfügen
+    } else {
+        $order[] = $i; // normal hinten
+    }
+}
+
 /**
 *   Zeigt nur Kontakt Status
 *   Leitet weiter zur Bearbeitung und Ansicht
 **/
-foreach (range(1, 3) as $i): 
+foreach ($order as $i): 
 
     $person_email   = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['email'] ?? '';
     $person_status  = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['status'] ?? '';
     $person_fname   = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['first_name'] ?? '';
     $person_lname   = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['last_name'] ?? '';
+    $trenner        = ($person_email) ? ' | ' : '';
     ?>
         
     <div data-goto="contact-person-<?php echo $i; ?>" class="contact-person-mail memy-button goto-btn" data-step="4">
-        <i class="bi bi-people-fill"></i>
-        <h6><?php echo $i; ?>. Notfallkontakt  |  <?php echo $person_fname; ?> <?php echo $person_lname; ?></h6>
-        <i class="bi bi-caret-right-fill"></i>        
+        <i class="mmsi-icon kontakt"></i>
+        <h6>Notfallkontakt  <?php echo $trenner ." ". $person_fname ." ". $person_lname; ?></h6>
+        <i class="mmsi-icon pfeil"></i>        
     </div>
 
     <p id="status-contact-person-<?php echo $i; ?>" class="status-contact-person memy-short-info">

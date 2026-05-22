@@ -13,7 +13,7 @@
         </p>
         
         <button class="half-width">
-            <a href="your-link-here" class="button" target="_blank">Vorlage Herunterladen <i class="mmsi-icon download"></i></a> 
+            <a href="https://mmsi.de/wp-content/uploads/2026/05/MMSI_Meine-wichtigsten-Informationen.pdf" class="button" target="_blank">Vorlage Herunterladen </a> <i class="mmsi-icon download"></i>
         </button>
 
         <p>Wie möchtest du fortfahren?</p>

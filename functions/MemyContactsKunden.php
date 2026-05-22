@@ -169,7 +169,7 @@ class MemyContactsKunden {
                     <div data-kunden="<?php echo esc_attr($kunden_id); ?>" class="kunden-person-mail memy-button">
                         <i class="bi bi-person-fill"></i>
                         <h5><?php echo htmlspecialchars($kunden_name ?? 'Kunde'); ?></h5>
-                        <i class="bi bi-caret-right-fill"></i>        
+                        <i class="mmsi-icon pfeil"></i>        
                     </div>
                     <?php
                 }

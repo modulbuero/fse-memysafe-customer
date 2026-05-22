@@ -70,7 +70,7 @@
                 $(this).attr('data-step', prevStep)
             }
 
-            if (!$('.container').hasClass('show')) {
+            if (!$('.container').hasClass('show') && !$('.container > div').hasClass('show')) {
                 $('#goback').addClass('hide')
             }            
         })

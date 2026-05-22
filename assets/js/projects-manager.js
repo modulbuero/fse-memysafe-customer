@@ -281,10 +281,13 @@
 
         function openClosedContainer() {
             const $projectName = $('#project-name');
+            const $projectKontakt = $('#project-kontakt');
             if ($projectName.val() && $projectName.val().trim() !== '') {
                 $projectName.closest('.setup-project-data').find('.bearbeiten').first().click();
-                console.log('Container geöffnet');
-            
+            }
+            if($projectKontakt.find('option:selected').index() !== 0){
+                $('#projekte-kontakt-edit').click();
+                console.log("selected")
             }
         }
 

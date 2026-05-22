@@ -154,6 +154,8 @@ class MemyContacts {
             'password'     => wp_hash_password($password),
             'inviter_id'   => $user_id,
             'contact_name' => $contact_name,
+            'first_name'   => $contact_fname,
+            'last_name'    => $contact_lname,
             'created_at'   => current_time('mysql'),
         );
 
@@ -188,6 +190,9 @@ class MemyContacts {
         return $candidate;
     }
 
+    /**
+     *  Einladungs-Mail Helfer (Notfallkontakt)
+     */
     private function send_contact_invitation_email($email, $name, $password, $token){
         $invitation_url = home_url('/?accept_invitation=' . rawurlencode($token));
         $inviter = wp_get_current_user();
@@ -201,7 +206,7 @@ class MemyContacts {
             $c_email .= '&#' . ord($email[$i]) . ';';
         }
 
-        $subject = 'Ihre Einladung zum Memy Safe';
+        $subject = 'Ihre Einladung zu Me, My Safe and I';
         $headers = array('Content-Type: text/html; charset=UTF-8');
 
         $message =  emailParts('head') . "<p>Hallo " . esc_html($name ?: 'Kontakt') . ",</p>";
@@ -276,6 +281,20 @@ class MemyContacts {
         update_user_meta($user_id, 'contact_inviter_id', $invite_data['inviter_id']);
         update_user_meta($user_id, 'contact_name', $invite_data['contact_name']);
 
+        // Ergänze Vorname und Nachname, falls vorhanden oder aus dem Namen extrahierbar
+        $first_name = !empty($invite_data['first_name']) ? $invite_data['first_name'] : '';
+        $last_name  = !empty($invite_data['last_name']) ? $invite_data['last_name'] : '';
+
+        // Fallback: Falls die Felder fehlen, versuchen wir sie aus dem contact_name zu splitten
+        if (empty($first_name) && empty($last_name) && !empty($invite_data['contact_name'])) {
+            $name_parts = explode(' ', trim($invite_data['contact_name']), 2);
+            $first_name = $name_parts[0];
+            $last_name  = isset($name_parts[1]) ? $name_parts[1] : '';
+        }
+
+        update_user_meta($user_id, 'first_name', $first_name);
+        update_user_meta($user_id, 'last_name', $last_name);
+
         // Einladungsoption löschen
         delete_option($option_key);
 
@@ -283,8 +302,22 @@ class MemyContacts {
         wp_set_current_user($user_id);
         wp_set_auth_cookie($user_id, true);
 
+        $headers = array('Content-Type: text/html; charset=UTF-8');
+        $trueSubject = "Willkommen bei Me, My Safe and I";
+        $trueMessage = emailParts('head');
+        $trueMessage .= "<p>Hallo " . esc_html($first_name) . ",</p>";
+        $trueMessage .= "<p>MMSI hilft Menschen dabei, wichtige Informationen und Abläufe für den Ernstfall vorzubereiten.<br>
+            Als Notfallkontakt kannst du informiert werden, wenn [Name] über einen längeren Zeitraum nicht erreichbar ist.<br>
+            Aktuell besteht kein Handlungsbedarf.<br>
+            Wir empfehlen dir dennoch, dich mit [Name] darüber auszutauschen:<br>
+            welche Rolle du im Ernstfall übernehmen sollst, welche Informationen wichtig sind und wie du erreichbar bist.";
+        $trueMessage .= "";
+
+        wp_mail($invite_data['email'], $trueSubject, $trueMessage, $headers);
+
         // Weiterleitung zur Startseite oder Dashboard
-        wp_redirect(home_url());
+        wp_redirect(get_site_url(1) . '/login/?login=success');
+
         exit;
     }
 }

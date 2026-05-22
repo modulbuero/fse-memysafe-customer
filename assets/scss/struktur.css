@@ -1,6 +1,7 @@
 @charset "UTF-8";
 .wp-site-blocks {
   overflow-x: inherit;
+  min-height: auto;
 }
 .wp-site-blocks > main {
   padding-bottom: 0;
@@ -31,10 +32,10 @@ div.spalte p {
 }
 #front-page-html .space-left {
   background: var(--memy-primary);
+  height: calc(100vh - var(--memy-header-height));
 }
 #front-page-html .wp-block-template-part.user-menu {
   background: var(--memy-primary);
-  min-height: calc(100vh - var(--memy-header-height));
   align-items: flex-end;
 }
 #front-page-html .wp-block-template-part.user-content {
@@ -51,7 +52,6 @@ div.spalte p {
 #memy-user-menu {
   padding: var(--memy-padding-root) var(--memy-padding-root) 0 0;
   gap: var(--memy-padding-root);
-  min-height: var(--memy-menu-height);
   min-width: 175px;
 }
 #memy-user-menu h1 {

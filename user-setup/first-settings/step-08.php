@@ -34,15 +34,21 @@
         
         
         <div class="spalte">
-            <?php numberInput("fs-exam-clock-zyklus-one", esc_attr($exam_clock_zyklus_one), 2, 14, "Erste Erinnerung nach …", "Tage"); ?>
+            <?php numberInput("fs-exam-clock-zyklus-one", esc_attr($exam_clock_zyklus_one), 7, 14, "Erste Erinnerung nach", "Tagen"); ?>
         </div>
         <div class="spalte">
-            <?php numberInput("fs-exam-clock-zyklus-two", esc_attr($exam_clock_zyklus_two), 1, 7, "Zweite Erinnerung nach …", "Tage"); ?>
+            <?php numberInput("fs-exam-clock-zyklus-two", esc_attr($exam_clock_zyklus_two), 2, 7, "Zweite Erinnerung", "Tage später"); ?>
         </div>
         <div class="spalte txt-distance-bottom">
-            <?php numberInput("fs-exam-clock-zyklus-three", esc_attr($exam_clock_zyklus_three), 1, 3, "Benachrichtigung der Kontakte nach …", "Tage"); ?>
+            <?php numberInput("fs-exam-clock-zyklus-three", esc_attr($exam_clock_zyklus_three), 1, 3, "Notfallkontakte informieren", "Tag später"); ?>
         </div>
 
+        <p>
+            Beispiel:<br>
+            Reagierst du 7 Tage lang nicht, erhältst du die erste Erinnerung.<br>
+            Nach weiteren 2 Tagen folgt die zweite Erinnerung.<br>
+            Einen Tag später werden deine Notfallkontakte informiert.<br>
+        </p>
         <button id="zyklus-ersteinrichtung" class="half-width">Timer-Einstellungen speichern <i class="mmsi-icon speichern"></i></button>
     </div>
 

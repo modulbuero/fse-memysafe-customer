@@ -36,6 +36,8 @@ label:not(.is-checkbox){
  * Input
  */
 input{
+    border-radius: 0 !important;
+
     &:not([type=checkbox]):not([type=submit]){
         @include m.inputsLayout;
         
@@ -105,9 +107,9 @@ textarea{
 
 #password-requirements{
     top: -25px;
-    left:15px;
+    left:1px;
     display: flex;
-    gap: 15px;
+    justify-content: space-between;
     flex-direction: row;
     p{
         margin-bottom: 0;
@@ -260,7 +262,7 @@ input[type="radio"]:checked{
 
     .slider{
         overflow: hidden;
-        width: 13px;
+        min-width: 13px;
         &::before{
             left:-11px
         }

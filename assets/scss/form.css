@@ -35,6 +35,9 @@ label:not(.is-checkbox):not(.number-label):not(.is-radio) {
 /**
  * Input
  */
+input {
+  border-radius: 0 !important;
+}
 input:not([type=checkbox]):not([type=submit]) {
   box-sizing: border-box;
   width: 100%;
@@ -102,9 +105,9 @@ textarea:hover {
 
 #password-requirements {
   top: -25px;
-  left: 15px;
+  left: 1px;
   display: flex;
-  gap: 15px;
+  justify-content: space-between;
   flex-direction: row;
 }
 #password-requirements p {
@@ -255,7 +258,7 @@ input[type=radio]:checked + .slider:before {
 .radio-group .slider,
 .checkbox-group .slider {
   overflow: hidden;
-  width: 13px;
+  min-width: 13px;
 }
 .radio-group .slider::before,
 .checkbox-group .slider::before {

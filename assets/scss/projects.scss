@@ -28,7 +28,7 @@
     }
 
     .mmsi-icon.bearbeiten{
-        left:-5px
+        left:-10px
     }
 }
 
@@ -39,9 +39,13 @@
     --project-padding-outer: 30px;
     --project-padding-inner: 20px;
     --project-field-margin: 10px;
-    padding-right: var(--project-padding-outer);
+    padding-right: var(--project-field-margin);
 
     >div{
+        &.project-name input{            
+            margin-top:0;
+        }
+
         margin-bottom: var(--project-padding-inner);
         
         .checkbox-group {

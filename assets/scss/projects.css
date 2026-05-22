@@ -21,7 +21,7 @@
   border-top: 1px solid var(--memy-trenner-color);
 }
 .project-data-show-hide .mmsi-icon.bearbeiten {
-  left: -5px;
+  left: -10px;
 }
 
 /**
@@ -31,7 +31,10 @@
   --project-padding-outer: 30px;
   --project-padding-inner: 20px;
   --project-field-margin: 10px;
-  padding-right: var(--project-padding-outer);
+  padding-right: var(--project-field-margin);
+}
+.project-data-container > div.project-name input {
+  margin-top: 0;
 }
 .project-data-container > div {
   margin-bottom: var(--project-padding-inner);

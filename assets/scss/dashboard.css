@@ -156,7 +156,7 @@
   top: calc(var(--memy-padding-inner-container-side) * -1);
 }
 .container-wrapper .container > div .save-wrapper:not(button):before {
-  border-top: 1px solid var(--memy-trenner-color);
+  border-top: 2px solid var(--memy-trenner-color);
   background-color: #fff;
 }
 .container-wrapper .container > div .save-wrapper:not(button):after {

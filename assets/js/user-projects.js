@@ -56,7 +56,6 @@
                         $('#projekt-beschreibung').val(project.projekt_beschreibung);
                         $('#projekt-contact-person').val(project.projekt_contact_person || '');
                         $('#projekt-status').val(project.projekt_status);
-                        
                         $('#form-title').text('Projekt bearbeiten');
                         $('#cancel-edit').show();
                         
@@ -104,16 +103,7 @@
             $('#form-title').text('Neues Projekt hinzufügen');
             $('#cancel-edit').hide();
         }
-        
-        // function showMessage(message, type) {
-        //     var messageHtml = '<div class="message ' + type + '">' + message + '</div>';
-        //     $('#message-container').html(messageHtml);
-            
-        //     setTimeout(function() {
-        //         $('#message-container').fadeOut();
-        //     }, 5000);
-        // }
-        
+                
         function loadProjects() {
             $.ajax({
                 url: ajax_object_project.ajax_url,

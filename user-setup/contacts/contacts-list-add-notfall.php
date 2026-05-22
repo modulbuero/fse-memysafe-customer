@@ -1,6 +1,10 @@
 <div class='spalte inner-main-heading'>
     <i class="mmsi-icon kontakte"></i>
     <h3>Kontakte</h3>
+    <?php
+    $infotxt_vp = "Eine Person, die im falle längerer Inaktivität digital benachrichtigt wird. Sie kann überall auf der Welt leben und erhält zugriff auf zuvor definierte informationen, sobald das System die automatische Prüfung auslöst.";
+    infoPopup($infotxt_vp, "NOTFALLKONTAKT");
+    ?>
 </div>
 
 <?php 
@@ -15,15 +19,15 @@ foreach (range(1, 3) as $i):
     $person_status  = contactIsActive($person_email);
     
     #$person_is_main = get_user_meta(get_current_user_id(), 'contact-person-'.$i, true)['hauptkontakt'] ?? '';
-    $mmsi_can       = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['mmsi_can'] ?? '';    
+    #$mmsi_can       = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['mmsi_can'] ?? '';    
 
     echo "<div class='setup-contact-person-data full-height' data-target='contact-person-$i' id='setup-contact-person-$i' data-step='5'>
         <div class='spalte inner-main-heading'><h3><i class='mmsi-icon kontakte'></i> Notfallkontakte</h3></div>
         ";
         
-        echo "<h4>".$i.". Notfallkontakt</h4>";
+        echo "<h4>Notfallkontakt</h4>";
         ?>        
-        <div class="inner-input-wrapper">
+        <div class="inner-input-wrapper overflow-wrapper">
         <div class="contact-data txt-distance-bottom">
             <div class="spalte">
                 <?php     
@@ -44,10 +48,10 @@ foreach (range(1, 3) as $i):
         
         if(get_current_user_id() == getAdminUserID() ): ?>
             <div class="spalte">
-                <?php addCheckbox('Darf MMSI den Safe öffnen?', $mmsi_can, 'contact-mmsi-can-'.$i); ?>
                 <?php if(!email_exists($person_email)): ?>
+                    <p> </p>
                     <button class="send-invitation" style="padding: 5px; font-size: 14px;">
-                        <i class='mmsi-icon speichern'></i> Einladung senden
+                        <i class='mmsi-icon send'></i> Einladung senden
                     </button>
                 <?php endif; ?>
             </div>

@@ -7,8 +7,7 @@
  * Author: Modulbüro
  */
 $user = wp_get_current_user();
-$name = ( in_array( 'subscriber', (array) $user->roles ) ) ? 'Helfer': $user->first_name;
-
+$name = ( !$user->first_name ) ? 'Helfer': $user->first_name;
 ?>
 <p class="no-distance-bottom">
     <strong>

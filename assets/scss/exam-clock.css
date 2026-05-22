@@ -85,7 +85,7 @@
   margin-bottom: 0;
 }
 .exam-clock-wrapper .time-information-wrapper .time-information p span:last-child {
-  text-align: left;
+  text-align: right;
   flex: 1;
 }
 .exam-clock-wrapper .time-information-wrapper .time-information p i {

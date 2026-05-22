@@ -8,7 +8,7 @@
     <div class="spalte inner-main-heading">
         <h3>
             <i class="mmsi-icon zyklus"></i> 
-            Einstellungen Uhr
+            Einstellungen Timer
         </h3>
         <?php 
             addCheckbox('URLAUBSMODUS',$exam_clock_urlaubsmodus,'exam_clock_urlaubsmodus');

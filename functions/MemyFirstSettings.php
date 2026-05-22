@@ -149,7 +149,8 @@ class MemyFirstSettings {
 
         // Speichere TXT-Datei im files Ordner
         $date_time = date('ymdHis', current_time('timestamp'));
-        $file_name = 'Notfallkontakt_Informationen_'.$date_time.'.txt';
+        #$file_name = 'Notfallkontakt_Informationen_'.$date_time.'.txt';
+        $file_name = 'Notfallkontakt_Informationen.txt'; // Fester Dateiname
         $file_path = $files_path . '/' . $file_name;
 
         $saved = file_put_contents($file_path, $txt_content);
@@ -159,17 +160,32 @@ class MemyFirstSettings {
         }
 
         // Metadaten in User-Meta speichern, damit die Datei im Safe angezeigt wird
-        $file_meta = array(
-            'original_name' => $file_name, // Hier ist der Originalname der generierte Dateiname
-            'stored_name'   => $file_name, // Der gespeicherte Name ist ebenfalls der generierte Dateiname
+        $new_file_meta = array(
+            'original_name' => $file_name,
+            'stored_name'   => $file_name,
             'upload_date'   => current_time( 'mysql' ),
             'file_size'     => filesize( $file_path ),
             'mime_type'     => 'text/plain', // Festgelegter MIME-Typ für TXT
         );
 
-        // Stellen Sie sicher, dass die Memy_Safe_Upload Klasse geladen ist
+        // Prüfen, ob die Memy_Safe_Upload Klasse geladen ist
         if (class_exists('Memy_Safe_Upload')) {
-            Memy_Safe_Upload::save_file_meta($user_id, $file_meta);
+            $existing_files_meta = get_user_meta($user_id, '_safe_upload_file', false);
+            $found_existing = false;
+
+            foreach ($existing_files_meta as $index => $meta_entry) {
+                if (isset($meta_entry['stored_name']) && $meta_entry['stored_name'] === $file_name) {
+                    // Bestehenden Eintrag aktualisieren
+                    Memy_Safe_Upload::update_file_meta($user_id, $new_file_meta, $meta_entry);
+                    $found_existing = true;
+                    break;
+                }
+            }
+
+            if (!$found_existing) {
+                // Neuen Eintrag hinzufügen, wenn keiner gefunden wurde
+                Memy_Safe_Upload::save_file_meta($user_id, $new_file_meta);
+            }
         }
 
         wp_send_json_success(array(

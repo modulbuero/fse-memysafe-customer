@@ -2,6 +2,7 @@
 
 /*Buttons*/
 button,
+input[type="submit"]:not(.icon-logout-btn),
 .memy-button{
     display:flex;
     cursor: pointer;
@@ -11,6 +12,7 @@ button,
     padding:var(--memy-padding-button);
     gap:5px;
     text-transform: uppercase;
+
     h5{
         flex:1
     }
@@ -18,10 +20,32 @@ button,
         opacity: .4;
         cursor: not-allowed;
     }
+
+    /*kleine Buttons, wie zurück, oder speichern*/
+    &:not(.full-width):not(.contact-person-mail):not(.memy-file-actions>button){
+        background-color: var(--memy-secondary);
+        color:var(--memy-primary);
+        i{
+            filter: invert(1);
+        }        
+    }  
+    >a{
+        color:var(--memy-primary);
+    }  
 }
+input[type="submit"]:hover,
+.memy-button:hover,
 button:hover{
     background-color: var(--memy-secondary);
     color: var(--memy-primary);
+    
+    &:not(.full-width):not(.contact-person-mail):not(.memy-file-actions>button){
+        background-color: var(--memy-border-hover-bg);
+        color:var(--memy-secondary);
+        i{
+            filter: invert(0);
+        }
+    }
     a,
     i{
         filter: invert(1);
@@ -41,6 +65,12 @@ button:hover{
     cursor: pointer;
 }
 
+.goto-btn.full-width:hover{
+    i:last-child{
+        transform: translateX(10px);
+    }
+}
+
 .button-arrow{
     cursor: pointer;
     padding-right: 40px;
@@ -56,10 +86,12 @@ button:hover{
         width: 31px;
         display: block;
         transition: all .3s ease;
+        filter: invert(1);
     }
     &:hover{
         &::after{
             transform: translateX(10px);
+            filter: invert(0);
         }
     }
 }
@@ -68,6 +100,15 @@ button:hover{
     max-width: 290px !important;
 }
 
+/*WeißeButtons die Lila werden*/
+.contact-person-mail{
+    &:hover{
+        
+        i:last-child{
+            transform: translateX(10px);
+        }
+    }
+}
 /*kleines Info Feld*/
 .memy-short-info{
     display: inline-block;
@@ -207,7 +248,7 @@ div,p{
     align-items: center;
 
     input[type="number"]{
-        min-width: 70px;/*wegen max Val*/        
+        min-width: 65px;/*wegen max Val*/        
         -moz-appearance: textfield;
 
         &::-webkit-inner-spin-button,
@@ -234,7 +275,6 @@ div,p{
                 transform: rotate(-270deg) scale(.8);
             }
         }
-
     }
 }
 
@@ -268,8 +308,8 @@ div,p{
 
 /*Kontakt Status*/
 .status-contact-person{
-    background: var(--memy-secondary);
-    color:var(--memy-primary);
+    background: var(--memy-border-hover-bg);
+    color:var(--memy-secondary);
     left:10px;
     max-width: 125px !important;
     font-size: 10px;
@@ -344,12 +384,10 @@ table.table-aktivitaeten{
 #checkvalues-safeinfo{
     input{
         border-left: 6px solid var(--memy-secondary);
+        background-color: var(--memy-border-hover-bg);
     }
 }
-#checkvalues-safeinfo-soft{
-    padding-left: var(--memy-padding-inner-container-side);
-    padding-right: var(--memy-padding-inner-container-side);
-}
+
 
 /*KundenButton*/
 button[data-goto="kundenkontakte"]{

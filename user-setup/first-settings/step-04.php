@@ -10,7 +10,8 @@
         Bestimme mindestens eine Person, die im Ernstfall informiert wird und handeln kann.
         <br>
         Für die Ersteinrichtung genügt ein Notfallkontakt. Weitere Kontakte kannst du später über dein Dashboard hinzufügen.
-        Der Kontakt wird per E-Mail eingeladen und kann seine Rolle bestätigen.</p>
+        Der Kontakt wird per E-Mail eingeladen und kann seine Rolle bestätigen.
+    </p>
     <div id="checkvalues-kontakt">
         <?php 
         $v_person_name  = get_user_meta(get_current_user_id(), 'contact-person-1', true)['name'] ?? '';
@@ -20,8 +21,8 @@
         ?>
         <div class="spalte">
         <?php     
-            addInput('Vorname', $v_person_name, 'contact-first-name-1');
-            addInput('Nachname', $v_person_name, 'contact-last-name-1');
+            addInput('Vorname', $v_person_name, 'contact-first-name-1', 'Vorname');
+            addInput('Nachname', $v_person_name, 'contact-last-name-1', 'Nachname');
         ?>
         </div>
         <?php 

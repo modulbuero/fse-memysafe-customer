@@ -31,7 +31,7 @@
                         <div data-project="<?php echo esc_attr($notification_id); ?>" class="project-person-mail memy-button">
                             <i class="bi bi-folder-fill"></i>
                             <h5><?php echo htmlspecialchars($project_name); ?></h5>
-                            <i class="bi bi-caret-right-fill"></i>        
+                            <i class="mmsi-icon pfeil"></i>        
                         </div>
                         <?php
                     }

@@ -7,12 +7,15 @@
         <input type="hidden" name="nonce" value="<?php echo esc_attr(wp_create_nonce('save_first_settings')); ?>" id="fsettingn-wp">
         
         <p>
-            Einrichtung abgeschlossen
+            Einrichtung bereit zur Aktivierung<br>
+            Deine Grundeinrichtung ist abgeschlossen.<br>
+            Erst mit dem Klick auf „Abschließen“ wird:<br>
         </p>
-        <p>
-            MMSI ist jetzt aktiv.<br>
-            Du kannst deine Angaben jederzeit über das Dashboard anpassen und ergänzen.
-        </p>
+        <ul>
+            <li>dein Timer aktiviert</li>
+            <li>MMSI wirksam</li>
+            <li>und deine Notfalllogik gestartet</li>
+        </ul>
         
     </div>
 

@@ -1,5 +1,7 @@
+@charset "UTF-8";
 /*Buttons*/
 button,
+input[type=submit]:not(.icon-logout-btn),
 .memy-button {
   display: flex;
   cursor: pointer;
@@ -11,26 +13,70 @@ button,
   text-transform: uppercase;
 }
 button h5,
+input[type=submit]:not(.icon-logout-btn) h5,
 .memy-button h5 {
   flex: 1;
 }
 button[disabled],
+input[type=submit]:not(.icon-logout-btn)[disabled],
 .memy-button[disabled] {
   opacity: 0.4;
   cursor: not-allowed;
 }
+button,
+input[type=submit]:not(.icon-logout-btn),
+.memy-button {
+  /*kleine Buttons, wie zurück, oder speichern*/
+}
+button:not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button),
+input[type=submit]:not(.icon-logout-btn):not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button),
+.memy-button:not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button) {
+  background-color: var(--memy-secondary);
+  color: var(--memy-primary);
+}
+button:not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button) i,
+input[type=submit]:not(.icon-logout-btn):not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button) i,
+.memy-button:not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button) i {
+  filter: invert(1);
+}
+button > a,
+input[type=submit]:not(.icon-logout-btn) > a,
+.memy-button > a {
+  color: var(--memy-primary);
+}
 
+input[type=submit]:hover,
+.memy-button:hover,
 button:hover {
   background-color: var(--memy-secondary);
   color: var(--memy-primary);
 }
+input[type=submit]:hover:not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button),
+.memy-button:hover:not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button),
+button:hover:not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button) {
+  background-color: var(--memy-border-hover-bg);
+  color: var(--memy-secondary);
+}
+input[type=submit]:hover:not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button) i,
+.memy-button:hover:not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button) i,
+button:hover:not(.full-width):not(.contact-person-mail):not(.memy-file-actions > button) i {
+  filter: invert(0);
+}
+input[type=submit]:hover a,
+input[type=submit]:hover i,
+.memy-button:hover a,
+.memy-button:hover i,
 button:hover a,
 button:hover i {
   filter: invert(1);
 }
+input[type=submit]:hover i.mmsi-icon.delete,
+.memy-button:hover i.mmsi-icon.delete,
 button:hover i.mmsi-icon.delete {
   background-image: url(../icons/MMSI_Icon_DELETE-OPEN.svg);
 }
+input[type=submit]:hover i.mmsi-icon.download,
+.memy-button:hover i.mmsi-icon.download,
 button:hover i.mmsi-icon.download {
   background-image: url(../icons/MMSI_Icon_WEITER-DOWN.svg);
 }
@@ -39,6 +85,10 @@ button:hover i.mmsi-icon.download {
 .goto-btn,
 #goback {
   cursor: pointer;
+}
+
+.goto-btn.full-width:hover i:last-child {
+  transform: translateX(10px);
 }
 
 .button-arrow {
@@ -57,13 +107,20 @@ button:hover i.mmsi-icon.download {
   width: 31px;
   display: block;
   transition: all 0.3s ease;
+  filter: invert(1);
 }
 .button-arrow:hover::after {
   transform: translateX(10px);
+  filter: invert(0);
 }
 
 .short-button {
   max-width: 290px !important;
+}
+
+/*WeißeButtons die Lila werden*/
+.contact-person-mail:hover i:last-child {
+  transform: translateX(10px);
 }
 
 /*kleines Info Feld*/
@@ -216,7 +273,7 @@ div, p {
   align-items: center;
 }
 .number-input input[type=number] {
-  min-width: 70px; /*wegen max Val*/
+  min-width: 65px; /*wegen max Val*/
   -moz-appearance: textfield;
 }
 .number-input input[type=number]::-webkit-inner-spin-button, .number-input input[type=number]::-webkit-outer-spin-button {
@@ -277,8 +334,8 @@ div, p {
 
 /*Kontakt Status*/
 .status-contact-person {
-  background: var(--memy-secondary);
-  color: var(--memy-primary);
+  background: var(--memy-border-hover-bg);
+  color: var(--memy-secondary);
   left: 10px;
   max-width: 125px !important;
   font-size: 10px;
@@ -359,11 +416,7 @@ table.table-aktivitaeten .clickable-row:hover {
 
 #checkvalues-safeinfo input {
   border-left: 6px solid var(--memy-secondary);
-}
-
-#checkvalues-safeinfo-soft {
-  padding-left: var(--memy-padding-inner-container-side);
-  padding-right: var(--memy-padding-inner-container-side);
+  background-color: var(--memy-border-hover-bg);
 }
 
 /*KundenButton*/

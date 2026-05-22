@@ -7,18 +7,18 @@
     </div>
 
     <div class="overflow-wrapper">
-        <div class="spalte project-data-show-hide"><p style="display:flex;gap:10px"><i class="mmsi-icon informationen"></i> Hinterlegte Informationen</p> <i class="mmsi-icon bearbeiten"></i></div>
+        <div class="spalte project-data-show-hide"><p style="display:flex;gap:10px"><i class="mmsi-icon informationen"></i> Projektinformationen</p><i class="mmsi-icon bearbeiten"></i></div>
 
         <div class="project-data-container">
-            <?php addInput('Projektinformationen', '', 'project-name', 'Name, Projektnummer, Aktenzeichen,…'); ?>
+            <?php addInput('', '', 'project-name', 'Name, Projektnummer, Aktenzeichen,…'); ?>
 
             <div class="project-data-kunde">
                 <?php 
                 addInput('Kunde, Patient, Klient, Mandant', '', 'project-mandant', 'Name');
                 addInput('', '', 'project-mandant-ansprechpartner', 'Ansprechpartner');
                 echo '<div class="spalte input-wrapper">';
-                    addInput('', '', 'project-mandant-telefon', 'Telefon', 'number');
-                    addInput('', '', 'project-mandant-mobile', 'Mobile', 'number');
+                    addInput('', '', 'project-mandant-telefon', 'Telefon');
+                    addInput('', '', 'project-mandant-mobile', 'Mobile');
                 echo '</div>';
                 addInput('', '', 'project-mandant-email', 'E-Mail', 'email');
                 ?>
@@ -47,7 +47,7 @@
         
         </div>
 
-        <div class="spalte project-data-show-hide"><p style="display:flex;gap:10px"><i class="mmsi-icon kontakte"></i> Kontakte</p> <i class="mmsi-icon bearbeiten"></i></div>
+        <div class="spalte project-data-show-hide"><p style="display:flex;gap:10px"><i class="mmsi-icon kontakte"></i> Kontakte</p> <i id="projekte-kontakt-edit" class="mmsi-icon bearbeiten"></i></div>
 
         <div class="project-data-container">
             <div id="project-kontakt-container">
@@ -58,9 +58,9 @@
                 <?php addSelect('Vertretung', '' , '', 'project-vertreter'); ?>
             </div>
             
-            <?php addTextarea('Anmerkungen', '', 'project-anmerkungen', 'Anmerkungen_', 8); ?>
+      
         </div>
-
+      <?php addTextarea('Anmerkungen', '', 'project-anmerkungen', 'Anmerkungen_', 8); ?>
     </div>
 
     <?php saveDeleteButton('project') ?>

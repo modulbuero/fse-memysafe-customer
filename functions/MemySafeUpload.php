@@ -47,7 +47,6 @@ if ( ! class_exists( 'Memy_Safe_Upload' ) ) {
             return self::$base_path;
         }
 
-        
 
         /**
          * Benutzerspezifischen Ordner-Pfad abrufen
@@ -340,6 +339,18 @@ if ( ! class_exists( 'Memy_Safe_Upload' ) ) {
         }
 
         /**
+         * Datei-Metadaten aktualisieren
+         *
+         * @param int $user_id
+         * @param array $new_meta Die neuen Metadaten
+         * @param array $old_meta Die alten Metadaten, die aktualisiert werden sollen
+         * @return bool|int True bei Erfolg, false bei Fehler, oder die Meta-ID wenn $prev_value nicht gefunden wurde und ein neues hinzugefügt wird (aber das sollte hier nicht passieren)
+         */
+        public static function update_file_meta( $user_id, $new_meta, $old_meta ) {
+            return update_user_meta( $user_id, '_safe_upload_file', $new_meta, $old_meta );
+        }
+
+        /**
          * Stale Datei-Metaeintrag löschen
          *
          * @param int $user_id
@@ -389,7 +400,6 @@ if ( ! class_exists( 'Memy_Safe_Upload' ) ) {
 
             return $valid_files;
         }
-
         
 
         /**

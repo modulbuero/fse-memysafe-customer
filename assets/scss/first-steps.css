@@ -91,4 +91,7 @@
 }
 #first-settings > div .container .final-btns .fs-naviwrapper button {
   display: none;
+}
+#first-settings .timer .overflow-wrapper .number-input label {
+  min-width: 210px;
 }/*# sourceMappingURL=first-steps.css.map */

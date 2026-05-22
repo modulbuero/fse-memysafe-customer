@@ -93,4 +93,14 @@
             }
         }
     }
+
+    .timer{
+        .overflow-wrapper{
+            .number-input{
+                label{
+                    min-width: 210px;
+                }
+            }
+        }
+    }
 }

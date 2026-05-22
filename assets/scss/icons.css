@@ -99,6 +99,9 @@
 .mmsi-icon.schloss-offen {
   background-image: url(../icons/MMSI_Icon_SCHLOSS-OFFEN.svg);
 }
+.mmsi-icon.send {
+  background-image: url(../icons/MMSI-Icon_Send.svg);
+}
 .mmsi-icon.speichern {
   background-image: url(../icons/MMSI_Icon_SPEICHERN.svg);
 }

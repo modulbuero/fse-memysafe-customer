@@ -3,22 +3,24 @@ body{
     --memy-primary:#ffffff;                             /*Kachel und Menü BG*/
     --memy-secondary:#000000;                           /*Schrift Icons und Rahmen*/
     --memy-tertiery:#F5F5F5;                            /*Dashboard Flächen*/
-    --wp--preset--color--contrast:var(--memy-secondary);
-    --memy-color-border:var(--memy-secondary);
-    --input-border-color: var(--memy-secondary);
-    --input-border-error: red;
-    --memy-border:2px solid var(--memy-color-border);
-    --memy-trenner-color:var(--memy-tertiery);
-    --memy-trenner:1px solid var(--memy-trenner-color);
-    --memy-check-color:#6094ff;
-    --mmsi-drag-over: var(--memy-tertiery);
-
      /*Farbwerte Stufe 1*/
     --ex-clock-bg-full-1:#9CA3DB;
     /*Farbwerte Stufe 2*/
     --ex-clock-bg-full-2:#61639F;
     /*Farbwerte Stufe 3*/
     --ex-clock-bg-full-3:#27233A;
+    
+    --wp--preset--color--contrast:var(--memy-secondary);
+    --memy-color-border:var(--memy-secondary);
+    --input-border-color: var(--memy-secondary);
+    --input-border-error: red;
+    --memy-border: 2px solid var(--memy-color-border);
+    --memy-trenner-color:var(--memy-tertiery);
+    --memy-trenner: 2px solid var(--memy-trenner-color);
+    --memy-check-color: var(--ex-clock-bg-full-1);
+    --mmsi-drag-over: var(--memy-tertiery);
+    /*Button Hover*/
+    --memy-border-hover-bg: #D8DCFC;
 
     /*Abstände*/
     --memy-padding-root:30px;
@@ -36,7 +38,7 @@ body{
     --memy-container: 980px;
     --memy-menu-width: 200px;
     --memy-menu-min-width:150px;
-    --memy-footer-width: calc( var(--memy-container) + var(--memy-menu-width) + (2 * var(--memy-padding-root)) );
+    --memy-footer-width: calc( var(--memy-container) + var(--memy-menu-width)  );
 
 
     /*Höhen*/
