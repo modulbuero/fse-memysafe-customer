@@ -69,6 +69,7 @@ div{
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center var(--memy-padding-root);
+        min-width: 138px;//Nötig für Helfer
         small{
             display: none;
         }

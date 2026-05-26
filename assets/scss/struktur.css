@@ -66,6 +66,7 @@ div.spalte p {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center var(--memy-padding-root);
+  min-width: 138px;
 }
 #memy-user-menu h1 small {
   display: none;

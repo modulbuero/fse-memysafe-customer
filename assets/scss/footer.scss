@@ -25,9 +25,25 @@ footer{
                 &:not(:first-child):before {
                     content: "-";
                     color: #fff; 
-                    padding-right: var(--memy-text-gap);;
+                    padding-right: var(--memy-text-gap);
                 }
             }
+
+            @media (max-width: 480px){
+                flex-direction: column;
+                align-items: center;
+                li{
+                    &:not(:first-child):before {
+                        content: "";
+                    }
+                }
+            }
+
+        }
+
+        @media (max-width: 767px){
+            flex-direction: column-reverse;
+            padding: var(--memy-padding-root);   
         }
     }
 }
