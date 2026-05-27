@@ -211,7 +211,7 @@ class MemyContacts {
 
         $message =  emailParts('head') . "<p>Hallo " . esc_html($name ?: 'Kontakt') . ",</p>";
         $message .= "<p>" . esc_html($inviter_name) . "  hat dich zu Me, My Safe and I eingeladen.</p>";
-        $message .= "<p>Bitte bestätige deine Einladung, um Zugriff auf die für dich freigegebenen Informationen zu erhalten.</p>";
+        $message .= "<p>Bitte bestätige deine Einladung, damit du im Ernstfall als Notfallkontakt aktiviert werden kannst.</p>";
 
         $message .= emailParts('button', esc_url($invitation_url), 'Einladung bestätigen');
         
@@ -220,7 +220,7 @@ class MemyContacts {
         $message .= "<p>Benutzername: <strong>" . $c_email . "</strong><br>";
         $message .= "Passwort: <strong>" . esc_html($password) . "</strong></p>";        
         
-        $message .= "<p>Du kannst dein Passwort nach der ersten Anmeldung ändern.</p>";
+        $message .= "<p>Das jetzt vergebene Passwort hat Gültigkeit bis zu einem Notfall. Sollte deine Unterstützung tatsächlich erforderlich werden, erhältst du von MMSI automatisch ein neues temporäres Passwort zur Aktivierung des Helfermodus.</p>";
         $message .= "<p>Da es sich um eine persönliche Einladung handelt, empfehlen wir dir, vor dem Ignorieren der Nachricht kurz mit $inviter_name Rücksprache zu halten.</p>";
         $message .= emailParts('footer');
         $message .= "</body></html>";

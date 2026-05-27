@@ -313,7 +313,7 @@ input[type=radio]:checked + .slider:before {
 }
 
 /*Inputs sperren bei Helpermode*/
-.helper-mode > .container-wrapper input {
+.helper-mode > .container-wrapper input:not(.setup-project-data .input-wrapper input) {
   border: none;
   border-bottom: var(--memy-border);
   pointer-events: none;

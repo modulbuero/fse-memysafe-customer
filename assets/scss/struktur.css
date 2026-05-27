@@ -1,7 +1,6 @@
 @charset "UTF-8";
 .wp-site-blocks {
   overflow-x: inherit;
-  min-height: auto;
 }
 .wp-site-blocks > main {
   padding-bottom: 0;
@@ -164,6 +163,17 @@ div.spalte p {
     display: none;
   }
 }
+/* Scrollbar zur Höhe für Dashboard*/
+@media screen and (max-height: 768px) {
+  .user-content .memy-dash-wrapper > div .tile-wrapper {
+    overflow-y: auto;
+  }
+}
+@media screen and (max-width: 1118px) {
+  .user-content .memy-dash-wrapper > div .tile-wrapper {
+    overflow-y: auto;
+  }
+}
 /* Tablet*/
 @media (max-width: 1118px) {
   .wp-site-blocks > main {
@@ -182,7 +192,7 @@ div.spalte p {
   }
 }
 @media (max-width: 1023px) {
-  div.spalte:not(.is-line) :not(.item-headline) :not(.dash-item) :not(.save-wrapper) :not(.inner-main-heading) :not(.project-person-mail) {
+  .spalte:not(.is-line):not(.item-headline):not(.dash-item):not(.save-wrapper):not(.inner-main-heading):not(.project-person-mail) {
     flex-direction: column;
     align-items: flex-start;
   }

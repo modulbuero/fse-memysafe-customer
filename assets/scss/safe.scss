@@ -49,6 +49,8 @@ ul.memy-file-list{
                     transform: translateX(10px);
                 }   
             }
+            
+        
         }
 
         .memy-file-actions{
@@ -88,6 +90,23 @@ ul.memy-file-list{
         }
     }
 }
+
+//Liste nur ganze und nur kleiner Tablet
+@media (max-width: 1024px){
+    #memy-file-list{
+        ul.memy-file-list li .memy-file-info{
+            max-width: calc(100% - 80px) !important;
+            overflow: hidden;
+            .memy-file-date,
+            .memy-file-size{
+                display: none;
+            }
+            .memy-file-name-wrap .memy-file-name{
+                max-width: 88% !important;               
+            } 
+        }
+    }    
+} 
 
 /*Upload Wrapper*/
 .memy-upload-wrapper{

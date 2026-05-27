@@ -15,11 +15,11 @@
 <div class='spalte save-wrapper'>
     <button class='memy-button goto-btn' data-goto="manage-safe"  data-step="2">
         <i class='mmsi-icon neu'></i>
-        Datei hochladen
+        <span>Datei</span> hochladen
     </button>
     <button class="goto-btn" data-goto="manage-safe-file" data-step="2">
         <i class="mmsi-icon datei"></i> 
-        Online anlegen
+        <span>Online</span> anlegen
     </button>
 </div>
 <?php endif; ?>

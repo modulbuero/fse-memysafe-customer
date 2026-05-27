@@ -71,6 +71,19 @@ ul.memy-file-list li button {
   display: none;
 }
 
+@media (max-width: 1024px) {
+  #memy-file-list ul.memy-file-list li .memy-file-info {
+    max-width: calc(100% - 80px) !important;
+    overflow: hidden;
+  }
+  #memy-file-list ul.memy-file-list li .memy-file-info .memy-file-date,
+  #memy-file-list ul.memy-file-list li .memy-file-info .memy-file-size {
+    display: none;
+  }
+  #memy-file-list ul.memy-file-list li .memy-file-info .memy-file-name-wrap .memy-file-name {
+    max-width: 88% !important;
+  }
+}
 /*Upload Wrapper*/
 .memy-upload-wrapper {
   height: 100%;

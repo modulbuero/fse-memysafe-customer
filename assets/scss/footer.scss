@@ -41,9 +41,10 @@ footer{
 
         }
 
-        @media (max-width: 767px){
+        @media (max-width: 900px){
             flex-direction: column-reverse;
-            padding: var(--memy-padding-root);   
+            padding: var(--memy-padding-root);
+            gap: var(--memy-text-gap);
         }
     }
 }

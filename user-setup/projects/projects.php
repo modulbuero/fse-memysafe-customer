@@ -7,7 +7,12 @@
     </div>
 
     <div class="overflow-wrapper">
-        <div class="spalte project-data-show-hide"><p style="display:flex;gap:10px"><i class="mmsi-icon informationen"></i> Projektinformationen</p><i class="mmsi-icon bearbeiten"></i></div>
+        <div class="spalte project-data-show-hide">
+            <p style="display:flex;gap:10px">
+                <i class="mmsi-icon informationen"></i> Projektinformationen
+            </p>
+            <i class="mmsi-icon bearbeiten"></i>
+        </div>
 
         <div class="project-data-container">
             <?php addInput('', '', 'project-name', 'Name, Projektnummer, Aktenzeichen,…'); ?>

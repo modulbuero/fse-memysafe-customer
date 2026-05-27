@@ -190,6 +190,18 @@
             }    
         }
 
+        /*
+        *   Safe 
+        */
+        //Speicherbutton
+        div[data-target="safe-list"]{
+            .save-wrapper{
+                button span{
+                    display:none
+                }
+            }
+        }
+
         /**
         *   Button
         */

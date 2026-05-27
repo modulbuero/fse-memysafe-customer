@@ -160,6 +160,14 @@
     background: linear-gradient(0deg, var(--memy-tertiery) 0%, rgba(255, 255, 255, 0) 100%);
   }
   #front-page-html {
+    /*
+    *   Safe 
+    */
+  }
+  #front-page-html div[data-target=safe-list] .save-wrapper button span {
+    display: none;
+  }
+  #front-page-html {
     /**
     *   Button
     */

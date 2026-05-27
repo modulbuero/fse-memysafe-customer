@@ -149,17 +149,17 @@
 
                &:before{
                   border-top: 2px solid var(--memy-trenner-color);
-                  background-color: #fff;               
+                  background-color: var(--memy-primary);             
                }
 
                &:after{
                   top:calc(var(--memy-padding-inner-container-side) * -2); 
-                  background: #FFFFFF;
+                  background: var(--memy-primary);
                   background: linear-gradient(
                      0deg, 
-                     rgba(255, 255, 255, 1) 0%, 
-                     rgba(255, 255, 255, 0.5) 70% 70%,
-                     rgba(255, 255, 255, 0) 100%
+                     var(--memy-primary) 0%, 
+                     var(--memy-primary-half) 70% 70%,
+                     var(--memy-primary-trans) 100%
                   )
                }
             }

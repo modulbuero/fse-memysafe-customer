@@ -36,9 +36,10 @@ footer .parts-footer ul li:not(:first-child):before {
     content: "";
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   footer .parts-footer {
     flex-direction: column-reverse;
     padding: var(--memy-padding-root);
+    gap: var(--memy-text-gap);
   }
 }/*# sourceMappingURL=footer.css.map */

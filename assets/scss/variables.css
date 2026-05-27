@@ -3,6 +3,8 @@ body{
     --memy-primary:#ffffff;                             /*Kachel und Menü BG*/
     --memy-secondary:#000000;                           /*Schrift Icons und Rahmen*/
     --memy-tertiery:#F5F5F5;                            /*Dashboard Hintergrund-Flächen*/
+    --memy-primary-half:rgba(255, 255, 255, 0.5); 
+    --memy-primary-trans:rgba(255, 255, 255, 0);       
      /*Farbwerte Stufe 1*/
     --ex-clock-bg-full-1:#9CA3DB;
     /*Farbwerte Stufe 2*/
@@ -63,16 +65,22 @@ body.darkmode{
     --memy-primary:#000000;
     --memy-secondary:#ffffff;
     --memy-tertiery:#2e2e2e;
+    --memy-primary-half:rgba(0, 0, 0, 0.5);
+    --memy-primary-trans:rgba(0, 0, 0, 0);
     --ex-clock-bg-full-3: #4c3e91;
+    --memy-border-hover-bg: var(--ex-clock-bg-full-3);
 }
 body.darkmode .memy-upload-wrapper #memy-upload-zone img,
 body.darkmode #memy-user-menu h1,
 body.darkmode .mmsi-icon{
     filter: invert(1);
 }
-body.darkmode button:hover .mmsi-icon{
-    filter: invert(0);
+
+body.darkmode button:not(.memy-file-download):hover .mmsi-icon,
+body.darkmode button:not(.delete-btn-pop):hover .mmsi-icon{
+    filter: invert(1);
 }
+
 body.darkmode .memy-upload-wrapper #memy-upload-zone.drag-over{
 
 }
