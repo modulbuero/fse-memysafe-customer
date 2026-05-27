@@ -1,9 +1,9 @@
 <?php
-// 1. Eigenes Cron-Intervall von 5 Minuten registrieren
+// 1. Eigenes Cron-Intervall von 15 Minuten registrieren
 function add_memy_cron_interval($schedules) {
     $schedules['every_memy_hours'] = array(
         'interval' => 15 * MINUTE_IN_SECONDS,
-        'display'  => 'Alle 5 Minuten (MeMySafe)',
+        'display'  => 'Alle 15 Minuten (MeMySafe)',
     );
     return $schedules;
 }
@@ -33,14 +33,20 @@ function memy_deathman_query_function() {
         $users = $query->get_results();
 
         if (!empty($users)) {
-            $adminuser = $users[0];
-            $adminID   = $adminuser->ID;
+            $adminuser  = $users[0];
+            $adminID    = $adminuser->ID;
             $adminEmail = $adminuser->user_email;
-            $adminName  = $adminuser->first_name . ' ' . $adminuser->last_name;
-            error_log("MeMySafe_Cron: Benutzer gefunden für Blog " . get_current_blog_id());
+            $adminName  = $adminuser->first_name;
+            #error_log("MeMySafe_Cron: Benutzer gefunden für Blog " . get_current_blog_id());
         } else {
             error_log("MeMySafe_Cron: Kein Benutzer gefunden für Blog " . get_current_blog_id());
             return;
+        }
+
+        $exam_clock_urlaubsmodus = MemyOptionManager::get('exam_clock_urlaubsmodus'); 
+        if($exam_clock_urlaubsmodus){
+            error_log("MeMySafe_Cron: Urlaubsmodus aktiviert, Blog " . get_current_blog_id());
+            return; // Wenn Urlaubsmodus aktiviert ist, Cron nicht weiter ausführen
         }
 
         $curr_date_obj         = date_create(current_time('Y-m-d H:i'));
@@ -54,17 +60,29 @@ function memy_deathman_query_function() {
         $hasSendReminderTwo     = get_option('has_send_reminder_two');
         $hasSendReminderThree   = get_option('has_send_reminder_three');
 
-        //Notfallkontakt 1
-        $notfall_fname         = get_user_meta($adminID, 'contact-person-1', true)['first_name'] ?? '';
-        $notfall_lname         = get_user_meta($adminID, 'contact-person-1', true)['last_name'] ?? '';
-        $notfall_name          = $notfall_fname . ' ' . $notfall_lname;
-        $notfall_email         = get_user_meta($adminID, 'contact-person-1', true)['email'] ?? '';
-        $hasSendNotfall        = get_option('has_send_notfall');
+        // Notfallkontakte
+        $notfall_contacts = array();
+        for ($i = 1; $i <= 3; $i++) {
+            $contact_meta = get_user_meta($adminID, 'contact-person-' . $i, true);
+            $contact_email = $contact_meta['email'] ?? '';
+            if (empty($contact_email)) {
+                continue;
+            }
 
-        error_log("MeMySafe_Cron: ESK | currDate: " . $curr_date_string);
+            $contact_first_name = $contact_meta['first_name'] ?? '';
+            $contact_last_name = $contact_meta['last_name'] ?? '';
+            $contact_name = trim($contact_first_name . ' ' . $contact_last_name);
+
+            $notfall_contacts[] = array(
+                'email' => $contact_email,
+                'name'  => $contact_name,
+            );
+        }
+        $hasSendNotfall = get_option('has_send_notfall');
+
+        #error_log("MeMySafe_Cron: ESK | currDate: " . $curr_date_string);
         
-        if(!empty($adminEmail) && !empty($notfall_email)
-            ){
+        if (!empty($adminEmail) && !empty($notfall_contacts)) {
             
             $mail_headers = array('Content-Type: text/html; charset=UTF-8');
             
@@ -90,7 +108,7 @@ function memy_deathman_query_function() {
                     wp_mail($adminEmail, $subject, $message, $mail_headers);
                     
                     update_option('has_send_reminder_one', $curr_date_string);
-                    error_log("MeMySafe_Cron: Reminder Mail 1 gesendet an " . $adminEmail);
+                    #error_log("MeMySafe_Cron: Reminder Mail 1 gesendet an " . $adminEmail);
                     return;
                 }
             }
@@ -111,7 +129,7 @@ function memy_deathman_query_function() {
                     wp_mail($adminEmail, $subject, $message, $mail_headers);
                     
                     update_option('has_send_reminder_two', $curr_date_string);
-                    error_log("MeMySafe: Reminder Mail 2 gesendet an " . $adminEmail);
+                    #error_log("MeMySafe: Reminder Mail 2 gesendet an " . $adminEmail);
                     return;
                 }
             }
@@ -134,30 +152,40 @@ function memy_deathman_query_function() {
                     wp_mail($adminEmail, $subject, $message, $mail_headers);
                     
                     update_option('has_send_reminder_three', $curr_date_string);
-                    error_log("MeMySafe: Reminder Mail 3 gesendet an " . $adminEmail);
+                    #error_log("MeMySafe: Reminder Mail 3 gesendet an " . $adminEmail);
                     return;
                 }
             }
 
             //Notfall erreicht
-            if(empty($hasSendNotfall) && $hasSendReminderThree){
-                //Sende an den Notfallkontakt, wenn Eskalation 3 erreicht ist
+            if (empty($hasSendNotfall) && $hasSendReminderThree) {
+                //Sende an die Notfallkontakte, wenn Eskalation 3 erreicht ist
                 //Todo: Hinweise auf gesendet im Dashboard mit Maik klären
-                
+
                 $subject = "Hinweis: " . $adminName . " hat nicht auf seinen Sicherheits-Timer reagiert";
-                $message = emailParts('head') . "<p>Hallo ".$notfall_name.",</p>
-                <p>" . $adminName . " hat innerhalb des festgelegten Zeitraums nicht auf seinen Sicherheits-Timer reagiert.</p>
-                <p>Deshalb erhältst du diese Nachricht als hinterlegter Notfallkontakt.</p>
-                <p>Bitte versuche, Markus zu erreichen oder prüfe gemeinsam mit weiteren Kontaktpersonen, ob alles in Ordnung ist.</p>
-                <p>Weitere Informationen findest du in deinem Account.</p>";
 
-                $message .= $login_button;
-                $message .= $mail_footer;
+                foreach ($notfall_contacts as $notfall_contact) {
+                    $message = emailParts('head') . "<p>Hallo " . esc_html($notfall_contact['name']) . ",</p>
+                    <p>" . esc_html($adminName) . " hat innerhalb des festgelegten Zeitraums nicht auf seinen Sicherheits-Timer reagiert.</p>
+                    <p>Deshalb erhältst du diese Nachricht als hinterlegter Notfallkontakt.</p>
+                    <p>Bitte versuche, " . esc_html($adminName) . " zu erreichen oder prüfe gemeinsam mit weiteren Kontaktpersonen, ob alles in Ordnung ist.</p>
+                    <p>Weitere Informationen findest du in deinem Account.</p>";
 
-                wp_mail($notfall_email, $subject, $message, $mail_headers);
-                
+                    $contact_user = get_user_by('email', $notfall_contact['email']);
+                    if ($contact_user) {
+                        $new_password = wp_generate_password(8, false);
+                        $message .= "<p>Passwort: <strong>" . esc_html($new_password) . "</strong></p>";
+                        wp_set_password($new_password, $contact_user->ID);
+                    }
+
+                    $message .= $login_button;
+                    $message .= $mail_footer;
+
+                    wp_mail($notfall_contact['email'], $subject, $message, $mail_headers);
+                    error_log("MeMySafe: Notfall Mail gesendet an " . $notfall_contact['email']);
+                }
+
                 update_option('has_send_notfall', $curr_date_string);
-                error_log("MeMySafe: Notfall Mail gesendet an " . $notfall_email);
                 return;
             }
 
@@ -199,6 +227,6 @@ add_action( 'wp_login', 'mein_login_callback', 10, 2 );
 function mein_login_callback( $user_login, $user ) {
     // $user_login = Benutzername
     // $user = WP_User-Objekt
-    error_log( "BenutzerObj: ".print_r($user) );
-    error_log( "Benutzer: {$user_login} hat sich eingeloggt." );
+    #error_log( "BenutzerObj: ".print_r($user) );
+    #error_log( "Benutzer: {$user_login} hat sich eingeloggt." );
 }

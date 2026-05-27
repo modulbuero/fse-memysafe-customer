@@ -43,3 +43,46 @@ add_filter('body_class', function ($classes) {
     }
     return $classes;
 });
+
+/**
+ *  Kommentare deaktivieren
+ */ 
+add_action('init', function () {
+    remove_post_type_support('post', 'comments');
+    remove_post_type_support('page', 'comments');
+    add_filter('comments_open', '__return_false', 20, 2);
+    add_filter('pings_open', '__return_false', 20, 2);
+    add_filter('comments_array', '__return_empty_array', 10, 2);
+
+});
+
+
+/**
+ * Diskussionseinstellungen sperren
+ */
+add_action('admin_init', function () {
+    global $pagenow;
+    if (
+        is_admin()
+        && !is_network_admin()
+        && isset($pagenow)
+        && $pagenow === 'options-discussion.php'
+    ) {
+        wp_safe_redirect(admin_url());
+        exit;
+    }
+});
+
+
+/**
+ * Kommentar-Menüs entfernen
+ */
+add_action('admin_menu', function () {
+    if (!is_network_admin()) {
+        remove_menu_page('edit-comments.php');
+        remove_submenu_page(
+            'options-general.php',
+            'options-discussion.php'
+        );
+    }
+}, 999);

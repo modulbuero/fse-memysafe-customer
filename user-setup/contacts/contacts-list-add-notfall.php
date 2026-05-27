@@ -51,7 +51,8 @@ foreach (range(1, 3) as $i):
                 <?php if(!email_exists($person_email)): ?>
                     <p> </p>
                     <button class="send-invitation" style="padding: 5px; font-size: 14px;">
-                        <i class='mmsi-icon send'></i> Einladung senden
+                        <!-- <i class='mmsi-icon send'></i> -->
+                        <i class="bi bi-send"></i> Einladung senden
                     </button>
                 <?php endif; ?>
             </div>

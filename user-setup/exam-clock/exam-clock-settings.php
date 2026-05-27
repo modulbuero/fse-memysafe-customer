@@ -29,16 +29,20 @@
     <div id="exam-clock-zyklus-input" class="step-2 flex-one settings-labels">
         <h4>Zyklus</h4>
         <div class="spalte">
-            <?php numberInput("exam-clock-zyklus-one", esc_attr($exam_clock_zyklus_one), 2, 14, "1. Timer", "Tage"); ?>
-            <span><?php echo $eskalation_stufe_one ?></span>
+            <?php numberInput("exam-clock-zyklus-one", esc_attr($exam_clock_zyklus_one), 2, 14, "Erste Erinnerung nach", "Tage"); ?>
+            <span class="hide"><?php echo $eskalation_stufe_one ?></span>
         </div>
         <div class="spalte">
-            <?php numberInput("exam-clock-zyklus-two", esc_attr($exam_clock_zyklus_two), 1, 7, "2. Timer", "Tage"); ?>
-            <span><?php echo $eskalation_stufe_two ?></span>
+            <?php 
+            $daystring = ($exam_clock_zyklus_two == 1) ? "Tag" : "Tage";
+            numberInput("exam-clock-zyklus-two", esc_attr($exam_clock_zyklus_two), 1, 7, "Zweite Erinnerung", $daystring." später"); ?>
+            <span class="hide"><?php echo $eskalation_stufe_two ?></span>
         </div>
         <div class="spalte">
-            <?php numberInput("exam-clock-zyklus-three", esc_attr($exam_clock_zyklus_three), 1, 3, "3. Timer", "Tage"); ?>
-            <span><?php echo $eskalation_stufe_three ?></span>
+            <?php 
+            $daystring = ($exam_clock_zyklus_three == 1) ? "Tag" : "Tage";
+            numberInput("exam-clock-zyklus-three", esc_attr($exam_clock_zyklus_three), 1, 3, "Notfallkontakt(e) informieren", $daystring." später"); ?>
+            <span class="hide"><?php echo $eskalation_stufe_three ?></span>
         </div>
         <button id="exam-clock-save-zyklus" class="save-wrapper short-button"><i class="mmsi-icon speichern"></i>Änderungen speichern</button>
     </div>   

@@ -39,7 +39,8 @@
             <div><!--mmsi can --></div>
             <?php if(!email_exists($v_person_email)): ?>
                 <button class="send-invitation" style="padding: 5px; font-size: 14px;">
-                    <i class='mmsi-icon send'></i> Einladung senden
+                    <!-- <i class='mmsi-icon send'></i> -->
+                    <i class="bi bi-send"></i> Einladung senden
                 </button>
             <?php endif; ?>
         </div>

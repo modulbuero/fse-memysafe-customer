@@ -23,15 +23,20 @@
             $max_notfall = !empty($vertrauensperson['email']) ? 2 : 3;
         
             // Notfallkontakte hinzufügen
-            for ($i = 1; $i <= $max_notfall; $i++) {
+            for ($i = 1; $i <= 3; $i++) {
                 $contact = get_user_meta($user_id, 'contact-person-' . $i, true);
                 if (!empty($contact['email'])) {
                     $contact['pers_number'] = 'contact-person-' . $i;
                     $kontakte[] = $contact;
-                    
                 }
             }
+            
+            //Wenn Vertrauensperson vorhanden ist, max. 2 Notfallkontakte anzeigen, ansonsten 3
+            if($max_notfall <=3){
+                $kontakte = array_slice($kontakte, 0, $max_notfall);
+            }
 
+            
             // Vertrauensperson hinzufügen, falls vorhanden
             if (!empty($vertrauensperson['email'])) {
                 $vertrauensperson['pers_number'] = 'vertrauensperson';

@@ -86,10 +86,16 @@ function addSelect($label, $options, $selected='', $id='1', $is_select=true){
 
     $is_select = ($is_select)?'':'nobox';
     echo "<div class='selectbox $id $is_select'><label>$label</label><select id='$id'>";
-    foreach ($options as $value => $optionLabel) {
-        $sel = ($selected === $value) ? 'selected' : '';
-        echo "<option value='$value' $sel>$optionLabel</option>";
+    
+    if(empty($options)){
+        echo "<option>Keine Optionen verfügbar</option>";
+    }else{
+        foreach ($options as $value => $optionLabel) {
+            $sel = ($selected === $value) ? 'selected' : '';
+            echo "<option value='$value' $sel>$optionLabel</option>";
+        }
     }
+    
     echo "</select></div>";
 }
 
@@ -180,8 +186,6 @@ function saveDeleteButton($typ){
         $html .= "<button id='save-".$typ."'><i class='mmsi-icon speichern'></i> Speichern</button>
             <button data-id='delete-".$typ."' class='delete-btn-pop'><i class='mmsi-icon delete'></i> Löschen</button>
         </div>";
-
-        
     }
     echo $html;
 }

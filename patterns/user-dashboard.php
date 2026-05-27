@@ -30,8 +30,7 @@ if ( is_user_logged_in() ) :
                 <div class="spalte tile">
                     <div class="spalte full-width">
                         <i class="mmsi-icon schloss-offen big"></i>
-                        <p><strong>SCHÖN, DASS DU WIEDER DA BIST!</strong><br>
-                        Dein Safe wurde in Deiner Abwesendheit geteilt.</p>
+                        <p><strong>SCHÖN, DASS DU WIEDER DA BIST!</strong></p>
                     </div>
                     <button id="wieder-da-modus" class="full-width" style="justify-content: center;">
                         ICH BIN WIEDER DA

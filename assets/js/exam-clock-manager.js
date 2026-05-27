@@ -82,7 +82,7 @@
      * Reset/Reload der Zykluszeit
      */
     function updateExamClockDashboard(){
-        $(document).on("click", "#exam-clock-reset-button", function(e) {
+        $(document).on("click", "#exam-clock-reset-button, #wieder-da-modus", function(e) {
             e.preventDefault();
             let userid = $('#memy-dashboard').data('user-id');
             
