@@ -50,9 +50,10 @@ foreach (range(1, 3) as $i):
             <div class="spalte">
                 <?php if(!email_exists($person_email)): ?>
                     <p> </p>
-                    <button class="send-invitation" style="padding: 5px; font-size: 14px;">
+                    <button class="send-invitation half-width" style="padding: 5px; font-size: 14px; justify-content: space-between;">
                         <!-- <i class='mmsi-icon send'></i> -->
-                        <i class="bi bi-send"></i> Einladung senden
+                        Einladung senden
+                        <i class="bi bi-send"></i>
                     </button>
                 <?php endif; ?>
             </div>

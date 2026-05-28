@@ -38,9 +38,10 @@
         <div class="spalte">
             <div><!--mmsi can --></div>
             <?php if(!email_exists($v_person_email)): ?>
-                <button class="send-invitation" style="padding: 5px; font-size: 14px;">
+                <button class="send-invitation half-width" style="padding: 5px; font-size: 14px;justify-content: space-between;">
                     <!-- <i class='mmsi-icon send'></i> -->
-                    <i class="bi bi-send"></i> Einladung senden
+                    Einladung senden
+                    <i class="bi bi-send"></i>
                 </button>
             <?php endif; ?>
         </div>

@@ -14,15 +14,16 @@
     </p>
     <div id="checkvalues-kontakt">
         <?php 
-        $v_person_name  = get_user_meta(get_current_user_id(), 'contact-person-1', true)['name'] ?? '';
+        $v_person_fname  = get_user_meta(get_current_user_id(), 'contact-person-1', true)['f_name'] ?? '';
+        $v_person_lname  = get_user_meta(get_current_user_id(), 'contact-person-1', true)['l_name'] ?? '';
         $v_person_email = get_user_meta(get_current_user_id(), 'contact-person-1', true)['email'] ?? '';
         $v_person_tel   = get_user_meta(get_current_user_id(), 'contact-person-1', true)['tel'] ?? '';
         #$v_person_firma = get_user_meta(get_current_user_id(), 'contact-person-1', true)['firma'] ?? '';
         ?>
         <div class="spalte">
         <?php     
-            addInput('Vorname', $v_person_name, 'contact-first-name-1', 'Vorname');
-            addInput('Nachname', $v_person_name, 'contact-last-name-1', 'Nachname');
+            addInput('Vorname', $v_person_fname, 'contact-first-name-1', 'Vorname');
+            addInput('Nachname', $v_person_lname, 'contact-last-name-1', 'Nachname');
         ?>
         </div>
         <?php 

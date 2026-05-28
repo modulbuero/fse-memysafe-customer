@@ -114,8 +114,9 @@
     function updateExamClockCycles(){
         $('#exam-clock-save-zyklus').on('click', function(e) {
             e.preventDefault();
+            let $btn = $(this);
             let userid = $('#memy-dashboard').data('user-id');
-            
+            $btn.prop('disabled', true);
             let formData = {
                 _wpnonce:       ajax_object_deathman.nonce,
                 user_id:        userid,
@@ -128,6 +129,7 @@
             .done(function(response) {
                 console.log('handle_update_exam_clock_cycles: ' + JSON.stringify(response.debug));
                 showMessage(response.message, 'success');
+                $btn.prop('disabled', false);
                 // Reload des Chooser-Exam-Clock
                 $('#chooser-exam-clock').load(location.href + ' #chooser-exam-clock');
                 $('#manage-exam-clock').load(location.href + ' #manage-exam-clock .step1');
