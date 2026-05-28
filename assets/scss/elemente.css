@@ -42,7 +42,7 @@ input[type=submit]:not(.icon-logout-btn):not(.full-width) :not(.contact-person-m
 button > a,
 input[type=submit]:not(.icon-logout-btn) > a,
 .memy-button > a {
-  color: var(--memy-primary);
+  color: var(--memy-secondary);
 }
 button:hover,
 input[type=submit]:not(.icon-logout-btn):hover,
