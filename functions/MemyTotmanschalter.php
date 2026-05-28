@@ -341,9 +341,9 @@ class MemyTotmanschalter {
         if (!is_numeric($userID) || empty($stufe) || !is_numeric($wert)) {
             return false;
         }
-        //Entwicklung | dev -> minutes
+        //Entwicklung | dev -> hours
         //Live              -> days
-        $datum = $this->getBerlinDateTime()->modify('+'.$wert.' hours')->format('d.m.Y H:i');
+        $datum = $this->getBerlinDateTime()->modify('+'.$wert.' days')->format('d.m.Y H:i');
 
         update_user_meta($userID, 'eskalation_stufe_' . $stufe, $datum);
 

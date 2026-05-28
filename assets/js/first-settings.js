@@ -114,6 +114,9 @@
                     default:
                         $nextContainer = $currentContainer.nextAll('.container').first();
                 }
+            // }  else if ($(document).find('.safe-file-1 .first-step-button').prop('disabled', true)) {
+            //     $nextContainer = $currentContainer.nextAll('.container').eq(1);
+             
             } else {
                 $nextContainer = $currentContainer.nextAll('.container').first();
             }

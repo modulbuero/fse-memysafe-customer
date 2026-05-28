@@ -98,7 +98,7 @@ ul.memy-file-list li button {
 }
 .memy-upload-wrapper #memy-upload-zone img {
   width: 100%;
-  height: 85px;
+  height: 110px;
   margin-bottom: 20px;
   -o-object-fit: cover;
      object-fit: cover;

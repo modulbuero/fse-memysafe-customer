@@ -58,27 +58,26 @@
                 SafeUpload.openFile(fileName);
             });
 
-            // Drag & Drop
-            const dropZone = $('#memy-upload-zone');
-            if (dropZone.length) {
-                dropZone.on('dragenter dragover', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    $(this).addClass('drag-over');
-                });
+            // Drag & Drop (delegated handlers für dynamisch reingerenderte #memy-upload-zone)
+            const dragzone = '#memy-upload-zone'
+            $(document).on('dragenter dragover', dragzone, function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                $(this).addClass('drag-over');
+            });
 
-                dropZone.on('dragleave drop', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    $(this).removeClass('drag-over');
-                });
+            $(document).on('dragleave drop', dragzone, function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                $(this).removeClass('drag-over');
+            });
 
-                dropZone.on('drop', function(e) {
-                    // preventDefault/stopPropagation wird bereits oben behandelt
-                    const files = e.originalEvent.dataTransfer.files;
-                    SafeUpload.handleFiles(files);
-                });
-            }
+            $(document).on('drop', dragzone, function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const files = e.originalEvent.dataTransfer.files;
+                SafeUpload.handleFiles(files);
+            });
         },
 
         /**
@@ -146,6 +145,12 @@
                         SafeUpload.completeProgress(uploadId, true, SafeUpload.escapeHtml(file.name));
                         SafeUpload.loadFileList(); // Liste aktualisieren
                         SafeUpload.loadFileListShort();
+                        //Gib den Weiterbutton frei
+                        if($('#first-settings').length){
+                            $('.safe-file-1 .first-step-button').attr('disabled', false);
+                            $(".safe-file-2").remove();
+                            $(".safe-info").remove();
+                        }
                     } else {
                         SafeUpload.showNotification(response.data.message || 'Fehler beim Upload', 'error');
                         SafeUpload.completeProgress(uploadId, false, SafeUpload.escapeHtml(file.name));
