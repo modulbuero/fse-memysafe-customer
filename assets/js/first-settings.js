@@ -28,22 +28,23 @@
             // Sammle User Metas aus step-03.php
             const userMeta = {
                 strasze: $('#checkvalues-adress #strasze').val(),
-                plz: $('#checkvalues-adress #plz').val(),
-                ort: $('#checkvalues-adress #ort').val(),
+                plz:     $('#checkvalues-adress #plz').val(),
+                ort:     $('#checkvalues-adress #ort').val(),
                 telefon: $('#checkvalues-adress #telefon').val()
             };
 
-            const k_f_name = $('#checkvalues-kontakt #contact-first-name-1').val()
-            const k_l_name = $('#checkvalues-kontakt #contact-last-name-1').val()
-            const k_name = k_f_name + ' ' + k_l_name
-
             // Sammle Kontakt-Daten aus step-04.php
+            const k_f_name     = $('#checkvalues-kontakt #contact_fname').val()
+            const k_l_name     = $('#checkvalues-kontakt #contact_lname').val()  
+            const contact_mail = $('#checkvalues-kontakt #contact_mail').val()
+            const contact_tel  = $('#checkvalues-kontakt #contact_tel').val()            
+            
             const contactMeta = {
-                f_name: k_f_name,
-                l_name: k_l_name,
-                email: $('#checkvalues-kontakt #contact-email-1').val(),
-                tel: $('#checkvalues-kontakt #contact-tel-1').val(),
-                typ: $('#checkvalues-kontakt #contact-typ-1').val()
+                contact_fname:  k_f_name,
+                contact_lname:  k_l_name,
+                contact_mail:   contact_mail,
+                contact_tel:    contact_tel,
+                contact_typ:    $('#checkvalues-kontakt #contact_typ').val()
             };
 
             $.ajax({
@@ -58,8 +59,10 @@
                     user_meta: userMeta,
                     contact_meta: contactMeta,
                     //Für MemyContacts->handle_send_contact_invitation
-                    contact_mail: $('#checkvalues-kontakt #contact-email-1').val(),
-                    contact_name: k_name
+                    contact_mail:   contact_mail,
+                    contact_fname:  k_f_name,
+                    contact_lname:  k_l_name,
+                    
                 },
                 success(response) {
                     if (response.success) {

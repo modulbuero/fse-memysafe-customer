@@ -44,7 +44,7 @@ class MemyFirstSettings {
         check_ajax_referer('save_first_settings', 'nonce');
 
         $user_id = get_current_user_id();
-
+        $memycontact = new MemyContacts();
         if (!$user_id) {
             wp_send_json_error(array('message' => 'Ungültiger Benutzer.'), 400);
         }
@@ -74,13 +74,12 @@ class MemyFirstSettings {
         if (isset($_POST['contact_meta']) && is_array($_POST['contact_meta'])) {
             $contact_meta = array_map('sanitize_text_field', $_POST['contact_meta']);
             
+            
             $contact_data = array(
-                'first_name' => $contact_meta['f_name'] ?? '',
-                'last_name'  => $contact_meta['l_name'] ?? '',
-                'firma'    => $contact_meta['name'] ?? '',
-                'name'      => $contact_meta['name'] ?? '',
-                'email'     => sanitize_email($contact_meta['email'] ?? ''),
-                'tel'       => $contact_meta['tel'] ?? '',
+                'first_name' => $contact_meta['contact_fname'] ?? '',
+                'last_name'  => $contact_meta['contact_lname'] ?? '',
+                'email'     => sanitize_email($contact_meta['contact_mail'] ?? ''),
+                'tel'       => $contact_meta['contact_tel'] ?? '',
                 'typ'       => 'Notfallkontakt',
                 'firma'     => '',
                 'status'    => 'Ausstehend',
@@ -94,8 +93,7 @@ class MemyFirstSettings {
 
         //Sende Notfallkontakt eine Einladung
         $notfallkontakt = $contact_data['email'];
-        if ($notfallkontakt) {
-            $memycontact = new MemyContacts();
+        if ($notfallkontakt) {            
             $memycontact->handle_send_contact_invitation();
         }
 

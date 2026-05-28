@@ -13,23 +13,16 @@
         Der Kontakt wird per E-Mail eingeladen und kann seine Rolle bestätigen.
     </p>
     <div id="checkvalues-kontakt">
-        <?php 
-        $v_person_fname  = get_user_meta(get_current_user_id(), 'contact-person-1', true)['f_name'] ?? '';
-        $v_person_lname  = get_user_meta(get_current_user_id(), 'contact-person-1', true)['l_name'] ?? '';
-        $v_person_email = get_user_meta(get_current_user_id(), 'contact-person-1', true)['email'] ?? '';
-        $v_person_tel   = get_user_meta(get_current_user_id(), 'contact-person-1', true)['tel'] ?? '';
-        #$v_person_firma = get_user_meta(get_current_user_id(), 'contact-person-1', true)['firma'] ?? '';
-        ?>
         <div class="spalte">
         <?php     
-            addInput('Vorname', $v_person_fname, 'contact-first-name-1', 'Vorname');
-            addInput('Nachname', $v_person_lname, 'contact-last-name-1', 'Nachname');
+            addInput('Vorname', '', 'contact_fname', 'Vorname');
+            addInput('Nachname', '', 'contact_lname', 'Nachname');
         ?>
         </div>
         <?php 
-        addInput('E-Mail-Adresse', $v_person_email, 'contact-email-1', 'E-Mail-Adresse');
-        addInput('Telefonnummer', $v_person_tel, 'contact-tel-1', 'Telefonnummer');
-        addInput('', 'Notfallkontakt', 'contact-typ-1', '','hidden'); 
+        addInput('E-Mail-Adresse', '', 'contact_mail', 'E-Mail-Adresse');
+        addInput('Telefonnummer', '', 'contact_tel', 'Telefonnummer');
+        addInput('', 'Notfallkontakt', 'contact_typ', '','hidden'); 
         ?>  
     </div>          
 </div>

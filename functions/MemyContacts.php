@@ -128,10 +128,10 @@ class MemyContacts {
             return;
         }
 
-        $contact_mail = sanitize_email($_POST['contact_mail'] ?? '');
+        $contact_mail  = sanitize_email($_POST['contact_mail'] ?? '');
         $contact_fname = sanitize_text_field($_POST['contact_fname'] ?? '');
         $contact_lname = sanitize_text_field($_POST['contact_lname'] ?? '');
-        $contact_name = $contact_fname . ' ' . $contact_lname;
+        $contact_name  = $contact_fname . '_' . $contact_lname;
 
         if(empty($contact_mail) || !is_email($contact_mail)){
             wp_send_json_error('Ungültige E-Mail-Adresse.');
@@ -144,7 +144,8 @@ class MemyContacts {
             return;
         }
 
-        $username = $this->generate_username_from_email($contact_mail);
+        
+        $username = $this->generiere_eindeutigen_username($contact_name);
         $password = wp_generate_password(12, false);
         $token    = wp_generate_password(32, false);
 
@@ -153,7 +154,6 @@ class MemyContacts {
             'username'     => $username,
             'password'     => wp_hash_password($password),
             'inviter_id'   => $user_id,
-            'contact_name' => $contact_name,
             'first_name'   => $contact_fname,
             'last_name'    => $contact_lname,
             'created_at'   => current_time('mysql'),
@@ -161,7 +161,7 @@ class MemyContacts {
 
         update_option('memy_contact_invitation_' . $token, $invite_data);
 
-        $sent = $this->send_contact_invitation_email($contact_mail, $contact_name, $password, $token);
+        $sent = $this->send_contact_invitation_email($contact_mail, $contact_fname, $password, $token);
         if(!$sent){
             wp_send_json_error('Einladung konnte nicht versendet werden.');
             return;
@@ -319,6 +319,26 @@ class MemyContacts {
         wp_redirect(get_site_url(1) . '/login/?login=success');
 
         exit;
+    }
+
+    /**
+     * Gibt einen eindeutigen Benutzernamen zurück, falls der gewünschte bereits vergeben ist.
+     *
+     * @param string $gewuenschter_username Der gewünschte Benutzername (ohne Zahl).
+     * @return string Ein eindeutiger Benutzername.
+     */
+    public function generiere_eindeutigen_username($gewuenschter_username) {
+        $original = sanitize_user($gewuenschter_username);
+        $username = $original;
+        $suffix = 1;
+
+        // Prüfe, ob der Benutzer bereits existiert (netzwerkweit)
+        while (username_exists($username)) {
+            $username = $original . $suffix;
+            $suffix++;
+        }
+
+        return $username;
     }
 }
 
