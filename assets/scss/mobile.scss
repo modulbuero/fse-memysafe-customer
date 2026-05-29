@@ -59,6 +59,11 @@
                             }
                         }
                     }
+
+                    form input[type="submit"]{
+                        width: 100%;
+                        height: 100%;
+                    }
                 }
             }
 
@@ -164,7 +169,7 @@
                             >.mmsi-icon:first-child{
                                 height: 100%;
                                 width: 100%;
-                                background-size: 100%;
+                                background-size: contain;
                             }
                             .mmsi-icon.weiter{
                                 display: none;
@@ -190,6 +195,18 @@
             }    
         }
 
+        /*Dashboard Helper*/
+        .dashboard-helper{
+            >.spalte{
+                >.spalte,
+                &:first-child{
+                    flex-direction: row;
+                }
+                &:last-child{
+                    gap:0;
+                }
+            }
+        }
         /*
         *   Safe 
         */
@@ -215,6 +232,26 @@
         .message-container{
             left:0;
             max-width: calc(100% - (var(--memy-padding-root) * 2));
+        }
+    }
+
+    /**
+    *   Icons
+    */
+    .dashboard-item{
+        .mmsi-icon {
+            &.kontakte{
+                background-image: url(../icons/MMSI-Icon_Mobile_Kontakte.svg);
+            }
+            &.safe{
+                background-image: url(../icons/MMSI-Icon_Mobile_Safe.svg);
+            }
+            &.projekte{
+                background-image: url(../icons/MMSI-Icon_Mobile_Projekte.svg);
+            }
+            &.nachricht{
+                background-image: url(../icons/MMSI-Icon_Mobile_Nachrichten.svg);
+            }
         }
     }
 

@@ -1,6 +1,7 @@
 @use 'mixins' as m;
 
 /*Buttons*/
+.wp-block-file__button,
 button,
 input[type="submit"]:not(.icon-logout-btn),
 .memy-button{

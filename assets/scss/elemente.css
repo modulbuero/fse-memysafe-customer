@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /*Buttons*/
+.wp-block-file__button,
 button,
 input[type=submit]:not(.icon-logout-btn),
 .memy-button {
@@ -12,45 +13,54 @@ input[type=submit]:not(.icon-logout-btn),
   gap: 5px;
   text-transform: uppercase;
 }
+.wp-block-file__button h5,
 button h5,
 input[type=submit]:not(.icon-logout-btn) h5,
 .memy-button h5 {
   flex: 1;
 }
+.wp-block-file__button[disabled],
 button[disabled],
 input[type=submit]:not(.icon-logout-btn)[disabled],
 .memy-button[disabled] {
   opacity: 0.4;
   cursor: not-allowed;
 }
+.wp-block-file__button,
 button,
 input[type=submit]:not(.icon-logout-btn),
 .memy-button {
   /*kleine Buttons, wie zurück, oder speichern*/
 }
+.wp-block-file__button:not(.full-width) :not(.contact-person-mail) :not(.memy-file-actions > button) :not(#kunden-section > div > button) :not(#vertreter-section > div > button),
 button:not(.full-width) :not(.contact-person-mail) :not(.memy-file-actions > button) :not(#kunden-section > div > button) :not(#vertreter-section > div > button),
 input[type=submit]:not(.icon-logout-btn):not(.full-width) :not(.contact-person-mail) :not(.memy-file-actions > button) :not(#kunden-section > div > button) :not(#vertreter-section > div > button),
 .memy-button:not(.full-width) :not(.contact-person-mail) :not(.memy-file-actions > button) :not(#kunden-section > div > button) :not(#vertreter-section > div > button) {
   background-color: var(--memy-secondary);
   color: var(--memy-primary);
 }
+.wp-block-file__button:not(.full-width) :not(.contact-person-mail) :not(.memy-file-actions > button) :not(#kunden-section > div > button) :not(#vertreter-section > div > button) i,
 button:not(.full-width) :not(.contact-person-mail) :not(.memy-file-actions > button) :not(#kunden-section > div > button) :not(#vertreter-section > div > button) i,
 input[type=submit]:not(.icon-logout-btn):not(.full-width) :not(.contact-person-mail) :not(.memy-file-actions > button) :not(#kunden-section > div > button) :not(#vertreter-section > div > button) i,
 .memy-button:not(.full-width) :not(.contact-person-mail) :not(.memy-file-actions > button) :not(#kunden-section > div > button) :not(#vertreter-section > div > button) i {
   filter: invert(1);
 }
+.wp-block-file__button > a,
 button > a,
 input[type=submit]:not(.icon-logout-btn) > a,
 .memy-button > a {
   color: var(--memy-secondary);
 }
+.wp-block-file__button:hover,
 button:hover,
 input[type=submit]:not(.icon-logout-btn):hover,
 .memy-button:hover {
   background-color: var(--memy-border-hover-bg);
   color: var(--memy-secondary);
 }
-button:hover.contact-person-mail, button:hover.memy-file-actions > button,
+.wp-block-file__button:hover.contact-person-mail, .wp-block-file__button:hover.memy-file-actions > button,
+button:hover.contact-person-mail,
+button:hover.memy-file-actions > button,
 input[type=submit]:not(.icon-logout-btn):hover.contact-person-mail,
 input[type=submit]:not(.icon-logout-btn):hover.memy-file-actions > button,
 .memy-button:hover.contact-person-mail,
@@ -58,13 +68,17 @@ input[type=submit]:not(.icon-logout-btn):hover.memy-file-actions > button,
   background-color: var(--memy-secondary);
   color: var(--memy-primary);
 }
-button:hover.contact-person-mail i, button:hover.memy-file-actions > button i,
+.wp-block-file__button:hover.contact-person-mail i, .wp-block-file__button:hover.memy-file-actions > button i,
+button:hover.contact-person-mail i,
+button:hover.memy-file-actions > button i,
 input[type=submit]:not(.icon-logout-btn):hover.contact-person-mail i,
 input[type=submit]:not(.icon-logout-btn):hover.memy-file-actions > button i,
 .memy-button:hover.contact-person-mail i,
 .memy-button:hover.memy-file-actions > button i {
   filter: invert(1);
 }
+.wp-block-file__button:hover a,
+.wp-block-file__button:hover i,
 button:hover a,
 button:hover i,
 input[type=submit]:not(.icon-logout-btn):hover a,
@@ -73,11 +87,13 @@ input[type=submit]:not(.icon-logout-btn):hover i,
 .memy-button:hover i {
   filter: invert(0);
 }
+.wp-block-file__button:hover i.mmsi-icon.delete,
 button:hover i.mmsi-icon.delete,
 input[type=submit]:not(.icon-logout-btn):hover i.mmsi-icon.delete,
 .memy-button:hover i.mmsi-icon.delete {
   background-image: url(../icons/MMSI_Icon_DELETE-OPEN.svg);
 }
+.wp-block-file__button:hover i.mmsi-icon.download,
 button:hover i.mmsi-icon.download,
 input[type=submit]:not(.icon-logout-btn):hover i.mmsi-icon.download,
 .memy-button:hover i.mmsi-icon.download {
