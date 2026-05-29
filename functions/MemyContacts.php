@@ -209,7 +209,7 @@ class MemyContacts {
         $subject = 'Ihre Einladung zu Me, My Safe and I';
         $headers = array('Content-Type: text/html; charset=UTF-8');
 
-        $message =  emailParts('head') . "<p>Hallo " . esc_html($name ?: 'Kontakt') . ",</p>";
+        $message =  emailParts('head') . "<p>Hallo " . esc_html($name ?: 'Helfer') . ",</p>";
         $message .= "<p>" . esc_html($inviter_name) . "  hat dich zu Me, My Safe and I eingeladen.</p>";
         $message .= "<p>Bitte bestätige deine Einladung, damit du im Ernstfall als Notfallkontakt aktiviert werden kannst.</p>";
 
@@ -233,10 +233,11 @@ class MemyContacts {
             return;
         }
 
-        $token = sanitize_text_field($_GET['accept_invitation']);
-        $option_key = 'memy_contact_invitation_' . $token;
-        $invite_data = get_option($option_key);
-
+        $token          = sanitize_text_field($_GET['accept_invitation']);
+        $option_key     = 'memy_contact_invitation_' . $token;
+        $invite_data    = get_option($option_key);
+        $inviter        = get_userdata($invite_data['inviter_id']);
+        $inviter_name   = $inviter->first_name . ' ' . $inviter->last_name;
         if(!$invite_data){
             wp_die('Ungültiger oder abgelaufener Einladungslink.');
         }
@@ -307,11 +308,13 @@ class MemyContacts {
         $trueMessage = emailParts('head');
         $trueMessage .= "<p>Hallo " . esc_html($first_name) . ",</p>";
         $trueMessage .= "<p>MMSI hilft Menschen dabei, wichtige Informationen und Abläufe für den Ernstfall vorzubereiten.<br>
-            Als Notfallkontakt kannst du informiert werden, wenn [Name] über einen längeren Zeitraum nicht erreichbar ist.<br>
+            Als Notfallkontakt kannst du informiert werden, wenn ".$inviter_name." über einen längeren Zeitraum nicht erreichbar ist.<br>
             Aktuell besteht kein Handlungsbedarf.<br>
-            Wir empfehlen dir dennoch, dich mit [Name] darüber auszutauschen:<br>
+            Wir empfehlen dir dennoch, dich mit ".$inviter_name." darüber auszutauschen:<br>
             welche Rolle du im Ernstfall übernehmen sollst, welche Informationen wichtig sind und wie du erreichbar bist.";
-        $trueMessage .= "";
+        $trueMessage .= "</p>";
+        $trueMessage .= emailParts('footer');
+        $trueMessage .= "</body></html>";
 
         wp_mail($invite_data['email'], $trueSubject, $trueMessage, $headers);
 
