@@ -198,7 +198,7 @@ if ( is_user_logged_in() ) :
                 <div class="container kontakt">
                     <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-03.php'; ?>
                 </div>
-                <div class="container ">
+                <div class="container notfallkontakt">
                     <?php require_once get_stylesheet_directory() . '/user-setup/first-settings/step-04.php'; ?>
                 </div>
                 <div class="container safe-info">

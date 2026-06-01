@@ -93,7 +93,12 @@
             event.preventDefault();
 
             const $currentContainer = $(this).closest('.container');
-            
+            if ($currentContainer.hasClass('notfallkontakt')) {
+                if (!validateNotfallKontakt($currentContainer)) {
+                    return;
+                }
+            }
+
             // Prüfe, ob Radio-Gruppe "mmsi-uploadcheck" vorhanden ist
             const $radioGroup = $currentContainer.find('input[name="mmsi-uploadcheck"]:checked');
             let $nextContainer;
@@ -271,5 +276,19 @@
                 }
             });
         });
+    }
+
+    function validateNotfallKontakt($container){
+        const $emailInput = $container.find('#contact_mail');
+        const email = $emailInput.val().trim();
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (regex.test(email)) {
+            return true;
+        }
+
+        showMessage('ungültige E-Mail');
+        $emailInput.focus();
+        return false;
     }
 })(jQuery);
