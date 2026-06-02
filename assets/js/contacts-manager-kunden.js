@@ -21,17 +21,27 @@
                     $('#kunden-status').val(response.status);
                     
                     // Aktuelle ID speichern im div
+                    let containerId = response.kunden_id === 'new' ? '#setup-kunden-new' : '#setup-kunden-' + response.kunden_id;
                     $('.setup-kunden-data').attr('id', 'setup-kunden-' + response.kunden_id);
                     
                     // Delete Button nur bei Bearbeitung anzeigen
                     if (response.kunden_id === 'new') {
-                        $('#delete-kunden').hide();
+                        $(containerId).find('.save-wrapper button').prop('disabled', true);
                     } else {
-                        $('#delete-kunden').show();
+                        $(containerId).find('.save-wrapper .delete-btn-pop').prop('disabled', false);
                     }
                     
-                    // Zur Formular-Position scrollen
-                    //$('html, body').animate({ scrollTop: $('.setup-kunden-data').offset().top - 100 }, 300);
+                    /**
+                     *  Set SaveButton free if changes are made in the form
+                     */
+                    let projectWrap = containerId
+                    $(projectWrap).on('input change', 'input', function() {
+                        $(projectWrap + ' #save-kunden').prop('disabled', false);
+                        if($(this).val().trim() === '') {
+                            $(projectWrap + ' #save-kunden').prop('disabled', true);
+                        }
+                    });
+                    
                 }).fail(function(response) {
                     console.log('Fehler beim Laden der Daten:', response);
                 });

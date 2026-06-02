@@ -2,13 +2,24 @@
 /**
  * Title: Manage Benachrichtigungsuhr
  */
+$get_user_id             = get_current_user_id();
+//Die Tage für die Zyklus Einstellungen holen
+$exam_clock_zyklus_one   = get_user_meta( $get_user_id, 'exam-clock-zyklus-one', true );
+$exam_clock_zyklus_two   = get_user_meta( $get_user_id, 'exam-clock-zyklus-two', true );
+$exam_clock_zyklus_three = get_user_meta( $get_user_id, 'exam-clock-zyklus-three', true );
+//Datum für die Eskalationsstufen holen
+$eskalation_stufe_one    = get_user_meta( $get_user_id, 'eskalation_stufe_one', true );
+$eskalation_stufe_two    = get_user_meta( $get_user_id, 'eskalation_stufe_two', true );
+$eskalation_stufe_three  = get_user_meta( $get_user_id, 'eskalation_stufe_three', true );
+//Urlaubs-Modus
+$exam_clock_urlaubsmodus = MemyOptionManager::get('exam_clock_urlaubsmodus', '0');
 ?>
 
 <div id="manage-exam-clock-wrapper" style="height:100%">
     <div class="spalte inner-main-heading">
         <h3>
             <i class="mmsi-icon zyklus"></i> 
-            Einstellungen Timer
+            <span class="hide-mobile">Einstellungen</span> Timer
         </h3>
         <?php 
             addCheckbox('URLAUBSMODUS',$exam_clock_urlaubsmodus,'exam_clock_urlaubsmodus');
@@ -26,7 +37,7 @@
     </div>
 
     
-    <div id="exam-clock-zyklus-input" class="step-2 flex-one settings-labels">
+    <div id="exam-clock-zyklus-input" class="step-2 flex-one settings-labels overflow-wrapper">
         <h4>Zyklus</h4>
         <div class="spalte">
             <?php numberInput("exam-clock-zyklus-one", esc_attr($exam_clock_zyklus_one), 2, 14, "Erste Erinnerung nach", "Tage"); ?>

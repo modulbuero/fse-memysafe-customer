@@ -12,8 +12,6 @@
             wp.ajax.post('load_vertreter_data', formData)
                 .done(function(response) {
                     // Formular anzeigen
-                    //console.log("vertreterID")
-                    //console.log(response.vertreter_id)
                     // Felder füllen
                     $('#vertreter-name').val(response.name);
                     $('#vertreter-email').val(response.email);
@@ -22,17 +20,28 @@
                     $('#vertreter-status').val(response.status);
                     
                     // Aktuelle ID speichern im div
-                    $('.setup-vertreter-data').attr('id', 'setup-vertreter-' + response.vertreter_id);
+                    let containerId = response.vertreter_id === 'new' ? '#setup-vertreter-new' : '#setup-vertreter-' + response.vertreter_id;
+                    $('.setup-vertreter-data').attr('id', 'setup-vertreter-' + response.vertreter_id );
                     
                     // Delete Button nur bei Bearbeitung anzeigen
                     if (response.vertreter_id === 'new') {
-                        $('.delete-vertreter').hide();
+                        $(containerId).find('.save-wrapper button').prop('disabled', true);
                     } else {
-                        $('.delete-vertreter').show();
+                        $(containerId).find('.save-wrapper .delete-btn-pop').prop('disabled', false);
                     }
+
+                    /**
+                     *  Set SaveButton free if changes are made in the form
+                     */
+                    let projectWrap = containerId
+                    $(projectWrap).on('input change', 'input', function() {
+                        $(projectWrap + ' #save-vertreter').prop('disabled', false);
+                        if($(this).val().trim() === '') {
+                            $(projectWrap + ' #save-vertreter').prop('disabled', true);
+                        }
+                    });
+
                     
-                    // Zur Formular-Position scrollen
-                    //$('html, body').animate({ scrollTop: $('.setup-vertreter-data').offset().top - 100 }, 300);
                 }).fail(function(response) {
                     console.log('Fehler beim Laden der Daten:', response);
                     //alert('Fehler beim Laden der Daten');

@@ -21,13 +21,13 @@
     <div class="contact-data txt-distance-bottom">
         <div class="spalte">
             <?php 
-            addInput('Vorname', $v_person_fname, 'contact-first_name-'.$i);
-            addInput('Nachname', $v_person_lname, 'contact-last_name-'.$i);
+            addInput('Vorname', $v_person_fname, 'contact-first_name-'.$i, 'Vorname');
+            addInput('Nachname', $v_person_lname, 'contact-last_name-'.$i, 'Nachname');
             ?>
         </div>
         <?php 
-        addInput('E-Mail-Adresse', $v_person_email, 'contact-email-'.$i, 'email');
-        addInput('Telefonnummer', $v_person_tel, 'contact-tel-'.$i, 'number');
+        addInput('E-Mail-Adresse', $v_person_email, 'contact-email-'.$i, 'E-Mail', 'email');
+        addInput('Telefonnummer', $v_person_tel, 'contact-tel-'.$i, 'Telefonnummer');
         addInput('Firma (Optional)', $v_person_firma, 'contact-firma-'.$i);
         addInput('', 'Vertrauensperson', 'contact-typ-'.$i, '','hidden'); 
         ?>   
@@ -38,7 +38,7 @@
         <div class="spalte">
             <div><!--mmsi can --></div>
             <?php if(!email_exists($v_person_email)): ?>
-                <button class="send-invitation half-width" style="padding: 5px; font-size: 14px;justify-content: space-between;">
+                <button class="send-invitation half-width" disabled style="padding: 5px; font-size: 14px;justify-content: space-between;">
                     Einladung senden
                     <i class='mmsi-icon send'></i>
                 </button>

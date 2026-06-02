@@ -130,5 +130,26 @@
             });
 
         })
+
+        /**
+         *  Set SaveButton free if changes are made in the form
+         */
+        if($('.setup-contact-person-data').length > 0) {
+            $('.setup-contact-person-data input').on('input change', function() {
+                let $container = $(this).closest('.setup-contact-person-data');
+                $container.find('#save-contact').prop('disabled', false);
+                $container.find('.delete-btn-pop').prop('disabled', false);
+            });
+
+            
+
+            $('.setup-contact-person-data input[type="email"]').each(function() {
+                if($(this).val().trim() != '') {
+                    $(this).closest('.setup-contact-person-data').find('button.send-invitation').prop('disabled', false);
+                    $(this).closest('.setup-contact-person-data').find('button.delete-btn-pop').prop('disabled', false);
+                    console.log("Email field is not empty, enabling send invitation button: " + $(this).val());
+                }
+            });
+        }
     })
 })(jQuery)

@@ -110,12 +110,39 @@
      * Verhindert Zurückbutton und löst eigenen "Zurückbutton" aus
      */
     function noBrowserBackEvent(){
-        history.pushState(null, null, location.href);
+        // Erst nach echter User-Interaktion aktivieren
+        const activate = () => {
 
-        window.addEventListener('popstate', function () {
-            history.pushState(null, null, location.href);
+            // mehrfachen Aufruf verhindern
+            if (window.__backBlockerActive) return;
+            window.__backBlockerActive = true;
+
+            // initialen History-State setzen
+            history.pushState({ page: 1 }, '', location.href);
+
+            window.addEventListener('popstate', onPopState);
+
+            // Safari BFCache Handling
+            window.addEventListener('pageshow', function (event) {
+
+                // Seite wurde aus Cache wiederhergestellt
+                if (event.persisted) {
+                    history.pushState({ page: 1 }, '', location.href);
+                }
+            });
+        };
+
+        function onPopState(event) {
+
+            // State erneut setzen
+            history.pushState({ page: 1 }, '', location.href);
             $('#goback').click()
-        });
+            
+        }
+
+        // Safari/iOS benötigt oft echte User-Interaktion
+        document.addEventListener('touchstart', activate, { once: true });
+        document.addEventListener('click', activate, { once: true });
     }
 
     /**

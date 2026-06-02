@@ -183,8 +183,8 @@ function saveDeleteButton($typ){
 
     if(get_current_user_id() === getAdminUserID() || $typ == 'project'){
         $html = '<div class="spalte save-wrapper">';
-        $html .= "<button id='save-".$typ."'><i class='mmsi-icon speichern'></i> Speichern</button>
-            <button data-id='delete-".$typ."' class='delete-btn-pop'><i class='mmsi-icon delete'></i> Löschen</button>
+        $html .= "<button id='save-".$typ."' disabled><i class='mmsi-icon speichern'></i> Speichern</button>
+            <button data-id='delete-".$typ."' class='delete-btn-pop' disabled><i class='mmsi-icon delete'></i> Löschen</button>
         </div>";
     }
     echo $html;

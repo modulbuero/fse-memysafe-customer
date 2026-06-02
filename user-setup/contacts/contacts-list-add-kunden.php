@@ -20,8 +20,8 @@
         <?php 
         addInput('Firma (Optional)', $kunden_firma, 'kunden-firma');            
         addInput('Name', $kunden_name, 'kunden-name', 'Vorname Nachname');
-        addInput('E-Mail-Adresse', $kunden_email, 'kunden-email');
-        addInput('Telefonnummer', $kunden_tel, 'kunden-tel');
+        addInput('E-Mail-Adresse', $kunden_email, 'kunden-email', 'E-Mail', 'email');
+        addInput('Telefonnummer', $kunden_tel, 'kunden-tel', 'Telefonnummer');
         ?>
         </div>
     </div>

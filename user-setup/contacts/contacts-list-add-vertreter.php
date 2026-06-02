@@ -19,9 +19,9 @@
         <div>
         <?php 
         addInput('Name', $vertreter_name, 'vertreter-name', 'Vorname Nachname');
-        addInput('E-Mail-Adresse', $vertreter_email, 'vertreter-email');
-        addInput('Telefonnummer', $vertreter_tel, 'vertreter-tel');
-        addInput('Firma (Optional)', $vertreter_firma, 'vertreter-firma');            
+        addInput('E-Mail-Adresse', $vertreter_email, 'vertreter-email', 'E-Mail', 'email');
+        addInput('Telefonnummer', $vertreter_tel, 'vertreter-tel', 'Telefonnummer');
+        addInput('Firma (Optional)', $vertreter_firma, 'vertreter-firma');    
         ?>
         </div>
        

@@ -7,7 +7,7 @@ $today                   = new DateTime('now', new DateTimeZone('Europe/Berlin')
 //den Tag für die Zyklus Starten holen
 $exam_clock_start_date   = get_user_meta( $get_user_id, 'exam-clock-start', true );
 //Die Tage für die Zyklus Einstellungen holen
-$exam_clock_zyklus_one   = get_user_meta( $get_user_id, 'exam-clock-zyklus-one', true );
+$exam_clock_zyklus_one   = (get_user_meta( $get_user_id, 'exam-clock-zyklus-one', true )) ? get_user_meta( $get_user_id, 'exam-clock-zyklus-one', true ) : 1;
 $exam_clock_zyklus_two   = get_user_meta( $get_user_id, 'exam-clock-zyklus-two', true );
 $exam_clock_zyklus_three = get_user_meta( $get_user_id, 'exam-clock-zyklus-three', true );
 //Datum für die Eskalationsstufen holen

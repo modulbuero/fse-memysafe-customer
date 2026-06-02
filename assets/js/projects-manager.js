@@ -34,9 +34,15 @@
                     
                     // Delete Button nur bei Bearbeitung anzeigen
                     if (response.project_id === 'new') {
-                        $('#delete-project').hide();
+                        $('#setup-project-new').find('.save-wrapper button').prop('disabled', true);
                     } else {
                         $('#delete-project').show();
+                    }
+
+                    if(response.projektname && response.projektname.trim() !== '') {
+                        $('#setup-project-' + response.project_id).find('.save-wrapper button').prop('disabled', false);
+                    }else{
+                        $('#setup-project-' + response.project_id).find('.save-wrapper button').prop('disabled', true);
                     }
 
                     openClosedContainer()
@@ -289,6 +295,19 @@
                 $('#projekte-kontakt-edit').click();
                 console.log("selected")
             }
+        }
+
+        /**
+         *  Set SaveButton free if changes are made in the form
+         */
+        let projectWrap = '.setup-project-data'
+        if($(projectWrap).length > 0) {
+            $(projectWrap).on('input change', 'input#project-name', function() {
+                $(projectWrap + ' #save-project').prop('disabled', false);
+                if($(this).val().trim() === '') {
+                    $(projectWrap + ' #save-project').prop('disabled', true);
+                }
+            });
         }
 
     })

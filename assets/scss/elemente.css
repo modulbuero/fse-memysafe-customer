@@ -166,13 +166,11 @@ input[type=submit]:not(.icon-logout-btn):hover i.mmsi-icon.download,
   z-index: 10;
 }
 .info-popup-wrap .close-btn {
-  padding: 20px;
+  padding: var(--memy-padding-inner-container);
   align-items: center;
   justify-content: center;
-  width: 57px;
   right: 0;
   position: absolute;
-  top: 9px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -293,6 +291,7 @@ div, p {
 }
 .number-input input[type=number] {
   min-width: 65px; /*wegen max Val*/
+  width: 65px;
   -moz-appearance: textfield;
 }
 .number-input input[type=number]::-webkit-inner-spin-button, .number-input input[type=number]::-webkit-outer-spin-button {

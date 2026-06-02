@@ -11,7 +11,7 @@
         setStepsFree('zweifaktor')
         hasInputValuesTXT() 
         saveSafeInfo()//Wird auch vom Safe genutzt
-
+        addInputvaluesToSession()
         saveFirstSettings()
         $('#zyklus-ersteinrichtung').on('click', function(event) {
             event.preventDefault();
@@ -93,7 +93,17 @@
             event.preventDefault();
 
             const $currentContainer = $(this).closest('.container');
-            if ($currentContainer.hasClass('notfallkontakt')) {
+            
+            //Prüfungen für bestimmte Container, bevor zum nächsten Schritt gewechselt wird
+            if ($currentContainer.is('.einrichten.show')) {
+                hasInputValues('adress')
+            }
+            
+            if ($currentContainer.is('.kontakt.show')) {
+                hasInputValues('kontakt')
+            }
+
+            if ($currentContainer.is('.notfallkontakt.show')) {
                 if (!validateNotfallKontakt($currentContainer)) {
                     return;
                 }
@@ -284,11 +294,105 @@
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (regex.test(email)) {
+            console.log("isMail")
             return true;
         }
 
         showMessage('ungültige E-Mail');
         $emailInput.focus();
+        
         return false;
+    }
+
+    function validateNotfallPLZ($container){
+        const $plzInput = $container.find('#plz');
+        const plz = $plzInput.val().trim();
+        const regex = /^\d{5}$/;
+
+        if (regex.test(plz)) {
+            console.log("isPLZ")
+            return true;
+        }
+
+        showMessage('ungültige PLZ');
+        $plzInput.focus();
+        
+        return false;
+    }
+
+    function addInputvaluesToSession(){
+        const addressKey = 'firstSettingsAddress';
+        const contactKey = 'firstSettingsContact';
+        const expiryMs = 12 * 60 * 60 * 1000; // 12 Stunden
+
+        const $addressInputs = $('#checkvalues-adress input');
+        const $contactInputs = $('#checkvalues-kontakt input');
+
+        function saveValues(key, $inputs) {
+            const values = {};
+
+            $inputs.each(function() {
+                const $input = $(this);
+                const name = $input.attr('id') || $input.attr('name');
+                if (!name) {
+                    return;
+                }
+                values[name] = $input.val();
+            });
+
+            const payload = {
+                timestamp: Date.now(),
+                values: values
+            };
+
+            try {
+                sessionStorage.setItem(key, JSON.stringify(payload));
+            } catch (error) {
+                console.warn('SessionStorage write failed', error);
+            }
+        }
+
+        function restoreValues(key, $inputs) {
+            let stored = sessionStorage.getItem(key);
+            if (!stored) {
+                return;
+            }
+
+            try {
+                const payload = JSON.parse(stored);
+                if (typeof payload !== 'object' || payload === null || typeof payload.timestamp !== 'number' || typeof payload.values !== 'object') {
+                    return;
+                }
+
+                if (Date.now() - payload.timestamp > expiryMs) {
+                    sessionStorage.removeItem(key);
+                    return;
+                }
+
+                const values = payload.values;
+                $inputs.each(function() {
+                    const $input = $(this);
+                    const name = $input.attr('id') || $input.attr('name');
+                    if (!name || values[name] == null) {
+                        return;
+                    }
+                    $input.val(values[name]);
+                });
+            } catch (error) {
+                console.warn('SessionStorage read failed', error);
+            }
+        }
+
+        function attachSaveHandler($container, key) {
+            $container.on('input change', 'input', function() {
+                saveValues(key, $container.find('input'));
+            });
+        }
+
+        restoreValues(addressKey, $addressInputs);
+        restoreValues(contactKey, $contactInputs);
+
+        attachSaveHandler($('#checkvalues-adress'), addressKey);
+        attachSaveHandler($('#checkvalues-kontakt'), contactKey);
     }
 })(jQuery);

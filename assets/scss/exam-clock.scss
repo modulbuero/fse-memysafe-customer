@@ -94,7 +94,7 @@
             p{
                 display: flex;
                 align-items: center;
-                gap:8px;
+                gap:5px;
                 margin-bottom: 0;
                 //Uhrzeit-Text
                 span:last-child{
@@ -171,12 +171,22 @@
         label{
             min-width: 220px;
         }
+        @media (max-width: 601px){
+            .number-input{
+                flex-wrap: wrap;
+                label{
+                    min-width: 100%;
+                }
+            }
+        }
     }
 
     //Save-button
     .save-wrapper{
-        top:20px;
-        left:-20px;
+        @media (min-width: 602px){
+            top:20px;
+            left:-20px;
+        }
     }
 }
 

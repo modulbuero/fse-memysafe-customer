@@ -81,7 +81,7 @@
 .exam-clock-wrapper .time-information-wrapper .time-information p {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
   margin-bottom: 0;
 }
 .exam-clock-wrapper .time-information-wrapper .time-information p span:last-child {
@@ -147,9 +147,19 @@
 #manage-exam-clock-wrapper #exam-clock-zyklus-input label {
   min-width: 220px;
 }
-#manage-exam-clock-wrapper .save-wrapper {
-  top: 20px;
-  left: -20px;
+@media (max-width: 601px) {
+  #manage-exam-clock-wrapper #exam-clock-zyklus-input .number-input {
+    flex-wrap: wrap;
+  }
+  #manage-exam-clock-wrapper #exam-clock-zyklus-input .number-input label {
+    min-width: 100%;
+  }
+}
+@media (min-width: 602px) {
+  #manage-exam-clock-wrapper .save-wrapper {
+    top: 20px;
+    left: -20px;
+  }
 }
 
 /*Clock-Menu*/

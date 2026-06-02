@@ -31,13 +31,13 @@ foreach (range(1, 3) as $i):
         <div class="contact-data txt-distance-bottom">
             <div class="spalte">
                 <?php     
-                addInput('Vorname', $person_f_name, 'contact-first_name-'.$i);
-                addInput('Nachname', $person_l_name, 'contact-last_name-'.$i);
+                addInput('Vorname', $person_f_name, 'contact-first_name-'.$i, 'Vorname');
+                addInput('Nachname', $person_l_name, 'contact-last_name-'.$i, 'Nachname');
             ?>
             </div>
             <?php 
-            addInput('E-Mail-Adresse', $person_email, 'contact-email-'.$i, 'email');
-            addInput('Telefonnummer', $person_tel, 'contact-tel-'.$i, 'number');
+            addInput('E-Mail-Adresse', $person_email, 'contact-email-'.$i, 'E-Mail-Adresse', 'email');
+            addInput('Telefonnummer', $person_tel, 'contact-tel-'.$i, 'Telefonnummer');
             addInput('Firma (Optional)', $person_firma, 'contact-firma-'.$i);            
             //addSelect('Status', ['Aktiv' => 'Aktiv', 'Ausstehend' => 'Ausstehend'], $person_status, 'contact-person-status-'.$i, false);
             ?>
@@ -50,7 +50,7 @@ foreach (range(1, 3) as $i):
             <div class="spalte">
                 <?php if(!email_exists($person_email)): ?>
                     <p> </p>
-                    <button class="send-invitation half-width" style="padding: 5px; font-size: 14px; justify-content: space-between;">
+                    <button class="send-invitation half-width" disabled style="padding: 5px; font-size: 14px; justify-content: space-between;">
                         Einladung senden
                         <i class='mmsi-icon send'></i>
                     </button>

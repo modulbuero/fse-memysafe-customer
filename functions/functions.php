@@ -74,7 +74,7 @@ function numberInput($name, $value = 2, $min = 1, $max = 50, $label = "", $after
                 max='$max' 
                 value='$value' 
                 step='$step'>
-            <div class='input-number-arrows'>
+            <div class='input-number-arrows hide-mobile'>
                 <i class='mmsi-icon pfeil pfeil-oben input-number-arrow-up'></i>
                 <i class='mmsi-icon pfeil pfeil-unten input-number-arrow-down'></i>
             </div>
