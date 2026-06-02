@@ -276,15 +276,14 @@ class MemyProjectsManager {
         $user_id = getAdminUserID();
         $selected_kontakt = isset($_POST['selected']) ? sanitize_text_field($_POST['selected']) : '';
         
-        $html = '<div class="selectbox project-kontakt"><label>Notfallkontakt</label><select id="project-kontakt"><option value="">Notfallkontakt wählen</option>';
+        $html = '<div class="selectbox project-kontakt"><label>Notfallkontakt</label><select id="project-kontakt"><option value="">-- Notfallkontakt wählen --</option>';
         
         // Notfall-Kontakte laden (aus den 3 statischen Kontakten)
         foreach (range(1, 3) as $i) {
             $contact_data = get_user_meta($user_id, 'contact-person-' . $i, true);
-            $contact_name = $contact_data['first_name'] . " " .$contact_data['last_name'];
             
-            
-            if (!empty($contact_data)) {
+            if (!empty($contact_data) && is_array($contact_data)) {
+                $contact_name = $contact_data['first_name'] . " " .$contact_data['last_name'];
                 $contact_id = 'contact_' . $i;
                 $selected = ($contact_id === $selected_kontakt) ? 'selected' : '';
                 $html .= sprintf(

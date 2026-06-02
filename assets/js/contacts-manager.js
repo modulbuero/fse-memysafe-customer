@@ -143,13 +143,11 @@
                 $container.find('.delete-btn-pop').prop('disabled', false);
             });
 
-            
-
+            //Einladen-button (falls vorhanden), Löschen freigeben.
             $('.setup-contact-person-data input[type="email"]').each(function() {
                 if($(this).val().trim() != '') {
                     $(this).closest('.setup-contact-person-data').find('button.send-invitation').prop('disabled', false);
                     $(this).closest('.setup-contact-person-data').find('button.delete-btn-pop').prop('disabled', false);
-                    console.log("Email field is not empty, enabling send invitation button: " + $(this).val());
                 }
             });
         }
