@@ -64,11 +64,18 @@ class MemyContacts {
             #'hauptkontakt'  => $is_main,
             'mmsi_can'      => $mmsi_can
         ];
+
+        $nachricht = $contact_data["typ"]. ' ' . $fname . ' ' . $lname. ' gespeichert.';
+
+        // Eintrag in die MemyProtocolManager Tabelle für die Historie
+        MemyProtocolManager::add_protocol_backoffice($user_id, $nachricht, 'edit');
         
         // Update user meta
         update_user_meta($user_id, 'contact-person-'.$contact_id, $contact_data);
+        
+        //Senden
         wp_send_json_success(array(
-            'message' => $contact_data["typ"]. ' ' . $contact_data["name"] . ' gespeichert.',
+            'message' => $nachricht,
             'debug'   => print_r($contact_data, true)
         ));
     }
@@ -84,7 +91,7 @@ class MemyContacts {
         
         $user_id      = get_current_user_id();
         $contact_id   = intval($_POST['contact_id']);
-        $contact_name = sanitize_text_field($_POST['contact_name']);
+        $contact_name = sanitize_text_field($_POST['contact_fname'] . ' ' . $_POST['contact_lname']);
         
         // Kontaktdaten leeren
         $empty_data = [
@@ -99,14 +106,17 @@ class MemyContacts {
             'mmsi_can'      => ''
         ];
         
+        $nachricht = $contact_name . ' gelöscht.';
+        MemyProtocolManager::add_protocol_backoffice($user_id, $nachricht, 'edit');
+
         // Update user meta with empty data
         update_user_meta($user_id, 'contact-person-'.$contact_id, $empty_data);
         wp_send_json_success(array(
-            'message' => $contact_name . ' erfolgreich gelöscht.',
+            'message' => $nachricht,
             'debug'   => [
-                'contact_id' => $contact_id,
-                'user_id' => $user_id,
-                'contact_name' => $contact_name
+                'contact_id'    => $contact_id,
+                'user_id'       => $user_id,
+                'contact_name'  => $contact_name
             ]
         ));
     }
@@ -195,8 +205,7 @@ class MemyContacts {
      */
     private function send_contact_invitation_email($email, $name, $password, $token){
         $invitation_url = home_url('/?accept_invitation=' . rawurlencode($token));
-        $inviter = wp_get_current_user();
-        
+        $inviter        = wp_get_current_user();
         $first_name     = get_user_meta($inviter->ID, 'first_name', true);
         $last_name      = get_user_meta($inviter->ID, 'last_name', true);
         $inviter_name   = trim($first_name . ' ' . $last_name) ?: ($inviter->display_name ?: $inviter->user_login);
@@ -224,6 +233,8 @@ class MemyContacts {
         $message .= "<p>Da es sich um eine persönliche Einladung handelt, empfehlen wir dir, vor dem Ignorieren der Nachricht kurz mit $inviter_name Rücksprache zu halten.</p>";
         $message .= emailParts('footer');
         $message .= "</body></html>";
+
+        MemyProtocolManager::add_protocol_backoffice($inviter->ID, 'Einladung an ' .$name . ' gesendet.');
 
         return wp_mail($email, $subject, $message, $headers);
     }
@@ -317,6 +328,8 @@ class MemyContacts {
         $trueMessage .= "</body></html>";
 
         wp_mail($invite_data['email'], $trueSubject, $trueMessage, $headers);
+
+        MemyProtocolManager::add_protocol_backoffice($invite_data['inviter_id'], $first_name . ' hat die Einladung angenommen.');
 
         // Weiterleitung zur Startseite oder Dashboard
         wp_redirect(get_site_url(1) . '/login/?login=success');

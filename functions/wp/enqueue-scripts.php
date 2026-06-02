@@ -86,6 +86,13 @@ function mbfse_child_style_Files(){
 		wp_get_theme()->get( 'Version' )
 	);
 
+	wp_enqueue_style(
+		'memy-nachrichten',
+		get_stylesheet_directory_uri().$f_CSS.'nachrichten.css',
+		array(),
+		wp_get_theme()->get( 'Version' )
+	);
+
 	// Safe Upload Styles
 	wp_enqueue_style(
 		'memy-safe-upload',

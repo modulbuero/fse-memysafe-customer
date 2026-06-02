@@ -13,32 +13,30 @@
     </div>
 
     <div class="item-content">        
-        <?php
-        // Nachrichten Liste anzeigen
-        echo "<div id='notification-section' class='notification-list'>";
-            
-            $user_id = get_current_user_id();
-            $notification_list = get_user_meta($user_id, 'notification_list', true);
+        <?php    
+            $user_id           = getAdminUserID();
+            $notification_list = MemyProtocolManager::get_protocols_for_user(3);
             
             if (empty($notification_list) || !is_array($notification_list)) {
                 echo '<div class="no-notifications-message"><p>Keine Nachrichten vorhanden</p></div>';
             } else {
-                foreach ($notification_list as $notification_id => $notification_data) {
-                    $project_name = $notification_data['benachrichtigung'] ?? '';
-                    
-                    if (!empty($project_name)) {
+                foreach ($notification_list as $notification_data) {
+                    $news_activity = $notification_data['aktivitaet'] ?? '';
+                    $news_date     = $notification_data['datum'] ?? '';
+                    $news_status   = $notification_data['status'] ?? '';
+                    $news_datum    = !empty($news_date) ? date_i18n('d.m.Y H:i', strtotime($news_date)) : '';
+                    $news_id    = $notification_data['id'] ?? '';
+
+                    if (!empty($news_activity)) {
                         ?>
-                        <div data-project="<?php echo esc_attr($notification_id); ?>" class="project-person-mail memy-button">
-                            <i class="bi bi-folder-fill"></i>
-                            <h5><?php echo htmlspecialchars($project_name); ?></h5>
-                            <i class="mmsi-icon pfeil"></i>        
+                        <div data-news="<?php echo esc_attr($news_id); ?>" class="dash-item spalte">
+                            <i class="mmsi-icon nachricht"></i>
+                            <p><?php echo htmlspecialchars($news_activity); ?></p>
                         </div>
                         <?php
                     }
                 }
             }
-
-        echo "</div>";
         ?>
 
         <!--    

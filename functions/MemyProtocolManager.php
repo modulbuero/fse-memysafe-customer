@@ -57,9 +57,9 @@ class MemyProtocolManager {
             return;
         }
 
-        $user_id = get_current_user_id();
+        $user_id    = get_current_user_id();
         $aktivitaet = sanitize_text_field($_POST['aktivitaet']);
-        $status = sanitize_text_field($_POST['status']);
+        $status     = sanitize_text_field($_POST['status']);
 
         global $wpdb;
         $table_name = $wpdb->prefix . 'aktivitaeten';
@@ -77,6 +77,36 @@ class MemyProtocolManager {
             wp_send_json_success(array('message' => 'Aktivität erfolgreich hinzugefügt.'));
         } else {
             wp_send_json_error('Fehler beim Hinzufügen der Aktivität.');
+        }
+    }
+
+    /**
+     * Fügt eine neue Aktivität via PHP operation hinzu
+     * @param int $user_id ID des Benutzers, für den die Aktivität hinzugefügt wird
+     * @param string $aktivitaet Beschreibung der Aktivität
+     * @param string $status Status oder auch typ der Aktivität (z.B. 'info', 'edit', 'mmsi', 'helper')
+     */
+    public static function add_protocol_backoffice($user_id, $aktivitaet, $status='info') {
+        
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'aktivitaeten';
+
+        error_log("Adding protocol for user_id: $user_id, aktivitaet: $aktivitaet, status: $status");
+        error_log("Table name: $table_name");
+
+        $result = $wpdb->insert(
+            $table_name,
+            array(
+                'aktivitaet' => $aktivitaet,
+                'status'     => $status,
+                'user_id'    => $user_id
+            )
+        );
+
+        if ($result) {
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -144,14 +174,25 @@ class MemyProtocolManager {
     /**
      * Statische Methode, um Protokolle zu laden (für direkten Aufruf)
      */
-    public static function get_protocols_for_user($user_id) {
+    public static function get_protocols_for_user($limit = 10, $order = 'DESC', $user_id = 0) {
         global $wpdb;
         $table_name = $wpdb->prefix . 'aktivitaeten';
+        $alsoUserinfo = ($user_id == 0) ? "" : $user_id;
+        
+        $sql = "SELECT id, datum, aktivitaet, status 
+            FROM $table_name 
+            ORDER BY id $order 
+            LIMIT $limit";
+
+        if($alsoUserinfo == 0){
+            $sql = "SELECT id, datum, aktivitaet, status, user_id
+            FROM $table_name 
+            ORDER BY id $order 
+            LIMIT $limit";
+        }
 
         return $wpdb->get_results(
-            "SELECT id, datum, aktivitaet, status 
-            FROM $table_name 
-            ORDER BY id ASC",
+            $sql,
             ARRAY_A
         );
     }
