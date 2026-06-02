@@ -99,6 +99,27 @@ input[type=submit]:not(.icon-logout-btn):hover i.mmsi-icon.download,
 .memy-button:hover i.mmsi-icon.download {
   background-image: url(../icons/MMSI_Icon_WEITER-DOWN.svg);
 }
+.wp-block-file__button.loading,
+button.loading,
+input[type=submit]:not(.icon-logout-btn).loading,
+.memy-button.loading {
+  pointer-events: none;
+}
+.wp-block-file__button.loading .speichern,
+button.loading .speichern,
+input[type=submit]:not(.icon-logout-btn).loading .speichern,
+.memy-button.loading .speichern {
+  background-image: url(../icons/MMSI_Icon_RESET.svg);
+  animation: drehen 3s linear infinite;
+}
+@keyframes drehen {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
 
 .dash-goto-btn,
 .goto-btn,
@@ -441,4 +462,14 @@ table.table-aktivitaeten .clickable-row:hover {
 /*KundenButton*/
 button[data-goto=kundenkontakte] {
   margin-right: 25px;
+}
+
+.checklist-bearbeiten-wrap {
+  gap: var(--memy-text-gap);
+}
+.checklist-bearbeiten-wrap h4 {
+  padding-top: 40px;
+  border-top: 1px solid var(--memy-trenner-color);
+  margin-top: 30px;
+  margin-bottom: 5px;
 }/*# sourceMappingURL=elemente.css.map */

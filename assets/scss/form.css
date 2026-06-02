@@ -233,6 +233,14 @@ label.is-checkbox .radio-label {
   flex-shrink: 0;
   line-height: 1.25;
 }
+label.is-checkbox.simple {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+label.is-checkbox.simple .checkbox-label {
+  font-weight: 400;
+  text-transform: none;
+}
 
 /*Checked Slider*/
 input[type=checkbox]:checked + .slider,
@@ -246,32 +254,41 @@ input[type=radio]:checked + .slider:before {
 }
 
 /*CheckboxGroup*/
+.is-checkbox.simple,
 .radio-group,
 .checkbox-group {
   gap: var(--memy-text-gap);
 }
+.is-checkbox.simple label,
 .radio-group label,
 .checkbox-group label {
   flex-direction: row-reverse;
   justify-content: flex-end;
 }
+.is-checkbox.simple .slider,
 .radio-group .slider,
 .checkbox-group .slider {
   overflow: hidden;
   width: 13px;
+  min-width: 13px;
 }
+.is-checkbox.simple .slider::before,
 .radio-group .slider::before,
 .checkbox-group .slider::before {
   left: -11px;
 }
+.is-checkbox.simple.checked,
 .radio-group.checked,
 .checkbox-group.checked {
   display: flex;
 }
+.is-checkbox.simple.show .slider,
 .radio-group.show .slider,
 .checkbox-group.show .slider {
   display: block;
 }
+.is-checkbox.simple input[type=checkbox]:checked + .slider:before,
+.is-checkbox.simple input[type=radio]:checked + .slider:before,
 .radio-group input[type=checkbox]:checked + .slider:before,
 .radio-group input[type=radio]:checked + .slider:before,
 .checkbox-group input[type=checkbox]:checked + .slider:before,
@@ -290,26 +307,6 @@ input[type=radio]:checked + .slider:before {
   opacity: 0;
   width: 0;
   height: 0;
-}
-
-/*Profil bearbeiten*/
-.profile-bearbeiten-wrap h4 + div > .settings-labels h5 {
-  padding-left: 25px;
-}
-.profile-bearbeiten-wrap h4 + div > .settings-labels > div {
-  padding-left: 40px;
-}
-
-/*Einstellungen*/
-#memy-settings.container .settings-labels {
-  gap: calc(var(--memy-list-gap) * 2);
-}
-#memy-settings.container .settings-labels label:not(.is-radio) {
-  font-weight: 700;
-  text-transform: uppercase;
-}
-#memy-settings.container .settings-labels label:not(.is-radio):before {
-  display: none;
 }
 
 /*Inputs sperren bei Helpermode*/

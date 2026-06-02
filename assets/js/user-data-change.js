@@ -94,5 +94,34 @@
                 showMessage(errorMsg, 'error');
             });
         })
+
+        //Speichern 72h Checkliste
+        $(document).on('click', '#einstellung-checkliste-save', function(e) {
+            e.preventDefault();
+            var $button = $(this);
+            var formData = {
+                _wpnonce: ajax_object_userdata.nonce
+            };
+
+            $('.checklist-bearbeiten-wrap').find('input[type="checkbox"][id^="checkliste-"]').each(function() {
+                if (this.id) {
+                    formData[this.id] = $(this).is(':checked') ? 1 : 0;
+                }
+            });
+
+            $button.prop('disabled', true).addClass('loading');
+
+            wp.ajax.post('handle_update_settings_checklist', formData)
+            .done(function(response) {
+                $button.prop('disabled', false).removeClass('loading');
+                showMessage(response.message, 'success');
+            }).fail(function(response) {
+                $button.prop('disabled', false).removeClass('loading');
+                var errorMsg = response.message || 'Ein Fehler ist aufgetreten.';
+                showMessage(errorMsg, 'error');
+            });
+        })
+
+
     })
 })(jQuery)

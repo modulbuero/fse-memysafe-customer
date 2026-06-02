@@ -64,6 +64,22 @@ input[type="submit"]:not(.icon-logout-btn),
             background-image: url(../icons/MMSI_Icon_WEITER-DOWN.svg);
         }
     }
+
+    &.loading{
+        pointer-events: none;
+        .speichern{
+            background-image: url(../icons/MMSI_Icon_RESET.svg);
+            animation: drehen 3s linear infinite;
+        }
+    }
+    @keyframes drehen {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(-360deg);
+        }
+    }
 }
 
 
@@ -397,8 +413,18 @@ table.table-aktivitaeten{
     }
 }
 
-
 /*KundenButton*/
 button[data-goto="kundenkontakte"]{
     margin-right: 25px;
+}
+
+//72h-Checklist
+.checklist-bearbeiten-wrap{
+    gap:var(--memy-text-gap);
+    h4{
+        padding-top: 40px;
+        border-top: 1px solid var(--memy-trenner-color);
+        margin-top: 30px;
+        margin-bottom: 5px;
+    }
 }

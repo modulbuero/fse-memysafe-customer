@@ -236,6 +236,16 @@ label{
             line-height: 1.25;
         }
     }
+
+    //Einfache Checkbox (kurz) mit checker links
+    &.is-checkbox.simple{
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        .checkbox-label{
+            font-weight: 400;
+            text-transform: none
+        }
+    }
 }
 
 /*Checked Slider*/
@@ -251,6 +261,7 @@ input[type="radio"]:checked{
 }
 
 /*CheckboxGroup*/
+.is-checkbox.simple,
 .radio-group,
 .checkbox-group{
     gap: var(--memy-text-gap);
@@ -263,6 +274,7 @@ input[type="radio"]:checked{
     .slider{
         overflow: hidden;
         width: 13px;
+        min-width: 13px;
         &::before{
             left:-11px
         }
@@ -301,33 +313,6 @@ input[type="radio"]:checked{
     }
 }
 
-/*Profil bearbeiten*/
-.profile-bearbeiten-wrap{
-    h4 + div {
-        > .settings-labels {
-            h5{
-                padding-left:25px;
-            }
-            >div{
-                padding-left:40px;
-            }
-        }
-    }
-}
-
-/*Einstellungen*/
-#memy-settings.container{
-    .settings-labels{
-        gap:calc(var(--memy-list-gap) * 2);
-        label:not(.is-radio){
-            font-weight: 700;
-            text-transform: uppercase;
-            &:before{
-                display: none;        
-            }
-        }
-    }
-}
 
 /*Inputs sperren bei Helpermode*/
 .helper-mode{

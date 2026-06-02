@@ -11,6 +11,7 @@ if ( is_user_logged_in() ) :
 
 $setting_names = [
     'darstellung'       => 'Darstellung',
+    '72hcheckliste'     => '72h-Checkliste',
     // 'nachrichten'       => 'Nachrichten',
     // 'daten-speicher'    => 'Daten-Speicher',
     // 'sicherheit'        => 'Sicherheit',

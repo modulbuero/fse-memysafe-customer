@@ -17,6 +17,7 @@ class MemyUserDataEditor {
         add_shortcode('user_data_change', array($this, 'user_data_change'));
         add_action('wp_ajax_handle_update_user_data', array($this, 'handle_update_user_data'));
         add_action('wp_ajax_handle_update_settings_darstellung', array($this, 'handle_update_settings_darstellung'));
+        add_action('wp_ajax_handle_update_settings_checklist', array($this, 'handle_update_settings_checklist'));
     }
     
     /**
@@ -159,6 +160,48 @@ class MemyUserDataEditor {
             'message'    => 'Darstellungs-Einstellungen wurden erfolgreich gespeichert.',
             'clockstyle' => $clockstyle,
             'darkmode'   => $darkmode
+        ));
+    }
+
+    /**
+     * AjX Handling zum Update der 72h Checkliste
+     */
+    public function handle_update_settings_checklist() {
+        /**
+         * Safety first - Nonce prüfen
+         */
+        if (!wp_verify_nonce($_POST['_wpnonce'], 'user_data_nonce')) {
+            wp_send_json_error(array('message' => 'Sicherheitsüberprüfung fehlgeschlagen.'));
+        }
+        
+        if (!is_user_logged_in()) {
+            wp_send_json_error(array('message' => 'Sie müssen angemeldet sein.'));
+        }
+
+        $user_id = get_current_user_id();
+
+        // Daten sammeln und bereinigen
+        $checklist_data = [];
+        foreach ($_POST as $key => $value) {
+            if ($key === '_wpnonce') {
+                continue;
+            }
+
+            if (strpos($key, 'checkliste-') !== 0) {
+                continue;
+            }
+
+            $checklist_data[$key] = sanitize_text_field($value) === '1' ? '1' : '0';
+        }
+
+        // Als User-Meta speichern
+        foreach ($checklist_data as $key => $value) {
+            update_user_meta($user_id, $key, $value);
+        }
+
+        wp_send_json_success(array(
+            'message'    => 'Checkliste wurden erfolgreich gespeichert.',
+            'checklist'  => $checklist_data
         ));
     }
 

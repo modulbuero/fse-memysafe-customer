@@ -28,6 +28,9 @@
 .mmsi-icon.download {
   background-image: url(../icons/MMSI_Icon_DOWNLOAD.svg);
 }
+.mmsi-icon.fertig {
+  background-image: url(../icons/MMSI_Icon_FERTIG.svg);
+}
 .mmsi-icon.helper {
   background-image: url(../icons/MMSI_Icon_HILFE.svg);
 }

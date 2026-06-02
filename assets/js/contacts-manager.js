@@ -86,6 +86,8 @@
         function reloadContactsListDashboard() {
             // Nur den Inhalt des Dashboard-Widgets neu laden
             $('#memy-dashboard-my-contacts .item-content').load(location.href + ' #memy-dashboard-my-contacts .item-content > *');
+            // Notfallkontakte-Sektion neu laden
+            $('div[data-target="notfallkontakte"]').load(location.href + ' div[data-target="notfallkontakte"] > *');
         }
         /**
          * make Fields EDITABLE         

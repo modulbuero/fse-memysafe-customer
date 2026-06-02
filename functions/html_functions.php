@@ -24,6 +24,7 @@ function addInput($label, $value, $id='1', $placeholder='', $type='text'){
 /**
  * Checkbox-Feld
  * @width ob das Label die volle Breite ausnutzt
+ * class example: simple
  * return echo
 */
 function addCheckbox($label, $value, $id='1', $class=''){    
