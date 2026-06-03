@@ -151,6 +151,7 @@
                             $(".safe-file-2").remove();
                             $(".safe-info").remove();
                         }
+                        reloadNachrichtenDashboard()
                     } else {
                         SafeUpload.showNotification(response.data.message || 'Fehler beim Upload', 'error');
                         SafeUpload.completeProgress(uploadId, false, SafeUpload.escapeHtml(file.name));

@@ -119,9 +119,12 @@ if ( ! class_exists( 'Memy_Safe_Upload_AJAX' ) ) {
                 ) );
             }
 
+            $message = 'Datei erfolgreich hochgeladen.';
+            MemyProtocolManager::add_protocol_backoffice(get_current_user_id(), $message . " (".$result['file_name'].")");
+
             // Erfolg
             wp_send_json_success( array(
-                'message'       => 'Datei erfolgreich hochgeladen.',
+                'message'       => $message,
                 'file_id'       => $result['file_id'],
                 'file_name'     => $result['file_name'],
                 'original_name' => $result['original_name'],

@@ -172,11 +172,12 @@
 
             wp.ajax.post('handle_save_project', formData)
                 .done(function(response) {
-                    console.log(response.debug);
-                    showMessage(response.message, 'success');
-                    reloadProjectContainer();
-                    reloadDashboardProjects();
-                    closeProjectForm();
+                    console.log(response.debug)
+                    showMessage(response.message, 'success')
+                    reloadProjectContainer()
+                    reloadDashboardProjects()
+                    closeProjectForm()
+                    reloadNachrichtenDashboard()
                 }).fail(function(response) {
                     console.log('Fehler beim Speichern:', response);
                 });
@@ -201,10 +202,11 @@
             wp.ajax.post('handle_delete_project', formData)
                 .done(function(response) {
                     console.log('Projekt gelöscht:', response);
-                    showMessage(response.message, 'success');
-                    reloadProjectContainer();
-                    reloadDashboardProjects();
-                    closeProjectForm();
+                    showMessage(response.message, 'success')
+                    reloadProjectContainer()
+                    reloadDashboardProjects()
+                    closeProjectForm()
+                    reloadNachrichtenDashboard()
                 }).fail(function(response) {
                     console.log('Fehler beim Löschen:', response);
                 });

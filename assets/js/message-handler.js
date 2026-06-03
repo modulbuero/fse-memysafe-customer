@@ -11,10 +11,10 @@ window.showMessage = function(message, type="fail") {
     var messageHtml = '<div class="message ' + type + '">' + message + '</div>';
     $('.message-container').html(messageHtml);
     
-    // Nach 4 Sekunden ausblenden
+    // Nach 5 Sekunden ausblenden
     setTimeout(function() {
         jQuery('.message-container').removeClass('show');
-    }, 4000);
+    }, 5000);
 };
 
 /**

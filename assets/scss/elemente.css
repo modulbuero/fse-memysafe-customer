@@ -251,6 +251,9 @@ input[type=submit]:not(.icon-logout-btn).loading .speichern,
   opacity: 1;
   visibility: visible;
 }
+.message-container .fail {
+  color: #d10000;
+}
 
 /*Development*/
 .disabled,

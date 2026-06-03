@@ -124,6 +124,7 @@ class MemyUserDataEditor {
             ));
         }
         
+        MemyProtocolManager::add_protocol_backoffice(get_current_user_id(), 'Profildaten gespeichert.');
         wp_send_json_success(array(
             'message' => 'Daten wurden gespeichert',
             'logger'  => $user_meta

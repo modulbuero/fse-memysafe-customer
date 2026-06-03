@@ -271,7 +271,7 @@
                             // Safe-Dateien via AJAX neu laden
                             SafeUpload.loadFileList();
                             SafeUpload.loadFileListShort();
-                            
+                            reloadNachrichtenDashboard()
                             //Zurück zum Dashboard
                             $('#memy-menu-dashboard').click()
                         }

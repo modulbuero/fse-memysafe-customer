@@ -25,6 +25,7 @@
                         showMessage('Projekt erfolgreich gespeichert!', 'success');
                         resetForm();
                         loadProjects();
+                        reloadNachrichtenDashboard()
                     } else {
                         showMessage('Fehler: ' + response.data, 'error');
                     }
@@ -84,6 +85,7 @@
                     if (response.success) {
                         showMessage('Projekt erfolgreich gelöscht!', 'success');
                         loadProjects();
+                        reloadNachrichtenDashboard()
                     } else {
                         showMessage('Fehler beim Löschen: ' + response.data, 'error');
                     }

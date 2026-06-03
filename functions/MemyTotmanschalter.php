@@ -318,9 +318,11 @@ class MemyTotmanschalter {
             $uzTwo   = $this->update_escalation_for_cycle($userID, 'exam-clock-zyklus-two', $zyklus_two);
             $uzThree = $this->update_escalation_for_cycle($userID, 'exam-clock-zyklus-three', $zyklus_three);
 
+            $message = 'Zyklen erfolgreich aktualisiert.';
+            MemyProtocolManager::add_protocol_backoffice(get_current_user_id(), $message);
             //Erfolgreich
             wp_send_json_success(array(
-                'message' => 'Zyklen erfolgreich aktualisiert.',
+                'message' => $message,
                 'debug' => array(
                     'uzOne'   => $zyklus_one,
                     'uzTwo'   => $zyklus_two,

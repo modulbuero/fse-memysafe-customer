@@ -44,6 +44,7 @@
                 showMessage(response.message, 'success');
                 $('#goback').click()
                 reloadContactsListDashboard()
+                reloadNachrichtenDashboard()
             }).fail(function(response) {
                 console.log(response)
             });
@@ -76,6 +77,7 @@
                 console.log(response);
                 showMessage(response.message, 'success');
                 reloadContactsListDashboard()
+                reloadNachrichtenDashboard()
                 $('#goback').click()
             }).fail(function(response) {
                 console.log(response);
@@ -126,6 +128,7 @@
             .done(function(response) {
                 console.log(response);
                 showMessage(response.message || 'Einladung wurde versendet.', 'success');
+                reloadNachrichtenDashboard()
             }).fail(function(response) {
                 console.log(response);
                 showMessage(response.message || 'Fehler beim Senden der Einladung.', 'error');

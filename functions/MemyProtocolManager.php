@@ -91,9 +91,6 @@ class MemyProtocolManager {
         global $wpdb;
         $table_name = $wpdb->prefix . 'aktivitaeten';
 
-        error_log("Adding protocol for user_id: $user_id, aktivitaet: $aktivitaet, status: $status");
-        error_log("Table name: $table_name");
-
         $result = $wpdb->insert(
             $table_name,
             array(

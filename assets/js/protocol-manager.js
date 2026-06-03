@@ -105,5 +105,13 @@
             });
         }
         viewAktivitaetInPopup();
+
+        /**
+         * Reload Nachrichten
+         */
+        window.reloadNachrichtenDashboard = function(){
+            console.log("reloadNachrichtenDashboard")
+            $('#memy-dashboard-my-notifications .item-content').load(location.href + ' #memy-dashboard-my-notifications .item-content > *');
+        }
     });
 })(jQuery);

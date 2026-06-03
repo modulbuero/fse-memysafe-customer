@@ -92,6 +92,8 @@ if ( ! class_exists( 'MemyContactHelperModus' ) ) {
             delete_option('has_send_reminder_three');
             delete_option('has_send_notfall');
 
+            MemyProtocolManager::add_protocol_backoffice(get_current_user_id(), 'Helfer-Modus beendet');
+
             // Erfolgsantwort zurückgeben
             wp_send_json_success('Helfer-Modus erfolgreich beendet und Eskalations-Optionen zurückgesetzt.');
         }

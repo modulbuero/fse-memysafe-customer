@@ -133,7 +133,7 @@
                 // Reload des Chooser-Exam-Clock
                 $('#chooser-exam-clock').load(location.href + ' #chooser-exam-clock');
                 $('#manage-exam-clock').load(location.href + ' #manage-exam-clock .step1');
-                
+                reloadNachrichtenDashboard()
             }).fail(function(response) {
                 console.log('handle_update_exam_clock_cycles: ' + response.debug);
                 showMessage('Fehler beim Speichern der Zyklen');

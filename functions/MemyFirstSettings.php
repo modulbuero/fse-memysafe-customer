@@ -97,6 +97,8 @@ class MemyFirstSettings {
             $memycontact->handle_send_contact_invitation();
         }
 
+        MemyProtocolManager::add_protocol_backoffice(get_current_user_id(), 'Willkommen bei MMSI.');
+
         wp_send_json_success(array(
             'message'     => 'Ersteinrichtung abgeschlossen.',
             'dataUser'    => json_encode($_POST['user_meta']),
@@ -186,8 +188,11 @@ class MemyFirstSettings {
             }
         }
 
+        $message = 'Sicherheitsinformationen erfolgreich gespeichert und im Safe abgelegt.';
+        MemyProtocolManager::add_protocol_backoffice(get_current_user_id(), $message);
+
         wp_send_json_success(array(
-            'message'     => 'Sicherheitsinformationen erfolgreich gespeichert und im Safe abgelegt.',
+            'message'     => $message,
             'file_name'   => $file_name,
             'file_path'   => $file_path
         ));

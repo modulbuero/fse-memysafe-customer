@@ -49,9 +49,9 @@ class MemyProjectsManager {
         
         $mandant        = sanitize_text_field($_POST['mandant']);
         $mandant_ansprechpartner = sanitize_text_field($_POST['mandant_ansprechpartner']);
-        $mandant_telefon    = sanitize_text_field($_POST['mandant_telefon']);
-        $mandant_mobile     = sanitize_text_field($_POST['mandant_mobile']);
-        $mandant_email      = sanitize_email($_POST['mandant_email']);
+        $mandant_telefon = sanitize_text_field($_POST['mandant_telefon']);
+        $mandant_mobile  = sanitize_text_field($_POST['mandant_mobile']);
+        $mandant_email   = sanitize_email($_POST['mandant_email']);
         $dienstleister_name = sanitize_text_field($_POST['dienstleister_name']);
         $dienstleister_funktion = sanitize_text_field($_POST['dienstleister_funktion']);
         $dateizugriff   = sanitize_text_field($_POST['dateizugriff']);
@@ -96,9 +96,10 @@ class MemyProjectsManager {
         ];
         
         update_user_meta($user_id, 'projects_list', $projects_list);
-        
-        wp_send_json_success([
-            'message' => 'Projekt '.$projektname.' erfolgreich gespeichert',
+        $message = 'Projekt '.$projektname.' gespeichert.';
+        MemyProtocolManager::add_protocol_backoffice(get_current_user_id(), $message);
+        wp_send_json_success([            
+            'message' => $message,
             'debug'   => $project_id
         ]);
     }
@@ -122,8 +123,12 @@ class MemyProjectsManager {
         if (is_array($projects_list) && isset($projects_list[$project_id])) {
             unset($projects_list[$project_id]);
             update_user_meta($user_id, 'projects_list', $projects_list);
+
+            $message = 'Projekt '.$project_name.' gelöscht.';
+            MemyProtocolManager::add_protocol_backoffice(get_current_user_id(), $message);
+
             wp_send_json_success(array(
-                'message' => 'Projekt '.$project_name. ' erfolgreich gelöscht',
+                'message' => $message,
                 'debug'   => array(
                     'project_id' => $project_id,
                     'project_name' => $project_name
