@@ -18,10 +18,11 @@ require_once($theme_directory.'MemyTotmanschalter.php');
 require_once($theme_directory.'MemyContacts.php');
 require_once($theme_directory.'MemyContactsVertreter.php');
 require_once($theme_directory.'MemyContactsKunden.php');
-require_once($theme_directory.'MemyProjectsManager.php');
+
 require_once($theme_directory.'MemySafeUpload.php');
 require_once($theme_directory.'MemySafeUploadAJAX.php');
 require_once($theme_directory.'MemyFirstSettings.php');
 require_once($theme_directory.'MemyContactHelperModus.php');
 require_once($theme_directory.'cron/exam-clock-cron.php');
 require_once($theme_directory.'MemyProtocolManager.php');
+require_once($theme_directory.'MemyProjectsManager.php');
