@@ -12,6 +12,7 @@ if (!defined('ABSPATH')) {
 class MemyFirstSettings {
     const AJAX_ACTION = 'save_first_settings_meta';
     const AJAX_ACTION_SAFE_INFO = 'save_safe_info_txt';
+    const AJAX_ACTION_CHECK_EMAIL = 'check_Notfall_Address';
 
     private static $base_path = null;
 
@@ -19,6 +20,7 @@ class MemyFirstSettings {
         add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
         add_action('wp_ajax_' . self::AJAX_ACTION, array($this, 'ajax_save_first_settings_meta'));
         add_action('wp_ajax_' . self::AJAX_ACTION_SAFE_INFO, array($this, 'ajax_save_safe_info_txt'));
+        add_action('wp_ajax_' . self::AJAX_ACTION_CHECK_EMAIL, array($this, 'ajax_check_Notfall_Address'));
     }
 
     public function enqueue_scripts() {
@@ -43,7 +45,8 @@ class MemyFirstSettings {
         $contact_data=[];
         check_ajax_referer('save_first_settings', 'nonce');
 
-        $user_id = get_current_user_id();
+        $user        = wp_get_current_user();
+        $user_id     = $user->ID;
         $memycontact = new MemyContacts();
         if (!$user_id) {
             wp_send_json_error(array('message' => 'Ungültiger Benutzer.'), 400);
@@ -104,6 +107,25 @@ class MemyFirstSettings {
             'dataUser'    => json_encode($_POST['user_meta']),
             'dataContact' => json_encode($_POST['contact_meta'])
         ));
+    }
+
+    public function ajax_check_Notfall_Address(){
+        if (!is_user_logged_in()) {
+            wp_send_json_error(array('message' => 'Sie müssen angemeldet sein.'), 403);
+        }
+
+        check_ajax_referer('save_first_settings', 'nonce');
+
+        $user        = wp_get_current_user();
+        $user_email  = $user->user_email;
+
+        if($user_email == $_POST['nk_email']) {   
+            wp_send_json_error(array(
+                'message' => 'Bitte gib eine andere E-Mail-Adresse ein.'
+            ));
+        }else{
+            wp_send_json_success();
+        }
     }
 
     public function ajax_save_safe_info_txt() {

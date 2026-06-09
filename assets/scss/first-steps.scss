@@ -56,6 +56,11 @@
                     justify-content: space-between;
                     button{
                         width:33%;
+                        min-width:220px;
+                        @media (max-width: 768px){
+                            width:49%;
+                            min-width:auto;
+                        }
                         &:only-child {
                             margin-left: auto;
                         }
@@ -99,6 +104,9 @@
             .number-input{
                 label{
                     min-width: 210px;
+                    @media (max-width: 601px){
+                        min-width: 170px;
+                    }
                 }
             }
         }

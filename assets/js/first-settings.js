@@ -89,7 +89,7 @@
 
         $('#first-settings .welcome button').attr('disabled', false)
 
-        $firstSettings.on('click', '.first-step-button', function(event) {
+        $firstSettings.on('click', '.first-step-button', async function(event) {
             event.preventDefault();
 
             const $currentContainer = $(this).closest('.container');
@@ -104,7 +104,8 @@
             }
 
             if ($currentContainer.is('.notfallkontakt.show')) {
-                if (!validateNotfallKontakt($currentContainer)) {
+                const isValid = await validateNotfallKontakt($currentContainer);
+                if (!isValid) {
                     return;
                 }
             }
@@ -288,20 +289,48 @@
         });
     }
 
-    function validateNotfallKontakt($container){
+    async function validateNotfallKontakt($container){
         const $emailInput = $container.find('#contact_mail');
         const email = $emailInput.val().trim();
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const nonce = memyFirstSettingsAjax.nonce;
+        
+        let isAdmin = false
 
-        if (regex.test(email)) {
-            console.log("isMail")
-            return true;
+        if (!regex.test(email)) {
+            showMessage('ungültige E-Mail-Adresse');
+            $emailInput.focus();
+            return false;
         }
 
-        showMessage('ungültige E-Mail');
-        $emailInput.focus();
+        try {
+            const response = await $.ajax({
+                url: memyFirstSettingsAjax.ajax_url,
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    action:     'check_Notfall_Address',
+                    nonce:      nonce,
+                    nk_email:   email
+                }
+            });
+
+            if (!response.success) {
+                showMessage(response.data.message);
+                isAdmin = true;
+            }
+        } catch (error) {
+            console.error("AJAX Error:", error);
+            showMessage('Fehler bei der Überprüfung der E-Mail-Adresse.');
+            isAdmin = true; // Im Zweifelsfall blockieren
+        }
+
+        if(isAdmin){
+            $emailInput.focus();
+            return false;
+        }
         
-        return false;
+        return true;
     }
 
     function validateNotfallPLZ($container){
