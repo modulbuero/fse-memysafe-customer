@@ -86,7 +86,7 @@ function memy_deathman_query_function() {
             
             $mail_headers = array('Content-Type: text/html; charset=UTF-8');
             
-            $mail_footer = emailParts('footer');            
+            $mail_footer  = emailParts('footer');            
             $login_button = emailParts('button');
 
             $grusz_admin = emailParts('head') . "<p>Hallo ".$adminName.",<br></p>";
@@ -98,12 +98,26 @@ function memy_deathman_query_function() {
                 $esk_one_obj = date_create_from_format('d.m.Y H:i', $eskalation_stufe_one);
 
                 if ($esk_one_obj && $curr_date_obj >= $esk_one_obj ) {
+                    $token = generateToken($adminID, get_current_blog_id(), "mmsi-is-salty");
+                    $url = add_query_arg(
+                        'mmsi-token',
+                        $token,
+                        trailingslashit(
+                            get_home_url(get_main_site_id(), '/reloader/', 'https')
+                        )
+                    );
+                    $reload_button = emailParts('button', $url, 'Erreichbarkeit bestätigen');
+
                     $subject = "Erinnerung: Bitte bestätige kurz deine Erreichbarkeit";
                     
                     $message = $grusz_admin;
                     $message .= "<p>dein Sicherheits-Timer läuft bald ab.</p>";
-                    $message .= "<p>Bitte logge dich kurz bei Me, My Safe and I ein und bestätige deine Erreichbarkeit. So stellst du sicher, dass keine weiteren Schritte ausgelöst werden.</p>";
-                    $message .= $login_button;
+                    $message .= "<p>Bitte bestätige mit einem Klick auf den Button Deine Aktivität.</p>";
+                    $message .= "<p>Dein Timer wird dann zurückgesetzt.</p>";
+                    $message .= $reload_button;
+                    $message .= "<p>So stellst du sicher, dass keine weiteren Schritte ausgelöst werden</p><br>";
+                    $message .= "<p>Alternativ: Logge dich kurz bei Me, My Safe and I ein und bestätige deine Erreichbarkeit.";
+                    $message .= "<a href='".network_home_url() . 'login/' ."' style='text-decoration:underline; color:#000000'>Zum Login</a></p>";
                     $message .= $mail_footer;
                     wp_mail($adminEmail, $subject, $message, $mail_headers);
                     
@@ -229,4 +243,22 @@ function mein_login_callback( $user_login, $user ) {
     // $user = WP_User-Objekt
     #error_log( "BenutzerObj: ".print_r($user) );
     #error_log( "Benutzer: {$user_login} hat sich eingeloggt." );
+}
+
+/**
+ * Token für sofort Reload via URL öffnen
+ * in erster Reminder Mail enthalten.
+ * gesendet an frontpage "/reload/"
+*/
+function generateToken(int $userId, int $blogId, string $secret): string {
+    $timestamp = time();
+    
+    // Alle Werte zusammenführen
+    $data = implode('|', [$userId, $blogId, $timestamp]);
+    
+    // Signatur über alle 3 Werte
+    $signature = hash_hmac('sha256', $data, $secret);
+    
+    // Alles zusammenpacken + base64
+    return base64_encode($data . '|' . $signature);
 }
