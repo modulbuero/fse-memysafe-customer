@@ -137,6 +137,12 @@ form div {
 .input-section .spalte > div {
   flex-basis: 50%;
 }
+@media (max-width: 601px) {
+  .input-section .spalte > div {
+    flex-basis: 100%;
+    width: 100%;
+  }
+}
 
 /*Gruppierung Eingabefelder*/
 .inner-input-wrapper > div {

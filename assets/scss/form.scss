@@ -140,6 +140,10 @@ form{
     gap: 40px;
         >div{
             flex-basis: 50%;
+            @media (max-width: 601px){
+                flex-basis: 100%;
+                width: 100%;
+            }
         }
     }
 }

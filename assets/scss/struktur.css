@@ -70,6 +70,12 @@ div.spalte p {
 #memy-user-menu h1 small {
   display: none;
 }
+@media (max-width: 601px) {
+  #memy-user-menu h1 {
+    background-image: url(../imgs/MMSI-Logo_Mobile.svg);
+    max-height: 30px;
+  }
+}
 #memy-user-menu #menu {
   flex: 1;
   display: flex;
@@ -192,15 +198,15 @@ div.spalte p {
   }
 }
 @media (max-width: 1023px) {
-  .spalte:not(.is-line):not(.item-headline):not(.dash-item):not(.save-wrapper):not(.inner-main-heading):not(.project-person-mail) {
+  body .spalte:not(.is-line):not(.item-headline):not(.dash-item):not(.save-wrapper):not(.inner-main-heading):not(.project-person-mail) {
     flex-direction: column;
     align-items: flex-start;
   }
-  #memy-dashboard .tile {
+  body #memy-dashboard .tile {
     width: 100%;
   }
-  .half-width,
-  .flex-one {
+  body .half-width,
+  body .flex-one {
     width: 100%;
   }
 }

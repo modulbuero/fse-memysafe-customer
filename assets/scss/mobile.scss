@@ -234,7 +234,7 @@
             max-width: calc(100% - (var(--memy-padding-root) * 2));
         }
     }
-
+    
     /**
     *   Icons
     */
@@ -265,6 +265,13 @@
     .short-button{
         max-width: 100% !important;
     }
+    
+    
+    .quarter-width,
+    .three-quarters-width{
+        width: 100%;
+    }
+
     
     .hide-mobile{
         display:none !important;

@@ -73,6 +73,10 @@ div{
         small{
             display: none;
         }
+        @media (max-width: 601px){
+            background-image: url(../imgs/MMSI-Logo_Mobile.svg);
+            max-height: 30px;
+        }
     }
     
     #menu{
@@ -220,18 +224,20 @@ div{
     }
 }
 @media (max-width: 1023px){	
-    .spalte:not(.is-line):not(.item-headline):not(.dash-item):not(.save-wrapper):not(.inner-main-heading):not(.project-person-mail){
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    #memy-dashboard .tile{
-        width: 100%;
-    }
+    body{
+        .spalte:not(.is-line):not(.item-headline):not(.dash-item):not(.save-wrapper):not(.inner-main-heading):not(.project-person-mail){
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        #memy-dashboard .tile{
+            width: 100%;
+        }
 
-    .half-width,
-    .flex-one{
-        width: 100%;
+        .half-width,
+        .flex-one{
+            width: 100%;
+        }
     }
 }
 @media (max-width: 834px){
