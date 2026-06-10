@@ -16,7 +16,7 @@
     <div class="item-content">        
         <?php    
             $user_id           = getAdminUserID();
-            $notification_list = MemyProtocolManager::get_protocols_for_user(3);
+            $notification_list = MemyProtocolManager::get_protocols_for_user(limit: 3);
             $projects_list = get_user_meta($user_id, 'projects_list', true);
             if (empty($notification_list) || !is_array($notification_list)) {
                 echo '<div class="no-notifications-message"><p>Keine Nachrichten vorhanden</p></div>';

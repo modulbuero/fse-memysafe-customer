@@ -419,24 +419,23 @@ table.table-aktivitaeten::-webkit-scrollbar-thumb:hover {
 table.table-aktivitaeten tr th {
   text-align: left;
 }
+table.table-aktivitaeten tr th, table.table-aktivitaeten tr td {
+  height: 50px;
+}
 table.table-aktivitaeten tr th.edit-column, table.table-aktivitaeten tr td.edit-column {
-  max-width: 75px !important;
-  text-align: right;
-  white-space: nowrap;
+  display: flex;
+  justify-content: center;
 }
 table.table-aktivitaeten tr th.edit-column button, table.table-aktivitaeten tr td.edit-column button {
-  margin-left: auto;
-  margin-right: 0;
+  border: none;
 }
 table.table-aktivitaeten tr td {
-  max-height: 35px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 270px !important;
 }
-table.table-aktivitaeten tr td:nth-child(2) {
-  min-width: 140px !important;
+table.table-aktivitaeten tr td:nth-child(1) {
+  max-width: 115px !important;
 }
 table.table-aktivitaeten .clickable-row {
   cursor: pointer;

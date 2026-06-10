@@ -9,14 +9,13 @@
     <div class="overflow-wrapper settings-labels add-trenner" id="protocol-list-container">
         <?php 
         $user_id       = get_current_user_id();
-        $protocol_list = MemyProtocolManager::get_protocols_for_user();
+        $protocol_list = MemyProtocolManager::get_protocols_for_user(true);
         /*
             Alle Protokolle ausgeben
         */
         if (!empty($protocol_list)) { ?>
             <table class="table-aktivitaeten">
-                <tr>
-                    
+                <tr>                    
                     <th>Datum</th>
                     <th>Aktivität</th>
                     <th>Status</th>

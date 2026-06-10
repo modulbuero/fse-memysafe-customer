@@ -365,25 +365,22 @@ table.table-aktivitaeten{
             text-align: left;
         }
         th,td{
+            height:50px;
             &.edit-column{
-                max-width: 75px !important;
-                text-align: right;
-                white-space: nowrap;
+                display: flex;
+                justify-content: center;
                 button{
-                    margin-left: auto;
-                    margin-right: 0;
+                    border:none
                 }
             }
         }
 
         td{
-            max-height: 35px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 270px !important;
-            &:nth-child(2){
-                min-width: 140px !important;
+            &:nth-child(1){
+                max-width: 115px !important;
             }
         }
     }

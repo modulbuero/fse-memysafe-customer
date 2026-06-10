@@ -106,12 +106,13 @@
                         <div class='info-popup-wrap activitaeten-info'>
                             <div class='close-btn'><i class='bi bi-x-lg'></i></div>
                             <div class='content'>
-                                <p class='title'><strong>Protokoll Details</strong></p>
-                                <p><strong>Datum:</strong>${datum}</p>
+                                <p><strong>Protokoll Details</strong></p>
                                 <br>
-                                <p><strong>Aktivität:</strong><br>${aktivitaet}</p>
+                                <p><strong>Datum</strong><br>${datum}</p>
                                 <br>
-                                <p><strong>Status:</strong><br>${status}</p>
+                                <p><strong>Aktivität</strong><br>${aktivitaet}</p>
+                                <br>
+                                <p><strong>Status</strong><br>${status}</p>
                             </div>
                         </div>
                     `;
