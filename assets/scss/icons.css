@@ -111,6 +111,9 @@
 .mmsi-icon.timer-reset {
   background-image: url(../icons/MMSI_Icon_RESET.svg);
 }
+.mmsi-icon.timer {
+  background-image: url(../icons/MMSI_Icon_TIMER.svg);
+}
 .mmsi-icon.upload {
   background-image: url(../icons/MMSI_Icon_UPLOAD.svg);
 }

@@ -33,7 +33,7 @@
                         if($news_status == 'info'){
                             $news_icon = 'nachricht';
                         }else if($news_status == 'system'){
-                            $news_icon = 'system';
+                            $news_icon = 'timer';
                         }else if($news_status == 'edit'){
                             $news_icon = 'speichern';
                         }
