@@ -17,7 +17,7 @@ foreach (range(1, 3) as $i):
     $person_tel     = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['tel'] ?? '';
     $person_firma   = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['firma'] ?? '';
     $person_status  = contactIsActive($person_email);
-    
+    $person_wp_id   = ($person_status == 'Aktiv')?get_user_by('email', $person_email)->ID : "";
     #$person_is_main = get_user_meta(get_current_user_id(), 'contact-person-'.$i, true)['hauptkontakt'] ?? '';
     #$mmsi_can       = get_user_meta(getAdminUserID(), 'contact-person-'.$i, true)['mmsi_can'] ?? '';    
 
@@ -38,7 +38,8 @@ foreach (range(1, 3) as $i):
             <?php 
             addInput('E-Mail-Adresse', $person_email, 'contact-email-'.$i, 'E-Mail-Adresse', 'email');
             addInput('Telefonnummer', $person_tel, 'contact-tel-'.$i, 'Telefonnummer');
-            addInput('Firma (Optional)', $person_firma, 'contact-firma-'.$i);            
+            addInput('Firma (Optional)', $person_firma, 'contact-firma-'.$i);
+            addInput('', $person_wp_id, 'contact-user-id-'.$i, '', 'hidden');
             //addSelect('Status', ['Aktiv' => 'Aktiv', 'Ausstehend' => 'Ausstehend'], $person_status, 'contact-person-status-'.$i, false);
             ?>
         </div>

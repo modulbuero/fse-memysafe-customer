@@ -86,3 +86,38 @@ add_action('admin_menu', function () {
         );
     }
 }, 999);
+
+
+/**
+ *  Nachricht "Email geändert"
+ */
+add_filter( 'email_change_email', 'mmsi_email_change_email', 10, 3 );
+function mmsi_email_change_email( $email_change_email, $user, $userdata ) {
+
+    // ── Betroffener Benutzer (dessen E-Mail geändert wurde) ──────────────
+    $affected_user_id    = $user['ID'];
+    $affected_userdata   = get_userdata( $affected_user_id );
+    $affected_first_name = $affected_userdata->first_name;
+    $old_email           = $user['user_email'];
+    $new_email           = $userdata['user_email'];
+
+    // ── Änderer (aktuell eingeloggter Benutzer) ──────────────────────────
+    $editor = wp_get_current_user();
+    $editor_first_name   = $editor->first_name; // Vorname Änderer
+
+    // ── Seiteninfos ──────────────────────────────────────────────────────
+    $site_name = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
+
+    // ── E-Mail zusammenbauen ─────────────────────────────────────────────
+    $email_change_email['subject'] = '[MMSI] Deine E-Mail-Adresse wurde geändert';
+    $email_change_email['message'] =
+        'Hallo ' . $affected_first_name . ',' . "\r\n\r\n" .
+        'deine E-Mail-Adresse auf MMSI wurde geändert.' . "\r\n\r\n" .
+        'Alte Adresse  : ' . $old_email . "\r\n" .
+        'Neue Adresse : ' . $new_email . "\r\n\r\n" .
+        'Geändert von : ' . $site_name . "\r\n\r\n" .
+        'Falls dies ein Fehler war, wende dich bitte sofort an '.$editor_first_name . "\r\n\r\n".
+        'Dein Team von Me, My Safe and I';
+
+    return $email_change_email;
+}

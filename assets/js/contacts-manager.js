@@ -11,6 +11,7 @@
             let lname       = $container.find('#contact-last_name-'+id).val();
             let email      = $container.find('#contact-email-'+id).val();
             let tel        = $container.find('#contact-tel-'+id).val();
+            let userId     = $container.find('#contact-user-id-'+id).val();
             let firma      = $container.find('#contact-firma-'+id).val();
             let typ        = $container.find('#contact-typ-'+id).val();
             let status     = $container.find('#contact-status-'+id).val();
@@ -25,6 +26,7 @@
                 lname:      lname,
                 email:      email,
                 tel:        tel,
+                wp_id:      userId,
                 firma:      firma,
                 typ:        typ,
                 status:     status,

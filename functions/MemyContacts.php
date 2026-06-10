@@ -40,7 +40,7 @@ class MemyContacts {
         }
         
         $user_id    = get_current_user_id();
-        $email      = sanitize_text_field($_POST['email']);
+        $email      = sanitize_email($_POST['email'] ?? '');
         $typ        = sanitize_text_field($_POST['typ']);
         $status     = sanitize_text_field($_POST['status']);
         $fname      = sanitize_text_field($_POST['fname']);
@@ -49,12 +49,14 @@ class MemyContacts {
         $firma      = sanitize_text_field($_POST['firma']);
         $mmsi_safe  = sanitize_text_field($_POST['mmsi_safe']);
         #$is_main    = sanitize_text_field($_POST['is_main']);
-        $mmsi_can   = sanitize_text_field($_POST['mmsi_can']);
+        #$mmsi_can   = sanitize_text_field($_POST['mmsi_can']);
         $contact_id = intval($_POST['contact_id']);
+        $wp_user_id = intval($_POST['wp_id'] ?? 0);
         
         $contact_data= [
             'email'         => $email,
             'typ'           => $typ,
+            'wp_user_id'    => $wp_user_id,
             'first_name'    => $fname,
             'last_name'     => $lname,
             'tel'           => $tel,
@@ -62,10 +64,24 @@ class MemyContacts {
             'mmsi_safe'     => $mmsi_safe,
             'status'        => $status,
             #'hauptkontakt'  => $is_main,
-            'mmsi_can'      => $mmsi_can
+            #'mmsi_can'      => $mmsi_can
         ];
 
         $nachricht = $contact_data["typ"]. ' ' . $fname . ' ' . $lname. ' gespeichert.';
+
+        // Falls die Kontaktperson bereits als WordPress-Benutzer existiert,
+        if ($wp_user_id) {
+            $wp_user_data = wp_update_user(array(
+                'ID'         => $wp_user_id,
+                'first_name' => $fname,
+                'last_name'  => $lname,
+                'user_email' => $email,
+            ));
+
+            if (is_wp_error($wp_user_data)) {
+                wp_mail('webmaster@modulbuero.com', 'MMSI NK-Aktualisierung Failed', 'WP-User-ID: ' . $wp_user_id);
+            }
+        }
 
         // Eintrag in die MemyProtocolManager Tabelle für die Historie
         MemyProtocolManager::add_protocol_backoffice($user_id, $nachricht, 'edit');
@@ -178,26 +194,6 @@ class MemyContacts {
         }
 
         wp_send_json_success(array('message' => 'Einladung erfolgreich gesendet.'));
-    }
-
-    private function generate_username_from_email($email){
-        $local_part = strstr($email, '@', true);
-        $username   = sanitize_user(strtolower($local_part), true);
-
-        if(empty($username)){
-            $username = 'kontakt';
-        }
-
-        $base = substr($username, 0, 60);
-        $candidate = $base;
-        $suffix = 1;
-
-        while(username_exists($candidate)){
-            $candidate = substr($base, 0, 55) . '-' . $suffix;
-            $suffix++;
-        }
-
-        return $candidate;
     }
 
     /**
