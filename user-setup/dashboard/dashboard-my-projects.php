@@ -2,9 +2,11 @@
 /**
  * Title: The Dashboard Tile Projects
  */
+$user_id       = getAdminUserID();
+$projects_list = get_user_meta($user_id, 'projects_list', true);
 ?>
 
-<div class="dashboard-item" id="memy-dashboard-my-projects" data-user-id="<?php echo esc_html( $user_ID ); ?>">
+<div class="dashboard-item" id="memy-dashboard-my-projects" data-user-id="<?php echo esc_html( $user_id ); ?>">
 
     <div class="item-headline spalte goto-btn" data-goto="project-list" data-stept="2">
         <i class="mmsi-icon projekte"></i>
@@ -14,10 +16,7 @@
 
     <div class="item-content">        
         <?php
-        // Projekte Liste anzeigen   
-        $user_id       = getAdminUserID();
-        $projects_list = get_user_meta($user_id, 'projects_list', true);
-        
+        // Projekte Liste anzeigen        
         if (empty($projects_list) || !is_array($projects_list)) {
             echo '<div class="no-projects-message"><p>Keine Projekte angelegt</p></div>';
         } else {
@@ -35,10 +34,5 @@
             }
         }
     ?>
-        <!--    
-        <div class='spalte' style='margin-top: 20px;'>
-            <button id='btn-add-project' class='memy-button dash-goto-btn' data-goto='manage-projects'>+ Projekt hinzufügen</button>
-        </div>
-        -->
     </div>
 </div>

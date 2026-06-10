@@ -1,4 +1,4 @@
-<div class='setup-protocol-data full-height' id='setup-protocol-new'>
+<div class='setup-protocol-data full-height inner-input-wrapper' id='setup-protocol-new'>
     <div class='spalte inner-main-heading'>
         <i class='mmsi-icon protokoll'></i>
         <h3><?php echo isset($_GET['edit_id']) ? 'HELFER-AKTIVITÄT BEARBEITEN' : 'HELFER-AKTIVITÄT'; ?></h3>

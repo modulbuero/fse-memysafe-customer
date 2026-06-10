@@ -7,3 +7,38 @@
         }
     }
 }
+
+.notifications-wrap{
+    .notfication-date{
+        min-width: 110px;
+        opacity: 0.8;
+        font-size: 12px;
+    }
+
+    @media (max-width: 601px){
+        gap: 30px;
+
+        .dash-item.spalte{
+            flex-wrap:wrap;
+            .notfication-date{
+                flex: 1;
+            }
+        }
+    }
+}
+
+.shadow-wrapper{
+    position: absolute;           
+    display: block;
+    width: 100%;
+    left:0;
+    height: var(--memy-padding-inner-container-side);
+    bottom:var(--memy-padding-inner-container-side);
+    background: var(--memy-primary);
+    background: linear-gradient(
+        0deg, 
+        var(--memy-primary) 0%, 
+        var(--memy-primary-half) 70% 70%,
+        var(--memy-primary-trans) 100%
+    )
+}

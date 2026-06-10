@@ -28,7 +28,11 @@
     }
 
     .mmsi-icon.bearbeiten{
-        left:-10px
+        left:-10px;
+        min-height: 20px;
+        @media (max-width: 601px){
+            left:0;
+        }
     }
 }
 

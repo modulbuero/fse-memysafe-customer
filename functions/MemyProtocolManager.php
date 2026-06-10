@@ -171,25 +171,27 @@ class MemyProtocolManager {
     /**
      * Statische Methode, um Protokolle zu laden (für direkten Aufruf)
      */
-    public static function get_protocols_for_user($limit = 10, $order = 'DESC', $user_id = 0) {
+    public static function get_protocols_for_user($limit = 100, $order = 'DESC') {
         global $wpdb;
         $table_name = $wpdb->prefix . 'aktivitaeten';
-        $alsoUserinfo = ($user_id == 0) ? "" : $user_id;
-        
-        $sql = "SELECT id, datum, aktivitaet, status 
-            FROM $table_name 
-            ORDER BY id $order 
-            LIMIT $limit";
+        $isAdmin    = (getAdminUserID() == get_current_user_id()) ? true : false;
+        $from       = "FROM $table_name ";
+        $where      = "";
 
-        if($alsoUserinfo == 0){
-            $sql = "SELECT id, datum, aktivitaet, status, user_id
-            FROM $table_name 
-            ORDER BY id $order 
-            LIMIT $limit";
+        if($isAdmin){
+            //Für Nachrichten-Protokoll im Dashboard
+            $sql    = "SELECT id, datum, aktivitaet, status ";
+            $where  = "WHERE status IN ('info', 'system', 'edit')";
+        }else{
+            //Für Aktivitäten-Protokoll nach Notfall
+            $sql    = "SELECT id, datum, aktivitaet, status, user_id ";
+            $where  = "WHERE user_id != " . getAdminUserID() ;
         }
 
+        $sqlString = $sql . $from . $where . " ORDER BY id $order LIMIT $limit";
+
         return $wpdb->get_results(
-            $sql,
+            $sqlString,
             ARRAY_A
         );
     }

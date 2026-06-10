@@ -80,7 +80,7 @@ if ( is_user_logged_in() ) :
                 <?php require_once get_stylesheet_directory() . '/user-setup/dashboard/dashboard-my-projects.php'; ?>
             </div>
             <!-- Nachrichten -->
-            <div id="chooser-notifications" class="tile disabled">        
+            <div id="chooser-notifications" class="tile">        
                 <?php require_once get_stylesheet_directory() . '/user-setup/dashboard/dashboard-my-notifications.php'; ?>
             </div>
         </div>
@@ -158,9 +158,12 @@ if ( is_user_logged_in() ) :
             </div>
         </div>
         
-        <!-- 
-            Mitteilungen
-        -->
+        <!-- Nachrichten -->
+        <div class="container" data-target="list-notifications" data-step="2">            
+            <div data-target='list-notifications'>
+                <?php require_once get_stylesheet_directory() . '/user-setup/notifications/notifications.php'; ?>
+            </div>
+        </div>
 
         <!-- Einstellungen -->
         <!-- wp:pattern {"slug":"fse-memysafe-customer/user-settings"} /-->
@@ -182,7 +185,6 @@ if ( is_user_logged_in() ) :
     <!--  -------------- -->
     <!--  First-Settings -->
     <?php 
-    #if( get_user_meta($user_ID, 'first_settings', true) && current_user_can('administrator')) : 
     if( ! get_user_meta($user_ID, 'first_settings', true) && current_user_can('administrator')) : 
     ?>
         <div id="first-settings"><div calss="container-wrapper">

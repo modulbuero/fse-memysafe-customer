@@ -98,7 +98,7 @@ class MemyProjectsManager {
 
         update_user_meta($user_id, 'projects_list', $projects_list);
         $message = 'Projekt '.$projektname.' gespeichert.';
-        MemyProtocolManager::add_protocol_backoffice(get_current_user_id(), $message);
+        MemyProtocolManager::add_protocol_backoffice(get_current_user_id(), $message, 'edit');
         wp_send_json_success([            
             'message' => $message
         ]);

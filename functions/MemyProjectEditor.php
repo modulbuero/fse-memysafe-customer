@@ -134,7 +134,7 @@ class MemyProjectEditor {
         //Response
         if ($result !== false) {
             $message = 'Projekt '.$projekt_titel.' gespeichert.';
-            MemyProtocolManager::add_protocol_backoffice(get_current_user_id(), $message);
+            MemyProtocolManager::add_protocol_backoffice(get_current_user_id(), $message, 'edit');
             wp_send_json_success($message);
         } else {
             wp_send_json_error('Fehler beim Speichern des Projekts. Versuche es erneut');
@@ -190,7 +190,7 @@ class MemyProjectEditor {
         );
         if ($result !== false) {
             $mssage = 'Projekt mit der ID '.$project_id.' gelöscht.';
-            MemyProtocolManager::add_protocol_backoffice(get_current_user_id(), $mssage);
+            MemyProtocolManager::add_protocol_backoffice(get_current_user_id(), $mssage, 'edit');
 
             wp_send_json_success($mssage);
         } else {

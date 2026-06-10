@@ -40,13 +40,53 @@
             });
         });
 
+        /**
+         * Formular zurücksetzen, wenn ein neues Protokoll angelegt wird
+         */
+        $(document).on('click', '.dash-goto-btn[data-goto="setup-protocol-new"], #btn-add-protocol', function() {
+            $('#protocol-aktivitaet').val('');
+            $('#protocol-status').val('');
+            $('#save-protocol').data('edit-id', 0).attr('data-edit-id', 0).html('<i class="mmsi-icon speichern"></i> SPEICHERN');
+            $('#setup-protocol-new h3').text('HELFER-AKTIVITÄT');
+        });
+
+        /**
+         * Protokoll BEARBEITEN
+         */
+        $(document).on('click', '.edit-protocol', function(e) {
+            e.preventDefault();
+            e.stopPropagation(); // Verhindert das Auslösen des Zeilen-Popups
+
+            const id = $(this).data('edit-id'); // Korrektur: 'data-edit-id' statt 'data-id' lesen
+            const $row = $(this).closest('tr');
+            
+            // Daten aus den Tabellenzellen extrahieren (Index 2: Aktivität, Index 3: Status)
+            const aktivitaet = $row.find('td').eq(2).text().trim();
+            const status = $row.find('td').eq(3).text().trim();
+
+            // Formularfelder befüllen
+            $('#protocol-aktivitaet').val(aktivitaet);
+            $('#protocol-status').val(status);
+            
+            // Button und Überschrift anpassen
+            $('#save-protocol').data('edit-id', id).attr('data-edit-id', id);
+            //$('#setup-protocol-new h3').text('HELFER-AKTIVITÄT BEARBEITEN');
+
+            // Navigation zum Formular-Container auslösen
+            $('.container-wrapper > div').removeClass('show');
+            $('div[data-target="setup-protocol-new"]').addClass('show');
+            $('#goback').attr('data-from', 'manage-protocol').attr('data-step', '2').removeClass('hide');
+            $('.user-content').addClass('no-tiles');
+        });
+
         
         /**
          * View Protocol
+         * Todo: nach speichern einer Aktivität kein popup möglich
          */
         function viewAktivitaetInPopup(){
             const protocolRows = document.querySelectorAll('.clickable-row');
-
+            
             protocolRows.forEach(row => {
                 row.addEventListener('click', function(e) {
                     // Verhindern, dass der Button klick das auslöst
@@ -56,10 +96,10 @@
 
                     // Werte aus den TD auslesen
                     const cells      = this.querySelectorAll('td');
-                    const nr         = cells[0].textContent.trim();
-                    const datum      = cells[1].textContent.trim();
-                    const aktivitaet = cells[2].textContent.trim();
-                    const status     = cells[3].textContent.trim();
+                    //const nr         = cells[0].textContent.trim();
+                    const datum      = cells[0].textContent.trim();
+                    const aktivitaet = cells[1].textContent.trim();
+                    const status     = cells[2].textContent.trim();
 
                     // Popup-HTML aufbauen
                     const popupHTML = `
@@ -67,7 +107,6 @@
                             <div class='close-btn'><i class='bi bi-x-lg'></i></div>
                             <div class='content'>
                                 <p class='title'><strong>Protokoll Details</strong></p>
-                                <p><strong>Nr.:</strong>${nr}</p>
                                 <p><strong>Datum:</strong>${datum}</p>
                                 <br>
                                 <p><strong>Aktivität:</strong><br>${aktivitaet}</p>
@@ -110,8 +149,8 @@
          * Reload Nachrichten
          */
         window.reloadNachrichtenDashboard = function(){
-            console.log("reloadNachrichtenDashboard")
             $('#memy-dashboard-my-notifications .item-content').load(location.href + ' #memy-dashboard-my-notifications .item-content > *');
+            
         }
     });
 })(jQuery);

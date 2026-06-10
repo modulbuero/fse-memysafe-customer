@@ -22,6 +22,12 @@
 }
 .project-data-show-hide .mmsi-icon.bearbeiten {
   left: -10px;
+  min-height: 20px;
+}
+@media (max-width: 601px) {
+  .project-data-show-hide .mmsi-icon.bearbeiten {
+    left: 0;
+  }
 }
 
 /**
