@@ -81,6 +81,28 @@ class MemyContacts {
             if (is_wp_error($wp_user_data)) {
                 wp_mail('webmaster@modulbuero.com', 'MMSI NK-Aktualisierung Failed', 'WP-User-ID: ' . $wp_user_id);
             }
+        }else{
+            //Einladung senden
+            $username = $this->generiere_eindeutigen_username( $fname . ' ' . $lname);
+            $password = wp_generate_password(12, false);
+            $token    = wp_generate_password(32, false);
+
+            $invite_data = array(
+                'email'        => $email,
+                'username'     => $username,
+                'password'     => wp_hash_password($password),
+                'inviter_id'   => $user_id,
+                'first_name'   => $fname,
+                'last_name'    => $lname,
+                'created_at'   => current_time('mysql'),
+            );
+
+            update_option('memy_contact_invitation_' . $token, $invite_data);
+
+            $sent = $this->send_contact_invitation_email($email, $fname, $password, $token);
+            if(!$sent){
+                wp_mail("webmaster@modulbuero.com", "MMSI Einladung failed", "Daten: " . $email ." | ". $fname ." | ". $password ." | ". $token);
+            }
         }
 
         // Eintrag in die MemyProtocolManager Tabelle für die Historie
@@ -130,14 +152,12 @@ class MemyContacts {
         $blogs               = function_exists('get_blogs_of_user') ? get_blogs_of_user($wp_user_id) : [];
         $is_wp_user          = $wp_user instanceof WP_User;
         $is_single_blog_user = $is_wp_user && is_array($blogs) && count($blogs) === 1;
-
-error_log("zulöschende Infos: " . $is_wp_user . " | " . $is_single_blog_user);
         
         if ($is_wp_user && $is_single_blog_user) {
             wpmu_delete_user($wp_user_id);
             $wpuser = true;
         }
-        
+
         if ($is_wp_user && $is_single_blog_user > 1) {
             remove_user_from_blog($wp_user_id);
             $wpuser = true;
