@@ -82,9 +82,11 @@ class MemyProtocolManager {
 
     /**
      * Fügt eine neue Aktivität via PHP operation hinzu
-     * @param int $user_id ID des Benutzers, für den die Aktivität hinzugefügt wird
+     * @param int $user_id ID des Benutzers, für den die Aktivität hinzugefügt wird. 
+     *  0 -> Falls das System für den Nutzer eingetragen hat
+     *  1 -> System
      * @param string $aktivitaet Beschreibung der Aktivität
-     * @param string $status Status oder auch typ der Aktivität (z.B. 'info', 'edit', 'mmsi', 'helper')
+     * @param string $status Status oder auch typ der Aktivität (z.B. 'info', 'edit', 'system')
      */
     public static function add_protocol_backoffice($user_id, $aktivitaet, $status='info') {
         

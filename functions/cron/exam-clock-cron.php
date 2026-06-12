@@ -43,9 +43,9 @@ function memy_deathman_query_function() {
             return;
         }
 
+        //Urlaubsomodus prüfen
         $exam_clock_urlaubsmodus = MemyOptionManager::get('exam_clock_urlaubsmodus'); 
         if($exam_clock_urlaubsmodus){
-            error_log("MeMySafe_Cron: Urlaubsmodus aktiviert, Blog " . get_current_blog_id());
             return; // Wenn Urlaubsmodus aktiviert ist, Cron nicht weiter ausführen
         }
 
@@ -85,11 +85,9 @@ function memy_deathman_query_function() {
         if (!empty($adminEmail) && !empty($notfall_contacts)) {
             
             $mail_headers = array('Content-Type: text/html; charset=UTF-8');
-            
             $mail_footer  = emailParts('footer');            
             $login_button = emailParts('button');
-
-            $grusz_admin = emailParts('head') . "<p>Hallo ".$adminName.",<br></p>";
+            $grusz_admin  = emailParts('head') . "<p>Hallo ".$adminName.",<br></p>";
             
             //1. Stufe
             if(empty($hasSendReminderOne)){
@@ -182,19 +180,24 @@ function memy_deathman_query_function() {
                     $message = emailParts('head') . "<p>Hallo " . esc_html($notfall_contact['name']) . ",</p>
                     <p>" . esc_html($adminName) . " hat innerhalb des festgelegten Zeitraums nicht auf seinen Sicherheits-Timer reagiert.</p>
                     <p>Deshalb erhältst du diese Nachricht als hinterlegter Notfallkontakt.</p>
-                    <p>Bitte versuche, " . esc_html($adminName) . " zu erreichen oder prüfe gemeinsam mit weiteren Kontaktpersonen, ob alles in Ordnung ist.</p>
-                    <p>Weitere Informationen findest du in deinem Account.</p>";
-
+                    <p>Bitte versuche, " . esc_html($adminName) . " zu erreichen oder prüfe gemeinsam mit weiteren Kontaktpersonen, ob alles in Ordnung ist.</p>";
+                    
                     $contact_user = get_user_by('email', $notfall_contact['email']);
+
                     if ($contact_user) {
+                        $message .= "<p>Weitere Informationen findest du in deinem Account.</p>";
                         $new_password = wp_generate_password(8, false);
                         $message .= "<p>Passwort: <strong>" . esc_html($new_password) . "</strong></p>";
                         wp_set_password($new_password, $contact_user->ID);
+
+                        $message .= $login_button;
+                    }else{
+                        $message .= "<p>Deine Account wurde nicht bestätigt. Melde dich gerne beim Support von MMSI.</p>";
                     }
 
-                    $message .= $login_button;
                     $message .= $mail_footer;
 
+                    MemyProtocolManager::add_protocol_backoffice(0, 'Helfer-Modus aktiviert', 'system');
                     wp_mail($notfall_contact['email'], $subject, $message, $mail_headers);
                     error_log("MeMySafe: Notfall Mail gesendet an " . $notfall_contact['email']);
                 }

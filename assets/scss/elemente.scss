@@ -381,6 +381,7 @@ table.table-aktivitaeten{
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            max-width: 290px !important;
             &:nth-child(1){
                 max-width: 115px !important;
             }

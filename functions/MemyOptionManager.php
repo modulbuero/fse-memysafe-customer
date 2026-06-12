@@ -54,6 +54,10 @@ class MemyOptionManager {
         //Message-Ausgabe der einzelnen Keys
         $message = sprintf('Option "%s" wurde erfolgreich gespeichert.', $key);
         
+        if($key == 'exam_clock_urlaubsmodus'){
+            $message = 'Urlaubsmodus erfolgreich aktiviert.';
+        }
+
         if($key == 'examclock-reset'){
             if($value == 'login-reset'){
                 $message = 'Reset der Uhr bei Login.';
