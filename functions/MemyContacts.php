@@ -104,9 +104,10 @@ class MemyContacts {
             wp_send_json_error('Invalid nonce');
             return;
         }
-        
+        $wpuser       = false;
         $user_id      = get_current_user_id();
         $contact_id   = intval($_POST['contact_id']);
+        $wp_user_id   = ($_POST['user_id'])?intval($_POST['user_id']) : 0;
         $contact_name = sanitize_text_field($_POST['contact_fname'] . ' ' . $_POST['contact_lname']);
         
         // Kontaktdaten leeren
@@ -123,6 +124,25 @@ class MemyContacts {
         ];
         
         $nachricht = $contact_name . ' gelöscht.';
+
+        //NK ist WP-Benutzer und gehört nur zu diesem Blog
+        $wp_user             = get_userdata($wp_user_id);
+        $blogs               = function_exists('get_blogs_of_user') ? get_blogs_of_user($wp_user_id) : [];
+        $is_wp_user          = $wp_user instanceof WP_User;
+        $is_single_blog_user = $is_wp_user && is_array($blogs) && count($blogs) === 1;
+
+error_log("zulöschende Infos: " . $is_wp_user . " | " . $is_single_blog_user);
+        
+        if ($is_wp_user && $is_single_blog_user) {
+            wpmu_delete_user($wp_user_id);
+            $wpuser = true;
+        }
+        
+        if ($is_wp_user && $is_single_blog_user > 1) {
+            remove_user_from_blog($wp_user_id);
+            $wpuser = true;
+        }
+
         MemyProtocolManager::add_protocol_backoffice($user_id, $nachricht, 'edit');
 
         // Update user meta with empty data
@@ -132,7 +152,8 @@ class MemyContacts {
             'debug'   => [
                 'contact_id'    => $contact_id,
                 'user_id'       => $user_id,
-                'contact_name'  => $contact_name
+                'contact_name'  => $contact_name,
+                'is_wpuser'     => $wpuser
             ]
         ));
     }

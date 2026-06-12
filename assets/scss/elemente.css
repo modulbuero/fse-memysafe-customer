@@ -51,51 +51,107 @@ input[type=submit]:not(.icon-logout-btn) > a,
 .memy-button > a {
   color: var(--memy-secondary);
 }
-.wp-block-file__button:hover,
+.wp-block-file__button:focus, .wp-block-file__button:active, .wp-block-file__button:hover,
+button:focus,
+button:active,
 button:hover,
+input[type=submit]:not(.icon-logout-btn):focus,
+input[type=submit]:not(.icon-logout-btn):active,
 input[type=submit]:not(.icon-logout-btn):hover,
+.memy-button:focus,
+.memy-button:active,
 .memy-button:hover {
   background-color: var(--memy-border-hover-bg);
   color: var(--memy-secondary);
 }
-.wp-block-file__button:hover.contact-person-mail, .wp-block-file__button:hover.memy-file-actions > button,
+.wp-block-file__button:focus.contact-person-mail, .wp-block-file__button:focus.memy-file-actions > button, .wp-block-file__button:active.contact-person-mail, .wp-block-file__button:active.memy-file-actions > button, .wp-block-file__button:hover.contact-person-mail, .wp-block-file__button:hover.memy-file-actions > button,
+button:focus.contact-person-mail,
+button:focus.memy-file-actions > button,
+button:active.contact-person-mail,
+button:active.memy-file-actions > button,
 button:hover.contact-person-mail,
 button:hover.memy-file-actions > button,
+input[type=submit]:not(.icon-logout-btn):focus.contact-person-mail,
+input[type=submit]:not(.icon-logout-btn):focus.memy-file-actions > button,
+input[type=submit]:not(.icon-logout-btn):active.contact-person-mail,
+input[type=submit]:not(.icon-logout-btn):active.memy-file-actions > button,
 input[type=submit]:not(.icon-logout-btn):hover.contact-person-mail,
 input[type=submit]:not(.icon-logout-btn):hover.memy-file-actions > button,
+.memy-button:focus.contact-person-mail,
+.memy-button:focus.memy-file-actions > button,
+.memy-button:active.contact-person-mail,
+.memy-button:active.memy-file-actions > button,
 .memy-button:hover.contact-person-mail,
 .memy-button:hover.memy-file-actions > button {
   background-color: var(--memy-secondary);
   color: var(--memy-primary);
 }
-.wp-block-file__button:hover.contact-person-mail i, .wp-block-file__button:hover.memy-file-actions > button i,
+.wp-block-file__button:focus.contact-person-mail i, .wp-block-file__button:focus.memy-file-actions > button i, .wp-block-file__button:active.contact-person-mail i, .wp-block-file__button:active.memy-file-actions > button i, .wp-block-file__button:hover.contact-person-mail i, .wp-block-file__button:hover.memy-file-actions > button i,
+button:focus.contact-person-mail i,
+button:focus.memy-file-actions > button i,
+button:active.contact-person-mail i,
+button:active.memy-file-actions > button i,
 button:hover.contact-person-mail i,
 button:hover.memy-file-actions > button i,
+input[type=submit]:not(.icon-logout-btn):focus.contact-person-mail i,
+input[type=submit]:not(.icon-logout-btn):focus.memy-file-actions > button i,
+input[type=submit]:not(.icon-logout-btn):active.contact-person-mail i,
+input[type=submit]:not(.icon-logout-btn):active.memy-file-actions > button i,
 input[type=submit]:not(.icon-logout-btn):hover.contact-person-mail i,
 input[type=submit]:not(.icon-logout-btn):hover.memy-file-actions > button i,
+.memy-button:focus.contact-person-mail i,
+.memy-button:focus.memy-file-actions > button i,
+.memy-button:active.contact-person-mail i,
+.memy-button:active.memy-file-actions > button i,
 .memy-button:hover.contact-person-mail i,
 .memy-button:hover.memy-file-actions > button i {
   filter: invert(1);
 }
-.wp-block-file__button:hover a,
+.wp-block-file__button:focus a,
+.wp-block-file__button:focus i, .wp-block-file__button:active a,
+.wp-block-file__button:active i, .wp-block-file__button:hover a,
 .wp-block-file__button:hover i,
+button:focus a,
+button:focus i,
+button:active a,
+button:active i,
 button:hover a,
 button:hover i,
+input[type=submit]:not(.icon-logout-btn):focus a,
+input[type=submit]:not(.icon-logout-btn):focus i,
+input[type=submit]:not(.icon-logout-btn):active a,
+input[type=submit]:not(.icon-logout-btn):active i,
 input[type=submit]:not(.icon-logout-btn):hover a,
 input[type=submit]:not(.icon-logout-btn):hover i,
+.memy-button:focus a,
+.memy-button:focus i,
+.memy-button:active a,
+.memy-button:active i,
 .memy-button:hover a,
 .memy-button:hover i {
   filter: invert(0);
 }
-.wp-block-file__button:hover i.mmsi-icon.delete,
+.wp-block-file__button:focus i.mmsi-icon.delete, .wp-block-file__button:active i.mmsi-icon.delete, .wp-block-file__button:hover i.mmsi-icon.delete,
+button:focus i.mmsi-icon.delete,
+button:active i.mmsi-icon.delete,
 button:hover i.mmsi-icon.delete,
+input[type=submit]:not(.icon-logout-btn):focus i.mmsi-icon.delete,
+input[type=submit]:not(.icon-logout-btn):active i.mmsi-icon.delete,
 input[type=submit]:not(.icon-logout-btn):hover i.mmsi-icon.delete,
+.memy-button:focus i.mmsi-icon.delete,
+.memy-button:active i.mmsi-icon.delete,
 .memy-button:hover i.mmsi-icon.delete {
   background-image: url(../icons/MMSI_Icon_DELETE-OPEN.svg);
 }
-.wp-block-file__button:hover i.mmsi-icon.download,
+.wp-block-file__button:focus i.mmsi-icon.download, .wp-block-file__button:active i.mmsi-icon.download, .wp-block-file__button:hover i.mmsi-icon.download,
+button:focus i.mmsi-icon.download,
+button:active i.mmsi-icon.download,
 button:hover i.mmsi-icon.download,
+input[type=submit]:not(.icon-logout-btn):focus i.mmsi-icon.download,
+input[type=submit]:not(.icon-logout-btn):active i.mmsi-icon.download,
 input[type=submit]:not(.icon-logout-btn):hover i.mmsi-icon.download,
+.memy-button:focus i.mmsi-icon.download,
+.memy-button:active i.mmsi-icon.download,
 .memy-button:hover i.mmsi-icon.download {
   background-image: url(../icons/MMSI_Icon_WEITER-DOWN.svg);
 }

@@ -38,6 +38,8 @@ input[type="submit"]:not(.icon-logout-btn),
         color:var(--memy-secondary);
     }  
 
+    &:focus,
+    &:active,
     &:hover{
         background-color: var(--memy-border-hover-bg);
         color:var(--memy-secondary);

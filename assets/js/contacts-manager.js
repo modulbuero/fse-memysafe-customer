@@ -57,15 +57,18 @@
          */
         $('.setup-contact-person-data button#delete-contact').on('click', function(e) {
             e.preventDefault();
-            let $container   = $(this).closest('.setup-contact-person-data');
-            let id           = $container.attr('id').replace('setup-contact-person-','');
+            let $container    = $(this).closest('.setup-contact-person-data');
+            let id            = $container.attr('id').replace('setup-contact-person-','');
             let contact_fname = $container.find('#contact-first_name-'+id).val();
             let contact_lname = $container.find('#contact-last_name-'+id).val();
+            let user_id       = $container.find('#contact-user-id-'+id).val();
+
             var formData = {
                 _wpnonce:   ajax_object_contacts.nonce,
                 contact_id: id,
                 contact_fname: contact_fname,
-                contact_lname: contact_lname
+                contact_lname: contact_lname,
+                user_id: user_id
             };
             
             wp.ajax.post('handle_delete_contacts', formData)
@@ -74,6 +77,7 @@
                 $container.find('input[type="text"]').val('');
                 $container.find('input[type="email"]').val('');
                 $container.find('input[type="number"]').val('');
+                $container.find('input#contact-user-id-'+id).val('');
                 $container.find('input[type="checkbox"]').prop('checked', false);
                 $container.find('select').val('');
                 console.log(response);
