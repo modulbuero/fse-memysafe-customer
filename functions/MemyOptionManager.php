@@ -56,6 +56,7 @@ class MemyOptionManager {
         
         if($key == 'exam_clock_urlaubsmodus'){
             $message = 'Urlaubsmodus erfolgreich aktiviert.';
+            MemyProtocolManager::add_protocol_backoffice(1, 'Urlaubsmodus aktiviert', 'info');
         }
 
         if($key == 'examclock-reset'){
