@@ -489,6 +489,7 @@ table.table-aktivitaeten tr td {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: 290px !important;
 }
 table.table-aktivitaeten tr td:nth-child(1) {
   max-width: 115px !important;

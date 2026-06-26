@@ -20,6 +20,7 @@
             .done(function(response){
                 console.log(response)
                 showMessage(response.message, 'success');
+                $('#exam-clock-save-zyklus').click()
             })
             .fail(function(response){
                 console.log(response)
