@@ -44,7 +44,7 @@
             .done(function(response) {
                 console.log(response)
                 showMessage(response.message, 'success');
-                $('#goback').click()
+                $('.goback').click()
                 reloadContactsListDashboard()
                 reloadNachrichtenDashboard()
             }).fail(function(response) {
@@ -84,7 +84,7 @@
                 showMessage(response.message, 'success');
                 reloadContactsListDashboard()
                 reloadNachrichtenDashboard()
-                $('#goback').click()
+                $('.goback').click()
             }).fail(function(response) {
                 console.log(response);
             });

@@ -31,7 +31,7 @@
                 console.log(response);
                 showMessage(response.message, 'success');
                 // Zurück zur Liste oder neu laden
-                $('#goback').click();
+                $('.goback').click();
                 $('#protocol-list-container').load(location.href + ' #protocol-list-container table');
 
             }).fail(function(response) {
@@ -75,7 +75,7 @@
             // Navigation zum Formular-Container auslösen
             $('.container-wrapper > div').removeClass('show');
             $('div[data-target="setup-protocol-new"]').addClass('show');
-            $('#goback').attr('data-from', 'manage-protocol').attr('data-step', '2').removeClass('hide');
+            $('.goback').attr('data-from', 'manage-protocol').attr('data-step', '2').removeClass('hide');
             $('.user-content').addClass('no-tiles');
         });
 

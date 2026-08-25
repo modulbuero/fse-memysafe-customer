@@ -163,23 +163,34 @@ div{
             }
         }
     }
-
-    /*Einstellungen*/
-    #memy-user-settings-wrapper{
-        
-    }
 }
 
 /**
 *   Zurückbutton
 */
-#goback{
+.goback{
     --memy-backbutton-verschieben: calc((var(--memy-menu-min-width) + (2 * var(--memy-padding-root))) * -1);
     display: flex;
     justify-content: center;
     margin-bottom:var(--memy-padding-root);
     font-size: 14px;
     margin-top:auto;
+}
+
+#memy-dashboard .goback{
+    //display: block !important;
+    position: absolute;
+    right: var(--memy-padding-inner-container-side);
+    padding: 0;
+    border: none;
+    margin-bottom: 0px;
+    top: var(--memy-padding-root); 
+    span{
+        display:none
+    }
+    &:hover{
+        background-color:transparent
+    }
 }
 
 /* Only Desktop*/
@@ -248,4 +259,17 @@ div{
            display: none;
         }
     } 
+}
+
+@media (max-width: 601px) {
+    #front-page-html .wp-block-template-part.user-content{
+        width:100%
+    }
+
+    #front-page-html #memy-dashboard .goback{
+        display:none !important;
+        &.hide{
+            display:none !important;
+        }
+    }
 }

@@ -233,7 +233,7 @@
             $('#project-kontakt').val('');
             // ID zurücksetzen
             $('.setup-project-data').attr('id','setup-project-new');
-            $('#goback').click()
+            $('.goback').click()
         }
 
         /**

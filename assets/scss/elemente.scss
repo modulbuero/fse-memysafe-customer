@@ -87,7 +87,7 @@ input[type="submit"]:not(.icon-logout-btn),
 
 .dash-goto-btn,
 .goto-btn,
-#goback{
+.goback{
     cursor: pointer;
 }
 
@@ -279,7 +279,7 @@ div,p{
         min-width: 65px;/*wegen max Val*/ 
         width: 65px;
         
-        -moz-appearance: textfield;
+        //-moz-appearance: textfield;
 
         &::-webkit-inner-spin-button,
         &::-webkit-outer-spin-button {

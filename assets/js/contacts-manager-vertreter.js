@@ -142,7 +142,7 @@
             $('#vertreter-status').val('Aktiv');
             // ID zurücksetzen
             $('.setup-vertreter-data').attr('id','setup-vertreter-new');
-            $('#goback').click()
+            $('.goback').click()
         }
 
         /**

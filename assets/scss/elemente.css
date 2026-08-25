@@ -179,7 +179,7 @@ input[type=submit]:not(.icon-logout-btn).loading .speichern,
 
 .dash-goto-btn,
 .goto-btn,
-#goback {
+.goback {
   cursor: pointer;
 }
 
@@ -372,7 +372,6 @@ div, p {
 .number-input input[type=number] {
   min-width: 65px; /*wegen max Val*/
   width: 65px;
-  -moz-appearance: textfield;
 }
 .number-input input[type=number]::-webkit-inner-spin-button, .number-input input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;

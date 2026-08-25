@@ -139,7 +139,7 @@
             $('#kunden-status').val('Aktiv');
             // ID zurücksetzen
             $('.setup-kunden-data').attr('id','setup-kunden-new');
-            $('#goback').click()
+            $('.goback').click()
         }
 
         /**

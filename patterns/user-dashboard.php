@@ -181,6 +181,8 @@ if ( is_user_logged_in() ) :
             </div>
         </div>
     </div>
+
+    <!-- wp:pattern {"slug":"fse-memysafe-customer/goback-button"} /-->
     
     <!--  -------------- -->
     <!--  First-Settings -->

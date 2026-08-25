@@ -16,7 +16,7 @@
 
     function dashNavigation(){
         let dashContainer = '.container-wrapper';
-        let $goback       = $('#goback')
+        let $goback       = $('.goback')
 
         /**
          * Dashboard Chooser
@@ -52,13 +52,13 @@
         /**
          * Zurück Button
          */
-        $(document).on('click','#goback', function () {
+        $(document).on('click','.goback', function () {
             let target = $(this).attr('data-from')
             
             if($(this).attr('data-step') == "1"){
                 $(dashContainer+' div').removeClass('show')
                 $('.user-content').removeClass('no-tiles')
-                $('#goback').addClass('hide')
+                $('.goback').addClass('hide')
             }else{
                 //Aktuellen Wrap schließen
                 let $openWrap = $(dashContainer + ' div[data-target='+target+']')
@@ -71,7 +71,7 @@
             }
 
             if (!$('.container').hasClass('show') && !$('.container > div').hasClass('show')) {
-                $('#goback').addClass('hide')
+                $('.goback').addClass('hide')
             }            
         })
 
@@ -84,7 +84,7 @@
             $('div[data-target='+target+']').addClass('show');
             $goback.attr('data-from', target).attr('data-step', step)
             $('.user-content').addClass('no-tiles')
-            $('#goback').removeClass('hide')
+            $('.goback').removeClass('hide')
         }
     }
 
@@ -136,7 +136,7 @@
 
             // State erneut setzen
             history.pushState({ page: 1 }, '', location.href);
-            $('#goback').click()
+            $('.goback').click()
             
         }
 
